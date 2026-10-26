@@ -8,11 +8,24 @@ rem ============================================================
 setlocal enabledelayedexpansion
 cd /d "%~dp0"
 set "SCRIPT=agent\ÑÝÊ¾-Ä£¿é2.py"
-set "PY=%USERPROFILE%\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
 chcp 65001 >nul
 set PYTHONIOENCODING=utf-8
 set PYTHONUTF8=1
 
+rem --- interpreter: prefer the original dev env, fall back to python on PATH ---
+set "PY=%USERPROFILE%\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
+if exist "%PY%" goto have_py
+set "PY=python"
+where python >nul 2>&1 || goto no_python
+
+:have_py
 "%PY%" "!SCRIPT!" %*
 echo.
 pause
+exit /b
+
+:no_python
+echo [ERROR] Python not found on this machine.
+echo Install Python 3.10+ from python.org, tick "Add python.exe to PATH", then run again.
+pause
+exit /b 1

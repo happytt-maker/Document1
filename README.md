@@ -104,6 +104,23 @@ cd agent && python api_server.py        # 默认 http://127.0.0.1:8000
 
 可选参数：`--host` / `--port` / `--docs`（文档库目录，默认「源文档 + 导入文档」两个目录）。
 
+## 同门协作 / 换台机器上线
+
+**加入仓库**：仓库页面右上 **Settings → Collaborators → Add people**，填对方 GitHub 用户名，对方在邮件里点接受后即可 push。
+
+**clone 下来还不能直接跑**，仓库里故意没放这四样，各自补一次：
+
+| 缺什么 | 为什么要自己补 | 怎么补 |
+|---|---|---|
+| Python 依赖 | 依赖装在每个人自己的电脑上 | `pip install -r requirements.txt` |
+| MySQL 与连接配置 | 数据库不随代码走 | 装 MySQL 8 → 复制 `agent/db_config.example.json` 为 `agent/db_config.json` 填账号口令 → `python agent/db.py --init`（会自动建 `a23_agent` 库和全部表，幂等） |
+| 大模型密钥 | **密钥不共享**，各人有各自的额度 | 阿里云百炼控制台申请自己的 key，写进 `agent/llm_key.txt`（一行，已 gitignore）或设环境变量 `DASHSCOPE_API_KEY` |
+| 离线语音模型（可选） | 463 MB，太大不适合进仓库 | `python agent/download_asr_model.py`。只影响语音输入，其他功能不受影响 |
+
+补齐后双击 `启动操作台.bat` 即可（脚本会用 PATH 里的 python；没有 Python 会明确提示去装）。
+
+**日常协作**：开工先 `git pull`，改完 `git add -A && git commit -m "改了什么" && git push`。两人尽量改不同文件，冲突会少很多。
+
 ## 配置
 
 | 配置项 | 位置 | 说明 |

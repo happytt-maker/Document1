@@ -9,8 +9,14 @@ chcp 65001 >nul
 cd /d "%~dp0"
 set PYTHONIOENCODING=utf-8
 set PYTHONUTF8=1
-set "PY=%USERPROFILE%\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
 
+rem --- interpreter: prefer the original dev env, fall back to python on PATH ---
+set "PY=%USERPROFILE%\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
+if exist "%PY%" goto have_py
+set "PY=python"
+where python >nul 2>&1 || goto no_python
+
+:have_py
 echo Starting A23 web console, browser will open in a few seconds ...
 echo (keep this window open; closing it stops the service)
 echo.
@@ -20,3 +26,10 @@ if not "%A23_NO_BROWSER%"=="1" start "" /b cmd /c "ping -n 4 127.0.0.1 >nul & st
 
 "%PY%" agent\api_server.py --port 8000
 pause
+exit /b
+
+:no_python
+echo [ERROR] Python not found on this machine.
+echo Install Python 3.10+ from python.org, tick "Add python.exe to PATH", then run again.
+pause
+exit /b 1
