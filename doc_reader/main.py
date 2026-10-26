@@ -22,7 +22,7 @@ from pathlib import Path
 
 from readers import read_one, is_supported, SUPPORTED
 
-# 默认读这个文件夹（就是我给你生成的那批测试数据）
+# 默认读这个文件夹（就是我给你生成的那批测试数据）1
 DEFAULT_DIR = Path(r"C:\Users\覃敬涛\Desktop\研一项目\测试数据\源文档")
 
 
