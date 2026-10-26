@@ -343,15 +343,13 @@ class Hub:
     def _run_fill(self, job, template: str, skip_read: bool, overwrite: bool):
         with self.fill_lock:                         # 全局串行：互斥共享中间产物
             t0 = time.time()
-            low = template.lower()
-            if low.endswith(".docx"):
-                tpl_dir = BASE / "测试数据" / "模板表格-word"
-                tpl_dir_name = "模板表格-word"
-            elif low.endswith(".xlsx"):
-                tpl_dir = BASE / "测试数据" / "模板表格"
-                tpl_dir_name = "模板表格"
-            else:
-                raise ValueError("模板仅支持 .xlsx / .docx：%s" % template)
+            # 按文件名定位实际所在目录（系统自带两批 + 用户上传那批都认），
+            # 该目录再通过 A23_TEMPLATE_DIR 传给 pipeline 当「模板目录」。
+            tpl_path = _find_template(template)
+            if tpl_path is None:
+                raise ValueError("模板目录里找不到：%s" % template)
+            tpl_dir = tpl_path.parent
+            tpl_dir_name = tpl_dir.name
 
             cmd = [sys.executable, str(BASE / "pipeline.py"), "--template", template]
             if skip_read:
@@ -1505,25 +1503,199 @@ class FillIn(BaseModel):
     overwrite: bool = False               # 待填区已有内容时是否覆盖（默认保护性拒写）
 
 
+# 用户自己上传的模板单独放一个目录：不跟系统自带的两批混在一起，
+# 好处是「删除」只敢动这一批，系统模板删不掉。
+FILL_UPLOAD_DIR = BASE / "测试数据" / "模板上传"
+FILL_TPL_EXTS = {".xlsx", ".xlsm", ".docx"}
+FILL_UPLOAD_MAX = 12 * 1024 * 1024          # 12MB，模板一般几百 KB，给足余量
+
+
 def _fill_template_dirs():
-    """可填模板目录（Excel + Word 双形态）。"""
+    """可填模板目录：系统自带两批（Excel / Word 分目录）+ 用户上传（混放）。
+
+    第三项的 kind 给 None，表示按文件扩展名逐个判断（上传目录里 xlsx 和
+    docx 是混着的，而 template_reader 的 read_folder 两种都能读）。
+    """
     return [(BASE / "测试数据" / "模板表格", "xlsx"),
-            (BASE / "测试数据" / "模板表格-word", "docx")]
+            (BASE / "测试数据" / "模板表格-word", "docx"),
+            (FILL_UPLOAD_DIR, None)]
 
 
 def _fill_templates():
     out = []
     for d, kind in _fill_template_dirs():
-        if d.exists():
-            for f in sorted(d.glob("*." + kind)):
-                out.append({"name": f.name, "kind": kind, "dir": d.name})
+        if not d.exists():
+            continue
+        for f in sorted(d.iterdir()):
+            if not f.is_file() or f.suffix.lower() not in FILL_TPL_EXTS:
+                continue
+            if f.name.startswith(".uploading-"):      # 正在上传的临时文件，别当成模板
+                continue
+            k = kind or ("docx" if f.suffix.lower() == ".docx" else "xlsx")
+            st = f.stat()
+            out.append({"name": f.name, "kind": k, "dir": d.name,
+                        "upload": (d == FILL_UPLOAD_DIR),
+                        "size": st.st_size,
+                        "mtime": datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d %H:%M")})
     return out
+
+
+def _find_template(name: str):
+    """按文件名在所有可填模板目录里定位实际文件（先系统、后上传）。"""
+    target = Path(name).name
+    for d, _kind in _fill_template_dirs():
+        p = d / target
+        if p.is_file():
+            return p
+    return None
+
+
+def _clean_tpl_name(raw: str) -> str:
+    """把上传的文件名洗成一个安全的模板名：去路径、去特殊字符、限长。"""
+    name = Path(str(raw or "")).name.strip()
+    name = re.sub(r'[\\/:*?"<>|\r\n\t]', "_", name)
+    name = name.strip(" .")
+    stem, ext = os.path.splitext(name)
+    stem = stem.strip(" .")[:80] or "未命名模板"
+    return stem + ext.lower()
+
+
+def _validate_tpl_file(path: Path) -> None:
+    """确认这真是个能打开的 Office 文件，不合格抛 ValueError（直接给人话）。"""
+    with path.open("rb") as fh:
+        head = fh.read(4)
+    if len(head) < 4 or not head.startswith(b"PK"):
+        raise ValueError("这不是有效的 Office 文件（.xlsx / .docx 都是压缩包格式，"
+                         "文件头对不上）。如果你传的是 .xls 或 .doc 老格式，"
+                         "请用 Excel / Word 另存为 .xlsx / .docx 再上传。")
+    try:
+        if path.suffix.lower() == ".docx":
+            from docx import Document
+            Document(str(path))
+        else:
+            from openpyxl import load_workbook
+            wb = load_workbook(str(path), read_only=True)
+            wb.close()
+    except Exception as e:
+        raise ValueError("这个文件打不开，可能已损坏或加了密码（%s）" % str(e)[:120])
 
 
 @app.get("/api/fill/templates")
 def api_fill_templates():
-    """可填模板清单。"""
+    """可填模板清单（系统自带 + 用户上传，upload 字段区分）。"""
     return {"templates": _fill_templates()}
+
+
+@app.post("/api/fill/templates/upload")
+def api_fill_template_upload(file: UploadFile = File(...)):
+    """上传一张自己的模板（.xlsx / .xlsm / .docx）→ 立刻出现在模板下拉框里。
+
+    三件保护性的规矩：
+      1. 只收 Office 新格式，且必须能真的被 openpyxl / python-docx 打开；
+      2. 跟任何已有模板重名就拒绝（改个名再传），避免"到底填的是哪张"；
+      3. 先写临时文件、验过再落正式名，不会留下半截坏文件。
+    """
+    raw = file.filename or ""
+    if not raw.strip():
+        raise HTTPException(status_code=400, detail="没收到文件名")
+
+    name = _clean_tpl_name(raw)
+    ext = Path(name).suffix.lower()
+    if ext not in FILL_TPL_EXTS:
+        raise HTTPException(
+            status_code=400,
+            detail="只支持 .xlsx / .xlsm / .docx —— 你传的是「%s」。"
+                   ".xls / .doc 是旧格式，请另存为 .xlsx / .docx 再上传。"
+                   % (ext or "无扩展名"))
+
+    data = file.file.read()
+    if not data:
+        raise HTTPException(status_code=400, detail="这个文件是空的（0 字节）")
+    if len(data) > FILL_UPLOAD_MAX:
+        raise HTTPException(
+            status_code=400,
+            detail="文件 %.1fMB，超过 %dMB 上限。模板一般只有几百 KB，"
+                   "是不是传错了文件？" % (len(data) / 1048576.0,
+                                          FILL_UPLOAD_MAX // 1048576))
+
+    if _find_template(name) is not None:
+        raise HTTPException(
+            status_code=409,
+            detail="已经有同名模板「%s」了（系统自带或之前传过）。"
+                   "换一个名字再上传，避免分不清填的是哪一张。" % name)
+
+    FILL_UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    final = FILL_UPLOAD_DIR / name
+    tmp = FILL_UPLOAD_DIR / (".uploading-" + name)
+    try:
+        tmp.write_bytes(data)
+        _validate_tpl_file(tmp)
+        if final.exists():
+            raise HTTPException(status_code=409, detail="目标文件已存在，换个名字再传")
+        tmp.replace(final)
+    except HTTPException:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+        raise
+    except ValueError as e:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+        raise HTTPException(status_code=400, detail=str(e))
+    except OSError as e:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+        raise HTTPException(status_code=500, detail="保存失败：%s" % e)
+
+    return {"ok": True, "name": name, "kind": "docx" if ext == ".docx" else "xlsx",
+            "size": len(data), "templates": _fill_templates()}
+
+
+@app.delete("/api/fill/templates")
+def api_fill_template_delete(name: str):
+    """删掉一张【自己上传的】模板。系统自带的删不了（这是故意的）。"""
+    target = _clean_tpl_name(name)
+    if not str(name or "").strip():
+        raise HTTPException(status_code=400, detail="没给模板名")
+    p = FILL_UPLOAD_DIR / target
+    # 再多一道保险：洗过的名字也只允许落在「模板上传」这一层目录里
+    try:
+        if p.resolve().parent != FILL_UPLOAD_DIR.resolve():
+            raise HTTPException(status_code=400, detail="这个模板名不合法")
+    except OSError:
+        raise HTTPException(status_code=400, detail="这个模板名不合法")
+    if not p.is_file():
+        if _find_template(target) is not None:
+            raise HTTPException(
+                status_code=403,
+                detail="「%s」是系统自带的模板，不能删除（可以自己改个名字再上传一份）"
+                       % target)
+        raise HTTPException(status_code=404, detail="没有叫「%s」的上传模板" % target)
+    try:
+        p.unlink()
+    except OSError as e:
+        # WinError 32/33、EACCES、以及「另一个程序正在使用」都等于文件被占着
+        msg = str(e)
+        locked = (isinstance(e, PermissionError)
+                  or getattr(e, "winerror", None) in (32, 33)
+                  or getattr(e, "errno", None) == 13
+                  or "another process" in msg or "另一个程序" in msg
+                  or "正在使用" in msg or "safe-delete" in msg)
+        if locked:
+            raise HTTPException(
+                status_code=423,
+                detail="删不掉：「%s」现在被 WPS / Excel 之类占着，先把它关掉再删。"
+                       % target)
+        raise HTTPException(status_code=500, detail="删除失败：%s" % msg[:200])
+    left = _fill_templates()
+    return {"ok": True, "deleted": target,
+            "uploaded_left": sum(1 for t in left if t["upload"]),
+            "templates": left}
 
 
 @app.post("/api/fill")

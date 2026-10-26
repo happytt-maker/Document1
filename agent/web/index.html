@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A23 智能文档助手 · 操作台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6fed'/%3E%3Ctext x='32' y='46' font-size='26' font-family='Arial,sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EA23%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --bg: #f3f6fb;
@@ -510,6 +511,31 @@
     font-weight: 600; font-family: inherit; transition: all .15s;
   }
   .dw-ctl button:hover { background: #e8f1ff; }
+  /* 模板上传 / 删除：比「开始填写」轻一档，不抢主按钮的视觉 */
+  .dw-ctl button.mini {
+    padding: 8px 12px; font-size: 12.5px; font-weight: 500;
+    background: #fff; border-color: var(--line); color: var(--muted);
+  }
+  .dw-ctl button.mini:hover:not(:disabled) { background: #f6f9fd; color: var(--text); border-color: #cfdefc; }
+  .dw-ctl button.mini:disabled { opacity: .42; cursor: not-allowed; }
+  .fill-drop { outline: 2px dashed var(--blue); outline-offset: -4px; background: #f2f7ff !important; }
+  #fill-tpl { max-width: 340px; flex: 1 1 220px; }
+  /* 我上传的模板（管理清单） */
+  .tplmg-row {
+    display: flex; align-items: center; gap: 10px; padding: 9px 11px;
+    border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; background: #fff;
+  }
+  .tplmg-row .nm { flex: 1 1 auto; font-size: 13px; color: var(--text); word-break: break-all; line-height: 1.45; }
+  .tplmg-row .meta { flex: 0 0 auto; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .tplmg-row button.del {
+    flex: 0 0 auto; padding: 5px 11px; font-size: 12px; border-radius: 8px; cursor: pointer;
+    border: 1px solid #f0c8c8; background: #fff6f6; color: #b02a2a; font-family: inherit;
+  }
+  .tplmg-row button.del:hover:not(:disabled) { background: #ffecec; border-color: #e8a8a8; }
+  .tplmg-row button.del:disabled { opacity: .45; cursor: not-allowed; }
+  .tplmg-empty { padding: 26px 8px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
+  .tplmg-msg { padding: 0 18px; font-size: 12.5px; min-height: 18px; }
+  .tplmg-foot { padding: 6px 18px 16px; font-size: 12px; color: var(--muted); line-height: 1.75; }
   .dw-body { flex: 1 1 auto; overflow: auto; padding: 6px 18px 18px; }
   .dw-body .empty { padding: 26px 0; text-align: center; color: var(--muted); font-size: 13px; }
   .dw-table { width: 100%; border-collapse: collapse; font-size: 12.8px; }
@@ -1270,6 +1296,7 @@
     <div class="dw-hd">
       <b>📋 表格填写</b><span class="dw-sub">读懂模板 → 从文档库找数 → 填写 → 自检（异步全流程，通常 10~40 秒）</span>
       <span class="dw-actions">
+        <button class="ghost" id="fill-mg-btn" title="看自己上传过哪些模板，可以逐个删掉">🗂 我上传的模板</button>
         <button class="ghost" id="fill-x">关闭 ✕</button>
       </span>
     </div>
@@ -1278,13 +1305,33 @@
       <div class="dw-ctl">
         <select id="fill-tpl"><option value="">加载中…</option></select>
         <button id="fill-go">开始填写</button>
+        <button id="fill-up-btn" class="mini" title="上传自己的模板：.xlsx / .xlsm / .docx。也可以直接把文件拖进这个窗口">⬆ 上传模板</button>
+        <button id="fill-del-btn" class="mini" title="删除选中的模板（只能删自己上传的，系统自带的删不掉）" disabled>删除</button>
+        <input type="file" id="fill-file" accept=".xlsx,.xlsm,.docx" style="display:none">
       </div>
+      <div class="dw-sub" id="fill-up-tip" style="margin:6px 0 0"></div>
       <div class="rk-row">
         <label><input type="checkbox" id="fill-skip"> 提速：跳过重读源文档（文档库没变时勾选）</label>
         <label><input type="checkbox" id="fill-overwrite"> 允许覆盖旧值（待填区已有内容时）</label>
       </div>
       <div class="rk-status" id="fill-status"></div>
       <div class="rk-result" id="fill-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 我上传的模板（模板管理）：列出自己传过的模板，一条一个「删除」 -->
+<div class="dw-overlay" id="tplmg-overlay">
+  <div class="dw-panel" style="width:min(640px,94vw)">
+    <div class="dw-hd">
+      <b>🗂 我上传的模板</b><span class="dw-sub" id="tplmg-cnt">…</span>
+      <span class="dw-actions"><button class="ghost" id="tplmg-x">关闭 ✕</button></span>
+    </div>
+    <div class="dw-body" id="tplmg-list" style="padding:12px 18px 4px"></div>
+    <div class="tplmg-msg" id="tplmg-msg"></div>
+    <div class="tplmg-foot">
+      只列你自己上传的模板，删了就是删文件；系统自带的 5 张 Excel / 5 张 Word 不在这里，也删不掉。<br>
+      已经填好的表格不会被带走（它们在你导出 / writer/输出/ 里）。
     </div>
   </div>
 </div>
@@ -2072,14 +2119,127 @@ let fillTplLoaded = false;
 async function fillLoadTemplates(force) {
   if (fillTplLoaded && !force) return;
   const sel = $("fill-tpl");
+  const keep = sel.value;
   try {
     const d = await (await fetch("/api/fill/templates")).json();
     const tps = d.templates || [];
-    if (!tps.length) { sel.innerHTML = `<option value="">（模板目录为空）</option>`; return; }
+    if (!tps.length) {
+      sel.innerHTML = `<option value="">（模板目录为空，点右边「上传模板」加一张）</option>`;
+      fillTplLoaded = true;
+      fillUpdDelBtn();
+      return;
+    }
     sel.innerHTML = tps.map((t) =>
-      `<option value="${esc(t.name)}">${esc(t.name)}${t.kind === "docx" ? "（Word）" : "（Excel）"}</option>`).join("");
+      `<option value="${esc(t.name)}" data-upload="${t.upload ? "1" : "0"}">` +
+      `${esc(t.name)}${t.kind === "docx" ? "（Word）" : "（Excel）"}` +
+      `${t.upload ? " · 我上传的" : ""}</option>`).join("");
+    if (keep && tps.some((t) => t.name === keep)) sel.value = keep;
     fillTplLoaded = true;
+    fillUpdDelBtn();
   } catch (e) { sel.innerHTML = `<option value="">模板加载失败</option>`; }
+}
+
+/* 只有选中「自己上传的」模板时，删除按钮才可用（系统自带的别删） */
+function fillUpdDelBtn() {
+  const sel = $("fill-tpl"), b = $("fill-del-btn");
+  const o = sel.options[sel.selectedIndex];
+  const up = !!(o && o.dataset && o.dataset.upload === "1");
+  b.disabled = !up;
+  b.title = up
+    ? "删除「" + sel.value + "」（只删模板文件，已填好的表格不受影响）"
+    : "系统自带的模板不能删；选中自己上传的那张之后才能删";
+}
+
+/* 上传模板：multipart 传上去 → 刷新下拉框 → 自动选中新那张 */
+async function fillUpload(file) {
+  if (!file) return;
+  const tip = $("fill-up-tip");
+  const mb = file.size / 1048576;
+  tip.innerHTML = `<span class="spinner"></span> 正在上传 ${esc(file.name)}（${mb.toFixed(1)}MB）…`;
+  const fd = new FormData();
+  fd.append("file", file);
+  try {
+    const r = await fetch("/api/fill/templates/upload", { method: "POST", body: fd });
+    const j = await r.json();
+    if (!r.ok) {
+      tip.innerHTML = `<span class="bad">上传失败：${esc(j.detail || ("HTTP " + r.status))}</span>`;
+      return;
+    }
+    fillTplLoaded = false;
+    await fillLoadTemplates(true);
+    $("fill-tpl").value = j.name;
+    fillUpdDelBtn();
+    tip.innerHTML = `<span class="ok">✓ 已上传「${esc(j.name)}」</span> · 已经帮你选中，直接点「开始填写」就行`;
+    if (tplmgOverlay.classList.contains("open")) tplmgLoad();
+  } catch (e) {
+    tip.innerHTML = `<span class="bad">上传失败：${esc(String(e))}</span>`;
+  }
+}
+
+/* 删除一张自己上传的模板：下拉框 + 「我上传的模板」清单一起刷新 */
+async function fillDeleteName(name, btn) {
+  if (!name) return;
+  if (!confirm("确定删除自己上传的模板「" + name + "」？\n\n只删模板文件，之前填好的表格还在。")) return;
+  const tip = $("fill-up-tip");
+  const msg = $("tplmg-msg");
+  const oldTxt = btn ? btn.textContent : "";
+  if (btn) { btn.disabled = true; btn.textContent = "删除中…"; }
+  tip.innerHTML = `<span class="spinner"></span> 正在删除「${esc(name)}」…`;
+  msg.innerHTML = "";
+  try {
+    const r = await fetch("/api/fill/templates?name=" + encodeURIComponent(name), { method: "DELETE" });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+    fillTplLoaded = false;
+    await fillLoadTemplates(true);          // 下拉框立刻少一条
+    tip.innerHTML = `<span class="ok">✓ 已删除「${esc(j.deleted)}」</span>`;
+    msg.innerHTML = `<span class="ok">✓ 已删除「${esc(j.deleted)}」</span>`;
+    await tplmgLoad();                      // 清单重画
+  } catch (e) {
+    const why = (e && e.message) ? e.message : String(e);
+    tip.innerHTML = `<span class="bad">删除失败：${esc(why)}</span>`;
+    msg.innerHTML = `<span class="bad">删除失败：${esc(why)}</span>`;
+    if (btn) { btn.disabled = false; btn.textContent = oldTxt || "删除"; }
+  }
+}
+
+function fillDelete() { return fillDeleteName($("fill-tpl").value, null); }
+
+/* ---------------- 我上传的模板（管理清单 · 一条一个删除） ---------------- */
+const tplmgOverlay = $("tplmg-overlay");
+let tplmgRows = [];
+
+async function tplmgLoad() {
+  const box = $("tplmg-list");
+  try {
+    const d = await (await fetch("/api/fill/templates")).json();
+    tplmgRows = (d.templates || []).filter((t) => t.upload);
+    tplmgRender();
+  } catch (e) {
+    box.innerHTML = `<div class="tplmg-empty">读模板目录失败：${esc(String(e))}</div>`;
+  }
+}
+
+function tplmgRender() {
+  const box = $("tplmg-list");
+  $("tplmg-cnt").textContent = tplmgRows.length ? `共 ${tplmgRows.length} 张` : "";
+  if (!tplmgRows.length) {
+    box.innerHTML = `<div class="tplmg-empty">还没有上传过模板。<br>` +
+      `回到「表格填写」面板点「⬆ 上传模板」，或者把 .xlsx / .docx 直接拖进那个窗口。</div>`;
+    return;
+  }
+  box.innerHTML = tplmgRows.map((t) => {
+    const mb = (t.size || 0) / 1048576;
+    const sz = mb >= 0.1 ? mb.toFixed(1) + " MB" : Math.max(1, Math.round((t.size || 0) / 1024)) + " KB";
+    return `<div class="tplmg-row">` +
+      `<span class="nm">${esc(t.name)}` +
+      `<span class="meta" style="margin-left:6px">· ${t.kind === "docx" ? "Word" : "Excel"}</span></span>` +
+      `<span class="meta">${sz}${t.mtime ? " · " + esc(t.mtime) : ""}</span>` +
+      `<button class="del" data-name="${esc(t.name)}">删除</button></div>`;
+  }).join("");
+  box.querySelectorAll("button.del").forEach((b) => {
+    b.onclick = () => fillDeleteName(b.dataset.name, b);
+  });
 }
 
 async function fillGo() {
@@ -2125,6 +2285,40 @@ $("fill-toggle").onclick = () => { fillOverlay.classList.add("open"); fillLoadTe
 $("fill-x").onclick = () => fillOverlay.classList.remove("open");
 $("fill-overlay").onclick = (e) => { if (e.target === fillOverlay) fillOverlay.classList.remove("open"); };
 $("fill-go").onclick = fillGo;
+
+/* 模板上传 / 删除的入口 */
+$("fill-up-btn").onclick = () => $("fill-file").click();
+$("fill-file").onchange = (e) => {
+  const f = e.target.files && e.target.files[0];
+  e.target.value = "";                 // 清空，同一个文件改完还能再传
+  fillUpload(f);
+};
+$("fill-del-btn").onclick = fillDelete;
+$("fill-tpl").onchange = fillUpdDelBtn;
+
+/* 「我上传的模板」清单：打开即读一次，逐条删 */
+$("fill-mg-btn").onclick = () => {
+  tplmgOverlay.classList.add("open");
+  $("tplmg-msg").innerHTML = "";
+  tplmgLoad();
+};
+$("tplmg-x").onclick = () => tplmgOverlay.classList.remove("open");
+$("tplmg-overlay").onclick = (e) => { if (e.target === tplmgOverlay) tplmgOverlay.classList.remove("open"); };
+
+/* 直接把模板文件拖进填表窗口也能上传 */
+(function fillDragDrop() {
+  const panel = document.querySelector("#fill-overlay .dw-panel");
+  if (!panel) return;
+  let depth = 0;
+  panel.addEventListener("dragenter", (e) => { e.preventDefault(); depth++; panel.classList.add("fill-drop"); });
+  panel.addEventListener("dragover", (e) => { e.preventDefault(); });
+  panel.addEventListener("dragleave", () => { if (--depth <= 0) { depth = 0; panel.classList.remove("fill-drop"); } });
+  panel.addEventListener("drop", (e) => {
+    e.preventDefault(); depth = 0; panel.classList.remove("fill-drop");
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) fillUpload(f);
+  });
+})();
 
 /* ---------------- 小工具 ---------------- */
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (

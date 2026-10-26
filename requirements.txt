@@ -1,5 +1,6 @@
 fastapi==0.143.0
 uvicorn==0.54.0
+python-multipart==0.0.32
 pymysql==1.2.3
 python-docx==1.2.0
 openpyxl==3.1.5
