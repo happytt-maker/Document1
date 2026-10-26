@@ -1,0 +1,252 @@
+[
+  {
+    "file": "模板1-设备采购汇总表.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "name": "设备采购汇总",
+        "max_row": 14,
+        "max_column": 6,
+        "header_row": 4,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征",
+        "columns": [
+          {
+            "col": 1,
+            "title": "序号"
+          },
+          {
+            "col": 2,
+            "title": "设备名称"
+          },
+          {
+            "col": 3,
+            "title": "规格型号"
+          },
+          {
+            "col": 4,
+            "title": "数量"
+          },
+          {
+            "col": 5,
+            "title": "单价（元）"
+          },
+          {
+            "col": 6,
+            "title": "供应商"
+          }
+        ],
+        "fill_region": {
+          "start_row": 5,
+          "end_row": 12,
+          "row_count": 8
+        }
+      }
+    ]
+  },
+  {
+    "file": "模板2-员工信息登记表.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "name": "员工信息登记",
+        "max_row": 16,
+        "max_column": 8,
+        "header_row": 3,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征",
+        "columns": [
+          {
+            "col": 1,
+            "title": "工号"
+          },
+          {
+            "col": 2,
+            "title": "姓名"
+          },
+          {
+            "col": 3,
+            "title": "性别"
+          },
+          {
+            "col": 4,
+            "title": "部门"
+          },
+          {
+            "col": 5,
+            "title": "岗位"
+          },
+          {
+            "col": 6,
+            "title": "入职日期"
+          },
+          {
+            "col": 7,
+            "title": "基本工资"
+          },
+          {
+            "col": 8,
+            "title": "联系电话"
+          }
+        ],
+        "fill_region": {
+          "start_row": 4,
+          "end_row": 15,
+          "row_count": 12
+        }
+      }
+    ]
+  },
+  {
+    "file": "模板3-会议任务跟踪表.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "name": "任务跟踪",
+        "max_row": 13,
+        "max_column": 6,
+        "header_row": 4,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征",
+        "columns": [
+          {
+            "col": 1,
+            "title": "序号"
+          },
+          {
+            "col": 2,
+            "title": "负责人"
+          },
+          {
+            "col": 3,
+            "title": "任务内容"
+          },
+          {
+            "col": 4,
+            "title": "截止日期"
+          },
+          {
+            "col": 5,
+            "title": "状态"
+          },
+          {
+            "col": 6,
+            "title": "备注"
+          }
+        ],
+        "fill_region": {
+          "start_row": 5,
+          "end_row": 13,
+          "row_count": 9
+        }
+      }
+    ]
+  },
+  {
+    "file": "模板4-客诉处理台账.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "name": "客诉处理台账",
+        "max_row": 11,
+        "max_column": 7,
+        "header_row": 3,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征",
+        "columns": [
+          {
+            "col": 1,
+            "title": "投诉编号"
+          },
+          {
+            "col": 2,
+            "title": "客户名称"
+          },
+          {
+            "col": 3,
+            "title": "投诉日期"
+          },
+          {
+            "col": 4,
+            "title": "投诉内容摘要"
+          },
+          {
+            "col": 5,
+            "title": "责任判定"
+          },
+          {
+            "col": 6,
+            "title": "处理时长（天）"
+          },
+          {
+            "col": 7,
+            "title": "处理结果"
+          }
+        ],
+        "fill_region": {
+          "start_row": 4,
+          "end_row": 9,
+          "row_count": 6
+        }
+      }
+    ]
+  },
+  {
+    "file": "模板5-原材料库存汇总表.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "name": "库存汇总",
+        "max_row": 15,
+        "max_column": 8,
+        "header_row": 3,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征",
+        "columns": [
+          {
+            "col": 1,
+            "title": "物料编码"
+          },
+          {
+            "col": 2,
+            "title": "物料名称"
+          },
+          {
+            "col": 3,
+            "title": "规格"
+          },
+          {
+            "col": 4,
+            "title": "单位"
+          },
+          {
+            "col": 5,
+            "title": "库存数量"
+          },
+          {
+            "col": 6,
+            "title": "存放库位"
+          },
+          {
+            "col": 7,
+            "title": "是否紧缺"
+          },
+          {
+            "col": 8,
+            "title": "备注"
+          }
+        ],
+        "fill_region": {
+          "start_row": 4,
+          "end_row": 15,
+          "row_count": 12
+        }
+      }
+    ]
+  }
+]
