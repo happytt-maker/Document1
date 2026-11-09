@@ -1,0 +1,245 @@
+{
+  "col": "是否紧缺",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 12.02,
+  "usage": {
+    "completion_tokens": 468,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1238,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1706,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 2,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K2"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 3,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K3"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 4,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K4"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 5,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K5"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 6,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K6"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 7,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K7"
+    },
+    {
+      "value": "是",
+      "evidence": "（该格所在列的列头：是否紧缺）\n是",
+      "block": 8,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K8"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 9,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K9"
+    },
+    {
+      "value": "是",
+      "evidence": "（该格所在列的列头：是否紧缺）\n是",
+      "block": 10,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K10"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 11,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K11"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 12,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K12"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 13,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K13"
+    },
+    {
+      "value": "是",
+      "evidence": "（该格所在列的列头：是否紧缺）\n是",
+      "block": 14,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K14"
+    },
+    {
+      "value": "否",
+      "evidence": "（该格所在列的列头：是否紧缺）\n否",
+      "block": 15,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "是否紧缺",
+      "colheads": [
+        "是否紧缺",
+        "否",
+        "否",
+        "否",
+        "否"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 K15"
+    }
+  ]
+}

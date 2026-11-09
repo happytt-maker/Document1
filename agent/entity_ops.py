@@ -421,7 +421,7 @@ def run_entities(text: str, intent: dict, src: Path, out_dir: Path = None):
     out_dir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
 
-    doc, err = load_doc(src.name)
+    doc, err = load_doc(src.name, src)
     if doc is None:
         return False, "【失败】%s" % err, []
 

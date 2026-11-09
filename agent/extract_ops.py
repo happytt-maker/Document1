@@ -12,9 +12,13 @@ extract_ops.py —— 模块（1）· 第 4 步：内容提取接入（说一句
 
 三层字段规范化（本步新增，解决"口语说法对不上文档"）：
   1. 合称拆分："甲乙双方名称" → 甲方名称 + 乙方名称          （内置规则）
-  2. 口语别名：查 字段别名表.json（如"工资"→"基本工资"）      （可配置）
-  3. 语义翻译：直抽为空时，让模型看"文档要素清单"，把字段翻译成
-     文档里真实存在的说法（如"待办事项"→"任务内容"）——再抽一遍（模型兜底）
+  2. 别名表：查 字段别名表.json（如"工资"→"基本工资"）        （手工，退成兜底）
+  3. 语义对齐：用本地向量把字段对到文档里真实出现的说法
+     （如"待办事项"→"任务内容"、"合同总价"→"合同金额合计"）——2026-10-26 新增，
+     不需要配任何东西，换行业自动生效；模型缺失时自动降级为原词直抽
+
+三层是"从便宜到贵"排的：合称拆分和语义对齐都不花钱、不联网；
+只有前两层都没对上，才轮到第四条"大模型翻译"（一次几秒、有成本）。
 
 跑法（在项目根目录）：
   python agent/extract_ops.py "把员工信息表里所有员工的姓名和工号整理出来"
@@ -27,6 +31,7 @@ import json
 import re
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 
 import requests
@@ -45,6 +50,7 @@ sys.path.insert(0, str(BASE / "matcher"))                   # 复用抽取线
 from parse_intent import API_KEY, API_URL, MODEL            # noqa: E402
 from llm_config import chat as _llm_chat                    # noqa: E402
 import extract as matcher_extract                           # noqa: E402
+import semantic                                             # noqa: E402  语义字段匹配
 
 OUT_DIR = BASE / "agent" / "输出"
 MID_DIR = OUT_DIR / "中间抽取"          # run_column 的落盘目录（每字段一份 json）
@@ -66,7 +72,13 @@ TRANSLATE_SYSTEM = ("你是文档信息提取助手。用户给一个想提取�
 # ==================== 一、字段规范化 ====================
 
 def load_aliases() -> dict:
-    """读"口语 → 正式"别名表（不存在或坏了就当空表，不影响流程）。"""
+    """读"口语 → 正式"别名表（不存在或坏了就当空表，不影响流程）。
+
+    2026-10-26：这张表从"主力"退成"兜底/覆盖"——
+    常见说法由语义匹配自动对上，这里只留两种东西：
+      · 语义容易搞错、需要人工拍板的（如"总价"在有的文档里指不含税价）
+      · 客户固定叫法（必须按他们的说法走）
+    """
     if ALIAS_FILE.exists():
         try:
             data = json.loads(ALIAS_FILE.read_text(encoding="utf-8"))
@@ -77,34 +89,208 @@ def load_aliases() -> dict:
     return {}
 
 
-def normalize_fields(fields: list) -> list:
-    """字段规范化：合称拆分 + 别名映射。
+# ---------- 文档里的"说法"清单（语义匹配的候选空间） ----------
 
-    返回 [{"orig": 用户说法, "field": 实际去抽的字段, "note": 说明（没处理则空）}]
+_DOC_CACHE = {"key": None, "docs": None}
+
+
+def _load_docs():
+    """读 output.json 的 documents（按 mtime 缓存，避免每个字段重读一遍）。"""
+    if not OUTPUT_JSON.exists():
+        return []
+    st = OUTPUT_JSON.stat()
+    key = (str(OUTPUT_JSON), st.st_mtime_ns, st.st_size)
+    if _DOC_CACHE["key"] != key:
+        try:
+            data = json.loads(OUTPUT_JSON.read_text(encoding="utf-8"))
+        except Exception:
+            return []
+        _DOC_CACHE["key"] = key
+        _DOC_CACHE["docs"] = data.get("documents", [])
+    return _DOC_CACHE["docs"] or []
+
+
+_BAD_TERM = re.compile(r"^[\d\s.,%％+\-/：:（）()年月日]+$")
+_LABEL_RE = re.compile(r"^([\u4e00-\u9fa5A-Za-z（）()·]{2,12})\s*[：:]")
+# 编码型文本（E1001 / M-1001 / SO-2601-001 / VMC-850B）不是字段名。
+# 不滤掉的话它们会占候选名额，还会把语义排名带偏。
+_CODE_TERM = re.compile(r"^[A-Za-z]{1,6}[-_]?\d|^\d+[A-Za-z]|^=")
+# 条款标题（"第三条 交付与验收"）不是字段名；地名/人名那类值也不是。
+# 2026-10-26 补：候选池里混进这些，语义排名会把用户带偏（"合同总价"→"合同编号"）。
+_CLAUSE_TERM = re.compile(r"^第\s*[一二三四五六七八九十百千\d]+\s*[条章节款项部分]")
+
+
+def doc_candidates(file_name: str, limit: int = 400) -> list:
+    """把一份文档里"可能当字段名"的说法捞出来，作为语义匹配的候选空间。
+
+    为什么不用"全文档短文本"（doc_element_list）：
+      那样 339 个候选里大半是数据值（"920"、"E1001"、"制造中心"），噪声大、还慢。
+      字段名只可能出现在两个地方 —— ①表格的列头 ②"XXX："这种标签。
+      只捞这两类，候选能压到几十个，匹配既准又快。
+
+    列头取每列**前 5 个非空**而不是最上面那一个：
+      Excel 表头上面常压着一行大标题（"设备采购台账"），最上面那个不是列头。
     """
-    aliases = load_aliases()
+    docs = _load_docs()
+    doc = next((d for d in docs if d.get("file") == file_name), None)
+    if not doc:
+        return []
+
+    cols = {}          # (区域, 列号) -> [(行号, 文本)]
+    labels = []
+    for b in doc.get("blocks", []):
+        loc = b.get("locator") or {}
+        raw = b.get("text") or ""
+        if not raw.strip():
+            continue
+
+        kind = loc.get("kind")
+        if kind in ("cell", "table_cell"):
+            zone = (kind, loc.get("sheet") or loc.get("table_index"), loc.get("col"))
+            cols.setdefault(zone, []).append((loc.get("row") or 0,
+                                              re.sub(r"\s+", " ", raw).strip()))
+        else:
+            # 按行看：一个块里可能压着好几条「甲方：… 乙方：…」
+            for line in raw.split("\n"):
+                line = re.sub(r"\s+", " ", line).strip()
+                if not line:
+                    continue
+                m = _LABEL_RE.match(line)
+                if m:
+                    labels.append(m.group(1).strip())
+
+    cands, seen = [], set()
+    title = semantic.norm(Path(file_name).stem)     # 文档大标题不是字段名
+
+    def add(t):
+        t = str(t).strip()
+        if not t or len(t) > 12 or len(t) < 2:
+            return
+        if _BAD_TERM.match(t) or _CODE_TERM.match(t) or _CLAUSE_TERM.match(t):
+            return
+        k = semantic.norm(t)
+        if not k or k == title:
+            return
+        if k not in seen:
+            seen.add(k)
+            cands.append(t)
+
+    # 表头到底在第几行：按「同一张表」统计各列第一个非空行的众数。
+    # 取到众数这一行为止（含它上方的行）：两层表头时众数落在第二层，父列名在上面也不会漏；
+    # 单层表头时众数就是表头行，它下面那行是数据 —— 不能要。
+    # 必须按表分组算：一份文档里可能好几张表（项目进度表=总览+工作明细），
+    # 各表的表头行不一样，混在一起算会把整张表的列头漏掉。
+    # 2026-10-26 改：原先取"每列前 5 个非空"，把数据值也收进来了 ——
+    # 合同表"设备名称"列的 数控加工中心/激光切割机/工业机器人 全成了候选，
+    # 语义排名被这些值挤歪（"合同总价" 排到"合同编号"上）。
+    groups = {}
+    for zone, items in cols.items():
+        groups.setdefault((zone[0], zone[1]), {})[zone[2]] = items
+    body = set()                      # 表格正文里的值，补候选时要排除
+    for g in groups.values():
+        firsts = [min(r for r, _t in it) for it in g.values() if it]
+        hrow = Counter(firsts).most_common(1)[0][0] if firsts else 0
+        for it in g.values():
+            for r, t in it:
+                if r > hrow:
+                    body.add(semantic.norm(t))
+        for it in g.values():
+            for r, t in sorted(it)[:5]:    # 每列前 5 个非空，但只认表头行及其上方
+                if r <= hrow:
+                    add(t)
+
+    for t in labels:
+        add(t)
+
+    # 不足时用短段落补齐（有些文档没有表格，只有"甲方：XX"这种行）
+    if len(cands) < 20:
+        for t in doc_element_list(file_name, limit=120):
+            if semantic.norm(t) in body:      # 表格正文的数据值不是字段名
+                continue
+            add(t)
+
+    return cands[:limit]
+
+
+def normalize_fields(fields: list, candidates: list = None, aliases: dict = None) -> list:
+    """字段规范化：合称拆分 + 别名表 + 语义对齐。
+
+    返回 [{"orig", "field", "note", "semantic": [(说法, 分数), ...]}]
+
+    semantic 是"这个字段在文档里还可能叫什么"的候选，留给后面抽空时按顺序重试
+    ——都是本地向量算的，不花钱，所以可以一次算好备用。
+
+    顺序有讲究（2026-10-26 定）：
+      ① 合称拆分 → ② 别名表 → ③ 语义对齐
+      前两步是"确定的规则"，语义只在前两步没结论时改写。
+      而且语义改写只在**原词根本不在文档里**时才做：
+      原词在文档里出现过，就按原词抽（用户说的就是文档里的词，别自作聪明）。
+    """
+    if aliases is None:
+        aliases = load_aliases()
+    cands = [str(c) for c in (candidates or []) if str(c).strip()]
+
     out = []
     for f in fields:
         f = str(f).strip()
         if not f:
             continue
+
         # 1) 合称拆分
         done = False
         for k, reps in SPLIT_RULES.items():
             if k in f:
                 for r in reps:
                     out.append({"orig": f, "field": f.replace(k, r),
-                                "note": "「%s」拆分 → 「%s」" % (f, f.replace(k, r))})
+                                "note": "「%s」拆分 → 「%s」" % (f, f.replace(k, r)),
+                                "semantic": []})
                 done = True
                 break
         if done:
             continue
-        # 2) 别名映射
+
+        field, note = f, ""
+
+        # 2) 别名表（人工确认过的，优先级最高）
         if f in aliases:
-            out.append({"orig": f, "field": aliases[f],
-                        "note": "别名表：「%s」→「%s」" % (f, aliases[f])})
-        else:
-            out.append({"orig": f, "field": f, "note": ""})
+            field = aliases[f]
+            note = "别名表：「%s」→「%s」" % (f, field)
+
+        # 3) 语义对齐
+        sem_list = []
+        if cands:
+            exact = next((c for c in cands if semantic.lexical(f, c) >= 0.999), None)
+            if exact:
+                if not note:                    # 文档里就有这个说法，直接用
+                    field = exact
+            else:
+                res = semantic.match(f, cands, topk=3, aliases=aliases,
+                                     min_score=semantic.SEM_WEAK, tag="doc-terms")
+                sem_list = [(r["term"], r["score"]) for r in res]
+                # 改写（把用户说法直接换成文档说法）要很克制：
+                #   ① 相似度 ≥ 0.85（"入职时间→入职日期" 0.92、"设备名字→设备名称" 0.98）
+                #   ② 与第 2 名拉开 ≥ 0.15（唯一性：不是"两个都像"）
+                # 只满足 ① 不满足 ② 的典型反例：
+                #   "库存数量"→期初库存(0.75)/期末库存(0.72)、"完成度"→计划完成(0.71)/进度(0.71)
+                #   —— 这种改写会抽错列，比不改还糟。此时只把它放进候选，
+                #   等直抽为空时再逐个试，让模型按原文判。
+                # 【0.15 这条线是实测调出来的】0.10 时"岗位工资→岗位"(领先 0.12)会漏过去，
+                #   而"岗位工资"在薪酬表里指的是"岗位津贴"，改了就抽错列。
+                if not note and len(res) >= 2:
+                    margin = res[0]["score"] - res[1]["score"]
+                    if res[0]["score"] >= semantic.SEM_REWRITE and margin >= 0.15 \
+                            and res[0]["via"] in ("semantic", "lexical"):
+                        field = res[0]["term"]
+                        note = "语义对齐：「%s」→ 文档里的「%s」（相似度 %.2f，领先第 2 名 %.2f）" % (
+                            f, field, res[0]["score"], margin)
+                elif not note and len(res) == 1:
+                    if res[0]["score"] >= semantic.SEM_REWRITE \
+                            and res[0]["via"] in ("semantic", "lexical"):
+                        field = res[0]["term"]
+                        note = "语义对齐：「%s」→ 文档里的「%s」（相似度 %.2f）" % (
+                            f, field, res[0]["score"])
+
+        out.append({"orig": f, "field": field, "note": note, "semantic": sem_list})
     return out
 
 
@@ -182,18 +368,46 @@ def translate_field(field: str, doc_file: str, elements: list, exclude=None) -> 
 
 # ==================== 三、抽一个字段（直抽 + 翻译兜底） ====================
 
-def extract_field(field: str, doc_file: str, notes: list) -> dict:
-    """抽一个字段。直抽为空时翻译后重抽——多候选 + 失败追问一轮（防翻译抖动）。
+def extract_field(field: str, doc_file: str, notes: list, sem_candidates=None) -> dict:
+    """抽一个字段。直抽为空时，先用**语义候选**重试（本地、免费、快），
+    再不行才让大模型翻译（远程、有成本、慢）。
 
-    返回 {"field", "items", "mapped_to", "elapsed"}
+    为什么把顺序倒过来（2026-10-26）：
+      原来直抽一空就去调模型翻译，一次 3~8 秒、还要花钱，而且同一句话
+      两次可能给出不同说法（抖动）。语义候选是本地向量算的，0.3 秒出 Top3，
+      稳定、可复现、断网也能用 —— 大模型只留作最后的"兜底"。
+
+    返回 {"field", "items", "mapped_to", "elapsed", "via"}
+        via:  ""（原词直接抽到）｜"semantic"（语义候选命中）｜"model"（模型翻译命中）
     """
     t0 = time.time()
     res = matcher_extract.run_column(field, quiet=True, only_file=doc_file,
                                      out_dir=str(MID_DIR))
     items = list((res or {}).get("items", []))
-    mapped_to = ""
+    mapped_to, via = "", ""
 
     if not items:
+        # ---------- ① 语义候选（本地向量，不花钱） ----------
+        tried = []
+        for term, sc in (sem_candidates or [])[:3]:
+            term = str(term).strip()
+            if not term or term == field or term in tried:
+                continue
+            tried.append(term)
+            res2 = matcher_extract.run_column(term, quiet=True, only_file=doc_file,
+                                              out_dir=str(MID_DIR))
+            items2 = list((res2 or {}).get("items", []))
+            if items2:
+                res, items, mapped_to, via = res2, items2, term, "semantic"
+                notes.append("「%s」语义候选命中：「%s」（相似度 %.2f）"
+                             % (field, term, sc))
+                break
+        if not mapped_to and tried:
+            notes.append("「%s」的语义候选 %s 都没抽到值 → 交给模型翻译"
+                         % (field, "、".join("「%s」" % x for x in tried)))
+
+    if not items:
+        # ---------- ② 大模型翻译（最后一道兜底） ----------
         elements = doc_element_list(doc_file)
         tried = []
         if elements:
@@ -209,7 +423,7 @@ def extract_field(field: str, doc_file: str, notes: list) -> dict:
                 items2 = list((res2 or {}).get("items", []))
                 tried.append(term)
                 if items2:
-                    res, items, mapped_to = res2, items2, term
+                    res, items, mapped_to, via = res2, items2, term, "model"
                     break
             # 第二轮：首轮挑偏未命中 → 请模型换说法再试（最多 2 个，排除已试词）
             if not mapped_to and tried:
@@ -223,14 +437,15 @@ def extract_field(field: str, doc_file: str, notes: list) -> dict:
                                                       out_dir=str(MID_DIR))
                     items2 = list((res2 or {}).get("items", []))
                     if items2:
-                        res, items, mapped_to = res2, items2, term
+                        res, items, mapped_to, via = res2, items2, term, "model"
                         break
         if mapped_to:
-            notes.append("「%s」已按文档里的说法「%s」提取成功" % (field, mapped_to))
+            notes.append("「%s」已按文档里的说法「%s」提取成功（模型翻译）"
+                         % (field, mapped_to))
         else:
             notes.append("「%s」：文档里没有找到对应信息（诚实留空，不编造）" % field)
 
-    return {"field": field, "items": items, "mapped_to": mapped_to,
+    return {"field": field, "items": items, "mapped_to": mapped_to, "via": via,
             "elapsed": round((res or {}).get("elapsed_sec", time.time() - t0), 2)}
 
 
@@ -399,18 +614,21 @@ def run_extract(text: str, intent: dict, src: Path, out_dir: Path = None):
     t0 = time.time()
 
     raw_fields = (intent.get("params") or {}).get("fields") or []
-    norm = normalize_fields(raw_fields)
+    # 语义匹配的候选空间 = 这份文档里真实出现的"说法"（列头 + 标签）
+    cands = doc_candidates(src.name)
+    norm = normalize_fields(raw_fields, candidates=cands)
     if not norm:
         return False, "【失败】指令里没有说明要提取哪些字段，无法执行。", []
 
-    # 字段规范化的说明（拆分/别名才有）
+    # 字段规范化的说明（拆分/别名/语义对齐才有）
     for f in norm:
         if f["note"]:
             notes.append(f["note"])
 
     results = []
     for f in norm:
-        r = extract_field(f["field"], src.name, notes)
+        r = extract_field(f["field"], src.name, notes,
+                          sem_candidates=f.get("semantic"))
         r["orig"] = f["orig"]
         results.append(r)
 

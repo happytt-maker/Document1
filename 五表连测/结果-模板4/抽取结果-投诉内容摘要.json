@@ -1,45 +1,56 @@
 {
   "col": "投诉内容摘要",
-  "time": "2026-10-11 20:56",
-  "elapsed_sec": 8.81,
+  "time": "2026-11-03 22:21",
+  "elapsed_sec": 4.22,
   "usage": {
-    "prompt_tokens": 948,
-    "completion_tokens": 1861,
-    "total_tokens": 2809,
-    "prompt_tokens_details": {
-      "cached_tokens": 768
-    },
+    "completion_tokens": 249,
     "completion_tokens_details": {
-      "reasoning_tokens": 1664
+      "reasoning_tokens": 20
     },
-    "prompt_cache_hit_tokens": 768,
-    "prompt_cache_miss_tokens": 180
+    "prompt_tokens": 1443,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1692,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 3,
+  "candidate_count": 5,
   "items": [
     {
       "value": "VMC-850B 设备，其中一台在运行第 6 天出现主轴异响。",
-      "evidence": "2026年1月8日交付的 VMC-850B 设备，其中一台在运行第 6 天出现主轴异响。",
-      "block": 1,
+      "evidence": "投诉内容：2026年1月8日交付的 VMC-850B 设备，其中一台在运行第 6 天出现主轴异响。",
+      "block": 2,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 9,
       "loc_text": "第 9 行"
     },
     {
-      "value": "订购的 IRB-2600 工业机器人其中一台存在控制柜通信中断问题，平均每班次中断 2 至 3 次。",
-      "evidence": "订购的 IRB-2600 工业机器人其中一台存在控制柜通信中断问题，平均每班次中断 2 至 3 次。",
-      "block": 2,
+      "value": "IRB-2600 工业机器人其中一台存在控制柜通信中断问题，平均每班次中断 2 至 3 次。",
+      "evidence": "投诉内容：订购的 IRB-2600 工业机器人其中一台存在控制柜通信中断问题，平均每班次中断 2 至 3 次。",
+      "block": 3,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 19,
       "loc_text": "第 19 行"
     },
     {
       "value": "QC-2000 检测工作台配套软件无法导出检测报告，提示「模板文件缺失」。",
-      "evidence": "QC-2000 检测工作台配套软件无法导出检测报告，提示「模板文件缺失」。",
-      "block": 3,
+      "evidence": "投诉内容：QC-2000 检测工作台配套软件无法导出检测报告，提示「模板文件缺失」。",
+      "block": 4,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 29,
       "loc_text": "第 29 行"
     }
-  ]
+  ],
+  "only_file": "客户投诉处理记录.txt",
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（5 段，无一处带列头），整篇 748 字进候选"
+  }
 }

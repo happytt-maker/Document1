@@ -1,0 +1,109 @@
+{
+  "col": "截止日期",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 2.66,
+  "usage": {
+    "completion_tokens": 151,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 961,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1112,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 6,
+  "items": [
+    {
+      "value": "2026-04-15",
+      "evidence": "2026-04-15",
+      "block": 2,
+      "file": "项目推进会会议纪要.docx",
+      "head": "截止日期",
+      "colheads": [
+        "截止日期",
+        "2026-04-15",
+        "2026-04-18",
+        "2026-04-20",
+        "2026-04-22"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行2·列3"
+    },
+    {
+      "value": "2026-04-18",
+      "evidence": "2026-04-18",
+      "block": 3,
+      "file": "项目推进会会议纪要.docx",
+      "head": "截止日期",
+      "colheads": [
+        "截止日期",
+        "2026-04-15",
+        "2026-04-18",
+        "2026-04-20",
+        "2026-04-22"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行3·列3"
+    },
+    {
+      "value": "2026-04-20",
+      "evidence": "2026-04-20",
+      "block": 4,
+      "file": "项目推进会会议纪要.docx",
+      "head": "截止日期",
+      "colheads": [
+        "截止日期",
+        "2026-04-15",
+        "2026-04-18",
+        "2026-04-20",
+        "2026-04-22"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行4·列3"
+    },
+    {
+      "value": "2026-04-22",
+      "evidence": "2026-04-22",
+      "block": 5,
+      "file": "项目推进会会议纪要.docx",
+      "head": "截止日期",
+      "colheads": [
+        "截止日期",
+        "2026-04-15",
+        "2026-04-18",
+        "2026-04-20",
+        "2026-04-22"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行5·列3"
+    },
+    {
+      "value": "2026-04-12",
+      "evidence": "2026-04-12",
+      "block": 6,
+      "file": "项目推进会会议纪要.docx",
+      "head": "截止日期",
+      "colheads": [
+        "截止日期",
+        "2026-04-15",
+        "2026-04-18",
+        "2026-04-20",
+        "2026-04-22"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行6·列3"
+    }
+  ],
+  "only_file": "项目推进会会议纪要.docx",
+  "history": {
+    "head": "截止日期",
+    "file": "项目推进会会议纪要.docx",
+    "n": 6,
+    "whole": true,
+    "cross_file": false
+  }
+}

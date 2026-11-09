@@ -36,6 +36,11 @@ Word 文档读取器。
     直接拿去填表会出错，要按需要拆开。
 """
 
+import os
+import re
+import tempfile
+import zipfile
+
 from docx import Document
 from docx.oxml.ns import qn
 
@@ -121,16 +126,42 @@ def read_tables(doc, file_name):
     blocks = []
 
     for t_idx, table in enumerate(doc.tables, start=1):
-        seen = set()          # 记录已经处理过的底层单元格元素
+        # 记录每个底层单元格第一次出现的位置：(r, c)
+        seen = {}
 
         for r_idx, row in enumerate(table.rows, start=1):
             for c_idx, cell in enumerate(row.cells, start=1):
                 key = cell._tc            # ← 底层 XML 元素，单元格的真实身份
-                if key in seen:
-                    continue              # 合并单元格在多个坐标重复出现，跳过
-                seen.add(key)
-
                 text = _clean(cell.text)
+                prev = seen.get(key)
+                if prev is not None:
+                    pr, pc = prev
+                    # 垂直合并（vMerge）：同一个格子在**下一行、同一列**又出现。
+                    # 以前这里直接 continue，于是"合并了几行"这个信息在下游全丢了 ——
+                    # 会议纪要「吴晓敏」占了第 2、3 两行，池子里却只有第 2 行，
+                    # 模型抽 4 条（正确是 5 条），按行号对齐后第 2 行空着（模板3 漏 1 格）。
+                    # 现在给被合并掉的那几行**各补一条继承块**（值同左上角），
+                    # 让每一行都有自己的份，行号天然对得上，模型也好数。
+                    # 横向合并（同一行、不同列）仍然跳过 —— 那是同一格跨列，不是多行记录。
+                    if pc == c_idx and pr != r_idx and text:
+                        blocks.append(
+                            make_block(
+                                file_name=file_name,
+                                file_type="docx",
+                                text=_split_merged(text),
+                                locator={
+                                    "kind": "table_cell",
+                                    "table_index": t_idx,
+                                    "row": r_idx,
+                                    "col": c_idx,
+                                },
+                                v_merge_inherit=True,
+                                v_merge=True,
+                            )
+                        )
+                    continue
+                seen[key] = (r_idx, c_idx)
+
                 if not text:
                     continue
 
@@ -170,21 +201,118 @@ def read_tables(doc, file_name):
     return blocks
 
 
+def _missing_parts(path):
+    """列出「rels 里引用了、包里却没有」的部件（只找 word/ 下的 xml）。
+
+    WPS 导出的 docx 常见：document.xml.rels 引用了 footnotes.xml / endnotes.xml，
+    但包里没写。python-docx 会整份读失败，而正文其实完好。
+    """
+    out = []
+    try:
+        with zipfile.ZipFile(str(path)) as z:
+            names = set(z.namelist())
+            for n in names:
+                if not n.endswith(".rels"):
+                    continue
+                base = n.rsplit("_rels/", 1)[0]
+                txt = z.read(n).decode("utf-8", errors="ignore")
+                for m in re.finditer(r'Target="([^"]+)"', txt):
+                    t = m.group(1)
+                    if t.startswith("http") or t.startswith("/"):
+                        continue
+                    full = (base + t).replace("/./", "/")
+                    if full.startswith("word/") and full.endswith(".xml") and full not in names:
+                        out.append(full)
+    except Exception:
+        return []
+    return list(dict.fromkeys(out))
+
+
+def _repair_docx(path, missing):
+    """复制一份、补齐缺失部件（[Content_Types] 也补声明），返回临时文件路径。"""
+    SHELL = {
+        "footnotes": "footnotes", "endnotes": "endnotes",
+        "comments": "comments", "header": "", "footer": "", "numbering": "numbering",
+    }
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".docx")
+    tmp.close()
+    with zipfile.ZipFile(str(path)) as zin, \
+            zipfile.ZipFile(tmp.name, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if item.filename == "[Content_Types].xml":
+                txt = data.decode("utf-8")
+                add = []
+                for part in missing:
+                    stem = part.rsplit("/", 1)[-1].replace(".xml", "")
+                    root = SHELL.get(stem)
+                    if not root:
+                        continue
+                    ctype = ("application/vnd.openxmlformats-officedocument."
+                             "wordprocessingml.%s+xml" % root)
+                    if ("/" + part) not in txt:
+                        add.append('<Override PartName="/%s" ContentType="%s"/>' % (part, ctype))
+                if add:
+                    txt = txt.replace("</Types>", "".join(add) + "</Types>")
+                    data = txt.encode("utf-8")
+            zout.writestr(item, data)
+        for part in missing:
+            stem = part.rsplit("/", 1)[-1].replace(".xml", "")
+            root = SHELL.get(stem) or stem
+            zout.writestr(part,
+                          '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+                          '<w:%s xmlns:w="http://schemas.openxmlformats.org/'
+                          'wordprocessingml/2006/main"/>' % root)
+    return tmp.name
+
+
+def _open_document(path):
+    """打开 docx；WPS 漏写可选部件时自动补齐再读。
+
+    返回 (doc, 临时文件路径或 None)。临时文件由调用方读完再删。
+    """
+    tmp = None
+    for _ in range(4):                       # 最多补 4 个缺失部件
+        try:
+            return Document(str(path if tmp is None else tmp)), tmp
+        except KeyError as e:
+            m = re.search(r"no item named '([^']+)'", str(e))
+            missing = [m.group(1)] if m else []
+            if not missing or not missing[0].startswith("word/"):
+                raise
+            more = [p for p in _missing_parts(path) if p not in missing]
+            todo = missing + more
+            new_tmp = _repair_docx(path, todo)
+            if tmp:
+                try:
+                    os.unlink(tmp)
+                except OSError:
+                    pass
+            tmp = new_tmp
+    raise RuntimeError("这份 docx 缺少必要的 XML 部件，补不齐（%s）" % path.name)
+
+
 def read_docx(path):
     """
     读一个 docx 文件，返回和 read_txt / read_md 同构的字典。
     """
-    doc = Document(str(path))
+    doc, tmp = _open_document(path)
+    try:
+        para_blocks = read_paragraphs(doc, path.name)
+        table_blocks = read_tables(doc, path.name)
+        blocks = para_blocks + table_blocks
 
-    para_blocks = read_paragraphs(doc, path.name)
-    table_blocks = read_tables(doc, path.name)
-    blocks = para_blocks + table_blocks
-
-    return {
-        "file": path.name,
-        "type": "docx",
-        "paragraph_count": len(doc.paragraphs),
-        "table_count": len(doc.tables),
-        "block_count": len(blocks),
-        "blocks": blocks,
-    }
+        return {
+            "file": path.name,
+            "type": "docx",
+            "paragraph_count": len(doc.paragraphs),
+            "table_count": len(doc.tables),
+            "block_count": len(blocks),
+            "blocks": blocks,
+        }
+    finally:
+        if tmp:
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass

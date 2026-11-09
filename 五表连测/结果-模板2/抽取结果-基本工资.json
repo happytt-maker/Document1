@@ -1,85 +1,157 @@
 {
   "col": "基本工资",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 4.3,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 2.97,
   "usage": {
-    "prompt_tokens": 727,
-    "completion_tokens": 1063,
-    "total_tokens": 1790,
-    "prompt_tokens_details": {
-      "cached_tokens": 512
-    },
+    "completion_tokens": 178,
     "completion_tokens_details": {
-      "reasoning_tokens": 841
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 512,
-    "prompt_cache_miss_tokens": 215
+    "prompt_tokens": 1081,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1259,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 9,
   "items": [
     {
       "value": "12800",
-      "evidence": "（该格所在列的列头：基本工资）\n12800",
+      "evidence": "12800",
       "block": 2,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G3"
     },
     {
       "value": "14500",
-      "evidence": "（该格所在列的列头：基本工资）\n14500",
+      "evidence": "14500",
       "block": 3,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G4"
     },
     {
       "value": "18600",
-      "evidence": "（该格所在列的列头：基本工资）\n18600",
+      "evidence": "18600",
       "block": 4,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G5"
     },
     {
       "value": "9200",
-      "evidence": "（该格所在列的列头：基本工资）\n9200",
+      "evidence": "9200",
       "block": 5,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G6"
     },
     {
       "value": "13400",
-      "evidence": "（该格所在列的列头：基本工资）\n13400",
+      "evidence": "13400",
       "block": 6,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G7"
     },
     {
       "value": "10600",
-      "evidence": "（该格所在列的列头：基本工资）\n10600",
+      "evidence": "10600",
       "block": 7,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G8"
     },
     {
       "value": "8800",
-      "evidence": "（该格所在列的列头：基本工资）\n8800",
+      "evidence": "8800",
       "block": 8,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G9"
     },
     {
       "value": "19800",
-      "evidence": "（该格所在列的列头：基本工资）\n19800",
+      "evidence": "19800",
       "block": 9,
       "file": "员工信息表.xlsx",
+      "head": "基本工资",
+      "colheads": [
+        "基本工资",
+        "12800",
+        "14500",
+        "18600",
+        "9200"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 G10"
     }
-  ]
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "基本工资",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
 }

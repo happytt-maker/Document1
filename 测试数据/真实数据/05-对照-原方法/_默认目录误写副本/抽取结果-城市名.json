@@ -1,0 +1,146 @@
+{
+  "col": "城市名",
+  "time": "2026-11-03 19:36",
+  "elapsed_sec": 9.31,
+  "usage": {
+    "completion_tokens": 932,
+    "completion_tokens_details": {
+      "reasoning_tokens": 49
+    },
+    "prompt_tokens": 1800,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2732,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "上海",
+      "evidence": "2025 年，中国城市经济的 “天花板” 被再次刷新。上海与北京不仅稳坐前两把交椅，更双双迈上 5 万亿元的新台阶，确立了无可撼动的 “双核” 地位。",
+      "block": 2,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 3 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "北京",
+      "evidence": "北京紧随其后，GDP 总量达到 52,073.40 亿元，同比增长 5.40%，在人口严控至 2,185.3 万的前提下，实现 238,320 元的惊人人均 GDP，领跑全国主要城市；一般公共预算收入 6,680.60 亿元，同比增长 4.8%，支出 6,845.2 亿元，财政收支结构持续优化，科技与文化产业的贡献率实现显著提升。",
+      "block": 3,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "徐州",
+      "evidence": "徐州 GDP 总量 10,523.80 亿元，常住人口 905.30 万，人均 GDP 116,240 元，一般公共预算收入 575.33 亿元，支出 910.6 亿元，淮海经济区中心城市地位持续巩固。",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 35 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "沈阳",
+      "evidence": "沈阳 GDP 总量 9,845.20 亿元，常住人口 912.5 万，人均 GDP 107,890 元，一般公共预算收入 615.3 亿元，支出 920.4 亿元，东北振兴标杆城市，国家重要的装备制造基地。",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 40 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "厦门",
+      "evidence": "厦门 GDP 总量 9,532.60 亿元，常住人口 532.4 万，人均 GDP 179,050 元，一般公共预算收入 835.2 亿元，支出 1,050.3 亿元，高素质高颜值的现代化国际化城市。",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 41 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "洛阳",
+      "evidence": "洛阳 GDP 总量 8,325.60 亿元，常住人口 708.5 万，人均 GDP 117,510 元，一般公共预算收入 465.3 亿元，支出 710.4 亿元，中原城市群副中心城市，老工业基地转型提速。",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 48 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "榆林",
+      "evidence": "榆林 GDP 总量 8,235.60 亿元，常住人口 361.2 万，人均 GDP 228,000 元，一般公共预算收入 915.4 亿元，支出 820.3 亿元，能源金三角核心城市，人均财力位居全国顶尖水平。",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 49 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "宜昌",
+      "evidence": "宜昌 GDP 总量 8,052.30 亿元，常住人口 402.5 万，人均 GDP 200,050 元，一般公共预算收入 425.3 亿元，支出 560.4 亿元，长江大保护典范城市，绿色化工产业强势崛起。",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 50 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "保定",
+      "evidence": "保定 GDP 总量 7,632.50 亿元，常住人口 925.3 万，人均 GDP 82,480 元，一般公共预算收入 395.4 亿元，支出 760.3 亿元，京津冀协同发展重要节点城市。",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 54 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "太原",
+      "evidence": "太原 GDP 总量 7,032.50 亿元，常住人口 542.3 万，人均 GDP 129,680 元，一般公共预算收入 395.3 亿元，支出 560.4 亿元，国家能源革命综合改革试点城市。",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 60 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "襄阳",
+      "evidence": "襄阳 GDP 总量 6,113.85 亿元，常住人口 525.3 万，人均 GDP 116,390 元，一般公共预算收入 285.4 亿元，支出 510.6 亿元，汉江流域中心城市，汽车产业转型攻坚。",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 68 段",
+      "from_paragraph": true
+    }
+  ],
+  "narrative": {
+    "used": false,
+    "note": "对照实验：关闭叙述体整篇召回，回到按相关度取候选"
+  }
+}

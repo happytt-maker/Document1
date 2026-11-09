@@ -1,19 +1,19 @@
 {
   "col": "入职日期",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 3.42,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 3.45,
   "usage": {
-    "prompt_tokens": 759,
-    "completion_tokens": 645,
-    "total_tokens": 1404,
-    "prompt_tokens_details": {
-      "cached_tokens": 512
-    },
+    "completion_tokens": 238,
     "completion_tokens_details": {
-      "reasoning_tokens": 463
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 512,
-    "prompt_cache_miss_tokens": 247
+    "prompt_tokens": 1111,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1349,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 9,
   "items": [
@@ -22,6 +22,14 @@
       "evidence": "2018-03-05",
       "block": 2,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F3"
     },
@@ -30,6 +38,14 @@
       "evidence": "2019-07-16",
       "block": 3,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F4"
     },
@@ -38,6 +54,14 @@
       "evidence": "2017-11-02",
       "block": 4,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F5"
     },
@@ -46,6 +70,14 @@
       "evidence": "2021-04-19",
       "block": 5,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F6"
     },
@@ -54,6 +86,14 @@
       "evidence": "2022-08-01",
       "block": 6,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F7"
     },
@@ -62,6 +102,14 @@
       "evidence": "2020-02-24",
       "block": 7,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F8"
     },
@@ -70,6 +118,14 @@
       "evidence": "2023-06-12",
       "block": 8,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F9"
     },
@@ -78,8 +134,24 @@
       "evidence": "2022-09-05",
       "block": 9,
       "file": "员工信息表.xlsx",
+      "head": "入职日期",
+      "colheads": [
+        "入职日期",
+        "2018-03-05",
+        "2019-07-16",
+        "2017-11-02",
+        "2021-04-19"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 F10"
     }
-  ]
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "入职日期",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
 }

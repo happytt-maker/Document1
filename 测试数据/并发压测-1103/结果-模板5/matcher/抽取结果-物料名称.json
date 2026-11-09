@@ -1,0 +1,396 @@
+{
+  "col": "物料名称",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 8.25,
+  "usage": {
+    "completion_tokens": 583,
+    "completion_tokens_details": {
+      "reasoning_tokens": 40
+    },
+    "prompt_tokens": 2080,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2663,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 30,
+  "items": [
+    {
+      "value": "谐波减速器",
+      "evidence": "谐波减速器",
+      "block": 8,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B2"
+    },
+    {
+      "value": "直线导轨",
+      "evidence": "直线导轨",
+      "block": 9,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B3"
+    },
+    {
+      "value": "单晶硅棒",
+      "evidence": "单晶硅棒",
+      "block": 10,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B4"
+    },
+    {
+      "value": "变频器",
+      "evidence": "变频器",
+      "block": 11,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B5"
+    },
+    {
+      "value": "高纯石墨坩埚",
+      "evidence": "高纯石墨坩埚",
+      "block": 12,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B6"
+    },
+    {
+      "value": "联轴器",
+      "evidence": "联轴器",
+      "block": 13,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B7"
+    },
+    {
+      "value": "永磁同步电机",
+      "evidence": "永磁同步电机",
+      "block": 14,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B8"
+    },
+    {
+      "value": "直线导轨",
+      "evidence": "直线导轨",
+      "block": 15,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B9"
+    },
+    {
+      "value": "滚珠丝杠",
+      "evidence": "滚珠丝杠",
+      "block": 16,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B10"
+    },
+    {
+      "value": "谐波减速器",
+      "evidence": "谐波减速器",
+      "block": 17,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B11"
+    },
+    {
+      "value": "铝合金型材",
+      "evidence": "铝合金型材",
+      "block": 18,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B12"
+    },
+    {
+      "value": "伺服驱动器",
+      "evidence": "伺服驱动器",
+      "block": 19,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B13"
+    },
+    {
+      "value": "液压油",
+      "evidence": "液压油",
+      "block": 20,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B14"
+    },
+    {
+      "value": "变频器",
+      "evidence": "变频器",
+      "block": 21,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B15"
+    },
+    {
+      "value": "密封圈",
+      "evidence": "密封圈",
+      "block": 22,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B16"
+    },
+    {
+      "value": "继电器",
+      "evidence": "继电器",
+      "block": 23,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B17"
+    },
+    {
+      "value": "滚珠丝杠",
+      "evidence": "滚珠丝杠",
+      "block": 24,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B18"
+    },
+    {
+      "value": "密封圈",
+      "evidence": "密封圈",
+      "block": 25,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B19"
+    },
+    {
+      "value": "PLC 控制器",
+      "evidence": "PLC 控制器",
+      "block": 26,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B20"
+    },
+    {
+      "value": "控制电缆",
+      "evidence": "控制电缆",
+      "block": 27,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B21"
+    },
+    {
+      "value": "气动元件",
+      "evidence": "气动元件",
+      "block": 28,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B22"
+    },
+    {
+      "value": "滚珠丝杠",
+      "evidence": "滚珠丝杠",
+      "block": 29,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B23"
+    },
+    {
+      "value": "直线导轨",
+      "evidence": "直线导轨",
+      "block": 30,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "谐波减速器",
+        "直线导轨",
+        "单晶硅棒",
+        "变频器"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 B24"
+    }
+  ],
+  "history": {
+    "head": "物料名称",
+    "file": "05-年度经营分析报告.docx",
+    "n": 30,
+    "whole": true,
+    "cross_file": true
+  }
+}

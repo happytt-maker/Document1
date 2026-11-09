@@ -1,0 +1,159 @@
+{
+  "col": "部门",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 4.56,
+  "usage": {
+    "completion_tokens": 255,
+    "completion_tokens_details": {
+      "reasoning_tokens": 77
+    },
+    "prompt_tokens": 1069,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1324,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 9,
+  "items": [
+    {
+      "value": "制造中心",
+      "evidence": "制造中心",
+      "block": 3,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D3"
+    },
+    {
+      "value": "财务部",
+      "evidence": "财务部",
+      "block": 4,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D4"
+    },
+    {
+      "value": "研发中心",
+      "evidence": "研发中心",
+      "block": 5,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D5"
+    },
+    {
+      "value": "采购部",
+      "evidence": "采购部",
+      "block": 6,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D6"
+    },
+    {
+      "value": "信息化管理部",
+      "evidence": "信息化管理部",
+      "block": 7,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D7"
+    },
+    {
+      "value": "制造中心",
+      "evidence": "制造中心",
+      "block": 8,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D8",
+      "aligned": "same_value_once"
+    },
+    {
+      "value": "综合管理部",
+      "evidence": "综合管理部",
+      "block": 9,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D9"
+    },
+    {
+      "value": "研发中心",
+      "evidence": "研发中心",
+      "block": 10,
+      "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 D10",
+      "aligned": "same_value_once"
+    }
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "部门",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
+}

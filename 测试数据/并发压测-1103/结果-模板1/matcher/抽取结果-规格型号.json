@@ -1,0 +1,396 @@
+{
+  "col": "规格型号",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 9.72,
+  "usage": {
+    "completion_tokens": 753,
+    "completion_tokens_details": {
+      "reasoning_tokens": 72
+    },
+    "prompt_tokens": 2128,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2881,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 30,
+  "items": [
+    {
+      "value": "XK-2254B",
+      "evidence": "XK-2254B",
+      "block": 8,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行2·列3"
+    },
+    {
+      "value": "MC-3880B",
+      "evidence": "MC-3880B",
+      "block": 9,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行3·列3"
+    },
+    {
+      "value": "ZK-4912S",
+      "evidence": "ZK-4912S",
+      "block": 10,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行4·列3"
+    },
+    {
+      "value": "CK-4563B",
+      "evidence": "CK-4563B",
+      "block": 11,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行5·列3"
+    },
+    {
+      "value": "CK-529",
+      "evidence": "CK-529",
+      "block": 12,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行6·列3"
+    },
+    {
+      "value": "HMC-8316A",
+      "evidence": "HMC-8316A",
+      "block": 13,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行7·列3"
+    },
+    {
+      "value": "TK-1185T",
+      "evidence": "TK-1185T",
+      "block": 14,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行8·列3"
+    },
+    {
+      "value": "VMC-7537S",
+      "evidence": "VMC-7537S",
+      "block": 15,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行9·列3"
+    },
+    {
+      "value": "VMC-6554",
+      "evidence": "VMC-6554",
+      "block": 16,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行10·列3"
+    },
+    {
+      "value": "HMC-5682S",
+      "evidence": "HMC-5682S",
+      "block": 17,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行11·列3"
+    },
+    {
+      "value": "DM-5629T",
+      "evidence": "DM-5629T",
+      "block": 18,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行12·列3"
+    },
+    {
+      "value": "MC-3859A",
+      "evidence": "MC-3859A",
+      "block": 19,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行13·列3"
+    },
+    {
+      "value": "VMC-6226B",
+      "evidence": "VMC-6226B",
+      "block": 20,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行14·列3"
+    },
+    {
+      "value": "CK-8248A",
+      "evidence": "CK-8248A",
+      "block": 21,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行15·列3"
+    },
+    {
+      "value": "VMC-9530A",
+      "evidence": "VMC-9530A",
+      "block": 22,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行16·列3"
+    },
+    {
+      "value": "VMC-6826S",
+      "evidence": "VMC-6826S",
+      "block": 23,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行17·列3"
+    },
+    {
+      "value": "VMC-2946A",
+      "evidence": "VMC-2946A",
+      "block": 24,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行18·列3"
+    },
+    {
+      "value": "TK-9050A",
+      "evidence": "TK-9050A",
+      "block": 25,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行19·列3"
+    },
+    {
+      "value": "MC-331T",
+      "evidence": "MC-331T",
+      "block": 26,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行20·列3"
+    },
+    {
+      "value": "XK-8086S",
+      "evidence": "XK-8086S",
+      "block": 27,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行21·列3"
+    },
+    {
+      "value": "ZK-2751",
+      "evidence": "ZK-2751",
+      "block": 28,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行22·列3"
+    },
+    {
+      "value": "MC-7298",
+      "evidence": "MC-7298",
+      "block": 29,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行23·列3"
+    },
+    {
+      "value": "MC-8356T",
+      "evidence": "MC-8356T",
+      "block": 30,
+      "file": "01-设备采购档案.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "XK-2254B",
+        "MC-3880B",
+        "ZK-4912S",
+        "CK-4563B"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行24·列3"
+    }
+  ],
+  "history": {
+    "head": "规格型号",
+    "file": "01-设备采购档案.docx",
+    "n": 30,
+    "whole": true,
+    "cross_file": true
+  }
+}

@@ -1,19 +1,19 @@
 {
   "col": "任务内容",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 11.18,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 4.69,
   "usage": {
-    "prompt_tokens": 759,
-    "completion_tokens": 2384,
-    "total_tokens": 3143,
-    "prompt_tokens_details": {
-      "cached_tokens": 512
-    },
+    "completion_tokens": 153,
     "completion_tokens_details": {
-      "reasoning_tokens": 2266
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 512,
-    "prompt_cache_miss_tokens": 247
+    "prompt_tokens": 1082,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1235,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 6,
   "items": [
@@ -22,6 +22,14 @@
       "evidence": "完成数据接入模块开发",
       "block": 2,
       "file": "项目推进会会议纪要.docx",
+      "head": "任务内容",
+      "colheads": [
+        "任务内容",
+        "完成数据接入模块开发",
+        "编写接口文档",
+        "算法调优实验（第二轮）",
+        "整理测试用例集（不少于 300 条）"
+      ],
       "line": null,
       "loc_text": "表格1 · 行2·列2"
     },
@@ -30,6 +38,14 @@
       "evidence": "编写接口文档",
       "block": 3,
       "file": "项目推进会会议纪要.docx",
+      "head": "任务内容",
+      "colheads": [
+        "任务内容",
+        "完成数据接入模块开发",
+        "编写接口文档",
+        "算法调优实验（第二轮）",
+        "整理测试用例集（不少于 300 条）"
+      ],
       "line": null,
       "loc_text": "表格1 · 行3·列2"
     },
@@ -38,6 +54,14 @@
       "evidence": "算法调优实验（第二轮）",
       "block": 4,
       "file": "项目推进会会议纪要.docx",
+      "head": "任务内容",
+      "colheads": [
+        "任务内容",
+        "完成数据接入模块开发",
+        "编写接口文档",
+        "算法调优实验（第二轮）",
+        "整理测试用例集（不少于 300 条）"
+      ],
       "line": null,
       "loc_text": "表格1 · 行4·列2"
     },
@@ -46,6 +70,14 @@
       "evidence": "整理测试用例集（不少于 300 条）",
       "block": 5,
       "file": "项目推进会会议纪要.docx",
+      "head": "任务内容",
+      "colheads": [
+        "任务内容",
+        "完成数据接入模块开发",
+        "编写接口文档",
+        "算法调优实验（第二轮）",
+        "整理测试用例集（不少于 300 条）"
+      ],
       "line": null,
       "loc_text": "表格1 · 行5·列2"
     },
@@ -54,8 +86,24 @@
       "evidence": "服务器资源申请与环境部署",
       "block": 6,
       "file": "项目推进会会议纪要.docx",
+      "head": "任务内容",
+      "colheads": [
+        "任务内容",
+        "完成数据接入模块开发",
+        "编写接口文档",
+        "算法调优实验（第二轮）",
+        "整理测试用例集（不少于 300 条）"
+      ],
       "line": null,
       "loc_text": "表格1 · 行6·列2"
     }
-  ]
+  ],
+  "only_file": "项目推进会会议纪要.docx",
+  "history": {
+    "head": "任务内容",
+    "file": "项目推进会会议纪要.docx",
+    "n": 6,
+    "whole": true,
+    "cross_file": false
+  }
 }

@@ -1,0 +1,396 @@
+{
+  "col": "物料编码",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 9.74,
+  "usage": {
+    "completion_tokens": 712,
+    "completion_tokens_details": {
+      "reasoning_tokens": 43
+    },
+    "prompt_tokens": 2154,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2866,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 30,
+  "items": [
+    {
+      "value": "MAT-6A454",
+      "evidence": "MAT-6A454",
+      "block": 8,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A2"
+    },
+    {
+      "value": "MAT-5B075",
+      "evidence": "MAT-5B075",
+      "block": 9,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A3"
+    },
+    {
+      "value": "MAT-7B003",
+      "evidence": "MAT-7B003",
+      "block": 10,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A4"
+    },
+    {
+      "value": "MAT-6F549",
+      "evidence": "MAT-6F549",
+      "block": 11,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A5"
+    },
+    {
+      "value": "MAT-7C005",
+      "evidence": "MAT-7C005",
+      "block": 12,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A6"
+    },
+    {
+      "value": "MAT-1A745",
+      "evidence": "MAT-1A745",
+      "block": 13,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A7"
+    },
+    {
+      "value": "MAT-2A180",
+      "evidence": "MAT-2A180",
+      "block": 14,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A8"
+    },
+    {
+      "value": "MAT-8C356",
+      "evidence": "MAT-8C356",
+      "block": 15,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A9"
+    },
+    {
+      "value": "MAT-7B348",
+      "evidence": "MAT-7B348",
+      "block": 16,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A10"
+    },
+    {
+      "value": "MAT-9B749",
+      "evidence": "MAT-9B749",
+      "block": 17,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A11"
+    },
+    {
+      "value": "MAT-2F017",
+      "evidence": "MAT-2F017",
+      "block": 18,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A12"
+    },
+    {
+      "value": "MAT-4F362",
+      "evidence": "MAT-4F362",
+      "block": 19,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A13"
+    },
+    {
+      "value": "MAT-3D953",
+      "evidence": "MAT-3D953",
+      "block": 20,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A14"
+    },
+    {
+      "value": "MAT-6F949",
+      "evidence": "MAT-6F949",
+      "block": 21,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A15"
+    },
+    {
+      "value": "MAT-8F484",
+      "evidence": "MAT-8F484",
+      "block": 22,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A16"
+    },
+    {
+      "value": "MAT-6D667",
+      "evidence": "MAT-6D667",
+      "block": 23,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A17"
+    },
+    {
+      "value": "MAT-6B453",
+      "evidence": "MAT-6B453",
+      "block": 24,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A18"
+    },
+    {
+      "value": "MAT-3D363",
+      "evidence": "MAT-3D363",
+      "block": 25,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A19"
+    },
+    {
+      "value": "MAT-6C830",
+      "evidence": "MAT-6C830",
+      "block": 26,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A20"
+    },
+    {
+      "value": "MAT-6C408",
+      "evidence": "MAT-6C408",
+      "block": 27,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A21"
+    },
+    {
+      "value": "MAT-1F438",
+      "evidence": "MAT-1F438",
+      "block": 28,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A22"
+    },
+    {
+      "value": "MAT-6F255",
+      "evidence": "MAT-6F255",
+      "block": 29,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A23"
+    },
+    {
+      "value": "MAT-2A630",
+      "evidence": "MAT-2A630",
+      "block": 30,
+      "file": "05-原材料库存盘点明细.xlsx",
+      "head": "物料编码",
+      "colheads": [
+        "物料编码",
+        "MAT-6A454",
+        "MAT-5B075",
+        "MAT-7B003",
+        "MAT-6F549"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存盘点」 A24"
+    }
+  ],
+  "history": {
+    "head": "物料编码",
+    "file": "05-年度经营分析报告.docx",
+    "n": 30,
+    "whole": true,
+    "cross_file": true
+  }
+}

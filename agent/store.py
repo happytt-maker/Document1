@@ -5,19 +5,25 @@ store.py —— 模块（2）· 第 4 步：提取结果入库（数据库存储
 赛题原文（模块2）："...提取文件文本关键信息、实体数据或用户指定内容，进行数据库存储操作"，
 并"确保信息的保真度与入库的规范性"。
 
-职责：把三条提取线（用户指定内容 / 关键信息画像 / 实体数据）的产物统一落进 MySQL，
-     供按文档、按类型、按关键词查询。
+职责：把提取产物统一落进 MySQL，供按文档、按类型、按关键词查询。
+
+      ⚠️ 2026-11-05 起主入口是「统一知识抽取」（knowledge.py）：
+      先归纳文档自身结构（doc_schemas），再按 对象/属性/关系/事件/要点 五类入库（knowledge_items）。
+      下面的三条老线（用户指定内容 / 关键信息画像 / 实体数据）**保留但不再是默认** ——
+      用户明确说"抽实体""出画像"时才走，老验收脚本仍靠它们。
 
 设计：
-- 库复用 a23_agent（与 commands/imports 同库，模块内管下列 5 张新表）
-- 五张表：
+- 库复用 a23_agent（与 commands/imports 同库，模块内管下列 7 张新表）
+- 七张表：
     documents      文档登记（进过库的文档：格式/来源/首见/最近）
-    entities       实体数据（7 类：类型/值/次数/出处/摘抄/核验/批次）
-    profiles       文档画像主表（主题/文档类型）
-    profile_items  画像明细（要点 point / 关键要素 element：正文/摘抄/出处）
-    extractions    用户指定内容（字段提取明细：字段/值/原文摘抄/出处）
+    entities       实体数据（7 类：类型/值/次数/出处/摘抄/核验/批次）      ← 老线
+    profiles       文档画像主表（主题/文档类型）                          ← 老线
+    profile_items  画像明细（要点 point / 关键要素 element：正文/摘抄/出处）  ← 老线
+    extractions    用户指定内容（字段提取明细：字段/值/原文摘抄/出处）      ← 老线
+    doc_schemas    文档结构（领域/用途/对象及其属性/关注点）              ← 新线
+    knowledge_items 知识条目（object/attribute/relation/event/summary）   ← 新线
 - 保真度：每条数据都带 quote（原文摘抄）+ loc（出处坐标），与产物文件一字不差
-- 规范性：幂等入库（同文档同类型同值 → 先查后写；重复跑不膨胀、不重复）
+- 规范性：老线幂等入库（同文档同类型同值 → 先查后写）；新线按文档"先删后插"（重跑即覆盖，不会叠）
 - 批次：每次入库生成 run_id（时间戳），同批数据同一批次号，可追溯
 - 两条入口：
     实时 —— edit.py 执行完自动调用 save_any(产物 json)（"提取即入库"）
@@ -35,7 +41,9 @@ store.py —— 模块（2）· 第 4 步：提取结果入库（数据库存储
 """
 
 import json
+import re
 import sys
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
@@ -129,6 +137,50 @@ def ensure_tables() -> str:
                     INDEX idx_doc (doc_name(120)),
                     INDEX idx_field (field)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='A23 模块2 用户指定内容提取'
+            """)
+            # ---- 统一知识抽取（2026-11-05）：文档自己长出来的结构 + 一条条知识 ----
+            # 为什么不再分 entities / profiles / extractions：
+            # 那三张表的列是按"系统预想的分类"固定的；换行业就装不下。
+            # 这两张表只记"文档说了什么"，对象类型/属性名都是文档自己的说法。
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS doc_schemas (
+                    id          INT AUTO_INCREMENT PRIMARY KEY,
+                    doc_name    VARCHAR(255) NOT NULL COMMENT '文档名',
+                    domain      VARCHAR(64)  NULL     COMMENT '业务领域（文档自述）',
+                    doc_type    VARCHAR(64)  NULL     COMMENT '文档类型',
+                    purpose     TEXT         NULL     COMMENT '用途/一句话说明',
+                    objects     LONGTEXT     NULL     COMMENT '对象清单 JSON：类型/记录形态/属性',
+                    attr_keys   LONGTEXT     NULL     COMMENT '属性名清单 JSON（这份文档长出来的词表）',
+                    requirement TEXT         NULL     COMMENT '用户关注点原话',
+                    source      VARCHAR(16)  NULL     COMMENT 'model=模型归纳 / structure=骨架直读',
+                    run_id      VARCHAR(32)  NULL,
+                    ts          DATETIME     NOT NULL,
+                    UNIQUE KEY uk_doc (doc_name(200))
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='A23 文档知识结构（每份文档自己的schema）'
+            """)
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS knowledge_items (
+                    id          INT AUTO_INCREMENT PRIMARY KEY,
+                    doc_name    VARCHAR(255)  NOT NULL COMMENT '来源文档',
+                    kind        VARCHAR(16)   NOT NULL COMMENT 'object/attribute/relation/event/summary',
+                    obj_type    VARCHAR(64)   NULL     COMMENT '业务对象类型（文档自己的说法）',
+                    obj_name    VARCHAR(255)  NULL     COMMENT '对象实例标识',
+                    attr        VARCHAR(128)  NULL     COMMENT '属性名（文档自己的说法）',
+                    value       VARCHAR(1200) NULL     COMMENT '值（原文写法）',
+                    unit        VARCHAR(24)   NULL     COMMENT '单位',
+                    quote       VARCHAR(1000) NULL     COMMENT '原文摘抄',
+                    loc         VARCHAR(255)  NULL     COMMENT '出处坐标',
+                    verified    TINYINT       NULL     COMMENT '1=值逐字可核 / 0=仅摘抄可溯',
+                    focus       TINYINT       NULL     COMMENT '1=命中用户关注点',
+                    source      VARCHAR(24)   NULL     COMMENT 'table / text:exact / text:quote-only / schema',
+                    run_id      VARCHAR(32)   NULL,
+                    ts          DATETIME      NOT NULL,
+                    INDEX idx_doc (doc_name(120)),
+                    INDEX idx_kind (kind),
+                    INDEX idx_obj (obj_type),
+                    INDEX idx_attr (attr),
+                    INDEX idx_val (value(120))
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='A23 文档知识条目（对象/属性/关系/事件/要点）'
             """)
     finally:
         conn.close()
@@ -391,6 +443,12 @@ def stats() -> dict:
     out = {}
     for t in ("documents", "entities", "profiles", "profile_items", "extractions"):
         out[t] = _q("SELECT COUNT(*) AS n FROM `%s`" % t)[0]["n"]
+    # 统一知识表（2026-11-05）：还没建表时不要让整个统计挂掉
+    for t in ("doc_schemas", "knowledge_items"):
+        try:
+            out[t] = _q("SELECT COUNT(*) AS n FROM `%s`" % t)[0]["n"]
+        except Exception:
+            out[t] = 0
     rows = _q("SELECT MAX(ts) AS m FROM entities")
     out["last_ts"] = str(rows[0]["m"]) if rows and rows[0]["m"] else None
     return out
@@ -451,6 +509,468 @@ def search(q: str, limit=100):
               "FROM extractions WHERE value LIKE %s ORDER BY doc_name LIMIT %s",
               ("%" + q + "%", int(limit)))
     return (ents + flds)[:limit]
+
+
+# ================================================================
+#  统一知识抽取（2026-11-05）：写入 / 查询
+# ================================================================
+
+def save_knowledge(doc_name: str, schema: dict, units: list,
+                   run_id: str = None, requirement: str = "") -> dict:
+    """把一份文档的知识结构与条目写进库。
+
+    语义是「这份文档的最新理解」：先删旧条目再整批写入。
+    不做增量合并 —— 增量会让"上次抽错的那条"永远赖在库里，
+    而知识抽取本来就是可重跑的只读操作，重跑即覆盖最符合直觉。
+
+    返回 {"db", "line", "n"}。
+    """
+    run_id = run_id or NOW().replace("-", "").replace(":", "").replace(" ", "")
+    conn = get_conn(with_db=True)
+    try:
+        with conn.cursor() as cur:
+            _touch_document(cur, doc_name)
+            cur.execute("DELETE FROM knowledge_items WHERE doc_name=%s", (doc_name,))
+            rows = []
+            for u in units:
+                rows.append((
+                    doc_name, u.get("kind") or "attribute",
+                    (u.get("obj_type") or "")[:64], (u.get("obj_name") or "")[:255],
+                    (u.get("attr") or "")[:128], (u.get("value") or "")[:1200],
+                    (u.get("unit") or "")[:24], (u.get("quote") or "")[:1000],
+                    (u.get("loc") or "")[:255],
+                    1 if u.get("verified") else 0, 1 if u.get("focus") else 0,
+                    (u.get("source") or "")[:24], run_id, NOW(),
+                ))
+            if rows:
+                cur.executemany("""
+                    INSERT INTO knowledge_items
+                      (doc_name, kind, obj_type, obj_name, attr, value, unit, quote, loc,
+                       verified, focus, source, run_id, ts)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                """, rows)
+            objs = schema.get("objects") or []
+            attrs = []
+            for o in objs:
+                for a in o.get("attrs") or []:
+                    attrs.append(a.get("name"))
+            cur.execute("""
+                INSERT INTO doc_schemas
+                  (doc_name, domain, doc_type, purpose, objects, attr_keys,
+                   requirement, source, run_id, ts)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                ON DUPLICATE KEY UPDATE
+                  domain=VALUES(domain), doc_type=VALUES(doc_type), purpose=VALUES(purpose),
+                  objects=VALUES(objects), attr_keys=VALUES(attr_keys),
+                  requirement=VALUES(requirement), source=VALUES(source),
+                  run_id=VALUES(run_id), ts=VALUES(ts)
+            """, (doc_name, (schema.get("domain") or "")[:64], (schema.get("doc_type") or "")[:64],
+                  schema.get("purpose") or "",
+                  json.dumps(objs, ensure_ascii=False),
+                  json.dumps(list(dict.fromkeys(attrs)), ensure_ascii=False),
+                  requirement or "", schema.get("source") or "", run_id, NOW()))
+        conn.commit()
+    finally:
+        conn.close()
+
+    cnt = {}
+    for u in units:
+        cnt[u.get("kind")] = cnt.get(u.get("kind"), 0) + 1
+    line = "已写入 %d 条（%s）· 领域「%s」· 结构 %s" % (
+        len(units),
+        " / ".join("%s%d" % (k, v) for k, v in sorted(cnt.items())),
+        schema.get("domain") or "未识别",
+        "模型归纳" if schema.get("source") == "model" else "文档骨架直读")
+    from db import load_config
+    return {"db": load_config()["database"], "line": line, "n": len(units), "counts": cnt}
+
+
+def query_knowledge(doc=None, kind=None, obj_type=None, q=None, limit=300):
+    sql = "SELECT * FROM knowledge_items WHERE 1=1"
+    args = []
+    if doc:
+        sql += " AND doc_name LIKE %s"; args.append("%" + doc + "%")
+    if kind:
+        sql += " AND kind=%s"; args.append(kind)
+    if obj_type:
+        sql += " AND obj_type LIKE %s"; args.append("%" + obj_type + "%")
+    if q:
+        sql += " AND (value LIKE %s OR attr LIKE %s OR obj_name LIKE %s)"
+        args += ["%" + q + "%"] * 3
+    sql += " ORDER BY doc_name, kind, obj_type, id LIMIT %s"
+    args.append(int(limit))
+    return _q(sql, args)
+
+
+def knowledge_stats():
+    """知识视图统计：按 kind、按领域、按对象类型。"""
+    out = {"items": 0, "docs": 0, "by_kind": {}, "by_domain": {}, "by_obj": [], "last_ts": None}
+    rows = _q("SELECT kind, COUNT(*) AS n FROM knowledge_items GROUP BY kind")
+    out["by_kind"] = {r["kind"]: r["n"] for r in rows}
+    out["items"] = sum(out["by_kind"].values())
+    rows = _q("SELECT COUNT(*) AS n FROM doc_schemas")
+    out["docs"] = rows[0]["n"] if rows else 0
+    rows = _q("SELECT domain, COUNT(*) AS n FROM doc_schemas GROUP BY domain ORDER BY n DESC")
+    out["by_domain"] = {r["domain"] or "未识别": r["n"] for r in rows}
+    rows = _q("SELECT obj_type, COUNT(*) AS n FROM knowledge_items "
+              "WHERE kind='attribute' GROUP BY obj_type ORDER BY n DESC LIMIT 12")
+    out["by_obj"] = [{"obj_type": r["obj_type"], "n": r["n"]} for r in rows]
+    rows = _q("SELECT MAX(ts) AS m FROM knowledge_items")
+    out["last_ts"] = str(rows[0]["m"]) if rows and rows[0]["m"] else None
+    return out
+
+
+def get_schema(doc: str):
+    rows = _q("SELECT * FROM doc_schemas WHERE doc_name LIKE %s ORDER BY ts DESC LIMIT 1",
+              ("%" + doc + "%",))
+    return rows[0] if rows else None
+
+
+def list_schemas(limit=100):
+    rows = _q("SELECT doc_name, domain, doc_type, purpose, attr_keys, source, ts "
+              "FROM doc_schemas ORDER BY ts DESC LIMIT %s", (int(limit),))
+    return rows
+
+
+def knowledge_docs(limit=300):
+    """有知识的文档清单（数据仓库左栏用）：每份带条目数 / 对象数 / 属性数 / 领域。
+
+    2026-11-05 加：之前前端只能把所有文档的条目混在一张表里，
+    用户没法"点进某个文档看它抽到了什么"。
+    """
+    rows = _q("SELECT doc_name, COUNT(*) AS items, "
+              "COUNT(DISTINCT obj_type) AS objs, "
+              "SUM(CASE WHEN kind='attribute' THEN 1 ELSE 0 END) AS attrs, "
+              "SUM(CASE WHEN kind='summary' THEN 1 ELSE 0 END) AS points, "
+              "MAX(ts) AS ts "
+              "FROM knowledge_items GROUP BY doc_name ORDER BY ts DESC LIMIT %s",
+              (int(limit),))
+    dom = {r["doc_name"]: r for r in _q(
+        "SELECT doc_name, domain, doc_type, requirement FROM doc_schemas")}
+    for r in rows:
+        s = dom.get(r["doc_name"]) or {}
+        r["domain"] = s.get("domain") or ""
+        r["doc_type"] = s.get("doc_type") or ""
+        r["requirement"] = s.get("requirement") or ""
+        r["ts"] = str(r["ts"]) if r.get("ts") else ""
+    return rows
+
+
+def knowledge_doc_detail(doc: str, limit=3000):
+    """一份文档的完整视图：结构 + 按对象分组 + 每个属性的值清单。
+
+    返回：
+      schema   结构（解析好的 objects / attr_keys / requirement）
+      counts   各类条目数
+      groups   对象 → 该对象的条目（属性在前，同属性按 id 稳定）
+      lists    属性 → 去重值列表（"这份文档里有哪些城市"就是看这里）
+    """
+    if not doc:
+        return None
+    rows = _q("SELECT * FROM knowledge_items WHERE doc_name=%s "
+              "ORDER BY kind, obj_type, obj_name, id LIMIT %s", (doc, int(limit)))
+    if not rows:
+        rows = _q("SELECT * FROM knowledge_items WHERE doc_name LIKE %s "
+                  "ORDER BY kind, obj_type, obj_name, id LIMIT %s",
+                  ("%" + doc + "%", int(limit)))
+    if not rows:
+        return None
+    real = rows[0]["doc_name"]
+    sch = _q("SELECT * FROM doc_schemas WHERE doc_name=%s ORDER BY ts DESC LIMIT 1", (real,))
+    schema = sch[0] if sch else {}
+    if schema:
+        for k in ("objects", "attr_keys"):
+            try:
+                schema[k] = json.loads(schema.get(k) or "[]")
+            except Exception:
+                schema[k] = []
+        schema["ts"] = str(schema["ts"]) if schema.get("ts") else ""
+
+    counts = {}
+    groups, lists = {}, {}
+    seen_val = {}
+    for r in rows:
+        counts[r["kind"]] = counts.get(r["kind"], 0) + 1
+        r["ts"] = str(r["ts"]) if r.get("ts") else ""
+        key = r["obj_type"] or "未分类"
+        groups.setdefault(key, []).append(r)
+        if r["kind"] == "attribute" and r["attr"]:
+            k2 = (r["obj_type"], r["attr"])
+            if k2 not in lists:
+                lists[k2] = []
+                seen_val[k2] = set()
+            v = (r.get("value") or "").strip()
+            if v and v not in seen_val[k2]:
+                seen_val[k2].add(v)
+                lists[k2].append({"value": v, "unit": r.get("unit") or "",
+                                  "obj_name": r.get("obj_name") or "",
+                                  "loc": r.get("loc") or "",
+                                  "verified": bool(r.get("verified")),
+                                  "focus": bool(r.get("focus"))})
+    list_out = [{"obj_type": k[0], "attr": k[1], "n": len(v), "values": v}
+                for k, v in lists.items()]
+    list_out.sort(key=lambda x: -x["n"])
+    return {"doc_name": real, "schema": schema, "counts": counts,
+            "total": len(rows), "groups": groups, "lists": list_out}
+
+
+# ================================================================
+#  知识图谱（2026-11-07 增强：多属性推导关系 · 多视角切换）
+# ================================================================
+#
+#  一条条目只说明"某个对象有某个属性"；真正让图连起来的是属性之间、
+#  对象之间的**重合**。所以这里不只画字面写出的东西，还按可核验的重合
+#  推导关系（全部有据可查，不做任何猜测）：
+#
+#    rel     库里明确写出的关系：主体 -[谓词]-> 客体
+#    attr    对象 -[属性名]-> 属性值（只属于这一个对象的值）
+#    shared  同一个值被 ≥2 个对象使用，或同一个值出现在不同属性名下
+#            （"苏州精诚自动化"既是某运单的"收件人"、又是某物料的"供应商"）
+#            → 这是两个对象之间真实存在的纽带，不是模型猜的
+#    type    同属一个 obj_type：对象 -[属于]-> 类型中枢
+#    doc     出自同一份文档：对象 -[出自]-> 文档中枢
+#
+#  views 决定画哪几类，默认 rel,attr,shared,type；doc 会引入文档节点，
+#  由前端"同文档"视角按需请求。
+
+_GRAPH_ORDER = {"rel": 0, "shared": 1, "link": 2, "attr": 3, "type": 4, "doc": 5}
+_GRAPH_ATTR_SKIP = {"序号", "序列", "序列号", "no", "No", "NO", "编号序号", "#"}
+_GRAPH_TYPE_SKIP = {"关系", "事件", "要点", "summary", "relation", "event"}
+_NUM_ONLY = re.compile(r"^[+-]?\d+(\.\d+)?$")
+
+
+def _grel_target(value):
+    """relation 的 value 形如「主体 → 客体」；兼容 -> / —> / =>。"""
+    for sep in ("→", "->", "—>", "=>"):
+        if sep in value:
+            return value.split(sep)[-1].strip()
+    return ""
+
+
+def _short_doc(name):
+    """文档节点标签：去扩展名、去版本尾巴，太长截断。"""
+    s = str(name or "").strip()
+    for ext in (".docx", ".doc", ".xlsx", ".xls", ".pdf", ".md", ".txt"):
+        if s.lower().endswith(ext):
+            s = s[: -len(ext)]
+            break
+    return s if len(s) <= 26 else s[:24] + "…"
+
+
+def knowledge_graph(doc=None, limit=6000, max_nodes=260, max_edges=900,
+                    views=None, min_shared=2, collapse=False):
+    """把知识条目拼成多关系图谱（2026-11-07 增强）。
+
+    返回 {"nodes", "edges", "stats", "relation_types", "docs", "truncated"}。
+    每条边都带 kind（怎么来的）与 label（哪条属性能读出来），
+    前端据此做视角切换与关系筛选；不做任何模型臆造。
+
+    collapse=True 时多做一种"关系转换"：把「A -[性别]-> 值(男) <-[性别]- B」
+    这种经值节点中转的两跳关系，折叠成「A -[性别=男]-> B」的直接关系。
+    用户就能一眼看到"这两个对象为什么相关"，而不是自己顺着值节点看两跳。
+    用户数超过 8 的大团不折叠（会变成几十条边糊成一团），仍走值节点。
+    """
+    want = [x.strip() for x in str(views or "rel,shared,type").split(",") if x.strip()]
+    want = [x for x in want if x in _GRAPH_ORDER] or ["rel", "shared", "type"]
+    want_set = set(want)
+    min_shared = max(2, int(min_shared or 2))
+
+    sql = ("SELECT doc_name, kind, obj_type, obj_name, attr, value "
+           "FROM knowledge_items")
+    args = []
+    if doc:
+        sql += " WHERE doc_name=%s"
+        args.append(doc)
+    sql += " LIMIT %s"
+    rows = _q(sql, args + [int(limit)])
+
+    attrs = defaultdict(list)        # 对象 → [(属性, 值)]
+    otypes = {}                      # 对象 → 类型
+    odocs = defaultdict(list)        # 对象 → [文档]
+    val_owner = defaultdict(set)     # 值 → {用到它的对象}
+    val_attr = defaultdict(set)      # 值 → {指向它的属性名}
+    rels = []
+
+    for r in rows:
+        kind = r.get("kind")
+        if kind == "relation":
+            subj = (r.get("obj_name") or "").strip()
+            pred = (r.get("attr") or "").strip()
+            obj = _grel_target(r.get("value") or "")
+            if subj and pred and obj and subj != obj:
+                rels.append((subj, pred, obj))
+            continue
+        if kind != "attribute":
+            continue
+        o = (r.get("obj_name") or "").strip()
+        a = (r.get("attr") or "").strip()
+        v = (r.get("value") or "").strip()
+        if not (o and a and v):
+            continue
+        if len(v) > 26 or "\n" in v:      # 长段落画不成节点
+            continue
+        if len(v) == 1 and _NUM_ONLY.match(v):
+            continue                      # "1""2" 这种当枢纽只是噪音
+        attrs[o].append((a, v))
+        otypes.setdefault(o, (r.get("obj_type") or "").strip())
+        d = (r.get("doc_name") or "").strip()
+        if d and d not in odocs[o]:
+            odocs[o].append(d)
+        val_owner[v].add(o)
+        val_attr[v].add(a)
+
+    edges, seen = [], set()
+
+    def add(s, t, label, kind, w=1, **extra):
+        key = (s, t, label, kind)
+        if key in seen:
+            return
+        seen.add(key)
+        e = {"s": s, "t": t, "label": label, "kind": kind, "w": w}
+        e.update(extra)
+        edges.append(e)
+
+    # ① 字面写出的关系
+    if "rel" in want_set:
+        for subj, pred, obj in rels:
+            add("o:" + subj, "o:" + obj, pred, "rel", 3)
+
+    # ② 属性边；值被别人用过 → 升格成 shared（这就是"多出来的关系"）
+    #    collapse 时 shared 不画在值节点上，改由下面的 link 边直接连对象
+    if "attr" in want_set or ("shared" in want_set and not collapse):
+        for o, pairs in attrs.items():
+            for a, v in pairs:
+                if a in _GRAPH_ATTR_SKIP:
+                    continue
+                users = val_owner.get(v) or set()
+                names = val_attr.get(v) or set()
+                cross = (len(names) >= 2 and len(users) >= 2
+                         and not _NUM_ONLY.match(v))
+                shared = len(users) >= min_shared or cross
+                kind = "shared" if shared else "attr"
+                if shared and collapse:
+                    continue
+                if kind not in want_set:
+                    continue
+                add("o:" + o, "v:" + v, a, kind,
+                    len(users) if shared else 1,
+                    cross=bool(cross), users=len(users))
+
+    # ②b 关系转换：A -[性别]-> 男 <-[性别]- B   ⇒   A -[性别=男]-> B
+    #     对象太多了会糊成一团，所以只用 2~8 个对象共用的小团
+    if collapse and ("shared" in want_set or "link" in want_set):
+        for v, users in val_owner.items():
+            if not (min_shared <= len(users) <= 8):
+                continue
+            names = sorted(val_attr.get(v) or [])
+            if not names:
+                continue
+            lab = "%s=%s" % (names[0], v)
+            ul = sorted(users)
+            for i in range(len(ul)):
+                for j in range(i + 1, len(ul)):
+                    add("o:" + ul[i], "o:" + ul[j], lab, "link", len(ul))
+
+    # ③ 类型中枢
+    if "type" in want_set:
+        for o, t in otypes.items():
+            if not t or t in _GRAPH_TYPE_SKIP:
+                continue
+            add("o:" + o, "t:" + t, "属于", "type", 1)
+
+    # ④ 文档中枢
+    if "doc" in want_set:
+        for o, ds in odocs.items():
+            for d in ds:
+                add("o:" + o, "d:" + d, "出自", "doc", 1)
+
+    total_edges = len(edges)
+    total_nodes = len(attrs) + len(val_owner)
+    # 先保显式关系，再保共享度高的（w 大的），最后才是普通属性
+    edges.sort(key=lambda e: (_GRAPH_ORDER[e["kind"]], -int(e.get("w") or 1), e["label"]))
+    if len(edges) > max_edges:
+        edges = edges[:int(max_edges)]
+
+    # ---- 由边反推节点（保证不出现孤立点）----
+    nodes, order = {}, []
+    for e in edges:
+        for nid in (e["s"], e["t"]):
+            if nid in nodes:
+                continue
+            if nid.startswith("o:"):
+                nm = nid[2:]
+                nodes[nid] = {"id": nid, "label": nm[:40], "type": "object",
+                              "group": otypes.get(nm) or "关系对象",
+                              "docs": odocs.get(nm, [])[:3],
+                              "n_attr": len(attrs.get(nm, []))}
+            elif nid.startswith("v:"):
+                v = nid[2:]
+                names = sorted(val_attr.get(v) or [])
+                users = len(val_owner.get(v) or ())
+                nodes[nid] = {"id": nid, "label": v[:24], "type": "value",
+                              "group": names[0] if names else "",
+                              "n_obj": users, "attrs": names[:5],
+                              "cross": len(names) >= 2 and not _NUM_ONLY.match(v)}
+            elif nid.startswith("t:"):
+                nodes[nid] = {"id": nid, "label": nid[2:][:24], "type": "type",
+                              "group": "类型", "docs": [], "n_attr": 0}
+            else:
+                nm = nid[2:]
+                nodes[nid] = {"id": nid, "label": _short_doc(nm), "type": "doc",
+                              "group": "文档", "docs": [], "n_attr": 0}
+            order.append(nid)
+
+    for n in nodes.values():
+        n["deg"] = 0
+    for e in edges:
+        nodes[e["s"]]["deg"] += 1
+        nodes[e["t"]]["deg"] += 1
+
+    # 节点仍超限：对象全保，其余按度数留（值节点是最容易砍的）
+    if len(nodes) > int(max_nodes):
+        ranked = sorted(nodes.values(),
+                        key=lambda n: (0 if n["type"] == "object" else 1, -n["deg"]))
+        keep = {n["id"] for n in ranked[:int(max_nodes)]}
+        nodes = {k: v for k, v in nodes.items() if k in keep}
+        edges = [e for e in edges if e["s"] in nodes and e["t"] in nodes]
+        for n in nodes.values():          # 度数按最终保留的边重算
+            n["deg"] = 0
+        for e in edges:
+            nodes[e["s"]]["deg"] += 1
+            nodes[e["t"]]["deg"] += 1
+
+    # ---- 关系类型清单（前端图例 / 筛选 / 侧栏用）----
+    rt = defaultdict(int)
+    for e in edges:
+        rt[(e["kind"], e["label"])] += 1
+    relation_types = [{"kind": k, "label": l, "n": n}
+                      for (k, l), n in sorted(rt.items(), key=lambda x: (-x[1], x[0][0]))]
+
+    by_kind = defaultdict(int)
+    for e in edges:
+        by_kind[e["kind"]] += 1
+    shared_vals = [v for v in val_owner if len(val_owner[v]) >= min_shared]
+    cross_vals = [v for v in val_attr
+                  if len(val_attr[v]) >= 2 and len(val_owner.get(v) or ()) >= 2
+                  and not _NUM_ONLY.match(v)]
+    stats = {
+        "rows": len(rows),
+        "objects": len(attrs),
+        "values": len(val_owner),
+        "shared_values": len(shared_vals),
+        "cross_values": len(cross_vals),
+        "docs": len({d for ds in odocs.values() for d in ds}),
+        "edges": {k: by_kind.get(k, 0) for k in ("rel", "shared", "link", "attr", "type", "doc")},
+        "nodes": len(nodes),
+        "edge_total": total_edges,
+        "node_total": total_nodes,
+    }
+    return {"nodes": list(nodes.values()), "edges": edges,
+            "stats": stats, "relation_types": relation_types,
+            "views": want,
+            "docs": sorted({d for ds in odocs.values() for d in ds}),
+            "total_rows": len(rows),
+            "truncated": total_edges > len(edges) or total_nodes > len(nodes)}
 
 
 # ================================================================

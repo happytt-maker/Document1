@@ -1,0 +1,157 @@
+{
+  "col": "岗位",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 3.88,
+  "usage": {
+    "completion_tokens": 280,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1068,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1348,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 9,
+  "items": [
+    {
+      "value": "车间主任",
+      "evidence": "（该格所在列的列头：岗位）\n车间主任",
+      "block": 2,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E3"
+    },
+    {
+      "value": "财务主管",
+      "evidence": "（该格所在列的列头：岗位）\n财务主管",
+      "block": 3,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E4"
+    },
+    {
+      "value": "高级工程师",
+      "evidence": "（该格所在列的列头：岗位）\n高级工程师",
+      "block": 4,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E5"
+    },
+    {
+      "value": "采购专员",
+      "evidence": "（该格所在列的列头：岗位）\n采购专员",
+      "block": 5,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E6"
+    },
+    {
+      "value": "数据分析师",
+      "evidence": "（该格所在列的列头：岗位）\n数据分析师",
+      "block": 6,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E7"
+    },
+    {
+      "value": "产线组长",
+      "evidence": "（该格所在列的列头：岗位）\n产线组长",
+      "block": 7,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E8"
+    },
+    {
+      "value": "人事专员",
+      "evidence": "（该格所在列的列头：岗位）\n人事专员",
+      "block": 8,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E9"
+    },
+    {
+      "value": "算法工程师",
+      "evidence": "（该格所在列的列头：岗位）\n算法工程师",
+      "block": 9,
+      "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 E10"
+    }
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "岗位",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
+}

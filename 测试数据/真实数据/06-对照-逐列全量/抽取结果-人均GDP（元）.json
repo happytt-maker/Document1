@@ -1,0 +1,1025 @@
+{
+  "col": "人均GDP（元）",
+  "time": "2026-11-03 19:39",
+  "elapsed_sec": 20.6,
+  "usage": {
+    "completion_tokens": 2238,
+    "completion_tokens_details": {
+      "reasoning_tokens": 12
+    },
+    "prompt_tokens": 10658,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 12896,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 113,
+  "items": [
+    {
+      "value": "228020",
+      "evidence": "上海以 56,708.71 亿元的 GDP 总量稳居全国第一，同比增长 5.49%，这座常住人口达 2,487.45 万的国际大都市，人均 GDP 高达 228,020 元",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段"
+    },
+    {
+      "value": "238320",
+      "evidence": "实现 238,320 元的惊人人均 GDP，领跑全国主要城市",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段"
+    },
+    {
+      "value": "217710",
+      "evidence": "1,779.05 万常住人口支撑起 217,710 元的高位人均 GDP",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段"
+    },
+    {
+      "value": "105790",
+      "evidence": "人均 GDP 为 105,790 元",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 9 段"
+    },
+    {
+      "value": "170240",
+      "evidence": "1,882.70 万常住人口对应 170,240 元人均 GDP",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段"
+    },
+    {
+      "value": "213860",
+      "evidence": "1,295.80 万人口创造出 213,860 元人均 GDP",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 11 段"
+    },
+    {
+      "value": "115710",
+      "evidence": "人均 GDP 115,710 元",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段"
+    },
+    {
+      "value": "184080",
+      "evidence": "人均 GDP 184,080 元",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段"
+    },
+    {
+      "value": "160830",
+      "evidence": "人均 GDP 160,830 元",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段"
+    },
+    {
+      "value": "204510",
+      "evidence": "人均 GDP 204,510 元",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段"
+    },
+    {
+      "value": "190970",
+      "evidence": "人均 GDP 190,970 元",
+      "block": 16,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段"
+    },
+    {
+      "value": "135920",
+      "evidence": "人均 GDP 135,920 元",
+      "block": 17,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段"
+    },
+    {
+      "value": "170440",
+      "evidence": "人均 GDP 170,440 元",
+      "block": 20,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段"
+    },
+    {
+      "value": "224370",
+      "evidence": "人均 GDP 224,370 元",
+      "block": 21,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段"
+    },
+    {
+      "value": "147370",
+      "evidence": "人均 GDP 147,370 元",
+      "block": 22,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 22 段"
+    },
+    {
+      "value": "116710",
+      "evidence": "人均 GDP 116,710 元",
+      "block": 23,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 23 段"
+    },
+    {
+      "value": "173920",
+      "evidence": "人均 GDP 173,920 元",
+      "block": 24,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 24 段"
+    },
+    {
+      "value": "154190",
+      "evidence": "人均 GDP 154,190 元",
+      "block": 25,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 25 段"
+    },
+    {
+      "value": "146260",
+      "evidence": "人均 GDP 146,260 元",
+      "block": 26,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 26 段"
+    },
+    {
+      "value": "109180",
+      "evidence": "人均 GDP 109,180 元",
+      "block": 27,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 27 段"
+    },
+    {
+      "value": "151260",
+      "evidence": "人均 GDP 151,260 元",
+      "block": 28,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 28 段"
+    },
+    {
+      "value": "170430",
+      "evidence": "人均 GDP 170,430 元",
+      "block": 29,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 29 段"
+    },
+    {
+      "value": "236680",
+      "evidence": "人均 GDP 236,680 元",
+      "block": 30,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 30 段"
+    },
+    {
+      "value": "132210",
+      "evidence": "人均 GDP 132,210 元",
+      "block": 31,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 31 段"
+    },
+    {
+      "value": "119050",
+      "evidence": "人均 GDP 119,050 元",
+      "block": 32,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 32 段"
+    },
+    {
+      "value": "169080",
+      "evidence": "人均 GDP 169,080 元",
+      "block": 33,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 33 段"
+    },
+    {
+      "value": "149270",
+      "evidence": "人均 GDP 149,270 元",
+      "block": 34,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 34 段"
+    },
+    {
+      "value": "116240",
+      "evidence": "人均 GDP 116,240 元",
+      "block": 35,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 35 段"
+    },
+    {
+      "value": "135590",
+      "evidence": "人均 GDP 135,590 元",
+      "block": 36,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 36 段"
+    },
+    {
+      "value": "103120",
+      "evidence": "人均 GDP 103,120 元",
+      "block": 37,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 37 段"
+    },
+    {
+      "value": "107890",
+      "evidence": "人均 GDP 107,890 元",
+      "block": 40,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 40 段"
+    },
+    {
+      "value": "179050",
+      "evidence": "人均 GDP 179,050 元",
+      "block": 41,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 41 段"
+    },
+    {
+      "value": "106500",
+      "evidence": "人均 GDP 106,500 元",
+      "block": 42,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 42 段"
+    },
+    {
+      "value": "197990",
+      "evidence": "人均 GDP 197,990 元",
+      "block": 43,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 43 段"
+    },
+    {
+      "value": "165740",
+      "evidence": "人均 GDP 165,740 元",
+      "block": 44,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 44 段"
+    },
+    {
+      "value": "131130",
+      "evidence": "人均 GDP 131,130 元",
+      "block": 45,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 45 段"
+    },
+    {
+      "value": "158020",
+      "evidence": "人均 GDP 158,020 元",
+      "block": 46,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 46 段"
+    },
+    {
+      "value": "188930",
+      "evidence": "人均 GDP 188,930 元",
+      "block": 47,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 47 段"
+    },
+    {
+      "value": "117510",
+      "evidence": "人均 GDP 117,510 元",
+      "block": 48,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 48 段"
+    },
+    {
+      "value": "228000",
+      "evidence": "人均 GDP 228,000 元",
+      "block": 49,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 49 段"
+    },
+    {
+      "value": "200050",
+      "evidence": "人均 GDP 200,050 元",
+      "block": 50,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 50 段"
+    },
+    {
+      "value": "130470",
+      "evidence": "人均 GDP 130,470 元",
+      "block": 51,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 51 段"
+    },
+    {
+      "value": "315440",
+      "evidence": "人均 GDP 315,440 元",
+      "block": 52,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 52 段"
+    },
+    {
+      "value": "69870",
+      "evidence": "人均 GDP 69,870 元",
+      "block": 53,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 53 段"
+    },
+    {
+      "value": "82480",
+      "evidence": "人均 GDP 82,480 元",
+      "block": 54,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 54 段"
+    },
+    {
+      "value": "80050",
+      "evidence": "人均 GDP 80,050 元",
+      "block": 55,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 55 段"
+    },
+    {
+      "value": "336750",
+      "evidence": "人均 GDP 336,750 元",
+      "block": 56,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 56 段"
+    },
+    {
+      "value": "88030",
+      "evidence": "人均 GDP 88,030 元",
+      "block": 57,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 57 段"
+    },
+    {
+      "value": "153200",
+      "evidence": "人均 GDP 153,200 元",
+      "block": 58,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 58 段"
+    },
+    {
+      "value": "223710",
+      "evidence": "人均 GDP 223,710 元",
+      "block": 59,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 59 段"
+    },
+    {
+      "value": "129680",
+      "evidence": "人均 GDP 129,680 元",
+      "block": 60,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 60 段"
+    },
+    {
+      "value": "71840",
+      "evidence": "人均 GDP 71,840 元",
+      "block": 61,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 61 段"
+    },
+    {
+      "value": "75390",
+      "evidence": "人均 GDP 75,390 元",
+      "block": 62,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 62 段"
+    },
+    {
+      "value": "136700",
+      "evidence": "人均 GDP 136,700 元",
+      "block": 63,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 63 段"
+    },
+    {
+      "value": "164000",
+      "evidence": "人均 GDP 164,000 元",
+      "block": 64,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 64 段"
+    },
+    {
+      "value": "68590",
+      "evidence": "人均 GDP 68,590 元",
+      "block": 65,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 65 段"
+    },
+    {
+      "value": "97000",
+      "evidence": "人均 GDP 97,000 元",
+      "block": 66,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 66 段"
+    },
+    {
+      "value": "130490",
+      "evidence": "人均 GDP 130,490 元",
+      "block": 67,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 67 段"
+    },
+    {
+      "value": "116390",
+      "evidence": "人均 GDP 116,390 元",
+      "block": 68,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 68 段"
+    },
+    {
+      "value": "115360",
+      "evidence": "人均 GDP 115,360 元",
+      "block": 69,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 69 段"
+    },
+    {
+      "value": "128300",
+      "evidence": "人均 GDP 128,300 元",
+      "block": 70,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 70 段"
+    },
+    {
+      "value": "107270",
+      "evidence": "人均 GDP 107,270 元",
+      "block": 71,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 71 段"
+    },
+    {
+      "value": "148590",
+      "evidence": "人均 GDP 148,590 元",
+      "block": 72,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 72 段"
+    },
+    {
+      "value": "91980",
+      "evidence": "人均 GDP 91,980 元",
+      "block": 73,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 73 段"
+    },
+    {
+      "value": "62210",
+      "evidence": "人均 GDP 62,210 元",
+      "block": 74,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 74 段"
+    },
+    {
+      "value": "148520",
+      "evidence": "人均 GDP 148,520 元",
+      "block": 75,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 75 段"
+    },
+    {
+      "value": "108000",
+      "evidence": "人均 GDP 108,000 元",
+      "block": 76,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 76 段"
+    },
+    {
+      "value": "90030",
+      "evidence": "人均 GDP 90,030 元",
+      "block": 77,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 77 段"
+    },
+    {
+      "value": "148270",
+      "evidence": "人均 GDP 148,270 元",
+      "block": 78,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 78 段"
+    },
+    {
+      "value": "82080",
+      "evidence": "人均 GDP 82,080 元",
+      "block": 79,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 79 段"
+    },
+    {
+      "value": "108850",
+      "evidence": "人均 GDP 108,850 元",
+      "block": 80,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 80 段"
+    },
+    {
+      "value": "89160",
+      "evidence": "人均 GDP 89,160 元",
+      "block": 81,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 81 段"
+    },
+    {
+      "value": "67840",
+      "evidence": "人均 GDP 67,840 元",
+      "block": 82,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 82 段"
+    },
+    {
+      "value": "71350",
+      "evidence": "人均 GDP 71,350 元",
+      "block": 83,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 83 段"
+    },
+    {
+      "value": "79540",
+      "evidence": "人均 GDP 79,540 元",
+      "block": 84,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 84 段"
+    },
+    {
+      "value": "86780",
+      "evidence": "人均 GDP 86,780 元",
+      "block": 85,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 85 段"
+    },
+    {
+      "value": "107300",
+      "evidence": "人均 GDP 107,300 元",
+      "block": 86,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 86 段"
+    },
+    {
+      "value": "69620",
+      "evidence": "人均 GDP 69,620 元",
+      "block": 87,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 87 段"
+    },
+    {
+      "value": "54710",
+      "evidence": "人均 GDP 54,710 元",
+      "block": 88,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 88 段"
+    },
+    {
+      "value": "58840",
+      "evidence": "人均 GDP 58,840 元",
+      "block": 89,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 89 段"
+    },
+    {
+      "value": "81750",
+      "evidence": "人均 GDP 81,750 元",
+      "block": 90,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 90 段"
+    },
+    {
+      "value": "155860",
+      "evidence": "人均 GDP 155,860 元",
+      "block": 91,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 91 段"
+    },
+    {
+      "value": "59060",
+      "evidence": "人均 GDP 59,060 元",
+      "block": 92,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 92 段"
+    },
+    {
+      "value": "90470",
+      "evidence": "人均 GDP 90,470 元",
+      "block": 93,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 93 段"
+    },
+    {
+      "value": "117080",
+      "evidence": "人均 GDP 117,080 元",
+      "block": 94,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 94 段"
+    },
+    {
+      "value": "42560",
+      "evidence": "人均 GDP 42,560 元",
+      "block": 95,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 95 段"
+    },
+    {
+      "value": "78390",
+      "evidence": "人均 GDP 78,390 元",
+      "block": 96,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 96 段"
+    },
+    {
+      "value": "117970",
+      "evidence": "人均 GDP 117,970 元",
+      "block": 97,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 97 段"
+    },
+    {
+      "value": "80750",
+      "evidence": "人均 GDP 80,750 元",
+      "block": 98,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 98 段"
+    },
+    {
+      "value": "85850",
+      "evidence": "人均 GDP 85,850 元",
+      "block": 99,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 99 段"
+    },
+    {
+      "value": "71380",
+      "evidence": "人均 GDP 71,380 元",
+      "block": 100,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 100 段"
+    },
+    {
+      "value": "63350",
+      "evidence": "人均 GDP 63,350 元",
+      "block": 101,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 101 段"
+    },
+    {
+      "value": "130090",
+      "evidence": "人均 GDP 130,090 元",
+      "block": 102,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 102 段"
+    },
+    {
+      "value": "87630",
+      "evidence": "人均 GDP 87,630 元",
+      "block": 103,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 103 段"
+    },
+    {
+      "value": "91610",
+      "evidence": "人均 GDP 91,610 元",
+      "block": 104,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 104 段"
+    },
+    {
+      "value": "59850",
+      "evidence": "人均 GDP 59,850 元",
+      "block": 105,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 105 段"
+    },
+    {
+      "value": "132000",
+      "evidence": "人均 GDP 132,000 元",
+      "block": 106,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 106 段"
+    },
+    {
+      "value": "77900",
+      "evidence": "人均 GDP 77,900 元",
+      "block": 107,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 107 段"
+    },
+    {
+      "value": "52620",
+      "evidence": "人均 GDP 52,620 元",
+      "block": 108,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 108 段"
+    },
+    {
+      "value": "74100",
+      "evidence": "人均 GDP 74,100 元",
+      "block": 109,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 109 段"
+    }
+  ],
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（113 段，无一处带列头），整篇 11099 字进候选"
+  }
+}

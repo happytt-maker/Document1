@@ -9,3 +9,17 @@ requests==2.34.2
 edge-tts==7.3.1
 faster-whisper==1.2.1
 websockets==17.3
+
+# ---- 扫描版 PDF / 图片 OCR（不装也能跑，只是没有 OCR 能力）----
+# pymupdf：PDF 拆页 + 把扫描页渲染成图
+# rapidocr_onnxruntime：中文 OCR 引擎（PP-OCR 模型随包自带，离线可用）
+#   它会顺带装 opencv-python / shapely / pyclipper / onnxruntime，合计约 120MB
+pymupdf==2.0
+rapidocr_onnxruntime==1.2.3
+
+# ---- 字段语义匹配（本地向量，离线不联网；不装也能跑，只是少"语义"这一路）----
+# onnxruntime：推理 bge-small-zh 的 ONNX 图（OCR 引擎也会顺带装它）
+# tokenizers ：中文分词（HuggingFace 的 Rust 实现，很小）
+# 模型 91MB 不随仓库走，首次使用跑：python agent/下载语义模型.py
+onnxruntime==1.31.0
+tokenizers==0.20.3

@@ -53,6 +53,12 @@ DEFAULT_TEMPLATE = "模板4-客诉处理台账.xlsx"
 TEMPLATE_DIR = os.environ.get("A23_TEMPLATE_DIR",
                               str(HERE / "测试数据" / "模板表格"))
 
+# 产物目录（2026-11-03）：默认仍在 matcher/ 与 writer/输出/；
+# 并发跑多个任务时由调用方用环境变量指到各自的任务目录，互不覆盖。
+# 下面的 brief_* 摘要按同一约定读 —— 否则产物挪了位置，日志就全是"没读到"。
+RES_DIR = Path(os.environ.get("A23_MATCHER_DIR") or (HERE / "matcher"))
+OUT_DIR = Path(os.environ.get("A23_OUT_DIR") or (HERE / "writer" / "输出"))
+
 
 # ==================================================================
 # 工具
@@ -116,17 +122,22 @@ def brief_read():
 
 def brief_template(template_name):
     """② 之后：从 模板表结构.json 报模板张数 + 目标模板结构。"""
-    data = read_json(HERE / "template_reader" / "模板表结构.json")
+    # 结构文件位置跟 ② 用的是同一个（A23_STRUCTURE_JSON 指到任务目录时别再读默认那份）
+    p = Path(os.environ.get("A23_STRUCTURE_JSON")
+             or (HERE / "template_reader" / "模板表结构.json"))
+    data = read_json(p)
     if not data:
         return "（没读到 模板表结构.json）"
     s = "共 %d 张模板" % len(data)
     for item in data:
         if item.get("file") == template_name:
-            sh = item["sheets"][0]
-            fr = sh.get("fill_region") or {}
-            s += " ｜ 目标：表头第 %s 行 / %d 列 / 待填 %s 行" % (
-                sh.get("header_row"), len(sh.get("columns", [])),
-                fr.get("row_count", "?"))
+            sheets = item.get("sheets") or []
+            s += " ｜ 目标：%d 块" % len(sheets)
+            for sh in sheets:
+                fr = sh.get("fill_region") or {}
+                s += " ｜ %s 表头第 %s 行 / %d 列 / 待填 %s 行" % (
+                    sh.get("name") or "?", sh.get("header_row"),
+                    len(sh.get("columns", [])), fr.get("row_count", "?"))
     return s
 
 
@@ -134,7 +145,7 @@ def brief_extract():
     """③ 之后：从 运行摘要.txt + 最新评测报告 抓数字。"""
     bits = []
 
-    p = HERE / "matcher" / "运行摘要.txt"
+    p = RES_DIR / "运行摘要.txt"
     if p.exists():
         t = p.read_text(encoding="utf-8")
         m = re.search(r"墙钟总耗时.*?：([\d.]+) 秒", t)
@@ -144,7 +155,7 @@ def brief_extract():
         if m:
             bits.append("%s/%s 列成功" % (m.group(1), m.group(2)))
 
-    reps = sorted((HERE / "matcher").glob("评测报告-*.txt"),
+    reps = sorted(RES_DIR.glob("评测报告-*.txt"),
                   key=lambda f: f.stat().st_mtime)
     if reps:
         t = reps[-1].read_text(encoding="utf-8")
@@ -165,7 +176,7 @@ def brief_fill(template_name):
     """④ 之后：从填表报告抓 写入/覆盖 数。"""
     stem = Path(template_name).stem
     tag = "-word" if str(template_name).lower().endswith(".docx") else ""
-    p = HERE / "writer" / "输出" / ("填表报告-%s%s.txt" % (stem, tag))
+    p = OUT_DIR / ("填表报告-%s%s.txt" % (stem, tag))
     if not p.exists():
         return "（没读到填表报告）"
     t = p.read_text(encoding="utf-8")
@@ -186,7 +197,7 @@ def brief_verify(template_name):
     """⑤ 之后：从验收报告抓 值/格式/结论。"""
     stem = Path(template_name).stem
     tag = "-word" if str(template_name).lower().endswith(".docx") else ""
-    p = HERE / "writer" / "输出" / ("验收报告-%s%s.txt" % (stem, tag))
+    p = OUT_DIR / ("验收报告-%s%s.txt" % (stem, tag))
     if not p.exists():
         return "（没读到验收报告）"
     t = p.read_text(encoding="utf-8")
@@ -259,7 +270,10 @@ def main():
 
     # ---------------- ② 理解模板 ----------------
     # 把「模板目录」传给读取器：读的是同一批模板（默认目录 / A23_TEMPLATE_DIR）
-    sec, code, out = run_stage(HERE / "template_reader", ["main.py", TEMPLATE_DIR])
+    # --only：只解析这一张。真实数据常把源文档和模板放在同一文件夹，
+    # 全读一遍会把 2 万行的源表也当模板解析（实测 ② 7.1 秒 → 0.3 秒）。
+    sec, code, out = run_stage(HERE / "template_reader",
+                               ["main.py", TEMPLATE_DIR, "--only", template_name])
     if code != 0:
         w("【② 理解模板】失败（返回码 %d）" % code)
         w(tail(out))
@@ -280,6 +294,53 @@ def main():
         return stop_and_report("抽取失败")
     w("【③ 抽取 + 评测】完成 ｜ %.2f 秒" % sec)
     w("    " + brief_extract())
+    # 字段语义匹配的对照（2026-10-26）：模板列名在这份源文档里换了说法时，
+    # matcher 会打一行【字段语义匹配】。透传到流水线日志，界面才看得到"凭什么这么填"。
+    _lines = (out or "").splitlines()
+    for _i, _ln in enumerate(_lines):
+        if "【字段语义匹配】" in _ln:
+            w("【③ 字段语义匹配】" + _ln.split("】", 1)[-1])
+            for _nxt in _lines[_i + 1:_i + 9]:
+                if _nxt.startswith("  ") and "→" in _nxt:
+                    w(_nxt)
+                else:
+                    break
+
+    # 用户要求与行条件（2026-11-03）：真实数据这一趟的教训 —— 要求里写着
+    # "日期从 2020/7/1 到 2020/8/31"，但整条链路没人读它，于是系统交出 15 行
+    # 区间外的数据、还报"6/6 列成功"。把条件透传到日志，界面才看得到"凭什么只填这些行"。
+    for _ln in _lines:
+        if _ln.startswith("【用户要求】"):
+            w("【③ 用户要求】" + _ln.split("】", 1)[-1])
+        elif _ln.startswith("【行条件】"):
+            w("【③ 行条件】" + _ln.split("】", 1)[-1])
+    for _ln in _lines:
+        _s = _ln.strip()
+        if _s.startswith(("直通：主表", "行筛选：", "整列搬完")):
+            w("【③ 直通】" + _s)
+        elif _s.startswith("⚠") or "回落到大模型" in _s:
+            # 直通没走成也要说清楚为什么 —— 否则界面上只看到"主表是某某表"，
+            # 看不出它其实已经退回去了（2026-11-07 山东那次就吃了这个亏）
+            w("【③ 直通】" + _s)
+
+    # 定源与历史参照（2026-11-02）：这两条决定"这一列从哪份文档、哪个列头抽"，
+    # 是"凭什么这么填"的上游依据。同样透传，否则界面上只看到结果、看不到推理。
+    _want = ("定源：", "→ 主源", "历史参照：", "命中历史：", "列映射：")
+    for _ln in _lines:
+        for _w in _want:
+            if _ln.startswith(_w):
+                _body = _ln[len(_w):].lstrip("：= ").lstrip()
+                _tag = "定源" if ("定源" in _w or "主源" in _w) else "历史参照"
+                w("【③ %s】%s" % (_tag, _body))
+                break
+    for _i, _ln in enumerate(_lines):
+        if _ln.startswith("【历史参照】本次实际生效"):
+            w("【③ 历史参照】" + _ln.split("】", 1)[-1])
+            for _nxt in _lines[_i + 1:_i + 9]:
+                if _nxt.startswith("  "):
+                    w(_nxt)
+                else:
+                    break
     w()
 
     # ---------------- ④ 写回表格 ----------------
@@ -307,7 +368,7 @@ def main():
         w("【⑤ 写回验收】注意：验收发现问题，请打开报告查看")
         w("    " + brief_verify(template_name))
         w()
-        w("    报告：writer/输出/验收报告-%s.txt" % stem)
+        w("    报告：%s" % (OUT_DIR / ("验收报告-%s.txt" % stem)))
         w()
     elif code != 0:
         w("【⑤ 写回验收】失败（返回码 %d）" % code)
@@ -325,12 +386,12 @@ def main():
     w("总耗时：%.2f 秒（赛题红线：≤90 秒/份文档；具体计时口径待主办方确认，此处按整条流水线对照）" % total)
     w("产物：")
     if str(template_name).lower().endswith(".docx"):
-        w("  交卷文件 → writer/输出/%s-已填写.docx" % stem)
-        w("  验收报告 → writer/输出/验收报告-%s-word.txt" % stem)
+        w("  交卷文件 → %s" % (OUT_DIR / ("%s-已填写.docx" % stem)))
+        w("  验收报告 → %s" % (OUT_DIR / ("验收报告-%s-word.txt" % stem)))
     else:
-        w("  交卷文件 → writer/输出/%s-已填写.xlsx" % stem)
-        w("  验收报告 → writer/输出/验收报告-%s.txt" % stem)
-    w("  评测报告 → matcher/评测报告-*.txt")
+        w("  交卷文件 → %s" % (OUT_DIR / ("%s-已填写.xlsx" % stem)))
+        w("  验收报告 → %s" % (OUT_DIR / ("验收报告-%s.txt" % stem)))
+    w("  评测报告 → %s" % (RES_DIR / "评测报告-*.txt"))
     w("=" * 64)
     write_log()
 

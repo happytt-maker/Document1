@@ -108,8 +108,12 @@ def plan_stored_name(raw_name: str) -> Path:
 
 # ==================== 核心：单文件入池 ====================
 
-def add(path) -> dict:
-    """把一个文件解析并入池（同名文档替换 = 重传更新）。返回摘要 dict。"""
+def add(path, doc_override=None) -> dict:
+    """把一个文件解析并入池（同名文档替换 = 重传更新）。返回摘要 dict。
+
+    doc_override：已经解析好的文档对象（来自 OCR 预览），给了就不重复解析。
+                  ——「先识别看一眼、再并入文档库」就不会白 OCR 两遍。
+    """
     path = Path(path)
     if not path.exists():
         return {"ok": False, "error": "文件不存在：%s" % path}
@@ -119,10 +123,14 @@ def add(path) -> dict:
                          % (path.suffix or "未知", " / ".join(SUPPORTED))}
 
     t0 = time.time()
-    try:
-        doc = read_one(path)                            # ← 自动识别格式并解析
-    except Exception as e:
-        return {"ok": False, "error": "解析失败：%s: %s" % (type(e).__name__, e)}
+    if doc_override is not None:
+        doc = dict(doc_override)                        # 浅拷贝：别把缓存对象改坏
+        doc["file"] = path.name                         # 文件名以落盘名为准
+    else:
+        try:
+            doc = read_one(path)                        # ← 自动识别格式并解析
+        except Exception as e:
+            return {"ok": False, "error": "解析失败：%s: %s" % (type(e).__name__, e)}
     if doc is None:
         return {"ok": False, "error": "读取器不认识这个文件格式"}
 
@@ -140,7 +148,69 @@ def add(path) -> dict:
     return {"ok": True, "file": doc["file"], "type": doc.get("type"),
             "blocks": len(doc.get("blocks", [])),
             "elapsed": round(time.time() - t0, 2),
-            "replaced": replaced}
+            "replaced": replaced,
+            # PDF / 图片才有：几页、其中几页是扫描页走了 OCR、OCR 平均置信度
+            "page_count": doc.get("page_count"),
+            "ocr_page_count": doc.get("ocr_page_count"),
+            "scanned": bool(doc.get("scanned")),
+            "ocr": bool(doc.get("ocr")),
+            "avg_conf": doc.get("avg_conf"),
+            "notes": doc.get("notes")}
+
+
+def remove(name: str) -> dict:
+    """从检索池里删掉一份【我上传的】文档（2026-11-07）。
+
+    两条安全线：
+      1. 只动 导入文档/ 里的文件 —— 标准库是比赛基线，删了就恢复不了；
+      2. 文件不真删，移到 导入文档/_已删除/ 下（带时间戳），删错了还能捞回来。
+
+    返回 {"ok", "name", "archived", "total"}；失败时 {"ok": False, "error"}。
+    """
+    import shutil
+
+    name = Path(str(name or "")).name
+    if not name:
+        return {"ok": False, "error": "没给文档名"}
+
+    data = load_pool()
+    docs = data.get("documents", [])
+    hit = next((d for d in docs if d.get("file") == name), None)
+    if hit is None:
+        return {"ok": False, "error": "文档库里没有叫「%s」的文档" % name}
+
+    # 定位真实文件：只认 导入文档/ 里的
+    real = None
+    if IMPORT_DIR.exists():
+        for p in IMPORT_DIR.rglob("*"):
+            if p.is_file() and p.name == name and p.parent != (IMPORT_DIR / "_已删除"):
+                real = p
+                break
+    if real is None:
+        return {"ok": False,
+                "error": "「%s」是系统标准文档，不能删除（它是比赛基线，"
+                         "删了之后提取 / 填表都会缺数据）。要改内容请用指令操作它。"
+                         % name}
+
+    archived = ""
+    try:
+        bin_dir = IMPORT_DIR / "_已删除"
+        bin_dir.mkdir(parents=True, exist_ok=True)
+        target = bin_dir / ("%s.%s%s" % (real.stem,
+                                         datetime.now().strftime("%Y%m%d-%H%M%S"),
+                                         real.suffix))
+        shutil.move(str(real), str(target))
+        archived = str(target)
+    except OSError as e:
+        return {"ok": False, "error": "文件删不掉（可能正被打开）：%s" % e}
+
+    data["documents"] = [d for d in docs if d.get("file") != name]
+    data["failed"] = [f for f in data.get("failed", [])
+                      if Path(str(f.get("file", ""))).name != name]
+    _sync_counts(data)
+    _save_pool(data)
+    return {"ok": True, "name": name, "archived": archived,
+            "total": len(data["documents"])}
 
 
 # ==================== 全量重建 / 复位 ====================

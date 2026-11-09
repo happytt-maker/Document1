@@ -1,27 +1,35 @@
 {
   "col": "岗位",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 4.27,
+  "time": "2026-11-02 21:04",
+  "elapsed_sec": 3.35,
   "usage": {
-    "prompt_tokens": 963,
-    "completion_tokens": 797,
-    "total_tokens": 1760,
-    "prompt_tokens_details": {
-      "cached_tokens": 768
-    },
+    "completion_tokens": 176,
     "completion_tokens_details": {
-      "reasoning_tokens": 677
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 768,
-    "prompt_cache_miss_tokens": 195
+    "prompt_tokens": 1068,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1244,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 15,
+  "candidate_count": 9,
   "items": [
     {
       "value": "车间主任",
       "evidence": "车间主任",
       "block": 2,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E3"
     },
@@ -30,6 +38,14 @@
       "evidence": "财务主管",
       "block": 3,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E4"
     },
@@ -38,6 +54,14 @@
       "evidence": "高级工程师",
       "block": 4,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E5"
     },
@@ -46,6 +70,14 @@
       "evidence": "采购专员",
       "block": 5,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E6"
     },
@@ -54,6 +86,14 @@
       "evidence": "数据分析师",
       "block": 6,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E7"
     },
@@ -62,6 +102,14 @@
       "evidence": "产线组长",
       "block": 7,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E8"
     },
@@ -70,6 +118,14 @@
       "evidence": "人事专员",
       "block": 8,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E9"
     },
@@ -78,8 +134,24 @@
       "evidence": "算法工程师",
       "block": 9,
       "file": "员工信息表.xlsx",
+      "head": "岗位",
+      "colheads": [
+        "岗位",
+        "车间主任",
+        "财务主管",
+        "高级工程师",
+        "采购专员"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 E10"
     }
-  ]
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "岗位",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
 }

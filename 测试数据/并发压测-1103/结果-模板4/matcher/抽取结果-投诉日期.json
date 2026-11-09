@@ -1,0 +1,187 @@
+{
+  "col": "投诉日期",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 6.32,
+  "usage": {
+    "completion_tokens": 486,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1144,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1630,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "2026-08-17",
+      "evidence": "投诉日期：2026-08-17",
+      "block": 1,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-06-14",
+      "evidence": "投诉日期：2026-06-14",
+      "block": 2,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 18 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-08-28",
+      "evidence": "投诉日期：2026-08-28",
+      "block": 3,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 26 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-10-14",
+      "evidence": "投诉日期：2025-10-14",
+      "block": 4,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 34 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-03-11",
+      "evidence": "投诉日期：2025-03-11",
+      "block": 5,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 42 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-05-02",
+      "evidence": "投诉日期：2026-05-02",
+      "block": 6,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 50 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-02-15",
+      "evidence": "投诉日期：2025-02-15",
+      "block": 7,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 58 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-03-14",
+      "evidence": "投诉日期：2025-03-14",
+      "block": 8,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 66 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-02-15",
+      "evidence": "投诉日期：2025-02-15",
+      "block": 9,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 74 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-08-07",
+      "evidence": "投诉日期：2025-08-07",
+      "block": 10,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 82 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2025-03-20",
+      "evidence": "投诉日期：2025-03-20",
+      "block": 11,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 90 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-07-01",
+      "evidence": "投诉日期：2026-07-01",
+      "block": 12,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 98 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-08-23",
+      "evidence": "投诉日期：2026-08-23",
+      "block": 13,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 106 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-06-18",
+      "evidence": "投诉日期：2026-06-18",
+      "block": 14,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 114 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2026-09-16",
+      "evidence": "投诉日期：2026-09-16",
+      "block": 15,
+      "file": "02-客户投诉处理档案.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 122 段",
+      "from_paragraph": true
+    }
+  ],
+  "only_file": "02-客户投诉处理档案.docx"
+}

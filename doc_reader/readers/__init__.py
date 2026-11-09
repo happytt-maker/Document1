@@ -5,7 +5,13 @@ readers/__init__.py
 读取器总入口。
 
 按扩展名把文件分派给对应的读取器。
-目前只支持 txt 和 md（第 1 步）。
+
+已经能读：
+  .txt .md        纯文本 / Markdown
+  .docx           Word（段落 + 表格）
+  .xlsx           Excel（多工作表）
+  .pdf            PDF（自带文字层直接抽；扫描页渲染后走 OCR）
+  .png .jpg ...   图片（走 OCR，字读出来当文档用）
 """
 
 from pathlib import Path
@@ -14,6 +20,8 @@ from .txt_reader import read_txt
 from .md_reader import read_md
 from .docx_reader import read_docx
 from .xlsx_reader import read_xlsx
+from .pdf_reader import read_pdf
+from .image_reader import read_image, IMAGE_EXTS
 
 # 扩展名 -> 读取函数
 READERS = {
@@ -22,9 +30,12 @@ READERS = {
     ".markdown": read_md,
     ".docx": read_docx,
     ".xlsx": read_xlsx,
+    ".pdf": read_pdf,
 }
+for _ext in IMAGE_EXTS:
+    READERS[_ext] = read_image
 
-# 目前支持的扩展名（后面加上 docx / xlsx 时，只要往这里加）
+# 目前支持的扩展名（后面加上新格式时，只要往这里加）
 SUPPORTED = sorted(READERS.keys())
 
 

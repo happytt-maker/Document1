@@ -1,0 +1,7 @@
+status=200
+upload ok=True stored=selftest-delete.txt
+doc delete ok=True archived=True
+archived_exists=True
+tpl upload ok=True name=selftest-tpl.xlsx
+tpl delete ok=True archived_exists=True
+missing tpl rejected=404

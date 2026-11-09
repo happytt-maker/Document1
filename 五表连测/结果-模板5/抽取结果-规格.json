@@ -1,101 +1,189 @@
 {
   "col": "规格",
-  "time": "2026-10-11 20:56",
-  "elapsed_sec": 9.21,
+  "time": "2026-11-02 21:06",
+  "elapsed_sec": 4.77,
   "usage": {
-    "prompt_tokens": 989,
-    "completion_tokens": 1994,
-    "total_tokens": 2983,
-    "prompt_tokens_details": {
-      "cached_tokens": 768
-    },
+    "completion_tokens": 390,
     "completion_tokens_details": {
-      "reasoning_tokens": 1806
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 768,
-    "prompt_cache_miss_tokens": 221
+    "prompt_tokens": 1166,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1556,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 15,
+  "candidate_count": 11,
   "items": [
     {
       "value": "SPCC 1.5mm",
-      "evidence": "SPCC 1.5mm",
+      "evidence": "（该格所在列的列头：规格）\nSPCC 1.5mm",
       "block": 2,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C3"
     },
     {
       "value": "6063-T5",
-      "evidence": "6063-T5",
+      "evidence": "（该格所在列的列头：规格）\n6063-T5",
       "block": 3,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C4"
     },
     {
       "value": "6205-2RS",
-      "evidence": "6205-2RS",
+      "evidence": "（该格所在列的列头：规格）\n6205-2RS",
       "block": 4,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C5"
     },
     {
       "value": "750W",
-      "evidence": "750W",
+      "evidence": "（该格所在列的列头：规格）\n750W",
       "block": 5,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C6"
     },
     {
       "value": "DN50",
-      "evidence": "DN50",
+      "evidence": "（该格所在列的列头：规格）\nDN50",
       "block": 6,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C7"
     },
     {
       "value": "M12×60",
-      "evidence": "M12×60",
+      "evidence": "（该格所在列的列头：规格）\nM12×60",
       "block": 7,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C8"
     },
     {
       "value": "46#",
-      "evidence": "46#",
+      "evidence": "（该格所在列的列头：规格）\n46#",
       "block": 8,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C9"
     },
     {
       "value": "1200×800×400",
-      "evidence": "1200×800×400",
+      "evidence": "（该格所在列的列头：规格）\n1200×800×400",
       "block": 9,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C10"
     },
     {
       "value": "YJV 4×25",
-      "evidence": "YJV 4×25",
+      "evidence": "（该格所在列的列头：规格）\nYJV 4×25",
       "block": 10,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C11"
     },
     {
       "value": "环氧底漆",
-      "evidence": "环氧底漆",
+      "evidence": "（该格所在列的列头：规格）\n环氧底漆",
       "block": 11,
       "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 C12"
     }
-  ]
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "规格",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": false
+  }
 }

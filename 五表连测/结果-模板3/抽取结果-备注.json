@@ -1,10 +1,22 @@
 {
   "col": "备注",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 0,
-  "usage": null,
-  "candidate_count": 0,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 1.41,
+  "usage": {
+    "completion_tokens": 17,
+    "completion_tokens_details": {
+      "reasoning_tokens": 10
+    },
+    "prompt_tokens": 1609,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1626,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 24,
   "items": [],
-  "no_candidate": true,
+  "semantic_hints": [],
   "only_file": "项目推进会会议纪要.docx"
 }

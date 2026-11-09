@@ -1,0 +1,190 @@
+{
+  "col": "一般公共预算收入（亿元）",
+  "time": "2026-11-03 19:35",
+  "elapsed_sec": 6.77,
+  "usage": {
+    "completion_tokens": 648,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2145,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2793,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "8500.91",
+      "evidence": "2025 年一般公共预算收入 8,500.91 亿元，同比增长 1.5%",
+      "block": 1,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "6680.60",
+      "evidence": "一般公共预算收入 6,680.60 亿元，同比增长 4.8%，支出 6,845.2 亿元",
+      "block": 2,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "4163.80",
+      "evidence": "一般公共预算收入突破 4,163.80 亿元，同比增长 6.4%",
+      "block": 3,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2735.80",
+      "evidence": "一般公共预算收入跃升至 2,735.80 亿元，反超杭州位居全国第四",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 9 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2184.80",
+      "evidence": "一般公共预算收入大幅增长至 2,184.80 亿元，同比增幅 11.8%",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2490.23",
+      "evidence": "一般公共预算收入 2,490.23 亿元，支出 2,615.4 亿元",
+      "block": 6,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 11 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2000.7",
+      "evidence": "一般公共预算收入 2,000.7 亿元，支出 3,215.8 亿元",
+      "block": 7,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2693.2",
+      "evidence": "一般公共预算收入 2,693.2 亿元，支出 2,810.5 亿元",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1635.4",
+      "evidence": "一般公共预算收入 1,635.4 亿元，支出 2,420.6 亿元",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1620.9",
+      "evidence": "一般公共预算收入 1,620.9 亿元，支出 2,050.3 亿元",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1795.3",
+      "evidence": "一般公共预算收入 1,795.3 亿元，支出 2,105.7 亿元",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2221.7",
+      "evidence": "一般公共预算收入 2,221.7 亿元，支出 2,630.4 亿元",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1425.60",
+      "evidence": "一般公共预算收入 1,425.60 亿元，支出 1,910.2 亿元",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1225.39",
+      "evidence": "一般公共预算收入 1,225.39 亿元，支出 1,310.5 亿元",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1210.50",
+      "evidence": "一般公共预算收入 1,210.50 亿元，支出 1,620.8 亿元",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 22 段",
+      "from_paragraph": true
+    }
+  ],
+  "narrative": {
+    "used": false,
+    "note": "对照实验：关闭叙述体整篇召回，回到按相关度取候选"
+  }
+}

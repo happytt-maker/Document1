@@ -1,101 +1,189 @@
 {
   "col": "物料名称",
-  "time": "2026-10-11 20:56",
-  "elapsed_sec": 3.7,
+  "time": "2026-11-02 21:06",
+  "elapsed_sec": 3.6,
   "usage": {
-    "prompt_tokens": 920,
-    "completion_tokens": 778,
-    "total_tokens": 1698,
-    "prompt_tokens_details": {
-      "cached_tokens": 768
-    },
+    "completion_tokens": 162,
     "completion_tokens_details": {
-      "reasoning_tokens": 500
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 768,
-    "prompt_cache_miss_tokens": 152
+    "prompt_tokens": 1161,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1323,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 12,
+  "candidate_count": 11,
   "items": [
     {
       "value": "冷轧钢板",
-      "evidence": "（该格所在列的列头：物料名称）\n冷轧钢板",
+      "evidence": "冷轧钢板",
       "block": 2,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B3"
     },
     {
       "value": "铝合金型材",
-      "evidence": "（该格所在列的列头：物料名称）\n铝合金型材",
+      "evidence": "铝合金型材",
       "block": 3,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B4"
     },
     {
       "value": "轴承",
-      "evidence": "（该格所在列的列头：物料名称）\n轴承",
+      "evidence": "轴承",
       "block": 4,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B5"
     },
     {
       "value": "伺服电机",
-      "evidence": "（该格所在列的列头：物料名称）\n伺服电机",
+      "evidence": "伺服电机",
       "block": 5,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B6"
     },
     {
       "value": "密封圈",
-      "evidence": "（该格所在列的列头：物料名称）\n密封圈",
+      "evidence": "密封圈",
       "block": 6,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B7"
     },
     {
       "value": "紧固螺栓",
-      "evidence": "（该格所在列的列头：物料名称）\n紧固螺栓",
+      "evidence": "紧固螺栓",
       "block": 7,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B8"
     },
     {
       "value": "液压油",
-      "evidence": "（该格所在列的列头：物料名称）\n液压油",
+      "evidence": "液压油",
       "block": 8,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B9"
     },
     {
       "value": "控制柜",
-      "evidence": "（该格所在列的列头：物料名称）\n控制柜",
+      "evidence": "控制柜",
       "block": 9,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B10"
     },
     {
       "value": "电缆",
-      "evidence": "（该格所在列的列头：物料名称）\n电缆",
+      "evidence": "电缆",
       "block": 10,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B11"
     },
     {
       "value": "防锈漆",
-      "evidence": "（该格所在列的列头：物料名称）\n防锈漆",
+      "evidence": "防锈漆",
       "block": 11,
       "file": "库存盘点表.xlsx",
+      "head": "物料名称",
+      "colheads": [
+        "物料名称",
+        "冷轧钢板",
+        "铝合金型材",
+        "轴承",
+        "伺服电机"
+      ],
       "line": null,
       "loc_text": "工作表「库存明细」 B12"
     }
-  ]
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "物料名称",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": false
+  }
 }

@@ -1,0 +1,149 @@
+{
+  "col": "规格",
+  "time": "2026-11-03 20:32",
+  "elapsed_sec": 5.59,
+  "usage": {
+    "completion_tokens": 357,
+    "completion_tokens_details": {
+      "reasoning_tokens": 31
+    },
+    "prompt_tokens": 1260,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1617,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "HMC-1062B",
+      "evidence": "（该格所在列的列头：规格）HMC-1062B",
+      "block": 8,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D2"
+    },
+    {
+      "value": "DM-8161B",
+      "evidence": "（该格所在列的列头：规格）DM-8161B",
+      "block": 9,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D3"
+    },
+    {
+      "value": "MC-3266",
+      "evidence": "（该格所在列的列头：规格）MC-3266",
+      "block": 10,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D4"
+    },
+    {
+      "value": "CK-9138A",
+      "evidence": "（该格所在列的列头：规格）CK-9138A",
+      "block": 11,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D5"
+    },
+    {
+      "value": "HMC-8015T",
+      "evidence": "（该格所在列的列头：规格）HMC-8015T",
+      "block": 12,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D6"
+    },
+    {
+      "value": "VMC-4953B",
+      "evidence": "（该格所在列的列头：规格）VMC-4953B",
+      "block": 13,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D7"
+    },
+    {
+      "value": "DM-9102",
+      "evidence": "（该格所在列的列头：规格）DM-9102",
+      "block": 14,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D8"
+    },
+    {
+      "value": "TK-3610S",
+      "evidence": "（该格所在列的列头：规格）TK-3610S",
+      "block": 15,
+      "file": "04-销售发货台账.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "HMC-1062B",
+        "DM-8161B",
+        "MC-3266",
+        "CK-9138A"
+      ],
+      "line": null,
+      "loc_text": "工作表「发货台账」 D9"
+    }
+  ]
+}

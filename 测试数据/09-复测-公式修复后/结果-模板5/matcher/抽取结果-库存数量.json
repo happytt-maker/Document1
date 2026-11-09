@@ -1,0 +1,189 @@
+{
+  "col": "库存数量",
+  "time": "2026-11-03 20:52",
+  "elapsed_sec": 4.64,
+  "usage": {
+    "completion_tokens": 350,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1155,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1505,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 11,
+  "items": [
+    {
+      "value": "95",
+      "evidence": "（该格所在列的列头：期末库存）\n95",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H3"
+    },
+    {
+      "value": "47",
+      "evidence": "（该格所在列的列头：期末库存）\n47",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H4"
+    },
+    {
+      "value": "1950",
+      "evidence": "（该格所在列的列头：期末库存）\n1950",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H5"
+    },
+    {
+      "value": "30",
+      "evidence": "（该格所在列的列头：期末库存）\n30",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H6"
+    },
+    {
+      "value": "4500",
+      "evidence": "（该格所在列的列头：期末库存）\n4500",
+      "block": 7,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H7"
+    },
+    {
+      "value": "5400",
+      "evidence": "（该格所在列的列头：期末库存）\n5400",
+      "block": 8,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H8"
+    },
+    {
+      "value": "580",
+      "evidence": "（该格所在列的列头：期末库存）\n580",
+      "block": 9,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H9"
+    },
+    {
+      "value": "6",
+      "evidence": "（该格所在列的列头：期末库存）\n6",
+      "block": 10,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H10"
+    },
+    {
+      "value": "4700",
+      "evidence": "（该格所在列的列头：期末库存）\n4700",
+      "block": 11,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H11"
+    },
+    {
+      "value": "135",
+      "evidence": "（该格所在列的列头：期末库存）\n135",
+      "block": 12,
+      "file": "库存盘点表.xlsx",
+      "head": "期末库存",
+      "colheads": [
+        "期末库存",
+        "95",
+        "47",
+        "1950",
+        "30"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 H12"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "期末库存",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": true
+  }
+}

@@ -1,45 +1,56 @@
 {
   "col": "处理结果",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 2.04,
+  "time": "2026-11-03 22:22",
+  "elapsed_sec": 2.14,
   "usage": {
-    "prompt_tokens": 820,
-    "completion_tokens": 339,
-    "total_tokens": 1159,
-    "prompt_tokens_details": {
-      "cached_tokens": 640
-    },
+    "completion_tokens": 134,
     "completion_tokens_details": {
-      "reasoning_tokens": 208
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 640,
-    "prompt_cache_miss_tokens": 180
+    "prompt_tokens": 1320,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1454,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 3,
+  "candidate_count": 5,
   "items": [
     {
       "value": "更换轴承并补充润滑脂，设备恢复正常，客户确认满意。",
       "evidence": "处理结果：更换轴承并补充润滑脂，设备恢复正常，客户确认满意。",
-      "block": 1,
+      "block": 2,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 11,
       "loc_text": "第 11 行"
     },
     {
       "value": "连续运行 72 小时无中断，客户确认满意。",
       "evidence": "处理结果：连续运行 72 小时无中断，客户确认满意。",
-      "block": 2,
+      "block": 3,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 21,
       "loc_text": "第 21 行"
     },
     {
       "value": "功能恢复正常，客户确认满意。",
       "evidence": "处理结果：功能恢复正常，客户确认满意。",
-      "block": 3,
+      "block": 4,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 31,
       "loc_text": "第 31 行"
     }
-  ]
+  ],
+  "only_file": "客户投诉处理记录.txt",
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（5 段，无一处带列头），整篇 748 字进候选"
+  }
 }

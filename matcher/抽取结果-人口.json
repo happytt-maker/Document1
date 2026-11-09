@@ -1,0 +1,21 @@
+{
+  "col": "人口",
+  "time": "2026-11-03 22:26",
+  "elapsed_sec": 2.35,
+  "usage": {
+    "completion_tokens": 14,
+    "completion_tokens_details": {
+      "reasoning_tokens": 7
+    },
+    "prompt_tokens": 2432,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2446,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 45,
+  "items": [],
+  "semantic_hints": []
+}

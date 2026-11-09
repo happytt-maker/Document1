@@ -1,0 +1,22 @@
+【模板表结构.json】共 5 个模板
+  没找到该模板，已有键：
+    0
+    1
+    2
+    3
+    4
+
+【已产出的抽取结果】
+  抽取结果-单位.json ｜ items=10
+  抽取结果-城市名.json ｜ items=100
+  抽取结果-备注.json ｜ items=5
+  抽取结果-存放库位.json ｜ items=10
+  抽取结果-库存数量.json ｜ items=10
+  抽取结果-是否紧缺.json ｜ items=0
+  抽取结果-物料名称.json ｜ items=10
+  抽取结果-物料编码.json ｜ items=10
+  抽取结果-规格.json ｜ items=10
+  抽取结果-责任判定.json ｜ items=3
+
+【池子】
+  真实数据-pool.json ｜ 56 KB

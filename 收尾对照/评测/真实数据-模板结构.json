@@ -1,0 +1,79 @@
+[
+  {
+    "file": "2025年中国城市经济百强全景报告-模板.xlsx",
+    "format": "xlsx",
+    "sheet_count": 1,
+    "sheets": [
+      {
+        "header_rows": [
+          1
+        ],
+        "header_row": 1,
+        "header_block_note": "单层表头（第 1 行）",
+        "columns": [
+          {
+            "col": 1,
+            "title": "城市名",
+            "aliases": [],
+            "header_parts": [
+              "城市名"
+            ],
+            "slash": false,
+            "slash_parts": []
+          },
+          {
+            "col": 2,
+            "title": "GDP总量（亿元）",
+            "aliases": [],
+            "header_parts": [
+              "GDP总量（亿元）"
+            ],
+            "slash": false,
+            "slash_parts": []
+          },
+          {
+            "col": 3,
+            "title": "常住人口（万）",
+            "aliases": [],
+            "header_parts": [
+              "常住人口（万）"
+            ],
+            "slash": false,
+            "slash_parts": []
+          },
+          {
+            "col": 4,
+            "title": "人均GDP（元）",
+            "aliases": [],
+            "header_parts": [
+              "人均GDP（元）"
+            ],
+            "slash": false,
+            "slash_parts": []
+          },
+          {
+            "col": 5,
+            "title": "一般公共预算收入（亿元）",
+            "aliases": [],
+            "header_parts": [
+              "一般公共预算收入（亿元）"
+            ],
+            "slash": false,
+            "slash_parts": []
+          }
+        ],
+        "label_cols": [],
+        "fill_region": null,
+        "segments": [],
+        "tables": [
+          1
+        ],
+        "name": "Sheet1",
+        "max_row": 1,
+        "max_column": 5,
+        "header_ok": true,
+        "header_note": "文字不带冒号，符合表头特征"
+      }
+    ]
+  }
+]

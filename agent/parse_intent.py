@@ -75,13 +75,31 @@ def as_dir_list(docs_dir) -> list:
     return out
 
 
+def _doc_lib_exts():
+    """「文档库」该列出哪些格式 = doc_reader 能读的格式。
+
+    直接用 readers.SUPPORTED，避免以后加了新格式这里忘记同步
+    （PDF / 图片就是靠这个自动进来的：扫描件 OCR 之后也是"能下指令的文档"）。
+    .doc / .xls 保留了——读不了，但列出来能让用户知道"要另存为"。
+    """
+    try:
+        from readers import SUPPORTED as _sup          # doc_reader 在 sys.path 时
+        return set(_sup) | {".doc", ".xls"}
+    except Exception:
+        pass
+    # 兜底：正常运行不会走到这里（api_server / pool 都会把 doc_reader 加进 path）
+    return {".docx", ".doc", ".xlsx", ".xls", ".md", ".markdown", ".txt",
+            ".pdf", ".png", ".jpg", ".jpeg", ".bmp", ".webp", ".tif", ".tiff"}
+
+
 def scan_docs(docs_dir):
     """扫描文档库（一个目录或多个目录），返回文件名清单（去重、保序）。"""
+    exts = _doc_lib_exts()
     names = []
     seen = set()
     for d in as_dir_list(docs_dir):
         for p in sorted(d.rglob("*")):
-            if p.is_file() and p.suffix.lower() in (".docx", ".doc", ".xlsx", ".xls", ".md", ".txt"):
+            if p.is_file() and p.suffix.lower() in exts:
                 if p.name not in seen:
                     seen.add(p.name)
                     names.append(p.name)
@@ -130,7 +148,7 @@ def build_prompt(text: str, doc_names: list, context: dict = None) -> str:
 【输出格式】严格按这个 JSON 结构（不要多字段、不要少字段）：
 {{
   "action": "编辑 | 排版 | 格式调整 | 内容提取 | 多操作 | 不明确",
-  "op": "replace | insert | delete | insert_image | set_align | set_spacing | set_indent | set_bold | set_italic | set_underline | set_strike | set_highlight | set_font | set_size | set_color | extract | profile | entities | multi | none",
+  "op": "replace | insert | delete | insert_image | set_align | set_spacing | set_indent | set_bold | set_italic | set_underline | set_strike | set_highlight | set_font | set_size | set_color | extract | knowledge | profile | entities | multi | none",
   "doc": "文档文件名（来自文档库清单）；匹配不上写 null",
   "doc_hint": "用户话里对文档的称呼（原话照抄）",
   "locate": {{"by": "whole | keyword | table", "hint": "定位线索（关键词），by=whole 时可留空"}},
@@ -172,8 +190,9 @@ def build_prompt(text: str, doc_names: list, context: dict = None) -> str:
 - set_spacing: {{"spacing": "行距描述（如 1.5 倍）"}}
 - set_indent: {{"indent": "缩进描述（如 首行缩进2字符）"}}
 - extract: {{"fields": ["要提取的字段1", "字段2"]}}——字段名保留关键限定语、尽量对齐文档里的实际叫法（如"每种物料的名称"→"物料名称"，别只写"名称"）；按用户说的顺序列出
-- profile: {{}}（关键信息 / 文档画像——用户说"提取这份文档的关键信息""总结一下这份文档""这份文档讲了什么""生成文档画像"时用 profile；用户点名要具体字段（如"姓名和工号"）时用 extract）
-- entities: {{}}（实体数据识别——用户说"识别/提取这份文档里的实体数据""把实体都列出来""把里面的人名/日期/金额这些抽出来"时用 entities；点名具体字段用 extract，要梗概用 profile）
+- knowledge: {{"requirement": "用户关注点原话，没有就空字符串"}}——**默认的统一抽取**：用户说"自动读懂/自动抽取/提取知识/把关键信息整理入库/这份文档讲了什么并入库"时用它；系统会先归纳这份文档自己的对象和属性再抽，不套固定分类
+- profile: {{}}（旧的关键信息画像——只有用户明确说"生成画像""关键信息画像"时才用）
+- entities: {{}}（旧的实体数据识别——只有用户明确说"识别实体数据""把实体列出来"时才用）
 - 取消类：用户说"取消 / 去掉 / 去除 某种格式"时（如"把标题的加粗去掉"），op 仍用对应的 set_bold / set_italic / set_underline / set_strike / set_highlight，并加上 {{"off": true}}。
 - 注意：斜体、下划线、删除线、高亮是**独立的 op**（set_italic / set_underline / set_strike / set_highlight），绝不要塞进 set_font 的 font 参数里。
 
@@ -294,12 +313,43 @@ def parse_json_reply(text: str):
         return None
 
 
+_KNOW_PAT = re.compile(r"(自动读懂|自动抽取|自动提取知识|抽取知识|知识入库|整理入库|自动识别文档|深度理解|读懂这份文档)")
+
+
+def quick_knowledge(text: str, doc_names: list):
+    """「自动读懂/自动抽取」这类指令直接定 op=knowledge，不调模型。
+
+    为什么要在解析器里加这条短路：
+      "提取XX的关键信息" 是老画像线的说法（老验收脚本还在用），不能改它的含义；
+      但用户新说的"自动读懂/自动抽取/整理入库"必须落到统一抽取上。
+      靠模型判断容易被老示例带偏，加一条确定性规则最稳，还省一次调用。
+    """
+    if not _KNOW_PAT.search(text or ""):
+        return None
+    doc = None
+    for n in doc_names or []:
+        stem = Path(n).stem
+        if n in text or (stem and stem in text):
+            doc = n
+            break
+    req = ""
+    m = re.search(r"(?:重点关注|关注点?|重点看|重点)\s*[：:]?\s*(.+)", text or "")
+    if m:
+        req = m.group(1).strip(" ，。,.；;")
+    return {"action": "内容提取", "op": "knowledge", "doc": doc, "doc_hint": "",
+            "locate": {"by": "whole", "hint": ""},
+            "params": {"requirement": req}, "clarify": ""}
+
+
 def parse_one(text: str, doc_names: list, retry: int = 1, context: dict = None):
     """解析一条指令。返回 (结果dict, 耗时秒, 是否成功)。
 
     失败（网络/解析）自动重试 retry 次。
     context 见 build_prompt（多轮指代消解用，单条模式传 None 即可）。
     """
+    quick = quick_knowledge(text, doc_names)
+    if quick is not None:
+        return quick, 0.0, True
     prompt = build_prompt(text, doc_names, context)
     total = 0.0
     for attempt in range(retry + 1):

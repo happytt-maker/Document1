@@ -1,10 +1,22 @@
 {
   "col": "是否紧缺",
-  "time": "2026-10-11 20:56",
-  "elapsed_sec": 0,
-  "usage": null,
-  "candidate_count": 0,
+  "time": "2026-11-02 21:07",
+  "elapsed_sec": 1.86,
+  "usage": {
+    "completion_tokens": 16,
+    "completion_tokens_details": {
+      "reasoning_tokens": 9
+    },
+    "prompt_tokens": 2206,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2222,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 38,
   "items": [],
-  "no_candidate": true,
+  "semantic_hints": [],
   "only_file": "库存盘点表.xlsx"
 }

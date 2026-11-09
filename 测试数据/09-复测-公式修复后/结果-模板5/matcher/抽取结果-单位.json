@@ -1,0 +1,189 @@
+{
+  "col": "单位",
+  "time": "2026-11-03 20:51",
+  "elapsed_sec": 4.82,
+  "usage": {
+    "completion_tokens": 323,
+    "completion_tokens_details": {
+      "reasoning_tokens": 17
+    },
+    "prompt_tokens": 1134,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1457,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 11,
+  "items": [
+    {
+      "value": "吨",
+      "evidence": "（该格所在列的列头：单位）吨",
+      "block": 2,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D3"
+    },
+    {
+      "value": "吨",
+      "evidence": "（该格所在列的列头：单位）吨",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D4"
+    },
+    {
+      "value": "个",
+      "evidence": "（该格所在列的列头：单位）个",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D5"
+    },
+    {
+      "value": "台",
+      "evidence": "（该格所在列的列头：单位）台",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D6"
+    },
+    {
+      "value": "个",
+      "evidence": "（该格所在列的列头：单位）个",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D7"
+    },
+    {
+      "value": "个",
+      "evidence": "（该格所在列的列头：单位）个",
+      "block": 7,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D8"
+    },
+    {
+      "value": "升",
+      "evidence": "（该格所在列的列头：单位）升",
+      "block": 8,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D9"
+    },
+    {
+      "value": "台",
+      "evidence": "（该格所在列的列头：单位）台",
+      "block": 9,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D10"
+    },
+    {
+      "value": "米",
+      "evidence": "（该格所在列的列头：单位）米",
+      "block": 10,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D11"
+    },
+    {
+      "value": "桶",
+      "evidence": "（该格所在列的列头：单位）桶",
+      "block": 11,
+      "file": "库存盘点表.xlsx",
+      "head": "单位",
+      "colheads": [
+        "单位",
+        "吨",
+        "吨",
+        "个",
+        "台"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 D12"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "单位",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": true
+  }
+}

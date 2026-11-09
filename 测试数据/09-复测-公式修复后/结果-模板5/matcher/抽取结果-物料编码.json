@@ -1,0 +1,189 @@
+{
+  "col": "物料编码",
+  "time": "2026-11-03 20:51",
+  "elapsed_sec": 3.18,
+  "usage": {
+    "completion_tokens": 256,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1365,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1621,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 12,
+  "items": [
+    {
+      "value": "M-1001",
+      "evidence": "M-1001",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A3"
+    },
+    {
+      "value": "M-1002",
+      "evidence": "M-1002",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A4"
+    },
+    {
+      "value": "M-1003",
+      "evidence": "M-1003",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A5"
+    },
+    {
+      "value": "M-1004",
+      "evidence": "M-1004",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A6"
+    },
+    {
+      "value": "M-1005",
+      "evidence": "M-1005",
+      "block": 7,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A7"
+    },
+    {
+      "value": "M-1006",
+      "evidence": "M-1006",
+      "block": 8,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A8"
+    },
+    {
+      "value": "M-1007",
+      "evidence": "M-1007",
+      "block": 9,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A9"
+    },
+    {
+      "value": "M-1008",
+      "evidence": "M-1008",
+      "block": 10,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A10"
+    },
+    {
+      "value": "M-1009",
+      "evidence": "M-1009",
+      "block": 11,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A11"
+    },
+    {
+      "value": "M-1010",
+      "evidence": "M-1010",
+      "block": 12,
+      "file": "库存盘点表.xlsx",
+      "head": "原材料库存盘点表（截至2026年3月31日）",
+      "colheads": [
+        "原材料库存盘点表（截至2026年3月31日）",
+        "物料编码",
+        "M-1001",
+        "M-1002",
+        "M-1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 A12"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "物料编码",
+    "file": "库存盘点表.xlsx",
+    "n": 12,
+    "whole": true,
+    "cross_file": true
+  }
+}

@@ -1,0 +1,1277 @@
+{
+  "source_dir": "C:\\Users\\覃敬涛\\Desktop\\研一项目\\测试数据\\真实数据\\02-源文档",
+  "supported_types": [
+    ".bmp",
+    ".docx",
+    ".jpeg",
+    ".jpg",
+    ".markdown",
+    ".md",
+    ".pdf",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".txt",
+    ".webp",
+    ".xlsx"
+  ],
+  "file_count": 1,
+  "ok_count": 1,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "documents": [
+    {
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "type": "docx",
+      "paragraph_count": 115,
+      "table_count": 0,
+      "block_count": 113,
+      "blocks": [
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "2025 年中国城市经济百强全景报告：数据重塑与格局新变化",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 1
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "一、双极领航：五万亿时代的 “京沪” 新高度",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 2
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "2025 年，中国城市经济的 “天花板” 被再次刷新。上海与北京不仅稳坐前两把交椅，更双双迈上 5 万亿元的新台阶，确立了无可撼动的 “双核” 地位。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 3
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "上海以 56,708.71 亿元的 GDP 总量稳居全国第一，同比增长 5.49%，这座常住人口达 2,487.45 万的国际大都市，人均 GDP 高达 228,020 元；财政实力尤为雄厚，2025 年一般公共预算收入 8,500.91 亿元，同比增长 1.5%，一般公共预算支出更是高达 10,532.6 亿元，尽显国家财政支柱的强大担当。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 4
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "北京紧随其后，GDP 总量达到 52,073.40 亿元，同比增长 5.40%，在人口严控至 2,185.3 万的前提下，实现 238,320 元的惊人人均 GDP，领跑全国主要城市；一般公共预算收入 6,680.60 亿元，同比增长 4.8%，支出 6,845.2 亿元，财政收支结构持续优化，科技与文化产业的贡献率实现显著提升。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 5
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "二、中坚力量：三万亿俱乐部的 “四强” 与杭州的跃升",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 6
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "第二梯队的竞争在 2025 年进入白热化阶段，深圳、重庆、广州、苏州构成坚实的 “三万亿俱乐部”，杭州的强势崛起则彻底改写了传统座次。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 7
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "深圳以 38,731.80 亿元的 GDP 总量位列第三，同比增长 5.24%，1,779.05 万常住人口支撑起 217,710 元的高位人均 GDP，一般公共预算收入突破 4,163.80 亿元，同比增长 6.4%，蕴藏着极强的经济韧性与创新活力。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 8
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "重庆凭借 3,191.43 万的庞大人口基数，拿下 33,757.93 亿元 GDP 总量，同比增长 5.34%，人均 GDP 为 105,790 元；一般公共预算收入跃升至 2,735.80 亿元，反超杭州位居全国第四，支出高达 5,623.5 亿元，稳稳扛起西部大开发核心引擎的重任。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 9
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "广州在转型压力下稳步前行，GDP 总量 32,039.46 亿元，同比增长 3.76%，1,882.70 万常住人口对应 170,240 元人均 GDP；得益于财政口径调整与经济复苏，一般公共预算收入大幅增长至 2,184.80 亿元，同比增幅 11.8%，支出 2,856.3 亿元。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 10
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "苏州作为当之无愧的 “最强地级市”，GDP 总量达 27,695.10 亿元，1,295.80 万人口创造出 213,860 元人均 GDP，一般公共预算收入 2,490.23 亿元，支出 2,615.4 亿元，财政质量始终保持领先。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 11
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "成都 GDP 总量 24,763.61 亿元，常住人口 2,140.5 万，人均 GDP 115,710 元，一般公共预算收入 2,000.7 亿元，支出 3,215.8 亿元，作为西部消费中心，巨额财政支出彰显强省会战略的投入力度。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 12
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "杭州 GDP 总量 23,010.90 亿元，常住人口 1,252.3 万，人均 GDP 184,080 元，一般公共预算收入 2,693.2 亿元，支出 2,810.5 亿元，数字经济与民营经济双轮驱动，财政收入含金量十足。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 13
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "武汉 GDP 总量 22,147.35 亿元，常住人口 1,377.2 万，人均 GDP 160,830 元，一般公共预算收入 1,635.4 亿元，支出 2,420.6 亿元，光芯屏端网产业集群效应持续凸显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 14
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "南京 GDP 总量 19,428.78 亿元，常住人口 950.6 万，人均 GDP 204,510 元，一般公共预算收入 1,620.9 亿元，支出 2,050.3 亿元，科教资源优势转化为产业优势的成效愈发明显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 15
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "宁波 GDP 总量 18,715.68 亿元，常住人口 980.4 万，人均 GDP 190,970 元，一般公共预算收入 1,795.3 亿元，支出 2,105.7 亿元，港口吞吐量与制造业实力稳居全国前列。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 16
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "天津 GDP 总量 18,539.82 亿元，常住人口 1,364.5 万，人均 GDP 135,920 元，一般公共预算收入 2,221.7 亿元，支出 2,630.4 亿元，滨海新区引擎作用重新激活，经济实现企稳回升。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 17
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "三、万亿方阵：群雄逐鹿与 “新晋者” 的确切名单",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 18
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "2025 年，中国 “万亿 GDP 城市” 阵营正式扩容至 29 座，每一座城市都勾勒出独有的经济画像。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 19
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "青岛 GDP 总量 17,603.50 亿元，常住人口 1,032.80 万，人均 GDP 170,440 元，一般公共预算收入 1,425.60 亿元，支出 1,910.2 亿元，海洋经济特色鲜明。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 20
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "无锡 GDP 总量 16,832.40 亿元，常住人口 750.20 万，人均 GDP 224,370 元，一般公共预算收入 1,225.39 亿元，支出 1,310.5 亿元，人均经济效率冠绝群雄。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 21
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "长沙 GDP 总量 15,512.30 亿元，常住人口 1,052.60 万，人均 GDP 147,370 元，一般公共预算收入 1,210.50 亿元，支出 1,620.8 亿元，工程机械与文创产业齐头并进。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 22
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "郑州 GDP 总量 15,235.80 亿元，常住人口 1,305.40 万，人均 GDP 116,710 元，一般公共预算收入 1,205.30 亿元，支出 1,830.6 亿元，交通枢纽优势持续释放。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 23
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "福州 GDP 总量 14,823.60 亿元，常住人口 852.30 万，人均 GDP 173,920 元，一般公共预算收入 1,025.40 亿元，支出 1,410.3 亿元，数字经济表现格外亮眼。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 24
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "济南 GDP 总量 14,532.70 亿元，常住人口 942.50 万，人均 GDP 154,190 元，一般公共预算收入 1,105.20 亿元，支出 1,520.4 亿元，强省会战略落地见效。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 25
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "合肥 GDP 总量 14,415.90 亿元，常住人口 985.60 万，人均 GDP 146,260 元，一般公共预算收入 1,015.80 亿元，支出 1,530.7 亿元，“风投之城” 发展模式愈发成熟。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 26
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "西安 GDP 总量 14,328.50 亿元，常住人口 1,312.40 万，人均 GDP 109,180 元，一般公共预算收入 955.60 亿元，支出 1,610.5 亿元，硬科技产业迎来快速崛起。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 27
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "泉州 GDP 总量 13,542.80 亿元，常住人口 895.30 万，人均 GDP 151,260 元，一般公共预算收入 865.40 亿元，支出 1,120.6 亿元，民营经济活力强劲，与西安的 GDP 差距缩小至百亿元以内。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 28
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "南通 GDP 总量 13,215.60 亿元，常住人口 775.40 万，人均 GDP 170,430 元，一般公共预算收入 730.00 亿元，支出 1,305.2 亿元，跨江融合进程不断加速。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 29
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "常州 GDP 总量 12,835.40 亿元，常住人口 542.30 万，人均 GDP 236,680 元，一般公共预算收入 715.50 亿元，支出 1,110.8 亿元，名副其实的 “新能源之都”。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 30
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "佛山 GDP 总量 12,725.30 亿元，常住人口 962.50 万，人均 GDP 132,210 元，一般公共预算收入 815.60 亿元，支出 1,210.4 亿元，坚守 “制造业当家” 的深厚根基。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 31
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "东莞 GDP 总量 12,538.70 亿元，常住人口 1,053.20 万，人均 GDP 119,050 元，一般公共预算收入 860.30 亿元，支出 1,130.5 亿元，科创转型之路初见成效。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 32
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "烟台 GDP 总量 12,045.60 亿元，常住人口 712.40 万，人均 GDP 169,080 元，一般公共预算收入 810.20 亿元，支出 1,020.3 亿元，绿色石化与海洋产业双擎驱动。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 33
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "唐山 GDP 总量 11,532.40 亿元，常住人口 772.60 万，人均 GDP 149,270 元，一般公共预算收入 715.30 亿元，支出 960.5 亿元，钢铁产业绿色转型稳步推进。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 34
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "徐州 GDP 总量 10,523.80 亿元，常住人口 905.30 万，人均 GDP 116,240 元，一般公共预算收入 575.33 亿元，支出 910.6 亿元，淮海经济区中心城市地位持续巩固。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 35
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "大连 GDP 总量 10,215.60 亿元，常住人口 753.40 万，人均 GDP 135,590 元，一般公共预算收入 760.50 亿元，支出 1,010.2 亿元，东北振兴的龙头作用愈发凸显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 36
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "温州 GDP 总量 10,132.50 亿元，常住人口 982.60 万，人均 GDP 103,120 元，一般公共预算收入 715.40 亿元，支出 960.3 亿元，民营经济发源地焕发全新生机。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 37
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "四、百强尾端与特色城市：资源型与人口型城市的真实写照",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 38
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "排名 30 至 100 名的城市，展现出中国经济更为复杂多元的生态，资源禀赋、人口规模、区域定位共同塑造着各自的发展轨迹。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 39
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "沈阳 GDP 总量 9,845.20 亿元，常住人口 912.5 万，人均 GDP 107,890 元，一般公共预算收入 615.3 亿元，支出 920.4 亿元，东北振兴标杆城市，国家重要的装备制造基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 40
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "厦门 GDP 总量 9,532.60 亿元，常住人口 532.4 万，人均 GDP 179,050 元，一般公共预算收入 835.2 亿元，支出 1,050.3 亿元，高素质高颜值的现代化国际化城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 41
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "昆明 GDP 总量 9,215.40 亿元，常住人口 865.3 万，人均 GDP 106,500 元，一般公共预算收入 625.4 亿元，支出 930.5 亿元，我国面向南亚东南亚的辐射中心。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 42
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "扬州 GDP 总量 9,032.50 亿元，常住人口 456.2 万，人均 GDP 197,990 元，一般公共预算收入 565.3 亿元，支出 720.4 亿元，运河文化与现代产业深度融合。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 43
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "绍兴 GDP 总量 8,925.30 亿元，常住人口 538.5 万，人均 GDP 165,740 元，一般公共预算收入 675.2 亿元，支出 830.5 亿元，传统纺织印染产业升级，集成电路产业加速崛起。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 44
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "盐城 GDP 总量 8,815.60 亿元，常住人口 672.3 万，人均 GDP 131,130 元，一般公共预算收入 565.4 亿元，支出 860.3 亿元，全国重要的新能源（风电光伏）产业基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 45
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "嘉兴 GDP 总量 8,732.40 亿元，常住人口 552.6 万，人均 GDP 158,020 元，一般公共预算收入 625.3 亿元，支出 780.4 亿元，长三角一体化发展示范先行区。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 46
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "泰州 GDP 总量 8,545.20 亿元，常住人口 452.3 万，人均 GDP 188,930 元，一般公共预算收入 515.4 亿元，支出 670.5 亿元，医药产业与造船业双轮驱动。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 47
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "洛阳 GDP 总量 8,325.60 亿元，常住人口 708.5 万，人均 GDP 117,510 元，一般公共预算收入 465.3 亿元，支出 710.4 亿元，中原城市群副中心城市，老工业基地转型提速。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 48
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "榆林 GDP 总量 8,235.60 亿元，常住人口 361.2 万，人均 GDP 228,000 元，一般公共预算收入 915.4 亿元，支出 820.3 亿元，能源金三角核心城市，人均财力位居全国顶尖水平。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 49
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "宜昌 GDP 总量 8,052.30 亿元，常住人口 402.5 万，人均 GDP 200,050 元，一般公共预算收入 425.3 亿元，支出 560.4 亿元，长江大保护典范城市，绿色化工产业强势崛起。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 50
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "惠州 GDP 总量 7,935.40 亿元，常住人口 608.2 万，人均 GDP 130,470 元，一般公共预算收入 515.3 亿元，支出 720.5 亿元，埃克森美孚等重大项目落地，石化与电子信息双支柱稳固。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 51
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "珠海 GDP 总量 7,832.50 亿元，常住人口 248.3 万，人均 GDP 315,440 元，一般公共预算收入 565.2 亿元，支出 680.3 亿元，人均 GDP 稳居全国前三，横琴粤澳深度合作区持续发力。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 52
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "临沂 GDP 总量 7,725.40 亿元，常住人口 1,105.6 万，人均 GDP 69,870 元，一般公共预算收入 415.3 亿元，支出 820.5 亿元，商贸物流之都，全力推动人口红利向人才红利转变。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 53
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "保定 GDP 总量 7,632.50 亿元，常住人口 925.3 万，人均 GDP 82,480 元，一般公共预算收入 395.4 亿元，支出 760.3 亿元，京津冀协同发展重要节点城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 54
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "潍坊 GDP 总量 7,545.30 亿元，常住人口 942.6 万，人均 GDP 80,050 元，一般公共预算收入 465.2 亿元，支出 720.4 亿元，动力产业之城，农业现代化发展样板。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 55
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "鄂尔多斯 GDP 总量 7,425.30 亿元，常住人口 220.5 万，人均 GDP 336,750 元，一般公共预算收入 825.6 亿元，支出 610.4 亿元，人均 GDP 位居全国地级市第一，依托 “羊煤土气金” 资源禀赋稳健发展。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 56
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "济宁 GDP 总量 7,352.40 亿元，常住人口 835.2 万，人均 GDP 88,030 元，一般公共预算收入 415.3 亿元，支出 670.5 亿元，儒家文化与高端装备制造产业深度融合。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 57
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "淄博 GDP 总量 7,235.60 亿元，常住人口 472.3 万，人均 GDP 153,200 元，一般公共预算收入 395.2 亿元，支出 560.4 亿元，烧烤出圈后，新材料与医药产业持续升温。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 58
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "呼和浩特 GDP 总量 7,125.30 亿元，常住人口 318.5 万，人均 GDP 223,710 元，一般公共预算收入 365.4 亿元，支出 520.3 亿元，中国乳业之都，大数据中心集群加速形成。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 59
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "太原 GDP 总量 7,032.50 亿元，常住人口 542.3 万，人均 GDP 129,680 元，一般公共预算收入 395.3 亿元，支出 560.4 亿元，国家能源革命综合改革试点城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 60
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "南阳 GDP 总量 6,935.20 亿元，常住人口 965.4 万，人均 GDP 71,840 元，一般公共预算收入 315.6 亿元，支出 720.4 亿元，豫西南明珠，中医药与农业产业优势突出。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 61
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "赣州 GDP 总量 6,825.40 亿元，常住人口 905.3 万，人均 GDP 75,390 元，一般公共预算收入 335.2 亿元，支出 680.5 亿元，革命老区高质量发展示范区。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 62
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "绵阳 GDP 总量 6,732.60 亿元，常住人口 492.5 万，人均 GDP 136,700 元，一般公共预算收入 315.3 亿元，支出 520.4 亿元，中国科技城，国家国防军工重要重镇。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 63
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "滁州 GDP 总量 6,645.30 亿元，常住人口 405.2 万，人均 GDP 164,000 元，一般公共预算收入 315.4 亿元，支出 470.5 亿元，安徽东向发展桥头堡，家电产业高度集聚。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 64
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "邯郸 GDP 总量 6,532.40 亿元，常住人口 952.3 万，人均 GDP 68,590 元，一般公共预算收入 315.2 亿元，支出 620.4 亿元，老工业基地绿色转型稳步推进。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 65
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "遵义 GDP 总量 6,425.50 亿元，常住人口 662.4 万，人均 GDP 97,000 元，一般公共预算收入 295.3 亿元，支出 580.4 亿元，白酒金三角核心区域，红色旅游胜地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 66
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "江门 GDP 总量 6,332.60 亿元，常住人口 485.3 万，人均 GDP 130,490 元，一般公共预算收入 295.2 亿元，支出 470.3 亿元，著名侨乡，新能源电池产业加速崛起。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 67
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "襄阳 GDP 总量 6,113.85 亿元，常住人口 525.3 万，人均 GDP 116,390 元，一般公共预算收入 285.4 亿元，支出 510.6 亿元，汉江流域中心城市，汽车产业转型攻坚。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 68
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "常德 GDP 总量 6,025.40 亿元，常住人口 522.3 万，人均 GDP 115,360 元，一般公共预算收入 275.3 亿元，支出 490.5 亿元，洞庭湖生态经济区核心城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 69
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "宜宾 GDP 总量 5,932.50 亿元，常住人口 462.4 万，人均 GDP 128,300 元，一般公共预算收入 295.4 亿元，支出 470.3 亿元，全球动力电池之都，五粮液故乡。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 70
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "廊坊 GDP 总量 5,925.60 亿元，常住人口 552.4 万，人均 GDP 107,270 元，一般公共预算收入 310.5 亿元，支出 520.3 亿元，京津冀腹地核心城市，临空经济区建设加速推进。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 71
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "株洲 GDP 总量 5,832.40 亿元，常住人口 392.5 万，人均 GDP 148,590 元，一般公共预算收入 265.3 亿元，支出 420.4 亿元，拥有世界级轨道交通装备产业集群。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 72
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "新乡 GDP 总量 5,725.30 亿元，常住人口 622.4 万，人均 GDP 91,980 元，一般公共预算收入 255.2 亿元，支出 470.3 亿元，豫北工业重镇，电池与纺织产业基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 73
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "周口 GDP 总量 5,632.50 亿元，常住人口 905.3 万，人均 GDP 62,210 元，一般公共预算收入 215.3 亿元，支出 520.4 亿元，河南人口大市，临港经济正式起步。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 74
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "芜湖 GDP 总量 5,532.40 亿元，常住人口 372.5 万，人均 GDP 148,520 元，一般公共预算收入 295.3 亿元，支出 420.4 亿元，奇瑞汽车总部所在地，安徽省域副中心城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 75
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "岳阳 GDP 总量 5,425.30 亿元，常住人口 502.4 万，人均 GDP 108,000 元，一般公共预算收入 255.2 亿元，支出 420.3 亿元，湖南北大门，石化与航运产业基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 76
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "聊城 GDP 总量 5,332.40 亿元，常住人口 592.3 万，人均 GDP 90,030 元，一般公共预算收入 235.2 亿元，支出 420.3 亿元，鲁西崛起核心城市，有色金属与轴承产业优势明显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 77
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "德阳 GDP 总量 5,225.30 亿元，常住人口 352.4 万，人均 GDP 148,270 元，一般公共预算收入 235.3 亿元，支出 370.4 亿元，中国重装之都，成德同城化进程持续深入。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 78
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "茂名 GDP 总量 5,132.50 亿元，常住人口 625.3 万，人均 GDP 82,080 元，一般公共预算收入 215.2 亿元，支出 420.3 亿元，南方油城，绿色化工与滨海旅游协同发展。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 79
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "连云港 GDP 总量 5,032.40 亿元，常住人口 462.3 万，人均 GDP 108,850 元，一般公共预算收入 235.2 亿元，支出 390.4 亿元，新亚欧大陆桥东桥头堡。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 80
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "汕头 GDP 总量 4,925.30 亿元，常住人口 552.4 万，人均 GDP 89,160 元，一般公共预算收入 215.2 亿元，支出 390.3 亿元，经济特区重启活力，玩具与纺织服装产业升级提速。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 81
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "邢台 GDP 总量 4,832.50 亿元，常住人口 712.3 万，人均 GDP 67,840 元，一般公共预算收入 195.2 亿元，支出 420.3 亿元，京津冀南部重要节点城市，新能源装备产业发力。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 82
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "衡阳 GDP 总量 4,725.40 亿元，常住人口 662.3 万，人均 GDP 71,350 元，一般公共预算收入 205.2 亿元，支出 390.3 亿元，湘南地区中心城市，有色金属与核工业产业突出。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 83
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "曲靖 GDP 总量 4,632.50 亿元，常住人口 582.4 万，人均 GDP 79,540 元，一般公共预算收入 195.2 亿元，支出 370.3 亿元，云南副中心城市，绿色硅光伏产业基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 84
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "荆州 GDP 总量 4,532.40 亿元，常住人口 522.3 万，人均 GDP 86,780 元，一般公共预算收入 185.2 亿元，支出 360.3 亿元，江汉平原中心城市，积极承接东部产业转移。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 85
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "肇庆 GDP 总量 4,425.30 亿元，常住人口 412.4 万，人均 GDP 107,300 元，一般公共预算收入 195.2 亿元，支出 340.3 亿元，粤港澳大湾区连接大西南的关键枢纽。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 86
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "信阳 GDP 总量 4,332.50 亿元，常住人口 622.3 万，人均 GDP 69,620 元，一般公共预算收入 175.2 亿元，支出 370.3 亿元，兼具豫风楚韵，毛尖茶与电子信息产业协同发展。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 87
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "商丘 GDP 总量 4,225.40 亿元，常住人口 772.3 万，人均 GDP 54,710 元，一般公共预算收入 165.2 亿元，支出 390.3 亿元，豫东门户，重要的物流枢纽城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 88
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "驻马店 GDP 总量 4,132.50 亿元，常住人口 702.3 万，人均 GDP 58,840 元，一般公共预算收入 155.2 亿元，支出 370.3 亿元，全国重要的农产品加工基地。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 89
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "桂林 GDP 总量 4,025.30 亿元，常住人口 492.4 万，人均 GDP 81,750 元，一般公共预算收入 165.2 亿元，支出 340.3 亿元，国际知名旅游胜地，康养产业加速发展。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 90
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "安顺 GDP 总量 3,932.40 亿元，常住人口 252.3 万，人均 GDP 155,860 元，一般公共预算收入 155.2 亿元，支出 290.3 亿元，黄果树瀑布所在地，航空产业特色鲜明。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 91
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "上饶 GDP 总量 3,852.50 亿元，常住人口 652.3 万，人均 GDP 59,060 元，一般公共预算收入 175.2 亿元，支出 370.3 亿元，地处赣浙闽皖四省交界，光伏与文旅产业协同发力。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 92
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "安庆 GDP 总量 3,756.20 亿元（修正值），常住人口 415.2 万，人均 GDP 90,470 元，一般公共预算收入 165.3 亿元，支出 320.4 亿元，皖江城市带核心城市，化工与汽车零部件产业突出。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 93
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "莆田 GDP 总量 3,752.30 亿元，常住人口 320.5 万，人均 GDP 117,080 元，一般公共预算收入 185.6 亿元，支出 290.4 亿元，鞋服产业与新能源产业双引擎驱动。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 94
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "菏泽 GDP 总量 3,725.40 亿元，常住人口 875.3 万，人均 GDP 42,560 元，一般公共预算收入 145.2 亿元，支出 360.5 亿元，鲁西南崛起核心城市，生物医药与电商产业加速成长。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 95
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "郴州 GDP 总量 3,702.50 亿元，常住人口 472.3 万，人均 GDP 78,390 元，一般公共预算收入 145.2 亿元，支出 320.3 亿元，湖南南大门，有色金属与锂电产业优势明显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 96
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "宁德 GDP 总量 3,685.40 亿元，常住人口 312.4 万，人均 GDP 117,970 元，一般公共预算收入 165.3 亿元，支出 290.4 亿元，宁德时代所在地，拥有世界级锂电产业集群。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 97
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "九江 GDP 总量 3,652.30 亿元，常住人口 452.3 万，人均 GDP 80,750 元，一般公共预算收入 155.2 亿元，支出 300.3 亿元，江西北大门，石化与航运产业根基深厚。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 98
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "咸阳 GDP 总量 3,625.40 亿元，常住人口 422.3 万，人均 GDP 85,850 元，一般公共预算收入 145.2 亿元，支出 290.3 亿元，西咸一体化核心城市，电子显示产业加速布局。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 99
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "宜春 GDP 总量 3,585.30 亿元，常住人口 502.3 万，人均 GDP 71,380 元，一般公共预算收入 145.2 亿元，支出 290.3 亿元，亚洲锂都，生态宜居城市。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 100
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "德州 GDP 总量 3,562.40 亿元，常住人口 562.3 万，人均 GDP 63,350 元，一般公共预算收入 135.2 亿元，支出 290.3 亿元，京津冀南部重要城市，太阳能与体育产业特色鲜明。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 101
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "南平 GDP 总量 3,542.50 亿元，常住人口 272.3 万，人均 GDP 130,090 元，一般公共预算收入 135.2 亿元，支出 260.3 亿元，武夷山所在地，绿色产业为主导。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 102
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "清远 GDP 总量 3,525.30 亿元，常住人口 402.3 万，人均 GDP 87,630 元，一般公共预算收入 135.2 亿元，支出 270.3 亿元，广清一体化核心城市，建材与文旅产业协同发展。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 103
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "益阳 GDP 总量 3,502.40 亿元，常住人口 382.3 万，人均 GDP 91,610 元，一般公共预算收入 125.2 亿元，支出 260.3 亿元，中国黑茶之乡，电子信息产业加速崛起。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 104
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "黄冈 GDP 总量 3,485.30 亿元，常住人口 582.3 万，人均 GDP 59,850 元，一般公共预算收入 125.2 亿元，支出 290.3 亿元，大别山革命老区，全国知名教育名城。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 105
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "荆门 GDP 总量 3,462.40 亿元，常住人口 262.3 万，人均 GDP 132,000 元，一般公共预算收入 125.2 亿元，支出 250.3 亿元，石化与通用航空产业双轮驱动。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 106
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "六安 GDP 总量 3,445.30 亿元，常住人口 442.3 万，人均 GDP 77,900 元，一般公共预算收入 115.2 亿元，支出 270.3 亿元，大别山绿色生态屏障，钢铁与茶叶产业特色突出。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 107
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "邵阳 GDP 总量 3,432.50 亿元，常住人口 652.3 万，人均 GDP 52,620 元，一般公共预算收入 115.2 亿元，支出 280.3 亿元，湘中明珠，发制品与特种玻璃产业优势明显。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 108
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "怀化 GDP 总量 3,425.60 亿元，常住人口 462.3 万，人均 GDP 74,100 元，一般公共预算收入 105.3 亿元，支出 265.4 亿元，素有五省通衢之称，陆港枢纽城市，牢牢守住全国百强最后一席。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 109
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "结语：",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 111
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "2025年的中国城市百强榜，不仅仅是一份冷冰冰的数据清单，它是一部关于转型、分化与希望的宏大叙事。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 112
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "我们看到，头部城市正在向“高质量、高人均、高附加值”迈进；中部城市正在通过“强省会”战略加速崛起；尾部城市则在“总量扩张”与“人均提升”的夹缝中寻找特色突围之路。无论是人均GDP傲视全球的鄂尔多斯，还是人口千万、负重前行的临沂，每一个城市都在中国现代化的版图中扮演着不可替代的角色。这份报告所呈现的，正是中国经济韧性十足、多元共生的真实写照。",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 113
+          },
+          "style": "Normal",
+          "is_heading": false
+        },
+        {
+          "file": "2025年中国城市经济百强全景报告.docx",
+          "type": "docx",
+          "text": "(数据来源：各城市统计局2025年国民经济和社会发展统计公报、各城市财政局2025年预算执行情况报告、华顿经济研究院2025年中国百强城市排行榜。部分人口数据为2025年末抽样调查推算值。)",
+          "locator": {
+            "kind": "paragraph",
+            "para_index": 114
+          },
+          "style": "Normal",
+          "is_heading": false
+        }
+      ]
+    }
+  ],
+  "failed": []
+}

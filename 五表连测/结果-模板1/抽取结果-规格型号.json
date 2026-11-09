@@ -1,53 +1,93 @@
 {
   "col": "规格型号",
-  "time": "2026-10-11 20:54",
-  "elapsed_sec": 1.54,
+  "time": "2026-11-02 21:04",
+  "elapsed_sec": 2.52,
   "usage": {
-    "prompt_tokens": 660,
-    "completion_tokens": 280,
-    "total_tokens": 940,
-    "prompt_tokens_details": {
-      "cached_tokens": 512
-    },
+    "completion_tokens": 112,
     "completion_tokens_details": {
-      "reasoning_tokens": 172
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 512,
-    "prompt_cache_miss_tokens": 148
+    "prompt_tokens": 901,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1013,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 6,
+  "candidate_count": 5,
   "items": [
     {
       "value": "VMC-850B",
       "evidence": "VMC-850B",
-      "block": 3,
+      "block": 2,
       "file": "设备采购合同.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "VMC-850B",
+        "LC-3015F",
+        "IRB-2600",
+        "QC-2000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行2·列3"
     },
     {
       "value": "LC-3015F",
       "evidence": "LC-3015F",
-      "block": 4,
+      "block": 3,
       "file": "设备采购合同.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "VMC-850B",
+        "LC-3015F",
+        "IRB-2600",
+        "QC-2000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行3·列3"
     },
     {
       "value": "IRB-2600",
       "evidence": "IRB-2600",
-      "block": 5,
+      "block": 4,
       "file": "设备采购合同.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "VMC-850B",
+        "LC-3015F",
+        "IRB-2600",
+        "QC-2000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行4·列3"
     },
     {
       "value": "QC-2000",
       "evidence": "QC-2000",
-      "block": 6,
+      "block": 5,
       "file": "设备采购合同.docx",
+      "head": "规格型号",
+      "colheads": [
+        "规格型号",
+        "VMC-850B",
+        "LC-3015F",
+        "IRB-2600",
+        "QC-2000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行5·列3"
     }
-  ]
+  ],
+  "only_file": "设备采购合同.docx",
+  "history": {
+    "head": "规格型号",
+    "file": "设备采购合同.docx",
+    "n": 5,
+    "whole": true,
+    "cross_file": false
+  }
 }

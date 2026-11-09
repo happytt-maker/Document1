@@ -1,0 +1,190 @@
+{
+  "col": "GDP总量（亿元）",
+  "time": "2026-11-03 19:38",
+  "elapsed_sec": 5.77,
+  "usage": {
+    "completion_tokens": 554,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2143,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2697,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "56708.71",
+      "evidence": "上海以 56,708.71 亿元的 GDP 总量稳居全国第一",
+      "block": 1,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "52073.40",
+      "evidence": "北京紧随其后，GDP 总量达到 52,073.40 亿元",
+      "block": 2,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "38731.80",
+      "evidence": "深圳以 38,731.80 亿元的 GDP 总量位列第三",
+      "block": 3,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "33757.93",
+      "evidence": "重庆凭借 3,191.43 万的庞大人口基数，拿下 33,757.93 亿元 GDP 总量",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 9 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "32039.46",
+      "evidence": "广州在转型压力下稳步前行，GDP 总量 32,039.46 亿元",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "27695.10",
+      "evidence": "苏州作为当之无愧的 “最强地级市”，GDP 总量达 27,695.10 亿元",
+      "block": 6,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 11 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "24763.61",
+      "evidence": "成都 GDP 总量 24,763.61 亿元",
+      "block": 7,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "23010.90",
+      "evidence": "杭州 GDP 总量 23,010.90 亿元",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "22147.35",
+      "evidence": "武汉 GDP 总量 22,147.35 亿元",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "19428.78",
+      "evidence": "南京 GDP 总量 19,428.78 亿元",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "18715.68",
+      "evidence": "宁波 GDP 总量 18,715.68 亿元",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "18539.82",
+      "evidence": "天津 GDP 总量 18,539.82 亿元",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "17603.50",
+      "evidence": "青岛 GDP 总量 17,603.50 亿元",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "16832.40",
+      "evidence": "无锡 GDP 总量 16,832.40 亿元",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "15512.30",
+      "evidence": "长沙 GDP 总量 15,512.30 亿元",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 22 段",
+      "from_paragraph": true
+    }
+  ],
+  "narrative": {
+    "used": false,
+    "note": "对照实验：关闭叙述体整篇召回，回到按相关度取候选"
+  }
+}

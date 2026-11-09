@@ -1,19 +1,19 @@
 {
   "col": "状态",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 4.02,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 2.82,
   "usage": {
-    "prompt_tokens": 605,
-    "completion_tokens": 696,
-    "total_tokens": 1301,
-    "prompt_tokens_details": {
-      "cached_tokens": 384
-    },
+    "completion_tokens": 109,
     "completion_tokens_details": {
-      "reasoning_tokens": 622
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 384,
-    "prompt_cache_miss_tokens": 221
+    "prompt_tokens": 931,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1040,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 6,
   "items": [
@@ -22,6 +22,14 @@
       "evidence": "进行中",
       "block": 2,
       "file": "项目推进会会议纪要.docx",
+      "head": "状态",
+      "colheads": [
+        "状态",
+        "进行中",
+        "未开始",
+        "进行中",
+        "未开始"
+      ],
       "line": null,
       "loc_text": "表格1 · 行2·列4"
     },
@@ -30,6 +38,14 @@
       "evidence": "未开始",
       "block": 3,
       "file": "项目推进会会议纪要.docx",
+      "head": "状态",
+      "colheads": [
+        "状态",
+        "进行中",
+        "未开始",
+        "进行中",
+        "未开始"
+      ],
       "line": null,
       "loc_text": "表格1 · 行3·列4"
     },
@@ -38,6 +54,14 @@
       "evidence": "进行中",
       "block": 4,
       "file": "项目推进会会议纪要.docx",
+      "head": "状态",
+      "colheads": [
+        "状态",
+        "进行中",
+        "未开始",
+        "进行中",
+        "未开始"
+      ],
       "line": null,
       "loc_text": "表格1 · 行4·列4"
     },
@@ -46,6 +70,14 @@
       "evidence": "未开始",
       "block": 5,
       "file": "项目推进会会议纪要.docx",
+      "head": "状态",
+      "colheads": [
+        "状态",
+        "进行中",
+        "未开始",
+        "进行中",
+        "未开始"
+      ],
       "line": null,
       "loc_text": "表格1 · 行5·列4"
     },
@@ -54,9 +86,24 @@
       "evidence": "已完成",
       "block": 6,
       "file": "项目推进会会议纪要.docx",
+      "head": "状态",
+      "colheads": [
+        "状态",
+        "进行中",
+        "未开始",
+        "进行中",
+        "未开始"
+      ],
       "line": null,
       "loc_text": "表格1 · 行6·列4"
     }
   ],
-  "only_file": "项目推进会会议纪要.docx"
+  "only_file": "项目推进会会议纪要.docx",
+  "history": {
+    "head": "状态",
+    "file": "项目推进会会议纪要.docx",
+    "n": 6,
+    "whole": true,
+    "cross_file": false
+  }
 }

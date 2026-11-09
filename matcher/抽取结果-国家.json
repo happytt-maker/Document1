@@ -1,0 +1,20 @@
+{
+  "col": "国家",
+  "time": "2026-11-03 22:26",
+  "elapsed_sec": 1.14,
+  "usage": {
+    "completion_tokens": 7,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 628,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 635,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 1,
+  "items": []
+}

@@ -1,0 +1,157 @@
+{
+  "col": "工号",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 3.75,
+  "usage": {
+    "completion_tokens": 211,
+    "completion_tokens_details": {
+      "reasoning_tokens": 21
+    },
+    "prompt_tokens": 1221,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1432,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 10,
+  "items": [
+    {
+      "value": "E1001",
+      "evidence": "E1001",
+      "block": 3,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A3"
+    },
+    {
+      "value": "E1002",
+      "evidence": "E1002",
+      "block": 4,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A4"
+    },
+    {
+      "value": "E1003",
+      "evidence": "E1003",
+      "block": 5,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A5"
+    },
+    {
+      "value": "E1004",
+      "evidence": "E1004",
+      "block": 6,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A6"
+    },
+    {
+      "value": "E1005",
+      "evidence": "E1005",
+      "block": 7,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A7"
+    },
+    {
+      "value": "E1006",
+      "evidence": "E1006",
+      "block": 8,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A8"
+    },
+    {
+      "value": "E1007",
+      "evidence": "E1007",
+      "block": 9,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A9"
+    },
+    {
+      "value": "E1008",
+      "evidence": "E1008",
+      "block": 10,
+      "file": "员工信息表.xlsx",
+      "head": "某某科技有限公司员工信息表（2026年第一季度）",
+      "colheads": [
+        "某某科技有限公司员工信息表（2026年第一季度）",
+        "工号",
+        "E1001",
+        "E1002",
+        "E1003"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 A10"
+    }
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "工号",
+    "file": "员工信息表.xlsx",
+    "n": 10,
+    "whole": true,
+    "cross_file": false
+  }
+}

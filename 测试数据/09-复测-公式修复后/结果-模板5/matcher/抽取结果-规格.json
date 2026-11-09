@@ -1,0 +1,189 @@
+{
+  "col": "规格",
+  "time": "2026-11-03 20:51",
+  "elapsed_sec": 3.34,
+  "usage": {
+    "completion_tokens": 260,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1166,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1426,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 11,
+  "items": [
+    {
+      "value": "SPCC 1.5mm",
+      "evidence": "SPCC 1.5mm",
+      "block": 2,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C3"
+    },
+    {
+      "value": "6063-T5",
+      "evidence": "6063-T5",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C4"
+    },
+    {
+      "value": "6205-2RS",
+      "evidence": "6205-2RS",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C5"
+    },
+    {
+      "value": "750W",
+      "evidence": "750W",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C6"
+    },
+    {
+      "value": "DN50",
+      "evidence": "DN50",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C7"
+    },
+    {
+      "value": "M12×60",
+      "evidence": "M12×60",
+      "block": 7,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C8"
+    },
+    {
+      "value": "46#",
+      "evidence": "46#",
+      "block": 8,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C9"
+    },
+    {
+      "value": "1200×800×400",
+      "evidence": "1200×800×400",
+      "block": 9,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C10"
+    },
+    {
+      "value": "YJV 4×25",
+      "evidence": "YJV 4×25",
+      "block": 10,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C11"
+    },
+    {
+      "value": "环氧底漆",
+      "evidence": "环氧底漆",
+      "block": 11,
+      "file": "库存盘点表.xlsx",
+      "head": "规格",
+      "colheads": [
+        "规格",
+        "SPCC 1.5mm",
+        "6063-T5",
+        "6205-2RS",
+        "750W"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 C12"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "规格",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": true
+  }
+}

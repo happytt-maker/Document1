@@ -1,0 +1,102 @@
+{
+  "col": "备注",
+  "time": "2026-11-03 20:51",
+  "elapsed_sec": 5.38,
+  "usage": {
+    "completion_tokens": 418,
+    "completion_tokens_details": {
+      "reasoning_tokens": 95
+    },
+    "prompt_tokens": 822,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1240,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 6,
+  "items": [
+    {
+      "value": "易损耗",
+      "evidence": "[块2] 相关度 140 ｜ 库存盘点表.xlsx ｜ 工作表「库存明细」 J5 ｜ （该格所在列的列头：备注） 易损耗",
+      "block": 2,
+      "file": "库存盘点表.xlsx",
+      "head": "备注",
+      "colheads": [
+        "备注",
+        "易损耗",
+        "贵重件",
+        "入库单未到",
+        "定制件"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 J5"
+    },
+    {
+      "value": "贵重件",
+      "evidence": "[块3] 相关度 140 ｜ 库存盘点表.xlsx ｜ 工作表「库存明细」 J6 ｜ （该格所在列的列头：备注） 贵重件",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "备注",
+      "colheads": [
+        "备注",
+        "易损耗",
+        "贵重件",
+        "入库单未到",
+        "定制件"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 J6"
+    },
+    {
+      "value": "入库单未到",
+      "evidence": "[块4] 相关度 140 ｜ 库存盘点表.xlsx ｜ 工作表「库存明细」 J8 ｜ （该格所在列的列头：备注） 入库单未到",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "备注",
+      "colheads": [
+        "备注",
+        "易损耗",
+        "贵重件",
+        "入库单未到",
+        "定制件"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 J8"
+    },
+    {
+      "value": "定制件",
+      "evidence": "[块5] 相关度 140 ｜ 库存盘点表.xlsx ｜ 工作表「库存明细」 J10 ｜ （该格所在列的列头：备注） 定制件",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "备注",
+      "colheads": [
+        "备注",
+        "易损耗",
+        "贵重件",
+        "入库单未到",
+        "定制件"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 J10"
+    },
+    {
+      "value": "盘点中",
+      "evidence": "[块6] 相关度 140 ｜ 库存盘点表.xlsx ｜ 工作表「库存明细」 J11 ｜ （该格所在列的列头：备注） 盘点中",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "备注",
+      "colheads": [
+        "备注",
+        "易损耗",
+        "贵重件",
+        "入库单未到",
+        "定制件"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 J11"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx"
+}

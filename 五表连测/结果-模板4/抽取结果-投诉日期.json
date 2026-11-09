@@ -1,45 +1,56 @@
 {
   "col": "投诉日期",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 1.76,
+  "time": "2026-11-03 22:21",
+  "elapsed_sec": 1.97,
   "usage": {
-    "prompt_tokens": 820,
-    "completion_tokens": 322,
-    "total_tokens": 1142,
-    "prompt_tokens_details": {
-      "cached_tokens": 640
-    },
+    "completion_tokens": 108,
     "completion_tokens_details": {
-      "reasoning_tokens": 217
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 640,
-    "prompt_cache_miss_tokens": 180
+    "prompt_tokens": 1320,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1428,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 3,
+  "candidate_count": 5,
   "items": [
     {
       "value": "2026年1月19日",
       "evidence": "投诉日期：2026年1月19日",
-      "block": 1,
+      "block": 2,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 8,
       "loc_text": "第 8 行"
     },
     {
       "value": "2026年2月24日",
       "evidence": "投诉日期：2026年2月24日",
-      "block": 2,
+      "block": 3,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 18,
       "loc_text": "第 18 行"
     },
     {
       "value": "2026年3月18日",
       "evidence": "投诉日期：2026年3月18日",
-      "block": 3,
+      "block": 4,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 28,
       "loc_text": "第 28 行"
     }
-  ]
+  ],
+  "only_file": "客户投诉处理记录.txt",
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（5 段，无一处带列头），整篇 748 字进候选"
+  }
 }

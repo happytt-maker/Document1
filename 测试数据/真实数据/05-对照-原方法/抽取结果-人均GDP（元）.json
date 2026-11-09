@@ -1,0 +1,179 @@
+{
+  "col": "人均GDP（元）",
+  "time": "2026-11-03 19:37",
+  "elapsed_sec": 4.7,
+  "usage": {
+    "completion_tokens": 432,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2182,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2614,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "228020",
+      "evidence": "人均 GDP 高达 228,020 元",
+      "block": 2,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "238320",
+      "evidence": "实现 238,320 元的惊人人均 GDP",
+      "block": 3,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "217710",
+      "evidence": "1,779.05 万常住人口支撑起 217,710 元的高位人均 GDP",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "105790",
+      "evidence": "人均 GDP 为 105,790 元",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 9 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "170240",
+      "evidence": "1,882.70 万常住人口对应 170,240 元人均 GDP",
+      "block": 6,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "213860",
+      "evidence": "1,295.80 万人口创造出 213,860 元人均 GDP",
+      "block": 7,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 11 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "115710",
+      "evidence": "人均 GDP 115,710 元",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "184080",
+      "evidence": "人均 GDP 184,080 元",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "160830",
+      "evidence": "人均 GDP 160,830 元",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "204510",
+      "evidence": "人均 GDP 204,510 元",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "190970",
+      "evidence": "人均 GDP 190,970 元",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "135920",
+      "evidence": "人均 GDP 135,920 元",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "170440",
+      "evidence": "人均 GDP 170,440 元",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "224370",
+      "evidence": "人均 GDP 224,370 元",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段",
+      "from_paragraph": true
+    }
+  ],
+  "narrative": {
+    "used": false,
+    "note": "对照实验：关闭叙述体整篇召回，回到按相关度取候选"
+  }
+}

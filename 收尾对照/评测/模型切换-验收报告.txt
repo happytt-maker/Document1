@@ -1,0 +1,17 @@
+【模型】bad 不可用，自动换下一家（bad：没有权限或额度用尽（403）——去控制台看该模型是否已开通/是否还有免费额度：{"error": {"message": "Free quota exhausted", "）
+【模型】bad 不可用，自动换下一家（bad：密钥不对或没带上（401）：{"error": {"message": "Incorrect API key provided", "type": "mock"}}）
+【模型】bad 不可用，自动换下一家（bad：请求太频繁（429）——免费档常见，稍等再试：{"error": {"message": "Rate limit reached", "type": "mock"}}）
+【模型】bad 不可用，自动换下一家（bad：地址或模型名不对（404）——检查 base 和 model：{"error": {"message": "model not found", "type": "mock"）
+【模型】bad 不可用，自动换下一家（bad：没有权限或额度用尽（403）——去控制台看该模型是否已开通/是否还有免费额度：{"error": {"message": "Free quota exhausted", "）
+【模型】bad 不可用，自动换下一家（bad：没有权限或额度用尽（403）——去控制台看该模型是否已开通/是否还有免费额度：{"error": {"message": "Free quota exhausted", "）
+【模型】good 不可用，自动换下一家（good：没有权限或额度用尽（403）——去控制台看该模型是否已开通/是否还有免费额度：{"error": {"message": "Free quota exhausted", ）
+  ✔ 403 额度用尽 → 自动换家并成功   → 走 bad→good，用量 provider=good
+  ✔ 401 key 错 → 自动换家并成功   → 走 bad→good，用量 provider=good
+  ✔ 429 限流 → 自动换家并成功   → 走 bad→good，用量 provider=good
+  ✔ 404 模型名不存在 → 自动换家并成功   → 走 bad→good，用量 provider=good
+  ✔ 400 参数错 → 不瞎换家，直接报错   → 打到 ['bad']（应只有 bad）
+  ✔ 失败过进冷却 → 第二次直接走能用的那家   → 第一次 ['bad', 'good']，第二次 ['good']
+  ✔ 两家都没额度 → 汇总成人话错误   → 所有模型都不可用 → bad：没有权限或额度用尽（403）——去控制台看该模型是否已开通/是否还有免费额度：{"error": {"mess
+  ✔ 本地模型绕开系统代理   → 代理开着也能连 127.0.0.1
+
+  —— 通过 8/8

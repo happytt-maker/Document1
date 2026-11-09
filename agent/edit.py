@@ -39,6 +39,7 @@ edit.py —— 模块（1）· 第 2~4 步：编辑 / 格式 / 提取 执行器�
         + 编辑报告.txt / 格式报告.txt
 """
 import argparse
+import copy
 import json
 import re
 import sys
@@ -695,7 +696,8 @@ def _auto_store(files):
 
 
 def run_edit(text: str, docs_dir: Path, context: dict = None, meta: dict = None,
-             workcopy: dict = None, image: str = None):
+             workcopy: dict = None, image: str = None,
+             preset: dict = None, doc_override: str = None):
     """执行一条编辑指令的完整流程，返回 (是否成功, 报告文本)。
 
     context（可选）＝ 会话上下文（多轮指代消解），透传给解析器：
@@ -709,6 +711,10 @@ def run_edit(text: str, docs_dir: Path, context: dict = None, meta: dict = None,
       多轮指令的修改累积到同一份最新文件；换文档自动不生效（回到原件）。
     image（可选）＝ 待插入的图片引用（上传后的存储名 / 文件名 / 绝对路径）。
       只有 op=insert_image 时用；不传则自动取最近上传的一张。
+    preset（可选，2026-11-07）＝ 已经解析好的意图（智能操作里的快捷按钮）。
+      给了就**跳过模型解析**，直接执行——加粗/居中这类按钮没必要等一次 LLM。
+    doc_override（可选，2026-11-07）＝ 用户在弹出的「智能操作」里点选的文件。
+      指令本身没点名别的文档时，一律按这一份处理（这样"标题加粗"四个字也够用）。
     """
     if meta is not None:
         meta.setdefault("ok", False)
@@ -717,19 +723,39 @@ def run_edit(text: str, docs_dir: Path, context: dict = None, meta: dict = None,
     report.append("=" * 62)
     report.append("文档操作执行器 · 一句话 → 编辑 / 排版 / 格式 / 提取")
     report.append("=" * 62)
-    report.append("指令：%s" % text)
+    report.append("指令：%s" % (text or "（快捷操作）"))
     report.append("")
 
     # ---- ① 解析 ----
     doc_names = scan_docs(docs_dir)
-    intent, cost, ok = parse_one(text, doc_names, context=context)
+    if preset:
+        intent = copy.deepcopy(preset)
+        cost, ok = 0.0, True
+    else:
+        intent, cost, ok = parse_one(text, doc_names, context=context)
     if not ok:
         report.append("【解析】失败（网络或格式问题），请重跑一次。")
         return False, "\n".join(report)
     if meta is not None:
         meta["intent"] = intent
-    report.append("【解析】（%.1fs）%s/%s ｜ 文档=%s" %
-                  (cost, intent.get("action"), intent.get("op"), intent.get("doc")))
+
+    # 选中文件兜底（智能操作弹窗）：用户点了某一份，就不该再让模型去猜。
+    # 只在"指令没点名别的文档"时覆盖——明确说了另一份文档，以指令为准。
+    if doc_override:
+        ov = find_doc_file(doc_override, docs_dir)
+        if ov is not None:
+            named = find_doc_file(intent.get("doc") or "", docs_dir)
+            if named is None or named.name == ov.name:
+                intent["doc"] = ov.name
+                if not (intent.get("doc_hint") or "").strip():
+                    intent["doc_hint"] = ov.name
+                report.append("（已选文件：本句按《%s》处理）" % ov.name)
+
+    if preset:
+        report.append("【解析】快捷操作 · 不走模型，直接执行 %s" % intent.get("op"))
+    else:
+        report.append("【解析】（%.1fs）%s/%s ｜ 文档=%s" %
+                      (cost, intent.get("action"), intent.get("op"), intent.get("doc")))
     report.append("  %s" % json.dumps(intent, ensure_ascii=False))
 
     action = intent.get("action")
@@ -869,7 +895,13 @@ def run_edit(text: str, docs_dir: Path, context: dict = None, meta: dict = None,
     # ---- 内容提取：只读操作（extract=用户指定字段 / profile=画像 / entities=实体数据）----
     if action == "内容提取":
         op3 = intent.get("op")
-        if op3 == "profile":
+        already_stored = False
+        if op3 == "knowledge":
+            # 统一知识抽取（2026-11-05）：自己负责入库，不再走 _auto_store
+            from knowledge import run_knowledge
+            ok3, sub_report, _files = run_knowledge(text, intent, src, OUT_DIR)
+            already_stored = True
+        elif op3 == "profile":
             from summary_ops import run_profile     # 延迟导入：不拖累编辑/格式的启动
             ok3, sub_report, _files = run_profile(text, intent, src, OUT_DIR)
         elif op3 == "entities":
@@ -881,7 +913,7 @@ def run_edit(text: str, docs_dir: Path, context: dict = None, meta: dict = None,
         report.append("")
         report.append(sub_report)
         # ---- 自动入库（模块2 第4步）：产物 json 落入数据库，失败不拦主流程 ----
-        if ok3 and _files:
+        if ok3 and _files and not already_stored:
             _line = _auto_store(_files)
             if _line:
                 report.append("")

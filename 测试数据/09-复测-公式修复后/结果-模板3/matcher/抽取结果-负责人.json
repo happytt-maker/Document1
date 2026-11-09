@@ -1,0 +1,109 @@
+{
+  "col": "负责人",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 1.94,
+  "usage": {
+    "completion_tokens": 115,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 934,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1049,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 6,
+  "items": [
+    {
+      "value": "吴晓敏",
+      "evidence": "吴晓敏",
+      "block": 2,
+      "file": "项目推进会会议纪要.docx",
+      "head": "负责人",
+      "colheads": [
+        "负责人",
+        "吴晓敏",
+        "吴晓敏",
+        "郑凯",
+        "孙倩"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行2·列1"
+    },
+    {
+      "value": "吴晓敏",
+      "evidence": "吴晓敏",
+      "block": 3,
+      "file": "项目推进会会议纪要.docx",
+      "head": "负责人",
+      "colheads": [
+        "负责人",
+        "吴晓敏",
+        "吴晓敏",
+        "郑凯",
+        "孙倩"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行3·列1"
+    },
+    {
+      "value": "郑凯",
+      "evidence": "郑凯",
+      "block": 4,
+      "file": "项目推进会会议纪要.docx",
+      "head": "负责人",
+      "colheads": [
+        "负责人",
+        "吴晓敏",
+        "吴晓敏",
+        "郑凯",
+        "孙倩"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行4·列1"
+    },
+    {
+      "value": "孙倩",
+      "evidence": "孙倩",
+      "block": 5,
+      "file": "项目推进会会议纪要.docx",
+      "head": "负责人",
+      "colheads": [
+        "负责人",
+        "吴晓敏",
+        "吴晓敏",
+        "郑凯",
+        "孙倩"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行5·列1"
+    },
+    {
+      "value": "李博文",
+      "evidence": "李博文",
+      "block": 6,
+      "file": "项目推进会会议纪要.docx",
+      "head": "负责人",
+      "colheads": [
+        "负责人",
+        "吴晓敏",
+        "吴晓敏",
+        "郑凯",
+        "孙倩"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行6·列1"
+    }
+  ],
+  "only_file": "项目推进会会议纪要.docx",
+  "history": {
+    "head": "负责人",
+    "file": "项目推进会会议纪要.docx",
+    "n": 6,
+    "whole": true,
+    "cross_file": false
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "col": "常住人口（万）",
+  "time": "2026-11-03 19:35",
+  "elapsed_sec": 6.01,
+  "usage": {
+    "completion_tokens": 618,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2055,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2673,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "2487.45",
+      "evidence": "这座常住人口达 2,487.45 万的国际大都市",
+      "block": 1,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1779.05",
+      "evidence": "1,779.05 万常住人口支撑起 217,710 元的高位人均 GDP",
+      "block": 2,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1882.70",
+      "evidence": "1,882.70 万常住人口对应 170,240 元人均 GDP",
+      "block": 3,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "2140.5",
+      "evidence": "成都 GDP 总量 24,763.61 亿元，常住人口 2,140.5 万",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1252.3",
+      "evidence": "杭州 GDP 总量 23,010.90 亿元，常住人口 1,252.3 万",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1377.2",
+      "evidence": "武汉 GDP 总量 22,147.35 亿元，常住人口 1,377.2 万",
+      "block": 6,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "950.6",
+      "evidence": "南京 GDP 总量 19,428.78 亿元，常住人口 950.6 万",
+      "block": 7,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "980.4",
+      "evidence": "宁波 GDP 总量 18,715.68 亿元，常住人口 980.4 万",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1364.5",
+      "evidence": "天津 GDP 总量 18,539.82 亿元，常住人口 1,364.5 万",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1032.80",
+      "evidence": "青岛 GDP 总量 17,603.50 亿元，常住人口 1,032.80 万",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "750.20",
+      "evidence": "无锡 GDP 总量 16,832.40 亿元，常住人口 750.20 万",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1052.60",
+      "evidence": "长沙 GDP 总量 15,512.30 亿元，常住人口 1,052.60 万",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 22 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "1305.40",
+      "evidence": "郑州 GDP 总量 15,235.80 亿元，常住人口 1,305.40 万",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 23 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "852.30",
+      "evidence": "福州 GDP 总量 14,823.60 亿元，常住人口 852.30 万",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 24 段",
+      "from_paragraph": true
+    },
+    {
+      "value": "942.50",
+      "evidence": "济南 GDP 总量 14,532.70 亿元，常住人口 942.50 万",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 25 段",
+      "from_paragraph": true
+    }
+  ],
+  "narrative": {
+    "used": false,
+    "note": "对照实验：关闭叙述体整篇召回，回到按相关度取候选"
+  }
+}

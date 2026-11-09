@@ -65,11 +65,15 @@ class Session:
             ctx["last_hint"] = self.last_hint
         return ctx
 
-    def run_turn(self, text: str, image: str = None):
+    def run_turn(self, text: str, image: str = None,
+                 preset: dict = None, doc_override: str = None):
         """跑一轮：解析 → 执行 → 更新上下文 → 入库。返回 (ok, report, meta, 耗时s)。
 
         image（可选）＝ 本轮要插入的图片引用（上传后的存储名/文件名），
         只在指令是"插入图片"时用到；不传则执行层自动取最近上传的一张。
+        preset / doc_override（可选，2026-11-07）＝ 「智能操作」弹窗专用：
+          preset      已经解析好的意图（快捷按钮，跳过模型）
+          doc_override 用户点选的那份文件（指令没点名别的文档时以它为准）
         """
         self.turn += 1
         meta = {}
@@ -80,7 +84,8 @@ class Session:
 
         t0 = time.time()
         ok, report = run_edit(text, self.docs_dir, context=self.context(),
-                              meta=meta, workcopy=workcopy, image=image)
+                              meta=meta, workcopy=workcopy, image=image,
+                              preset=preset, doc_override=doc_override)
         elapsed = time.time() - t0
 
         # 更新会话：只要本轮"锁定到了某文档"，它就是新的 current_doc

@@ -17,12 +17,18 @@ import db
 # 功能点：键是接口里的 feature，值是给人看的名字
 FEATURES = {
     "doc_edit": "文档操作",
+    "warehouse": "数据仓库",
     "extract": "识别入库",
     "fill": "表格填写",
+    "template": "模板上传",
+    "ocr": "文字识别",
     "voice": "语音输入",
     "image": "图片插入",
     "chat": "客服咨询",
-    "other": "意见反馈",
+    "room": "聊天室",
+    "account": "登录 / 账号",
+    "ui": "界面 / 交互",
+    "other": "其他建议",
 }
 
 STATUS_TEXT = {"new": "待处理", "read": "已查看", "done": "已处理"}

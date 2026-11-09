@@ -34,9 +34,11 @@ def ask(question: str):
 
 if __name__ == "__main__":
     if not has_key():
-        print("先别急着跑 —— 你还没填 key。")
-        print("打开 agent/llm_config.py，把 API_KEY 填成百炼的 key，保存后重新运行。")
-        print("（也可以新建 agent/llm_key.txt，把 key 写一行进去。）")
+        print("先别急着跑 —— 一家模型都还没配 key。")
+        print("新建 agent/llm_key.txt，写一行（免费 key 申请：")
+        print("  https://open.bigmodel.cn/usercenter/apikeys ）：")
+        print("    zhipu=你的key")
+        print("配完可以跑 python agent/llm_config.py --test 先测通不通。")
         raise SystemExit
 
     print("当前模型：", describe())

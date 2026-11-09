@@ -167,20 +167,14 @@
   button.ghost:hover { border-color: var(--blue); color: var(--blue); background: #f5f9ff; }
   #guide-toggle { color: var(--blue-dark); border-color: #cfdefc; background: #f5f9ff; font-weight: 600; }
   #guide-toggle:hover { background: #e8f1ff; }
-  #upload-btn {
-    flex: 0 0 auto; padding: 0 16px; border: 1px solid #cdebd8; border-radius: 12px;
-    background: #f2fbf6; color: #1d6b3e; font-weight: 600; font-size: 13.5px;
-    cursor: pointer; font-family: inherit; transition: all .15s; white-space: nowrap;
-  }
-  #upload-btn:hover { background: #e6f8ee; border-color: #9ed9b8; }
-  /* 语音输入卡片（在「导入文档」右边、输入框左边） */
-  #voice-btn {
-    flex: 0 0 auto; display: flex; align-items: center; gap: 6px; padding: 0 14px;
-    border: 1px solid #d6d2f2; border-radius: 12px; background: #f7f6ff; color: #4b3f9e;
-    font-weight: 600; font-size: 13.5px; cursor: pointer; font-family: inherit;
+  #upload-btn, #voice-btn {
+    flex: 0 0 auto; width: 44px; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line); border-radius: 14px; background: #fff;
+    color: #5b6b82; font-size: 16px; cursor: pointer; font-family: inherit;
     transition: all .15s; white-space: nowrap;
   }
-  #voice-btn:hover { background: #eeecff; border-color: #bdb6ea; }
+  #upload-btn:hover, #voice-btn:hover { border-color: #cfdefc; background: #f7faff; }
   #voice-btn .mic { font-size: 15px; line-height: 1; }
   /* 拖进来的图片：输入框上方一个小缩略图（已选中状态） */
   .img-note {
@@ -355,19 +349,19 @@
   .msgs-inner { max-width: 820px; margin: 0 auto; }
 
   .welcome {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 14px 18px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px 30px; margin-bottom: 18px; box-shadow: var(--shadow-sm);
     animation: fadeUp .35s ease;
   }
   .welcome p { margin: 0 0 10px; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
   .welcome p b { color: var(--text); }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    background: #f5f9ff; color: var(--blue-dark); border: 1px solid #cfdefc;
-    border-radius: 999px; padding: 5px 13px; font-size: 12px; cursor: pointer;
-    transition: all .15s;
+  .welcome .w-lead { font-size: 14.5px; color: var(--text); margin-bottom: 14px; }
+  .welcome .guide {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px 26px;
+    font-size: 12.8px; line-height: 1.8;
   }
-  .chip:hover { background: #e8f1ff; border-color: var(--blue); transform: translateY(-1px); }
+  .welcome .guide p { margin: 0; cursor: pointer; transition: color .15s; }
+  .welcome .guide p:hover b { color: var(--blue); }
 
   .msg-user { display: flex; justify-content: flex-end; margin: 12px 0; }
   .msg-user .bubble {
@@ -402,32 +396,51 @@
     max-height: 320px; overflow-y: auto; color: #334155;
   }
   .meta-line { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.7; word-break: break-all; }
+  /* 结果卡片：一句话结论 + 详情折叠 */
+  .card .head { display: flex; align-items: center; gap: 8px; }
+  .card .head .hms { margin-left: auto; font-size: 11.5px; font-weight: 400; color: #a3aec0; }
+  .rline { font-size: 12.5px; color: #475569; line-height: 1.7; word-break: break-word; }
+  .rline b { color: var(--text); font-weight: 600; }
+  .rdet { margin-top: 9px; }
+  .rdet summary {
+    cursor: pointer; font-size: 11.5px; color: #8b98a9; list-style: none;
+    display: inline-flex; align-items: center; gap: 4px; user-select: none;
+    padding: 2px 6px 2px 0; border-radius: 6px; transition: color .14s;
+  }
+  .rdet summary::-webkit-details-marker { display: none; }
+  .rdet summary::before { content: "▸"; font-size: 9px; }
+  .rdet[open] summary::before { content: "▾"; }
+  .rdet summary:hover { color: var(--blue-dark); }
+  .rdet pre.report { max-height: 220px; }
+  .rmeta { font-size: 11.5px; color: #9aa7ba; margin-top: 5px; word-break: break-all; }
 
   /* ---------------- 输入区 ---------------- */
   .composer {
-    flex: 0 0 auto; padding: 12px 20px 14px; background: var(--card);
-    border-top: 1px solid var(--line); box-shadow: 0 -2px 10px rgba(15,35,80,.04);
+    flex: 0 0 auto; padding: 12px 20px 16px; background: var(--card);
+    border-top: 1px solid var(--line);
   }
-  .composer-inner { max-width: 820px; margin: 0 auto; display: flex; gap: 10px; }
+  .composer-inner { max-width: 820px; margin: 0 auto; display: flex; gap: 8px; align-items: stretch; }
+  .cp-field {
+    flex: 1 1 auto; min-width: 0; display: flex; align-items: center;
+    border: 1px solid var(--line); border-radius: 14px; background: #fff;
+    padding: 3px 3px 3px 4px; transition: all .16s;
+  }
+  .cp-field:focus-within {
+    border-color: #bcd2f8; box-shadow: 0 0 0 4px rgba(47,111,237,.09);
+  }
   #input {
-    flex: 1 1 auto; padding: 11px 15px; border: 1px solid var(--line); border-radius: 12px;
-    font-size: 14px; outline: none; font-family: inherit; background: #fbfdff;
-    transition: all .15s;
+    flex: 1 1 auto; min-width: 0; padding: 10px 12px; border: none; outline: none;
+    font-size: 14px; font-family: inherit; background: transparent; color: var(--text);
   }
-  #input:focus { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 3px rgba(47,111,237,.13); }
+  #input::placeholder { color: #a9b5c8; }
   #send {
-    flex: 0 0 auto; padding: 0 24px; color: #fff; border: none; cursor: pointer;
-    border-radius: 12px; font-size: 14px; font-weight: 600;
+    flex: 0 0 auto; padding: 0 22px; height: 40px; color: #fff; border: none; cursor: pointer;
+    border-radius: 11px; font-size: 13.5px; font-weight: 600; font-family: inherit;
     background: linear-gradient(135deg, var(--blue), var(--indigo));
-    box-shadow: 0 3px 10px rgba(47,111,237,.3); transition: all .15s;
+    box-shadow: 0 3px 10px rgba(47,111,237,.28); transition: all .15s;
   }
   #send:hover { filter: brightness(1.06); }
-  #send:disabled { background: #a5c0f5; box-shadow: none; cursor: default; }
-  .out-hint {
-    flex: 0 1 auto; align-self: center; min-width: 0;
-    font-size: 11px; color: var(--muted); white-space: nowrap;
-    overflow: hidden; text-overflow: ellipsis;
-  }
+  #send:disabled { background: #b9cdf5; box-shadow: none; cursor: default; }
 
   /* ---------------- 侧栏 ---------------- */
   .side {
@@ -518,7 +531,200 @@
   }
   .dw-ctl button.mini:hover:not(:disabled) { background: #f6f9fd; color: var(--text); border-color: #cfdefc; }
   .dw-ctl button.mini:disabled { opacity: .42; cursor: not-allowed; }
+
+  /* ---- 弹窗内的分步：内容区 / 步骤头 / 主按钮 ---- */
+  .dw-pad { padding: 16px 18px 14px; overflow: auto; flex: 1 1 auto; }
+  .pstep {
+    display: flex; align-items: center; gap: 8px; margin: 0 0 9px;
+    font-size: 13px; font-weight: 600; color: var(--text);
+  }
+  .pstep i {
+    flex: 0 0 auto; width: 18px; height: 18px; border-radius: 6px;
+    background: #eef4ff; color: var(--blue-dark); font-style: normal;
+    font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .pstep .pstep-h { margin-left: 7px; font-size: 11.5px; font-weight: 400; color: #9aa7ba; }
+
+  .dw-ctl button.cta, .fill-run #fill-go, .ocr-opts #ocr-go {
+    border-color: transparent; color: #fff; font-weight: 600;
+    background: linear-gradient(135deg, #3d7df6, #2f6fed);
+    box-shadow: 0 6px 16px rgba(47,111,237,.24);
+  }
+  .dw-ctl button.cta:hover:not(:disabled),
+  .fill-run #fill-go:hover:not(:disabled),
+  .ocr-opts #ocr-go:hover:not(:disabled) { filter: brightness(1.06); }
+  #ocr-go:disabled, #fill-go:disabled {
+    opacity: .45; cursor: not-allowed; box-shadow: none; filter: none;
+  }
+
+  .ocr-opts { display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; }
+  .ocr-opt {
+    display: flex; flex-direction: column; gap: 1px; min-width: 104px;
+    border: 1px solid var(--line); background: #fff; border-radius: 10px;
+    padding: 7px 14px; cursor: pointer; color: #94a3b8; font-size: 11.5px;
+    transition: all .15s;
+  }
+  .ocr-opt input { display: none; }
+  .ocr-opt b { font-size: 13px; font-weight: 600; color: var(--text); }
+  .ocr-opt:hover { border-color: #cfdefc; }
+  .ocr-opt.on { border-color: #b9cff8; background: #f4f8ff; }
+  .ocr-opt.on b { color: var(--blue-dark); }
+  .ocr-opts #ocr-go { margin-left: auto; align-self: center; padding: 10px 20px; }
+
+  /* 语言 / 竖排（2026-11-07）：跟分类 chip 同一套观感，别再造新控件 */
+  .ocr-langrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+  .ocr-langrow .rk-kinds { margin: 0; }
+  .ocr-vert {
+    display: flex; align-items: center; gap: 5px; font-size: 12px;
+    color: var(--muted); cursor: pointer; user-select: none;
+  }
+  .ocr-vert input { accent-color: var(--blue); }
+  .ocr-run { display: flex; align-items: center; gap: 12px; margin: 14px 0 4px; flex-wrap: wrap; }
+  .ocr-run #ocr-go {
+    padding: 10px 24px; border-radius: 10px; border: 1px solid transparent;
+    color: #fff; font-weight: 600; font-size: 13px; font-family: inherit; cursor: pointer;
+    background: linear-gradient(135deg, #3d7df6, #2f6fed);
+    box-shadow: 0 6px 16px rgba(47,111,237,.24); transition: all .15s;
+  }
+  .ocr-run #ocr-go:hover:not(:disabled) { filter: brightness(1.06); }
+  .ocr-run #ocr-go:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; filter: none; }
+
+  .fill-run {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 14px 0 4px;
+    font-size: 12.5px; color: var(--muted);
+  }
+  .fill-run label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+  .fill-run #fill-go {
+    padding: 10px 22px; font-size: 13px; font-family: inherit; border-radius: 10px;
+    border: 1px solid transparent; cursor: pointer;
+  }
+
+  /* ---- 数据仓库 · 文档库（数据仓库的"进口"：上传 → 入池 → 可提取） ---- */
+  .dw-docs { border-bottom: 1px solid var(--line); background: #fcfdff; }
+  .dw-docs-hd { display: flex; align-items: center; gap: 10px; padding: 10px 18px 8px; }
+  .dw-docs-hd b { font-size: 13.5px; }
+  .dw-docs-hd .dw-sub { font-size: 12px; color: var(--muted); }
+  .dw-docs-hd .dw-sub b { color: var(--blue-dark); }
+  .dw-docs-acts { margin-left: auto; display: flex; gap: 8px; }
+  .dw-docs-acts button {
+    padding: 6px 11px; font-size: 12px; border-radius: 9px; cursor: pointer;
+    border: 1px solid var(--line); background: #fff; color: var(--muted);
+    font-family: inherit; transition: all .15s;
+  }
+  .dw-docs-acts button:hover:not(:disabled) { border-color: #cfdefc; background: #f2f7ff; color: var(--blue-dark); }
+  .dw-docs-acts button:disabled { opacity: .5; cursor: not-allowed; }
+  .dw-docs-acts button.primary { border-color: #cfdefc; background: #f5f9ff; color: var(--blue-dark); font-weight: 600; }
+  .dw-docs-body { padding: 0 18px 12px; }
+  .dw-docs-body.fold { display: none; }
+  .dw-docs-drop {
+    border: 1.5px dashed #ccd7e6; border-radius: 10px; background: #fff;
+    padding: 10px 12px; text-align: center; cursor: pointer;
+    font-size: 12.5px; color: var(--muted); transition: all .15s;
+  }
+  .dw-docs-drop:hover, .dw-docs-drop.on { border-color: var(--blue); background: #f2f7ff; color: var(--blue-dark); }
+  .dw-docs-drop b { color: var(--text); }
+  .dw-docs-list { margin-top: 8px; max-height: 210px; overflow: auto; }
+  .dw-docs-list .empty { padding: 10px 0; font-size: 12.5px; }
+  .dw-doc-row {
+    display: flex; align-items: center; gap: 8px; padding: 5px 2px;
+    border-bottom: 1px dashed var(--line-soft); font-size: 12.5px;
+  }
+  .dw-doc-row:last-child { border-bottom: none; }
+  .dw-doc-row .nm { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dw-doc-row .nm.new { color: var(--blue-dark); font-weight: 600; }
+  .dw-doc-row .mt { flex: 0 0 auto; font-size: 11.5px; color: var(--muted); }
+  .dw-doc-row .tag-src {
+    flex: 0 0 auto; font-size: 10.5px; padding: 1px 6px; border-radius: 999px;
+    background: #eef2f8; color: #64748b; border: 1px solid #e2e8f0;
+  }
+  .dw-doc-row .tag-src.imp { background: #eef6ff; color: #1e63c8; border-color: #d6e6ff; font-weight: 600; }
+  .dw-doc-row button.ex {
+    flex: 0 0 auto; padding: 3px 9px; font-size: 11.5px; border-radius: 8px;
+    border: 1px solid #cfdefc; background: #f5f9ff; color: var(--blue-dark);
+    cursor: pointer; font-family: inherit; font-weight: 600;
+  }
+  .dw-doc-row button.ex:hover:not(:disabled) { background: #e8f1ff; }
+
+  /* 按文档看知识（2026-11-05） */
+  .dw-doc-row .nm.hask { cursor: pointer; color: var(--blue-dark); font-weight: 600; }
+  .dw-doc-row .nm.hask:hover { text-decoration: underline; }
+  .dw-doc-row .dw-has {
+    flex: 0 0 auto; font-size: 10.5px; padding: 1px 7px; border-radius: 999px;
+    background: #ecfdf5; color: #047857; border: 1px solid #b9ebd4; font-weight: 600;
+  }
+  .kdoc { padding: 2px 0 8px; }
+  .kdoc-hd { display: flex; align-items: center; gap: 10px; }
+  .kdoc-title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .kdoc-meta { margin-top: 5px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+  .kdoc-req { display: flex; align-items: center; gap: 8px; margin: 10px 0 12px; flex-wrap: wrap; }
+  .kdoc-req input {
+    flex: 1 1 260px; min-width: 180px; padding: 7px 10px; font-size: 13px;
+    border: 1px solid #d6dde8; border-radius: 8px; font-family: inherit;
+  }
+  .kdoc-obj {
+    margin-bottom: 12px; border: 1px solid #e6ebf3; border-radius: 10px;
+    background: #fbfcfe; padding: 10px 12px;
+  }
+  .kdoc-obj-hd {
+    font-size: 13.5px; font-weight: 700; color: var(--text);
+    display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;
+  }
+  .kdoc-attr { padding: 5px 0; border-top: 1px dashed var(--line-soft); }
+  .kdoc-attr:first-of-type { border-top: none; }
+  .kdoc-attr-hd { display: flex; align-items: baseline; gap: 8px; font-size: 12.5px; }
+  .kdoc-attr-hd b { color: #334155; }
+  .kdoc-vals { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+  .kdoc-v {
+    font-size: 12px; padding: 2px 8px; border-radius: 6px;
+    background: #eef2ff; color: #3730a3; border: 1px solid #e0e7ff;
+    max-width: 460px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .kdoc-v.foc { background: #fff4e5; color: #9a5b00; border-color: #ffe0b2; font-weight: 600; }
+  .kdoc-all { margin-top: 10px; }
+  .kdoc-all summary {
+    cursor: pointer; font-size: 12.5px; color: var(--blue-dark);
+    padding: 5px 0; font-weight: 600;
+  }
+  .kdoc .it { font-size: 12.5px; padding: 3px 0; line-height: 1.7; color: #334155; }
+  .dw-doc-row button.ex:disabled { opacity: .55; cursor: not-allowed; }
+  .dw-docs-note { margin-top: 8px; font-size: 12.5px; line-height: 1.6; }
+  .dw-docs-note .n-ok { color: #0f7b4f; font-weight: 600; }
+  .dw-docs-note .n-bad { color: #b91c1c; font-weight: 600; }
+  .dw-docs-note .n-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
+  .dw-docs-note .n-hd button {
+    margin-left: auto; padding: 3px 9px; font-size: 11.5px; border-radius: 8px;
+    border: 1px solid var(--line); background: #fff; color: var(--muted);
+    cursor: pointer; font-family: inherit;
+  }
   .fill-drop { outline: 2px dashed var(--blue); outline-offset: -4px; background: #f2f7ff !important; }
+
+  /* ---- 文字识别（扫描版 PDF / 图片 OCR） ---- */
+  .ocr-drop {
+    border: 1.5px dashed #ccd7e6; border-radius: 12px; background: #fafcff;
+    padding: 24px 18px; text-align: center; cursor: pointer;
+    transition: border-color .15s, background .15s; color: var(--muted); font-size: 13px;
+  }
+  .ocr-drop:hover, .ocr-drop.on { border-color: var(--blue); background: #f2f7ff; color: var(--blue-dark); }
+  .ocr-drop b { color: var(--text); font-size: 14px; }
+  .ocr-file { display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    border: 1px solid var(--line); border-radius: 10px; background: #fff; text-align: left; }
+  .ocr-file .ic { font-size: 22px; line-height: 1; }
+  .ocr-file .nm { font-weight: 600; font-size: 13px; word-break: break-all; }
+  .ocr-file .sz { color: var(--muted); font-size: 12px; }
+  .ocr-text {
+    max-height: 300px; overflow: auto; margin: 0; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 10px; background: #fbfcfe;
+    white-space: pre-wrap; font-size: 13px; line-height: 1.8;
+    font-family: inherit; color: var(--text);
+  }
+  .ocr-para {
+    padding: 7px 11px; border-left: 3px solid #dbe3ee; background: #fbfcfe;
+    border-radius: 0 6px 6px 0; margin: 6px 0; line-height: 1.7;
+    font-size: 13px; white-space: pre-wrap; word-break: break-word;
+  }
+  .ocr-para.low { border-left-color: #eab308; background: #fffdf3; }
+  .ocr-para .tag { display: inline-block; font-size: 11px; color: var(--muted); margin-right: 8px; }
+  .ocr-para .tag.ocr { color: #7c3aed; font-weight: 600; }
   #fill-tpl { max-width: 340px; flex: 1 1 220px; }
   /* 我上传的模板（管理清单） */
   .tplmg-row {
@@ -575,7 +781,19 @@
     display: inline-block; margin-top: 4px; padding: 8px 16px; border-radius: 8px;
     background: #2563eb; color: #fff; text-decoration: none; font-size: 13px; font-weight: 600;
   }
-  .rk-dl:hover { background: #1d4ed8; }  /* ---------------- 右下角客服：AI / 人工 ---------------- */
+  .rk-dl:hover { background: #1d4ed8; }
+  /* 填表完成后的两个快捷入口：打开文件 / 打开所在目录 */
+  .fill-open-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .fill-open-btn {
+    display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+    border-radius: 8px; border: 1.5px solid #c9dbfb; background: #fff; color: #1d4ed8;
+    font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+    transition: background .15s, border-color .15s, box-shadow .15s;
+  }
+  .fill-open-btn:hover { background: #f2f7ff; border-color: #2f6fed; box-shadow: 0 2px 8px rgba(47,111,237,.12); }
+  .fill-open-btn:active { transform: translateY(1px); }
+  .fill-open-btn[disabled] { opacity: .55; cursor: default; }
+  /* ---------------- 右下角客服：AI / 人工 ---------------- */
   .cs-dock { position: fixed; right: 22px; bottom: 22px; z-index: 70; display: flex; gap: 9px; align-items: flex-end; }
   .cs-fab {
     display: flex; align-items: center; gap: 7px; border: 1px solid #e2eaf6; background: #fff;
@@ -605,6 +823,29 @@
   .cs-main { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; }
   .cs-panel.on { display: flex; animation: csIn .2s cubic-bezier(.2,.8,.3,1) both; }
   @keyframes csIn { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+
+  /* ---- 浮层通用：可拖动 + 可缩放 + 可最大化 ---- */
+  .cs-panel, .cr-panel { min-width: 330px; min-height: 340px; }
+  .cs-hd, .cr-hd, .cs-stage-hd { cursor: grab; user-select: none; touch-action: none; }
+  .cs-hd.dragging, .cr-hd.dragging, .cs-stage-hd.dragging { cursor: grabbing; }
+  .flt-grip {
+    position: absolute; right: 0; bottom: 0; width: 20px; height: 20px;
+    cursor: nwse-resize; z-index: 6; touch-action: none;
+  }
+  .flt-grip::after {
+    content: ""; position: absolute; right: 5px; bottom: 5px; width: 9px; height: 9px;
+    border-right: 2px solid rgba(20,44,90,.26); border-bottom: 2px solid rgba(20,44,90,.26);
+    border-radius: 0 0 3px 0; transition: border-color .15s;
+  }
+  .flt-grip:hover::after { border-color: var(--blue); }
+  .flt-max {
+    margin-left: 6px; border: none; background: rgba(255,255,255,.14); color: #fff;
+    width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 12px;
+    line-height: 1; flex: 0 0 auto;
+  }
+  .flt-max:hover { background: rgba(255,255,255,.26); }
+  .cs-hd .x, .cr-hd .x { margin-left: 4px; }
+  .flt-busy { transition: none !important; }
 
   .cs-hd {
     flex: 0 0 auto; padding: 13px 15px; display: flex; align-items: center; gap: 10px;
@@ -874,60 +1115,88 @@
   .cs-tip .fbb:hover { background: #fef6e7; }
 
   .fb-mask {
-    position: fixed; inset: 0; background: rgba(15,35,80,.34); backdrop-filter: blur(2px);
-    display: none; align-items: center; justify-content: center; z-index: 96;
+    position: fixed; inset: 0; background: rgba(15,35,80,.34); backdrop-filter: blur(3px);
+    display: none; align-items: center; justify-content: center; z-index: 96; padding: 20px;
   }
   .fb-mask.on { display: flex; }
   .fb-card {
-    width: min(462px, 94vw); background: var(--card); border-radius: 16px; overflow: hidden;
-    box-shadow: 0 24px 70px rgba(15,35,80,.30); animation: fadeUp .2s ease;
+    width: min(500px, 96vw); max-height: 92vh; overflow: auto;
+    background: var(--card); border-radius: 18px;
+    border: 1px solid rgba(226,234,246,.9);
+    box-shadow: 0 30px 80px rgba(15,35,80,.28), 0 2px 6px rgba(15,35,80,.06);
+    animation: fadeUp .22s cubic-bezier(.2,.8,.3,1);
   }
-  .fb-hd { display: flex; align-items: center; padding: 16px 20px 8px; }
-  .fb-hd b { font-size: 15px; }
+  .fb-hd {
+    display: flex; align-items: center; padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .fb-hd b { font-size: 15.5px; letter-spacing: .2px; }
   .fb-hd .x {
-    margin-left: auto; border: none; background: none; color: var(--muted); font-size: 14px;
-    cursor: pointer; padding: 4px 7px; border-radius: 8px; font-family: inherit; line-height: 1;
+    margin-left: auto; border: none; background: none; color: #a8b4c8; font-size: 13px;
+    cursor: pointer; padding: 5px 8px; border-radius: 8px; font-family: inherit; line-height: 1;
+    transition: all .15s;
   }
   .fb-hd .x:hover { background: #f1f5f9; color: var(--text); }
-  .fb-bd { padding: 2px 20px 18px; }
-  .fb-sub { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
-  .fb-line { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
-  .fb-line select {
-    border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; font-family: inherit;
-    font-size: 12.5px; color: var(--text); background: #fbfdff; outline: none;
+  .fb-bd { padding: 16px 22px 18px; }
+
+  .fb-sec { margin-bottom: 14px; }
+  .fb-label {
+    font-size: 11.5px; color: #94a3b8; letter-spacing: .6px; margin-bottom: 7px;
   }
-  .fb-stars { display: flex; align-items: center; gap: 4px; margin: 12px 0 4px; }
+  .fb-feats { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fb-feat {
+    border: 1px solid var(--line); background: #fff; color: #56657c;
+    border-radius: 9px; padding: 6px 11px; font-size: 12.5px; font-family: inherit;
+    cursor: pointer; transition: all .15s; white-space: nowrap;
+  }
+  .fb-feat:hover { border-color: #c8d8ef; color: var(--blue-dark); background: #f8fbff; }
+  .fb-feat.on {
+    border-color: transparent; color: #fff; font-weight: 600;
+    background: linear-gradient(135deg, #3d7df6, #4f46e5);
+    box-shadow: 0 4px 12px rgba(47,111,237,.26);
+  }
+
+  .fb-stars { display: flex; align-items: center; gap: 5px; }
   .fb-star {
-    font-size: 26px; line-height: 1; color: #dde5f0; cursor: pointer; user-select: none;
-    transition: transform .1s, color .12s;
+    font-size: 27px; line-height: 1; color: #dde5f0; cursor: pointer; user-select: none;
+    transition: transform .12s, color .12s;
   }
-  .fb-star:hover { transform: scale(1.12); }
-  .fb-star.on { color: #f59e0b; }
-  .fb-starhint { margin-left: 6px; font-size: 12px; color: var(--muted); }
-  .fb-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 10px; }
+  .fb-stars:hover .fb-star { color: #f5a623; }
+  .fb-stars:hover .fb-star:hover ~ .fb-star { color: #dde5f0; }
+  .fb-star:hover { transform: translateY(-1px) scale(1.1); }
+  .fb-star.on { color: #f5a623; }
+  .fb-starhint { margin-left: 8px; font-size: 12px; color: #94a3b8; }
+
+  .fb-tags { display: flex; flex-wrap: wrap; gap: 6px; min-height: 1px; }
   .fb-tag {
-    border: 1px solid var(--line); background: #fbfdff; color: #475569; border-radius: 999px;
+    border: 1px solid var(--line); background: #fff; color: #64748b; border-radius: 999px;
     padding: 5px 11px; font-size: 12px; font-family: inherit; cursor: pointer; transition: all .14s;
   }
-  .fb-tag:hover { border-color: #c8d8ef; }
-  .fb-tag.on { border-color: var(--blue); background: #eef4ff; color: var(--blue-dark); }
+  .fb-tag:hover { border-color: #c8d8ef; color: var(--blue-dark); }
+  .fb-tag.on {
+    border-color: #bcd2f8; background: #eff5ff; color: var(--blue-dark); font-weight: 500;
+  }
+
   .fb-ta {
-    width: 100%; min-height: 74px; resize: vertical; border: 1px solid var(--line);
-    border-radius: 10px; padding: 9px 11px; font-family: inherit; font-size: 13px;
-    line-height: 1.6; outline: none; color: var(--text);
+    width: 100%; min-height: 92px; resize: vertical; border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px 13px; font-family: inherit; font-size: 13px;
+    line-height: 1.7; outline: none; color: var(--text); background: #fcfdff;
+    transition: all .15s;
   }
-  .fb-ta:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(47,111,237,.10); }
-  .fb-foot { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
-  .fb-cnt { font-size: 11.5px; color: var(--muted); margin-right: auto; }
+  .fb-ta::placeholder { color: #a9b5c8; }
+  .fb-ta:focus { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 3px rgba(47,111,237,.10); }
+  .fb-foot { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+  .fb-cnt { font-size: 11.5px; color: #a9b5c8; margin-right: auto; }
   .fb-btn {
-    border: 1px solid var(--line); background: #fff; color: #475569; border-radius: 9px;
-    padding: 8px 16px; font-size: 12.5px; font-family: inherit; cursor: pointer; transition: all .15s;
+    border: 1px solid var(--line); background: #fff; color: #56657c; border-radius: 10px;
+    padding: 9px 18px; font-size: 12.5px; font-family: inherit; cursor: pointer; transition: all .15s;
   }
-  .fb-btn:hover { background: #f8fafc; }
+  .fb-btn:hover { background: #f8fafc; border-color: #d6e0ef; }
   .fb-btn.primary {
-    background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 500;
+    background: linear-gradient(135deg, #3d7df6, #2f6fed); border-color: transparent;
+    color: #fff; font-weight: 600; box-shadow: 0 6px 16px rgba(47,111,237,.26);
   }
-  .fb-btn.primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+  .fb-btn.primary:hover { filter: brightness(1.06); box-shadow: 0 8px 20px rgba(47,111,237,.32); }
   .fb-btn:disabled { opacity: .55; cursor: not-allowed; }
 
   /* ---------------- 多人聊天室（用户端公共大群） ---------------- */
@@ -1032,7 +1301,7 @@
   .cr-foot { flex: 0 0 auto; border-top: 1px solid #eef5f4; padding: 9px 11px 10px; background: #fff; }
   .cr-row { display: flex; gap: 8px; align-items: flex-end; }
   .cr-row textarea {
-    flex: 1 1 auto; border: 1px solid #e3ecec; border-radius: 10px; background: #fbfdfd;
+    flex: 1 1 auto; min-width: 0; border: 1px solid #e3ecec; border-radius: 10px; background: #fbfdfd;
     padding: 9px 11px; font-size: 12.5px; font-family: inherit; line-height: 1.6; height: 40px;
     max-height: 88px; resize: none; outline: none; color: var(--text); transition: all .14s;
   }
@@ -1044,8 +1313,8 @@
   }
   .cr-send:hover { filter: brightness(1.05); }
   .cr-send:disabled { opacity: .5; cursor: not-allowed; }
-  .cr-tip { display: flex; align-items: center; gap: 8px; margin-top: 7px; font-size: 10.5px; color: #a9b8b8; }
-  .cr-tip .cnt { margin-left: auto; }
+  .cr-tip { display: flex; align-items: center; gap: 4px 8px; margin-top: 7px; font-size: 10.5px; color: #a9b8b8; }
+  .cr-tip .cnt { margin-left: auto; flex: 0 0 auto; white-space: nowrap; }
   .cr-jump {
     position: absolute; left: 50%; transform: translateX(-50%); bottom: 104px; display: none;
     border: 1px solid #cdeae7; background: #fff; color: #0f766e; font-size: 11px;
@@ -1057,9 +1326,448 @@
     .cr-panel { width: calc(100vw - 24px); right: 12px; bottom: 12px; }
   }
 
+  /* ================= 左侧功能栏（2026-11-07：功能从顶栏挪到左边，卡片做大） ================= */
+  main { padding-left: 226px; }
+  .feat-rail {
+    position: fixed; left: 12px; top: 72px; bottom: 12px; width: 204px;
+    display: flex; flex-direction: column; gap: 8px; overflow-y: auto;
+    z-index: 6; padding-right: 2px;
+  }
+  .feat-rail::-webkit-scrollbar { width: 0; }
+  .feat-card {
+    display: flex; align-items: center; gap: 11px; width: 100%; text-align: left;
+    padding: 11px 12px; border: 1px solid var(--line); border-radius: 14px;
+    background: #fff; box-shadow: 0 1px 2px rgba(15,35,80,.04);
+    font-family: inherit; color: var(--text); cursor: pointer;
+    transition: transform .14s, box-shadow .16s, border-color .16s;
+  }
+  .feat-card:hover { transform: translateY(-1px); border-color: #c9dbfb; box-shadow: 0 8px 20px rgba(47,111,237,.14); }
+  .feat-card.on { border-color: #b9cff8; background: #f7faff; }
+  .feat-card .fc-ic {
+    flex: 0 0 auto; width: 36px; height: 36px; border-radius: 11px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+    background: #f1f6ff; color: var(--blue-dark);
+  }
+  .feat-card .fc-tx { min-width: 0; }
+  .feat-card .fc-tx b { display: block; font-size: 13.5px; font-weight: 700; line-height: 1.35; }
+  .feat-card .fc-tx span {
+    display: block; margin-top: 2px; font-size: 11px; color: var(--muted);
+    line-height: 1.45; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .feat-card.primary { border-color: transparent; background: linear-gradient(135deg, #3d7df6, #2f6fed); color: #fff; box-shadow: 0 6px 18px rgba(47,111,237,.28); }
+  .feat-card.primary .fc-ic { background: rgba(255,255,255,.2); color: #fff; }
+  .feat-card.primary .fc-tx span { color: rgba(255,255,255,.82); }
+  .feat-card.primary:hover { box-shadow: 0 10px 24px rgba(47,111,237,.36); }
+  .feat-sep { margin: 4px 6px 2px; font-size: 10.5px; letter-spacing: .08em; color: #a9b6c9; }
+  .feat-card .fc-tx .room-badge { display: none; margin-left: 5px; }
+  .feat-card .fc-tx .room-badge.on { display: inline-block; }
+
+  @media (max-width: 1040px) {
+    main { padding-left: 0; padding-top: 0; }
+    .feat-rail {
+      position: static; width: auto; flex-direction: row; gap: 8px;
+      padding: 10px 14px 0; overflow-x: auto; overflow-y: hidden;
+    }
+    .feat-card { flex: 0 0 auto; width: auto; padding: 8px 11px; }
+    .feat-card .fc-tx span { display: none; }
+    .feat-sep { display: none; }
+  }
+
+  /* ================= 四个核心弹窗：更大、分区更清楚 ================= */
+  .dw-panel { width: min(1240px, 97vw); max-height: 92vh; }
+  #dw-overlay .dw-panel { width: min(1340px, 97vw); height: min(900px, 93vh); }
+  #rec-overlay .dw-panel { width: min(1150px, 96vw); height: min(860px, 91vh); }
+  #fill-overlay .dw-panel { width: min(1100px, 96vw); height: min(860px, 91vh); }
+  #ocr-overlay .dw-panel { width: min(1000px, 96vw); height: min(840px, 91vh); }
+
+  /* 数据仓库：左文档库 / 右知识区，两大分区 */
+  .dw-main { flex: 1 1 auto; display: flex; min-height: 0; }
+  .dw-side {
+    flex: 0 0 338px; display: flex; flex-direction: column; min-height: 0;
+    border-right: 1px solid var(--line); background: #fbfcff; padding: 14px 14px 10px;
+  }
+  .dw-side-hd { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+  .dw-side-hd b { font-size: 14px; }
+  .dw-side-hd span { font-size: 11.5px; color: var(--muted); }
+  .dw-upload-big {
+    display: flex; align-items: center; gap: 10px; padding: 13px 14px; margin-bottom: 10px;
+    min-height: 74px; border: 1.5px dashed #adc8f5; border-radius: 12px; background: #f5f9ff;
+    cursor: pointer; transition: all .16s;
+  }
+  .dw-upload-big:hover, .dw-upload-big.on { border-color: var(--blue); background: #eaf3ff; }
+  .dw-upload-big .ic {
+    flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; background: var(--blue);
+    color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px;
+  }
+  .dw-upload-big b { display: block; font-size: 13.5px; color: var(--blue-dark); }
+  .dw-upload-big span { display: block; font-size: 11px; color: #6b7c93; margin-top: 1px; }
+  .dw-docs-list { flex: 1 1 auto; overflow: auto; margin-top: 2px; }
+  .dw-side .dw-docs-body {
+    flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; padding: 0;
+  }
+  #dw-docs-list { max-height: none; }
+  .dw-doc-row { display: block; padding: 7px 6px; border-radius: 9px; }
+  .dw-doc-row .r1 { display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .dw-doc-row .r2 { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+  .dw-doc-row .r2 .mt { margin-right: auto; font-size: 10.5px; color: #9aa7ba; }
+  .dw-doc-row:hover { background: #f2f7ff; }
+  .dw-doc-row .del {
+    flex: 0 0 auto; border: none; background: transparent; color: #b6c0cf;
+    font-size: 13px; cursor: pointer; padding: 3px 5px; border-radius: 7px; font-family: inherit;
+  }
+  .dw-doc-row .del:hover { background: #fee2e2; color: #b91c1c; }
+  .dw-view { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  .dw-tabs { display: flex; gap: 6px; padding: 12px 18px 0; }
+  .dw-tab {
+    padding: 8px 16px; border: 1px solid var(--line); border-bottom: none;
+    border-radius: 10px 10px 0 0; background: #f5f8fc; color: var(--muted);
+    font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .dw-tab.on { background: #fff; color: var(--blue-dark); border-color: #cfdefc; }
+  .dw-view .dw-ctl { padding: 10px 18px; }
+  .dw-view .dw-ctl input { padding: 11px 14px 11px 36px; font-size: 14px; border-radius: 11px;
+    background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6fed' stroke-width='2.2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.6-3.6'/></svg>") no-repeat 12px center / 15px 15px;
+    border-color: #c9dbfb; box-shadow: 0 2px 8px rgba(47,111,237,.07); }
+  .dw-view .dw-ctl input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(47,111,237,.14); }
+  .dw-body { flex: 1 1 auto; overflow: auto; padding: 12px 18px 18px; }
+  /* 知识图谱 */
+  .dw-graph { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; padding: 8px 14px 12px; }
+  .kg-hd { display: flex; align-items: center; gap: 10px; padding: 0 4px 8px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+  .kg-hd b { font-size: 13px; color: var(--text); }
+  .kg-stat { color: #6b7a90; font-size: 11.5px; }
+  .kg-x {
+    margin-left: auto; padding: 3px 9px; border-radius: 999px; cursor: pointer;
+    border: 1px solid #f0c7c2; background: #fff5f4; color: #b4342a;
+    font-size: 11.5px; font-family: inherit;
+  }
+  /* 关系视角切换条 */
+  .kg-bar { display: flex; align-items: center; gap: 6px; padding: 0 4px 7px; flex-wrap: wrap; }
+  .kg-lab { font-size: 11.5px; color: #8b97aa; margin-right: 1px; }
+  .kg-v {
+    padding: 5px 10px; border-radius: 999px; border: 1px solid #d9e4f5; background: #fff;
+    color: #4a5a72; font-size: 12px; cursor: pointer; font-family: inherit; transition: all .13s;
+  }
+  .kg-v:hover:not(.on) { background: #f2f7ff; border-color: #bcd3f7; }
+  .kg-v.on { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(47,111,237,.22); }
+  .kg-sep { width: 1px; height: 17px; background: #e2eaf6; margin: 0 3px; }
+  .kg-tog {
+    padding: 5px 10px; border-radius: 9px; border: 1px dashed #cfdefc; background: #f7faff;
+    color: #3c6dc4; font-size: 11.5px; cursor: pointer; font-family: inherit;
+  }
+  .kg-tog:hover { background: #eaf2ff; }
+  .kg-tog.on { border-style: solid; border-color: var(--blue); background: var(--blue); color: #fff; }
+  #kg-layout {
+    padding: 5px 8px; border-radius: 9px; border: 1px solid #d9e4f5; background: #fff;
+    color: #4a5a72; font-size: 11.5px; font-family: inherit; cursor: pointer;
+  }
+  /* 关系类型（可点开/关） */
+  .kg-legend-bar {
+    display: flex; gap: 5px; padding: 0 4px 7px; flex-wrap: wrap;
+    max-height: 58px; overflow-y: auto;
+  }
+  .kg-lg {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 11px;
+    padding: 3px 8px; border-radius: 999px; border: 1px solid #e3ebf7;
+    background: #f8fbff; color: #57667e; cursor: pointer; user-select: none;
+  }
+  .kg-lg:hover { border-color: #bfd4f6; }
+  .kg-lg.off { opacity: .34; text-decoration: line-through; }
+  .kg-lg i { width: 13px; height: 3px; border-radius: 2px; display: inline-block; flex: 0 0 auto; }
+  .kg-lg b { font-weight: 600; }
+  .kg-lg em { font-style: normal; color: #93a1b5; font-size: 10.5px; }
+  .kg-lg.more { cursor: default; border-style: dashed; color: #9aa7ba; background: #fbfdff; }
+  .kg-lg.reset { cursor: pointer; border-color: #f5c2b8; background: #fff6f4; color: #b4342a; }
+  .kg-lg.reset:hover { background: #ffece8; }
+  .kg-wrap { flex: 1 1 auto; min-height: 0; position: relative; border: 1px solid var(--line); border-radius: 12px; background:
+    radial-gradient(circle at 50% 45%, #fbfdff, #f4f8ff); overflow: hidden; }
+  #kg-svg { width: 100%; height: 100%; display: block; cursor: grab; }
+  #kg-svg.drag { cursor: grabbing; }
+  .kg-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; }
+  .kg-tip {
+    position: absolute; pointer-events: none; background: #0f172a; color: #fff; font-size: 11.5px;
+    padding: 5px 9px; border-radius: 7px; opacity: 0; transition: opacity .12s; white-space: nowrap;
+    transform: translate(-50%, -130%); z-index: 3;
+  }
+  .kg-tip.on { opacity: .94; }
+  #kg-svg .kn { cursor: pointer; }
+  #kg-svg .kn.dim { opacity: .18; }
+  #kg-svg .ke.dim { opacity: .06; }
+  #kg-svg text { user-select: none; pointer-events: none; }
+  #kg-svg .kn.sel circle { stroke: #f59e0b; }
+  /* 右侧关系清单：点一个节点，这里列出它跟谁有关、凭什么有关 */
+  .kg-side {
+    position: absolute; top: 10px; right: 10px; width: 272px;
+    max-height: calc(100% - 20px); overflow-y: auto; z-index: 5; display: none;
+    background: rgba(255,255,255,.975); border: 1px solid #dbe6f6; border-radius: 12px;
+    box-shadow: 0 12px 34px rgba(24,60,120,.16); padding: 12px 13px; font-size: 12.5px;
+  }
+  .kg-side.on { display: block; }
+  .kg-side-hd { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 3px; }
+  .kg-side-hd b { font-size: 14px; color: #16233a; line-height: 1.4; word-break: break-all; }
+  .kg-side-hd .x {
+    margin-left: auto; flex: 0 0 auto; width: 21px; height: 21px; border-radius: 6px;
+    border: 1px solid #e4ecf8; background: #f8fbff; color: #7d8ca1; cursor: pointer;
+    font-size: 12px; line-height: 1;
+  }
+  .kg-side-hd .x:hover { background: #eef4ff; color: #2f6fed; }
+  .kg-side .sub { color: #8b97aa; font-size: 11px; margin-bottom: 8px; }
+  .kg-side .sub b { color: #4a5a72; font-weight: 600; }
+  .kg-side h5 {
+    margin: 11px 0 5px; font-size: 11px; color: #94a1b4; font-weight: 600;
+    letter-spacing: .4px; display: flex; align-items: center; gap: 5px;
+  }
+  .kg-side h5 i { flex: 1 1 auto; height: 1px; background: #eef2f9; }
+  .kg-rel {
+    display: flex; align-items: flex-start; gap: 7px; padding: 6px 7px;
+    border-radius: 8px; cursor: pointer; transition: background .12s;
+  }
+  .kg-rel:hover { background: #f3f8ff; }
+  .kg-rel.on { background: #e8f1ff; }
+  .kg-rel .dot { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; }
+  .kg-rel .tx { flex: 1 1 auto; min-width: 0; line-height: 1.45; word-break: break-all; }
+  .kg-rel .tx b { color: #22304a; font-weight: 600; }
+  .kg-rel .tx .k { color: #93a1b5; font-size: 10.5px; }
+  .kg-rel .ar { flex: 0 0 auto; color: #b7c3d4; font-size: 11px; margin-top: 1px; }
+  .kg-zoom { position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; gap: 5px; z-index: 4; }
+  .kg-zoom button {
+    width: 29px; height: 29px; border-radius: 9px; border: 1px solid #dbe6f6;
+    background: rgba(255,255,255,.94); color: #3d4f66; font-size: 14px; cursor: pointer;
+    line-height: 1; font-family: inherit;
+  }
+  .kg-zoom button:hover { background: #eef4ff; border-color: #bfd4f6; color: #2f6fed; }
+
+  /* 识别入库：文档选择区的操作条 */
+  .rk-tools { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .rk-tools .hint { font-size: 12px; color: var(--muted); margin-right: auto; }
+  .rk-tools button {
+    padding: 7px 12px; font-size: 12.5px; border-radius: 9px; cursor: pointer;
+    border: 1px solid #cfdefc; background: #f5f9ff; color: var(--blue-dark); font-family: inherit; font-weight: 600;
+  }
+  .rk-tools button:hover { background: #e8f1ff; }
+  .rk-list { max-height: 340px; }
+  #rec-docs { display: flex; flex-direction: column; gap: 1px; padding: 6px; }
+  #rec-docs .rk-line {
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    padding: 8px 9px !important; border-radius: 8px; border-bottom: 1px dashed #eef2f8;
+  }
+  #rec-docs .rk-line:last-child { border-bottom: none; }
+  #rec-docs .rk-line:hover { background: #f5f9ff; }
+  #rec-docs .rk-nm {
+    flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; font-size: 13px;
+  }
+  #rec-docs .rk-src { flex: 0 0 auto; min-width: 52px; text-align: right; font-size: 10.5px; color: #9aa7ba; }
+  #rec-docs .dw-has { flex: 0 0 auto; min-width: 64px; text-align: right; }
+  #rec-docs .rk-del { flex: 0 0 auto; width: 26px; }
+  .rk-list label { padding: 7px 8px; border-radius: 8px; }
+  .rk-list label:hover { background: #f5f9ff; }
+  /* 文档清单按类型分类：顶上那排类型 chip + 组标题（四个模块共用） */
+  .rk-kinds { display: flex; flex-wrap: wrap; gap: 5px; margin: 7px 0 1px; }
+  .rk-kinds .kd {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; font-size: 11.5px; line-height: 1.55; border-radius: 999px;
+    border: 1px solid #dbe5f5; background: #f8fbff; color: #566a86;
+    font-family: inherit; font-weight: 600; cursor: pointer;
+  }
+  .rk-kinds .kd:hover { border-color: #a9c8fb; background: #eef5ff; }
+  .rk-kinds .kd.on { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .rk-kinds .kd i {
+    font-style: normal; font-size: 10px; padding: 0 5px; border-radius: 999px;
+    background: #e6eefa; color: #4a6285;
+  }
+  .rk-kinds .kd.on i { background: rgba(255,255,255,.28); color: #fff; }
+  .rk-grp-hd {
+    display: flex; align-items: center; gap: 6px;
+    padding: 9px 8px 4px; font-size: 11px; font-weight: 700; color: #8b9ab1;
+  }
+  .rk-grp-hd:first-child { padding-top: 4px; }
+  .rk-grp-hd i {
+    font-style: normal; font-weight: 600; font-size: 10px; padding: 0 5px;
+    border-radius: 999px; background: #eef2f8; color: #8b9ab1;
+  }
+  #fill-docs .rk-grp-hd { grid-column: 1 / -1; }
+  .rk-list .rk-del {
+    margin-left: auto; border: none; background: transparent; color: #b6c0cf; cursor: pointer;
+    font-family: inherit; font-size: 12.5px; padding: 2px 6px; border-radius: 6px;
+  }
+  .rk-list .rk-del:hover { background: #fee2e2; color: #b91c1c; }
+  .rec-req-big input {
+    width: 100%; padding: 14px 16px; font-size: 14.5px; border-radius: 12px;
+    border: 1.5px solid #c9dbfb; background: #fbfdff; font-family: inherit;
+  }
+  .rec-req-big input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,111,237,.13); background: #fff; }
+  .fill-req-big input {
+    width: 100%; padding: 14px 16px; font-size: 14px; border-radius: 12px;
+    border: 1.5px solid #c9dbfb; background: #fbfdff; font-family: inherit;
+  }
+  .fill-req-big input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,111,237,.13); background: #fff; }
+  /* 填表要求改成多行：一行装不下"日期区间 + 留空规则 + 只填某几列"这种复合要求 */
+  .fill-req-big textarea {
+    width: 100%; min-height: 62px; padding: 13px 16px; font-size: 14px; line-height: 1.65;
+    border-radius: 12px; border: 1.5px solid #c9dbfb; background: #fbfdff;
+    font-family: inherit; color: inherit; resize: vertical; box-sizing: border-box;
+  }
+  .fill-req-big textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,111,237,.13); background: #fff; }
+
+  /* ---------------- 智能操作弹窗（模块①：编辑 / 排版 / 格式 · 2026-11-07 独立入口） ---------------- */
+  #op-overlay .dw-panel { width: min(1040px, 96vw); max-height: min(900px, 92vh); }
+  .op-scroll { min-height: 0; overflow-y: auto; }
+  .op-docbar { display: flex; align-items: center; gap: 10px; margin: 2px 0 6px; }
+  .op-cur {
+    flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 12.5px; color: #7d8ba1;
+  }
+  .op-cur b { color: var(--blue-dark); font-weight: 700; }
+  .op-cur.on b { color: #0f766e; }
+  .op-docbar .mini { flex: 0 0 auto; }
+  #op-docs { max-height: 214px; display: flex; flex-direction: column; gap: 1px; padding: 5px; }
+  #op-docs .rk-line {
+    display: flex; align-items: center; gap: 8px; width: 100%; padding: 7px 9px;
+    border: none; background: transparent; border-radius: 8px; cursor: pointer;
+    font-family: inherit; text-align: left; color: var(--text);
+  }
+  #op-docs .rk-line:hover { background: #f5f9ff; }
+  #op-docs .rk-line.on { background: #e9f2ff; box-shadow: inset 0 0 0 1px #bcd6ff; }
+  #op-docs .rk-ic { flex: 0 0 auto; width: 18px; font-size: 13px; text-align: center; }
+  #op-docs .rk-nm {
+    flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; font-size: 13px;
+  }
+  #op-docs .rk-src { flex: 0 0 auto; font-size: 10.5px; color: #9aa7ba; }
+  #op-docs .rk-line.on .rk-nm { font-weight: 700; color: var(--blue-dark); }
+  .op-target { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 2px 0 9px; }
+  .op-lb { flex: 0 0 auto; font-size: 11.5px; color: #9aa7ba; margin-right: 2px; }
+  .op-tg {
+    padding: 5px 13px; font-size: 12.5px; border-radius: 999px; font-family: inherit;
+    border: 1px solid #d5e2f8; background: #f7faff; color: #41536e; cursor: pointer;
+  }
+  .op-tg:hover { border-color: #a9c8fb; }
+  .op-tg.on { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; }
+  .op-tools { display: flex; flex-direction: column; gap: 7px; }
+  .op-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .op-row > .op-lb { flex: 0 0 32px; }
+  .op-chip {
+    padding: 6px 12px; font-size: 12.5px; border-radius: 9px; font-family: inherit;
+    border: 1px solid #d8e3f5; background: #fff; color: #2f4360; cursor: pointer;
+    transition: background .12s, border-color .12s, color .12s;
+  }
+  .op-chip:hover:not(:disabled) { border-color: #9dc2fb; background: #f2f8ff; }
+  .op-chip:disabled { opacity: .35; cursor: not-allowed; }
+  .op-chip.on { border-color: var(--blue); background: #eaf2ff; color: var(--blue-dark); font-weight: 700; }
+  .op-chip.f-b { font-weight: 800; }
+  .op-chip.f-i { font-style: italic; }
+  .op-chip.f-u { text-decoration: underline; }
+  .op-chip.f-s { text-decoration: line-through; }
+  .op-sel {
+    padding: 5px 8px; font-size: 12.5px; border-radius: 9px; font-family: inherit;
+    border: 1px solid #d8e3f5; background: #fff; color: #2f4360; cursor: pointer;
+  }
+  .op-say { display: flex; gap: 8px; align-items: stretch; margin-top: 12px; }
+  .op-say input {
+    flex: 1 1 auto; min-width: 0; padding: 13px 15px; font-size: 14px; border-radius: 12px;
+    border: 1.5px solid #c9dbfb; background: #fbfdff; font-family: inherit; color: inherit;
+  }
+  .op-say input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47,111,237,.13); background: #fff; }
+  .op-say button {
+    flex: 0 0 auto; padding: 0 26px; border-radius: 12px; border: none; cursor: pointer;
+    background: linear-gradient(135deg, #3d7df6, #2f6fed); color: #fff;
+    font-family: inherit; font-size: 14.5px; font-weight: 700; box-shadow: 0 6px 16px rgba(47,111,237,.26);
+  }
+  .op-say button:hover { box-shadow: 0 8px 20px rgba(47,111,237,.34); }
+  .op-say button:disabled { opacity: .55; cursor: default; box-shadow: none; }
+  .op-result { margin-top: 10px; }
+  .op-result .report { max-height: 240px; }
+  .op-details { margin-top: 8px; }
+  .op-details > summary {
+    cursor: pointer; font-size: 12px; color: var(--blue-dark); padding: 4px 2px;
+    list-style: none; user-select: none;
+  }
+  .op-details > summary::-webkit-details-marker { display: none; }
+  .op-details > summary::before { content: "▸ "; }
+  .op-details[open] > summary::before { content: "▾ "; }
+  .op-details > summary:hover { text-decoration: underline; }
+  .op-open-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .op-open-btn {
+    padding: 8px 15px; font-size: 12.5px; border-radius: 10px; cursor: pointer;
+    border: 1px solid #cfdefc; background: #f5f9ff; color: var(--blue-dark);
+    font-family: inherit; font-weight: 600;
+  }
+  .op-open-btn:hover { background: #e8f1ff; border-color: #a9c8fb; }
+  .op-open-btn:disabled { opacity: .55; cursor: default; }
+  .op-tip { margin-top: 7px; font-size: 11.5px; color: #9aa7ba; line-height: 1.6; }
+
+  /* 表格填写：源文档选择区（两列紧凑排，21 份也不占太高） */
+  #fill-docs {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 6px; max-height: 198px; padding: 6px; margin-top: 8px;
+  }
+  #fill-docs .rk-line {
+    display: flex; align-items: center; gap: 7px; min-width: 0; width: 100%;
+    padding: 6px 8px !important; border-radius: 8px; border-bottom: none; cursor: pointer;
+  }
+  #fill-docs .rk-line:hover { background: #f5f9ff; }
+  #fill-docs .rk-line.on { background: #eaf3ff; }
+  #fill-docs .rk-nm {
+    flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; font-size: 12.6px;
+  }
+  #fill-docs .rk-src { flex: 0 0 auto; font-size: 10.5px; color: #9aa7ba; }
+  /* 识别入库的主按钮（不在 .dw-ctl 里了，单独给一套） */
+  #rec-go {
+    border: none; color: #fff; font-weight: 600; border-radius: 11px; cursor: pointer;
+    font-family: inherit; background: linear-gradient(135deg, #3d7df6, #2f6fed);
+    box-shadow: 0 7px 18px rgba(47,111,237,.26); transition: filter .15s, transform .15s;
+  }
+  #rec-go:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  #rec-go:disabled { opacity: .5; cursor: not-allowed; box-shadow: none; transform: none; }
+
+  /* 能力清单 / 反问：直接读得懂的白底块，不做等宽小字 */
+  .report.help {
+    margin-top: 9px; padding: 13px 15px; border: 1px solid #e2ecfb; border-radius: 11px;
+    background: #f8fbff; font-family: inherit; font-size: 12.8px; line-height: 1.85;
+    color: #334155; white-space: pre-wrap; max-height: 420px; overflow: auto;
+  }
 </style>
 </head>
 <body>
+
+<!-- 左侧功能栏：后续再加功能，往这里添一张卡就行 -->
+<aside class="feat-rail">
+  <button class="feat-card primary" id="op-toggle" title="一句话改文档：编辑 / 排版 / 格式调整">
+    <span class="fc-ic">🤖</span>
+    <span class="fc-tx"><b>智能操作</b><span>一句话改文档 · 编辑排版格式</span></span>
+  </button>
+  <button class="feat-card" id="rec-toggle" title="选文档 → 自动读懂结构 → 抽取入库">
+    <span class="fc-ic">🧠</span>
+    <span class="fc-tx"><b>识别入库</b><span>选文档，自动抽取入仓库</span></span>
+  </button>
+  <button class="feat-card" id="dw-toggle" title="按文档看已抽取的知识 + 知识图谱">
+    <span class="fc-ic">🗄️</span>
+    <span class="fc-tx"><b>数据仓库</b><span>按文档查 · 知识图谱</span></span>
+  </button>
+  <button class="feat-card" id="fill-toggle" title="选模板 → 找数 → 填写 → 下载">
+    <span class="fc-ic">📋</span>
+    <span class="fc-tx"><b>表格填写</b><span>给模板和源文档，填好直接下载</span></span>
+  </button>
+  <button class="feat-card" id="ocr-toggle" title="扫描版 PDF / 照片 / 截图 → 可编辑文字">
+    <span class="fc-ic">🔎</span>
+    <span class="fc-tx"><b>文字识别</b><span>简体·繁体·英文·竖排</span></span>
+  </button>
+  <div class="feat-sep">更多</div>
+  <button class="feat-card" id="guide-toggle" title="展开 / 收起操作指南">
+    <span class="fc-ic">📖</span>
+    <span class="fc-tx"><b>操作指南</b><span>30 秒上手</span></span>
+  </button>
+  <button class="feat-card" id="room-open" title="多人聊天室：和同门交流用法、互相答疑">
+    <span class="fc-ic">💬</span>
+    <span class="fc-tx"><b>聊天室<span class="room-badge" id="room-badge">0</span></b><span>和大家一起聊用法</span></span>
+  </button>
+  <button class="feat-card" id="fb-open" title="意见反馈：哪里不好用，直接说，客服和管理员都能看到">
+    <span class="fc-ic">✍️</span>
+    <span class="fc-tx"><b>意见反馈</b><span>说哪里不好用</span></span>
+  </button>
+</aside>
 
 <header>
   <div class="brand">
@@ -1073,13 +1781,7 @@
     <div><b>智能文档助手</b><span class="sub">改文档 · 取数据</span></div>
   </div>
   <div class="hdr-right">
-    <button class="ghost" id="guide-toggle" title="展开 / 收起操作指南">📖 操作指南</button>
-    <button class="ghost" id="dw-toggle" title="查看已入库的提取数据（实体 / 画像 / 字段）">🗄 数据仓库</button>
-    <button class="ghost" id="rec-toggle" title="智能识别分类（异步 API）：选文档跑 画像 / 实体 / 字段 提取，自动入库">🧠 识别入库</button>
-    <button class="ghost" id="fill-toggle" title="表格填写（异步）：读懂模板 → 找数 → 填写 → 自检，完成可下载">📋 表格填写</button>
-    <button class="ghost" id="room-open" title="多人聊天室：和其他用户一起交流用法、互相答疑（Enter 发送）">💬 聊天室<span class="room-badge" id="room-badge">0</span></button>
-    <button class="ghost" id="fb-open" title="意见反馈：哪个功能不好用、哪里填错了，直接说，客服和管理员都能看到">✍️ 意见反馈</button>
-    <input type="file" id="file-input" multiple accept=".docx,.md,.markdown,.xlsx,.txt" style="display:none">
+    <input type="file" id="file-input" multiple accept=".docx,.md,.markdown,.xlsx,.txt,.pdf,.png,.jpg,.jpeg,.bmp,.webp,.tif,.tiff" style="display:none">
     <span id="svc"><span class="dot" id="svc-dot"></span><span id="svc-text">连接中…</span></span>
     <span class="sid-chip">会话 <b id="sid-label">-</b></span>
     <button class="ghost" id="new-session">新会话</button>
@@ -1121,7 +1823,7 @@
                 <div class="fmt-tags">
                   <span>加粗</span><span>斜体</span><span>下划线</span><span>删除线</span><span class="hl">高亮</span><span>颜色</span><span>字体</span><span>字号</span>
                   <span>居中 / 左 / 右 / 两端对齐</span><span>行距</span><span>首行缩进</span>
-                  <span>改字</span><span>删字</span><span>加字</span><span>字段提取</span><span class="hl">关键信息画像</span><span class="hl">实体识别</span>
+                  <span>改字</span><span>删字</span><span>加字</span><span>字段提取</span><span class="hl">自动抽取知识</span>
                 </div>
                 <div class="fmt-note">全功能：文字格式 + 段落版式 + 编辑 + 读取信息</div>
               </div>
@@ -1129,7 +1831,7 @@
                 <div class="fmt-hd"><span class="fe excel">📊</span><b>Excel 表格</b><span class="ext">.xlsx</span></div>
                 <div class="fmt-tags">
                   <span>加粗</span><span>斜体</span><span>下划线</span><span>删除线</span><span class="hl">底色高亮</span><span>颜色</span><span>字体</span><span>字号</span><span>对齐</span>
-                  <span>改字</span><span>删字</span><span>字段提取</span><span class="hl">关键信息画像</span><span class="hl">实体识别</span>
+                  <span>改字</span><span>删字</span><span>字段提取</span><span class="hl">自动抽取知识</span>
                 </div>
                 <div class="fmt-note">可用「表头 / 某列 / 某个词」精确定位要动的格子</div>
               </div>
@@ -1137,37 +1839,41 @@
                 <div class="fmt-hd"><span class="fe txt">📝</span><b>Markdown 与纯文本</b><span class="ext">.md / .txt</span></div>
                 <div class="fmt-tags">
                   <span>加粗</span><span>斜体</span><span>删除线</span><span class="hl">高亮</span><span>标红</span>
-                  <span>改字</span><span>删字</span><span>加字</span><span>字段提取</span><span class="hl">关键信息画像</span><span class="hl">实体识别</span>
+                  <span>改字</span><span>删字</span><span>加字</span><span>字段提取</span><span class="hl">自动抽取知识</span>
                 </div>
                 <div class="fmt-note">纯文本没有「居中 / 行距」这类版式写法，会明确提示</div>
               </div>
             </div>
             <div class="fmt-line">
+              🤖 不想打字？点左边<b>「智能操作」</b>：上面一排小按钮（加粗 / 斜体 / 下划线 / 高亮 / 居中 / 行距…）点一下就生效，
+              下面点一份文件即可；也能什么都不选，直接在底下的框里说 <code>设备采购合同的标题加粗</code>
+            </div>
+            <div class="fmt-line">
               ✨ 一句话可含多个操作：<code>标题右对齐，并且加粗</code> 一次做两步、结果在同一份文件里
             </div>
             <div class="fmt-line">
-              🧭 想快速看懂一份文档？说 <code>提取XX的关键信息</code> —— 出一份画像：主题 + 核心要点 + 关键要素，条条带原文出处
+              🧭 想快速看懂一份文档？说 <code>自动读懂XX并提取关键信息</code> —— 系统先认出这份文档自己的对象和属性（合同是合同、报告是检验项目，不套固定分类），再逐条抽值，条条带出处
             </div>
             <div class="fmt-line">
-              🏷️ 想把文档里的"料"盘出来？说 <code>识别XX里的实体数据</code> —— 人名 / 机构 / 日期 / 金额 / 编号 / 联系方式 / 产品设备 7 类分类成表，条条带出处
+              🗄 抽出来的东西全进数据库：对象 / 属性 / 关系 / 事件 / 要点，点顶栏「数据仓库」一个视图看全，可按类型筛、按关键词搜；同一窗上半部分就是<b>📚 文档库</b>—— 能上传、看清单、对单份文档一键「🧠 提取入库」
             </div>
             <div class="fmt-line">
-              📥 新文档随时导入：点输入框左边的「导入文档」上传 <code>docx / xlsx / md / txt</code>，自动识别格式、解析完成后立即可用
+              📥 新文档随时导入：点输入框左边的「导入文档」上传 <code>docx / xlsx / md / txt</code>，或者打开<b>「🗄 数据仓库 → 📚 文档库」</b>直接传（那里还支持 PDF / 图片，扫描件自动 OCR）—— 自动识别格式，解析完立即可用
             </div>
             <div class="fmt-line">
               🖼 图片也能插进文档：把图片<b>直接拖进对话框</b>就选中了（<code>png / jpg / gif / bmp / webp</code>），再说一句 <code>插到标题下面</code> 或 <code>放到文末</code> —— 自动找位置、居中、按页宽缩放，原格式不动
             </div>
             <div class="fmt-line">
-              🗄 提取的数据全进数据库：实体 / 画像 / 字段提取完成即<b>自动入库</b>，点顶栏「数据仓库」随时查、按类型筛、搜关键词
+              🗄 提取的数据全进数据库：实体 / 画像 / 字段提取完成即<b>自动入库</b>，点顶栏「数据仓库」随时查、按类型筛、搜关键词；同一窗上半部分就是<b>📚 文档库</b>—— 能上传、看清单、对单份文档一键「🧠 提取入库」
             </div>
             <div class="fmt-line">
               🔍 数据质量随手体检：数据仓库里点<b>「质量体检」</b> —— 把库里的数据拿回原文核对（保真度）+ 对照人工标准答案算查全率，秒级出结果
             </div>
             <div class="fmt-line">
-              🧠 让系统自己盘文档：点顶栏<b>「识别入库」</b>—— 勾文档、选识别线（画像 / 实体 / 指定字段），提交后后台异步识别、自动入库（也可以直接说「识别XX里的实体数据」）
+              🧠 让系统自己盘文档：点顶栏<b>「识别入库」</b>—— 勾文档（可加一句关注点），提交后后台自动读懂结构、抽值、入库（也可以直接说「自动读懂XX」）
             </div>
             <div class="fmt-line">
-              📋 把数据填进表格：点顶栏<b>「表格填写」</b>—— 挑一张模板一键跑「读懂 → 找数 → 填写 → 自检」，完成后直接下载已填写表格
+              📋 把数据填进表格：点顶栏<b>「表格填写」</b>—— 选模板 + 勾源文档（数据从哪几份里找）+ 写要求，一键跑「读懂 → 找数 → 填写 → 自检」，完成后直接下载已填写表格
             </div>
           </div>
           <div class="gcol">
@@ -1209,11 +1915,12 @@
       </div>
       <div class="fb-tip" id="fb-tip"></div>
       <div class="composer-inner">
-        <button id="upload-btn" title="导入新文档（docx / xlsx / md / txt，自动识别格式）">📥 导入文档</button>
-        <button id="voice-btn" title="语音输入：点一下开始说话，再点一下结束；连不上浏览器语音服务时会自动改用本机离线识别"><span class="mic">🎤</span><span id="voice-label">语音输入</span></button>
-        <input id="input" autocomplete="off">
-        <button id="send">发送</button>
-        <span class="out-hint">结果文件保存在<br>agent\输出\ 目录</span>
+        <button id="upload-btn" title="导入文档：docx / xlsx / pdf / md / txt / 图片（扫描件自动 OCR）">📥</button>
+        <button id="voice-btn" title="语音输入：点一下开始说，再点一下结束"><span class="mic">🎤</span><span id="voice-label" hidden>语音输入</span></button>
+        <div class="cp-field">
+          <input id="input" placeholder="" autocomplete="off">
+          <button id="send">发送</button>
+        </div>
       </div>
     </div>
 
@@ -1234,31 +1941,188 @@
 <div class="dw-overlay" id="dw-overlay">
   <div class="dw-panel">
     <div class="dw-hd">
-      <b>🗄 数据仓库</b><span class="dw-sub">提取结果入库 · MySQL（a23_agent）</span>
+      <b>🗄 数据仓库</b><span class="dw-sub">按文档看已提取的知识</span>
       <span class="dw-actions">
         <button class="ghost" id="dw-refresh">刷新</button>
         <button class="ghost" id="dw-x">关闭 ✕</button>
       </span>
     </div>
     <div class="dw-stats" id="dw-stats">加载中…</div>
-    <div class="dw-ctl">
-      <input id="dw-q" placeholder="关键词 / 文档名，如：华景、E1001、员工信息" autocomplete="off">
-      <select id="dw-type">
-        <option value="">全部类型</option>
-        <option value="person">人名</option>
-        <option value="org">机构</option>
-        <option value="date">日期</option>
-        <option value="money">金额</option>
-        <option value="code">编号</option>
-        <option value="contact">联系方式</option>
-        <option value="product">产品设备</option>
-      </select>
-      <button id="dw-go-ent">查实体</button>
-      <button id="dw-go-fld">查字段</button>
-      <button id="dw-go-prof">看画像</button>
-      <button id="dw-go-audit" title="反向审计：把库里的数据拿回原文核对 + 对照人工标准答案算查全率（零模型、秒级）">🔍 质量体检</button>
+
+    <div class="dw-main">
+      <!-- 分区一：文档库（上传 → 入池 → 抽取） -->
+      <aside class="dw-side">
+        <div class="dw-side-hd"><b>📚 文档库</b><span id="dw-docs-count">加载中…</span></div>
+        <div class="dw-docs-body" id="dw-docs-body">
+          <div class="dw-upload-big" id="dw-docs-drop" title="点击选择，或把文件拖进来：docx / xlsx / pdf / md / txt / 图片（扫描件自动 OCR）">
+            <span class="ic">⬆</span>
+            <div><b>上传文档</b><span>点击或拖入 · 支持 PDF / 图片扫描件</span></div>
+          </div>
+          <div class="rk-kinds" id="dw-kinds"></div>
+          <div class="dw-docs-list" id="dw-docs-list"><div class="empty">加载中…</div></div>
+          <div class="dw-docs-note" id="dw-docs-note" style="display:none"></div>
+        </div>
+        <button id="dw-docs-upload" style="display:none"></button>
+        <input type="file" id="dw-docs-input" multiple accept=".docx,.md,.markdown,.xlsx,.txt,.pdf,.png,.jpg,.jpeg,.bmp,.webp,.tif,.tiff" style="display:none">
+      </aside>
+
+      <!-- 分区二：知识浏览（明细 / 图谱） -->
+      <section class="dw-view">
+        <div class="dw-tabs">
+          <button class="dw-tab on" data-dwview="list">📋 知识明细</button>
+          <button class="dw-tab" data-dwview="graph">🕸 知识图谱</button>
+        </div>
+        <div class="dw-ctl">
+          <input id="dw-q" placeholder="搜关键词 / 文档名 / 对象名，如：华景、E1001、城市" autocomplete="off">
+          <select id="dw-type">
+            <option value="">全部类型</option>
+            <option value="attribute">属性</option>
+            <option value="object">对象</option>
+            <option value="relation">关系</option>
+            <option value="event">事件</option>
+            <option value="summary">要点</option>
+          </select>
+          <button id="dw-go-ent">查询</button>
+          <button id="dw-go-audit" title="把库里的数据拿回原文核对，再对照标准答案算查全率（秒级）">🔍 质量体检</button>
+        </div>
+        <div class="dw-body" id="dw-body"><div class="empty">正在加载最近抽取的知识…</div></div>
+        <div class="dw-graph" id="dw-graph" style="display:none">
+          <div class="kg-hd">
+            <b>🕸 知识图谱</b><span id="kg-scope">全部文档</span>
+            <span class="kg-stat" id="kg-stat"></span>
+            <button class="kg-x" id="kg-clear" style="display:none" title="取消选中，恢复整张图">✕ 取消选中</button>
+          </div>
+          <div class="kg-bar">
+            <span class="kg-lab">关系视角</span>
+            <button class="kg-v on" data-kgview="all" title="显式关系 + 共享属性 + 同类型">全部</button>
+            <button class="kg-v" data-kgview="rel" title="文档里明确写出的「谁对谁做了什么」">显式关系</button>
+            <button class="kg-v" data-kgview="shared" title="同一个属性值被多个对象共用 → 这些对象就是相关的">共享属性</button>
+            <button class="kg-v" data-kgview="attr" title="每个对象自身的属性画像">属性</button>
+            <button class="kg-v" data-kgview="type" title="同属一类（员工/设备/省份…）">同类型</button>
+            <button class="kg-v" data-kgview="doc" title="出自同一份文档">同文档</button>
+            <span class="kg-sep"></span>
+            <button class="kg-tog" id="kg-collapse" title="把「A -属性-> 值 <-属性- B」折叠成「A -[属性=值]-> B」，一眼看出两个对象为什么相关">🔗 折叠成直连</button>
+            <select id="kg-layout" title="换一种排布方式">
+              <option value="force">力导向</option>
+              <option value="radial">放射状</option>
+              <option value="cluster">按类型分簇</option>
+            </select>
+            <button class="kg-tog" id="kg-redo" title="重新计算布局">↻ 重排</button>
+          </div>
+          <div class="kg-legend-bar" id="kg-legend"></div>
+          <div class="kg-wrap" id="kg-wrap">
+            <svg id="kg-svg"><g id="kg-g"></g></svg>
+            <div class="kg-empty" id="kg-empty">正在生成图谱…</div>
+            <div class="kg-tip" id="kg-tip"></div>
+            <aside class="kg-side" id="kg-side"></aside>
+            <div class="kg-zoom" id="kg-zoom">
+              <button data-kgz="in" title="放大">＋</button>
+              <button data-kgz="out" title="缩小">－</button>
+              <button data-kgz="fit" title="铺满画布">⤢</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="dw-body" id="dw-body"><div class="empty">点上面按钮查询；或直接打开本窗看最近入库的实体</div></div>
+  </div>
+</div>
+
+<!-- 文字识别弹窗（扫描版 PDF / 图片 → OCR · 本轮新增） -->
+<div class="dw-overlay" id="ocr-overlay">
+  <div class="dw-panel">
+    <div class="dw-hd">
+      <b>🔎 文字识别</b><span class="dw-sub">扫描件 / 照片 / 截图 → 可编辑的文字；简繁英与竖排都认</span>
+      <span class="dw-actions">
+        <button class="ghost" id="ocr-x">关闭 ✕</button>
+      </span>
+    </div>
+    <div class="dw-pad">
+      <div class="pstep"><i>1</i><span>选文件<span class="pstep-h">PDF 有文字层会直接读，只对扫描页做识别</span></span></div>
+      <div class="ocr-drop" id="ocr-drop">
+        <div id="ocr-drop-tip"><b>点击选择</b>或拖入文件<br>
+          <span style="font-size:12px">pdf · png · jpg · bmp · webp · tif</span></div>
+        <div id="ocr-file-box" style="display:none"></div>
+      </div>
+      <input type="file" id="ocr-input" accept=".pdf,.png,.jpg,.jpeg,.bmp,.webp,.tif,.tiff" style="display:none">
+      <div class="pstep" style="margin-top:14px"><i>2</i><span>选精度</span></div>
+      <div class="ocr-opts">
+        <label class="ocr-opt on"><input type="radio" name="ocr-dpi" value="200" checked><b>标准</b><span>200dpi · 更快</span></label>
+        <label class="ocr-opt"><input type="radio" name="ocr-dpi" value="300"><b>高清</b><span>300dpi · 小字更准</span></label>
+      </div>
+
+      <div class="pstep" style="margin-top:14px"><i>3</i><span>语言与排版<span class="pstep-h">繁体、英文都能认；竖着排的字按「从上到下、从右到左」还原</span></span></div>
+      <div class="ocr-langrow">
+        <div class="rk-kinds" id="ocr-langs">
+          <button type="button" class="kd on" data-l="auto">🌐 自动 <i>简繁英</i></button>
+          <button type="button" class="kd" data-l="chs">简 简体</button>
+          <button type="button" class="kd" data-l="cht">繁 繁体</button>
+          <button type="button" class="kd" data-l="en">EN 英文</button>
+        </div>
+        <label class="ocr-vert" title="竖排文字自动按列还原；关掉则只按横排读">
+          <input type="checkbox" id="ocr-vmode" checked> 竖排自动转正
+        </label>
+      </div>
+      <div class="ocr-run">
+        <button id="ocr-go" disabled>开始识别</button>
+        <span class="dw-sub" id="ocr-mode-tip">自动：简繁英混排一起认，竖排自动还原顺序</span>
+      </div>
+      <div class="rk-status" id="ocr-status"></div>
+      <div class="rk-result" id="ocr-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 智能操作弹窗（模块①：编辑 / 排版 / 格式 · 独立入口；点左边「智能操作」打开） -->
+<div class="dw-overlay" id="op-overlay">
+  <div class="dw-panel">
+    <div class="dw-hd">
+      <b>🤖 智能操作</b><span class="dw-sub">一句话改文档 —— 编辑 · 排版 · 格式调整</span>
+      <span class="dw-actions">
+        <button class="ghost" id="op-refresh" title="重新读一遍文档库">刷新</button>
+        <button class="ghost" id="op-x">关闭 ✕</button>
+      </span>
+    </div>
+    <div class="dw-pad op-scroll">
+      <!-- ① 选文件 -->
+      <div class="pstep"><i>1</i><span>选文件<span class="pstep-h">点一份就行；不选也可以，下面直接说文件名</span></span></div>
+      <div class="op-docbar">
+        <span class="op-cur" id="op-cur">未选择 —— 下面直接说「设备采购合同的标题加粗」也行</span>
+        <button class="mini" id="op-clear" title="清掉选中，改成在下面点名">清除选择</button>
+      </div>
+      <div class="rk-kinds" id="op-kinds"></div>
+      <div class="rk-list" id="op-docs"><div class="empty">加载文档清单…</div></div>
+
+      <!-- ② 快捷操作 -->
+      <div class="pstep" style="margin-top:14px"><i>2</i><span>快捷操作<span class="pstep-h">点一下立即生效；同一项再点一次 = 取消这项格式</span></span></div>
+      <div class="op-target" id="op-target">
+        <span class="op-lb">作用于</span>
+        <button class="op-tg on" data-tg="标题">标题</button>
+        <button class="op-tg" data-tg="正文">正文</button>
+        <button class="op-tg" data-tg="全文">全文</button>
+        <button class="op-tg" data-tg="表头">表头</button>
+      </div>
+      <div class="op-tools" id="op-tools"></div>
+
+      <!-- ③ 自然语言 -->
+      <div class="pstep" style="margin-top:14px"><i>3</i><span>说一句也行<span class="pstep-h">编辑 / 排版 / 格式 / 提取都能说，和首页对话框同一套能力</span></span></div>
+      <div class="op-say">
+        <input id="op-text" autocomplete="off"
+               placeholder="例如：标题加粗 / 把甲方改成华景公司 / 合同金额标红 / 这份文档讲了什么">
+        <button id="op-go">执行</button>
+      </div>
+      <div class="op-tip" id="op-tip">提示：上面选了文件，这句话就作用在它上面；没选文件，就在话里点名（「设备采购合同的标题加粗」）。</div>
+      <div class="op-row" id="op-demo" style="margin-top:7px">
+        <span class="op-lb">试试</span>
+        <button class="op-chip" data-opdemo="标题加粗">标题加粗</button>
+        <button class="op-chip" data-opdemo="标题居中，并且加粗">标题居中 + 加粗</button>
+        <button class="op-chip" data-opdemo="把所有金额标红">金额标红</button>
+        <button class="op-chip" data-opdemo="把甲方改成华景公司">改文字</button>
+        <button class="op-chip" data-opdemo="这份文档讲了什么">读懂这份文档</button>
+      </div>
+
+      <div class="rk-status" id="op-status"></div>
+      <div class="op-result" id="op-result"></div>
+    </div>
   </div>
 </div>
 
@@ -1266,23 +2130,29 @@
 <div class="dw-overlay" id="rec-overlay">
   <div class="dw-panel">
     <div class="dw-hd">
-      <b>🧠 识别入库</b><span class="dw-sub">智能识别分类（异步 API）：提交 → 后台跑 → 轮询取结果；提取结果自动入库</span>
+      <b>🧠 识别入库</b><span class="dw-sub">自动读懂文档，抽出的内容直接进数据仓库</span>
       <span class="dw-actions">
         <button class="ghost" id="rec-x">关闭 ✕</button>
       </span>
     </div>
-    <div style="padding:12px 16px 4px">
-      <div class="dw-sub" style="margin:2px 0 6px">1. 勾选要识别的文档（可多选；文档可在输入框左侧「📥 导入文档」随时添加）</div>
-      <div class="rk-list" id="rec-docs"><div class="empty">加载文档清单…</div></div>
-      <div class="rk-row">
-        <span style="font-weight:600">2. 识别线：</span>
-        <label><input type="checkbox" id="rec-t-profile" checked> 关键信息画像</label>
-        <label><input type="checkbox" id="rec-t-entities" checked> 实体数据（7 类）</label>
-        <label><input type="checkbox" id="rec-t-fields"> 指定字段</label>
+    <div class="dw-pad">
+      <div class="pstep"><i>1</i><span>选文档<span class="pstep-h">可多选；也能在这里上传或删除</span></span></div>
+      <div class="rk-tools">
+        <span class="hint">勾上要抽的文档，系统会自己读懂它的结构</span>
+        <button id="rec-upload">⬆ 上传文档</button>
+        <button id="rec-del">🗑 删除选中</button>
+        <button id="rec-all">全选 / 取消</button>
+        <input type="file" id="rec-file" multiple accept=".docx,.md,.markdown,.xlsx,.txt,.pdf,.png,.jpg,.jpeg,.bmp,.webp,.tif,.tiff" style="display:none">
       </div>
-      <div class="dw-ctl">
-        <input id="rec-fields" placeholder="要提取的字段名（勾「指定字段」时填，顿号/逗号分隔），如：甲方名称、合同总金额" autocomplete="off">
-        <button id="rec-go">开始识别</button>
+      <div class="rk-kinds" id="rec-kinds"></div>
+      <div class="rk-list" id="rec-docs"><div class="empty">加载文档清单…</div></div>
+      <div class="pstep" style="margin-top:16px"><i>2</i><span>说关注点<span class="pstep-h">留空 = 全文都抽；填了就重点标出</span></span></div>
+      <div class="rec-req-big">
+        <input id="rec-req" placeholder="例如：只看金额和交付期 / 把各地确诊人数抽出来 / 找出所有违约条款" autocomplete="off">
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:14px">
+        <button id="rec-go" class="cta" style="padding:11px 26px;font-size:14px">开始识别</button>
+        <span class="dw-sub" style="font-size:12px">抽完自动进数据仓库，不用再手动保存</span>
       </div>
       <div class="rk-status" id="rec-status"></div>
       <div class="rk-result" id="rec-result"></div>
@@ -1294,25 +2164,41 @@
 <div class="dw-overlay" id="fill-overlay">
   <div class="dw-panel">
     <div class="dw-hd">
-      <b>📋 表格填写</b><span class="dw-sub">读懂模板 → 从文档库找数 → 填写 → 自检（异步全流程，通常 10~40 秒）</span>
+      <b>📋 表格填写</b><span class="dw-sub">选模板 + 源文档 → 自动找数填写 → 下载</span>
       <span class="dw-actions">
         <button class="ghost" id="fill-mg-btn" title="看自己上传过哪些模板，可以逐个删掉">🗂 我上传的模板</button>
         <button class="ghost" id="fill-x">关闭 ✕</button>
       </span>
     </div>
-    <div style="padding:12px 16px 4px">
-      <div class="dw-sub" style="margin:2px 0 6px">选一张模板 → 一键跑完 → 完成后下载已填写表格（模板永不改动，填错也不怕）</div>
-      <div class="dw-ctl">
+    <div class="dw-pad">
+      <div class="pstep"><i>1</i><span>选模板<span class="pstep-h">系统自带的也能删（删了进「模板归档」，可恢复）</span></span></div>
+      <div class="dw-ctl" style="padding:0;border:none">
         <select id="fill-tpl"><option value="">加载中…</option></select>
-        <button id="fill-go">开始填写</button>
-        <button id="fill-up-btn" class="mini" title="上传自己的模板：.xlsx / .xlsm / .docx。也可以直接把文件拖进这个窗口">⬆ 上传模板</button>
-        <button id="fill-del-btn" class="mini" title="删除选中的模板（只能删自己上传的，系统自带的删不掉）" disabled>删除</button>
+        <button id="fill-up-btn" class="mini" title="上传自己的模板：.xlsx / .xlsm / .docx，也可以把文件拖进这个窗口">⬆ 上传模板</button>
+        <button id="fill-del-btn" class="mini" title="删除选中的模板（系统模板会归档，不会真丢）">🗑 删除模板</button>
         <input type="file" id="fill-file" accept=".xlsx,.xlsm,.docx" style="display:none">
       </div>
       <div class="dw-sub" id="fill-up-tip" style="margin:6px 0 0"></div>
-      <div class="rk-row">
-        <label><input type="checkbox" id="fill-skip"> 提速：跳过重读源文档（文档库没变时勾选）</label>
-        <label><input type="checkbox" id="fill-overwrite"> 允许覆盖旧值（待填区已有内容时）</label>
+
+      <div class="pstep" style="margin-top:16px"><i>2</i><span>选源文档<span class="pstep-h">数据从这几份里找；一个都不勾 = 整个文档库都翻</span></span></div>
+      <div class="rk-tools">
+        <span class="hint" id="fill-doc-hint">正在读文档库…</span>
+        <button id="fill-doc-all" type="button" title="全选 / 取消全选">全选 / 取消</button>
+        <button id="fill-doc-up" type="button" title="上传源文档：Word / Excel / txt / pdf / 图片都能读，传完直接解析进文档库">⬆ 上传源文档</button>
+        <input type="file" id="fill-doc-file" multiple accept=".docx,.md,.markdown,.xlsx,.txt,.pdf,.png,.jpg,.jpeg,.bmp,.webp,.tif,.tiff" style="display:none">
+      </div>
+      <div class="rk-kinds" id="fill-kinds"></div>
+      <div class="rk-list" id="fill-docs"><div class="empty">加载文档清单…</div></div>
+
+      <div class="pstep" style="margin-top:16px"><i>3</i><span>填表要求<span class="pstep-h">留空 = 整表填满</span></span></div>
+      <div class="fill-req-big">
+        <textarea id="fill-req" rows="2" placeholder="例：表一：监测时间：2025-11-25 09:00，城市：德州市（一行一条；表二、表三照此写）。也可以写：日期只填 2020/7/1 到 2020/8/31；没数据的格子留空，不要猜"></textarea>
+      </div>
+
+      <div class="fill-run">
+        <button id="fill-go">开始填写</button>
+        <label><input type="checkbox" id="fill-skip"> 跳过重读源文档</label>
+        <label><input type="checkbox" id="fill-overwrite"> 覆盖旧值</label>
       </div>
       <div class="rk-status" id="fill-status"></div>
       <div class="rk-result" id="fill-result"></div>
@@ -1369,36 +2255,37 @@
 <div class="fb-mask" id="fb-mask">
   <div class="fb-card">
     <div class="fb-hd">
-      <b id="fb-title">评价这次使用</b>
+      <b id="fb-title">意见反馈</b>
       <button class="x" id="fb-x" title="关闭">✕</button>
     </div>
     <div class="fb-bd">
-      <div class="fb-sub" id="fb-sub">打个分，顺手写两句 —— 评价会同步到客服端和管理员端，他们真的会看。</div>
-      <div class="fb-line">
-        <span>针对功能</span>
-        <select id="fb-feature">
-          <option value="doc_edit">文档操作（改格式 / 改内容）</option>
-          <option value="extract">识别入库（实体 / 画像 / 字段）</option>
-          <option value="fill">表格填写</option>
-          <option value="voice">语音输入</option>
-          <option value="image">图片插入</option>
-          <option value="chat">客服咨询</option>
-          <option value="other">整体 / 其他建议</option>
-        </select>
+      <div class="fb-sec">
+        <div class="fb-label">哪个功能</div>
+        <div class="fb-feats" id="fb-feats"></div>
       </div>
-      <div class="fb-stars" id="fb-stars">
-        <span class="fb-star" data-v="1">★</span><span class="fb-star" data-v="2">★</span>
-        <span class="fb-star" data-v="3">★</span><span class="fb-star" data-v="4">★</span>
-        <span class="fb-star" data-v="5">★</span>
-        <span class="fb-starhint" id="fb-starhint">点星星打分（也可只写意见）</span>
+
+      <div class="fb-sec">
+        <div class="fb-label">打个分</div>
+        <div class="fb-stars" id="fb-stars">
+          <span class="fb-star" data-v="1">★</span><span class="fb-star" data-v="2">★</span>
+          <span class="fb-star" data-v="3">★</span><span class="fb-star" data-v="4">★</span>
+          <span class="fb-star" data-v="5">★</span>
+          <span class="fb-starhint" id="fb-starhint">可选</span>
+        </div>
       </div>
-      <div class="fb-tags" id="fb-tags"></div>
+
+      <div class="fb-sec">
+        <div class="fb-label">快速反馈</div>
+        <div class="fb-tags" id="fb-tags"></div>
+      </div>
+
       <textarea class="fb-ta" id="fb-ta" maxlength="1000"
-        placeholder="具体一点更好用：哪一步卡住了、结果哪里不对、希望加什么（可不填）"></textarea>
+        placeholder="哪里不好用、结果哪里不对、希望加什么…"></textarea>
+
       <div class="fb-foot">
         <span class="fb-cnt" id="fb-cnt">0/1000</span>
         <button class="fb-btn" id="fb-cancel">取消</button>
-        <button class="fb-btn primary" id="fb-send">提交评价</button>
+        <button class="fb-btn primary" id="fb-send">提交</button>
       </div>
     </div>
   </div>
@@ -1617,6 +2504,7 @@
         <b id="cs-title">小橘 · 智能客服</b>
         <div class="st"><i></i><span id="cs-status">在线 · 秒回</span></div>
       </div>
+      <button class="flt-max" id="cs-max" title="最大化 / 还原（也可双击标题栏）">⤢</button>
       <button class="x" id="cs-x" title="收起（会话会保留）">×</button>
     </div>
     <div class="cs-queue" id="cs-queue">
@@ -1642,6 +2530,7 @@
       </div>
     </div>
   </div>
+  <div class="flt-grip" data-flt-grip title="拖动改变大小"></div>
 </div>
 
 <!-- 多人聊天室（用户端公共大群） -->
@@ -1652,6 +2541,7 @@
       <b>交流群 · 文档助手</b>
       <div class="st"><i></i><span id="cr-online-tx">连接中…</span></div>
     </div>
+    <button class="flt-max" id="cr-max" title="最大化 / 还原（也可双击标题栏）">⤢</button>
     <button class="x" id="cr-x" title="收起（会退出在线名单）">×</button>
   </div>
   <div class="cr-members" id="cr-members"></div>
@@ -1659,14 +2549,14 @@
   <button class="cr-jump" id="cr-jump" type="button">有新消息 ↓</button>
   <div class="cr-foot">
     <div class="cr-row">
-      <textarea id="cr-input" placeholder="和群里的人聊聊…（Enter 发送，Shift+Enter 换行）"></textarea>
+      <textarea id="cr-input" placeholder="和群里的人聊聊…（Enter 发送）"></textarea>
       <button class="cr-send" id="cr-send">发送</button>
     </div>
     <div class="cr-tip">
-      <span>同一个群里的人都能看到</span>
       <span class="cnt" id="cr-cnt">0 条消息</span>
     </div>
   </div>
+  <div class="flt-grip" data-flt-grip title="拖动改变大小"></div>
 </div>
 
 <script>
@@ -1883,7 +2773,8 @@ $("prof-save").onclick = async () => {
 const guideWrap = $("guide-wrap");
 function setGuideOpen(open) {
   guideWrap.classList.toggle("collapsed", !open);
-  $("guide-toggle").textContent = open ? "收起指南" : "📖 操作指南";
+  const g = $("guide-toggle");
+  if (g) g.classList.toggle("on", !!open);
   localStorage.setItem("a23_guide_collapsed", open ? "0" : "1");
 }
 setGuideOpen(localStorage.getItem("a23_guide_collapsed") === "0");   // 默认收起：只有明确展开过才保持展开
@@ -1907,6 +2798,20 @@ const dwOverlay = $("dw-overlay");
 let dwOpened = false;
 
 async function dwLoadStats() {
+  // 主视图改成"知识"（2026-11-05）：不再用实体/画像/字段三个数字去讲同一件事
+  try {
+    const r = await fetch("/api/knowledge/stats");
+    const d = await r.json();
+    if (d.ok) {
+      const s = d.stats, bk = s.by_kind || {};
+      $("dw-stats").innerHTML =
+        `<span class="dw-num"><b>${s.items}</b>条知识</span>` +
+        `<span class="dw-num"><b>${s.docs}</b>份文档</span>` +
+        `<span class="dw-num">对象 ${bk.object || 0} · 属性 ${bk.attribute || 0} · 要点 ${bk.summary || 0}</span>` +
+        `<span class="dw-last">最近 ${esc(s.last_ts || "—")}</span>`;
+      return;
+    }
+  } catch (e) { /* 旧库没有知识表时退回旧统计 */ }
   try {
     const r = await fetch("/api/db/stats");
     const d = await r.json();
@@ -1927,28 +2832,870 @@ async function dwLoadStats() {
 }
 
 async function dwLoadEntities() {
+  // 名字沿用 dwLoadEntities（别处还在调它），查的已经是统一知识条目
+  dwCurDoc = null;                       // 全局查询 = 退出文档详情
   const q = $("dw-q").value.trim();
   const t = $("dw-type").value;
-  let url = "/api/db/entities?limit=200";
+  let url = "/api/knowledge/items?limit=300";
   if (q) url += "&q=" + encodeURIComponent(q);
-  if (t) url += "&type=" + encodeURIComponent(t);
+  if (t) url += "&kind=" + encodeURIComponent(t);
   $("dw-body").innerHTML = `<div class="empty">查询中…</div>`;
   try {
     const d = await (await fetch(url)).json();
     if (!d.ok) { $("dw-body").innerHTML = `<div class="empty">数据库不可用：${esc(d.error || "")}</div>`; return; }
     const rows = d.rows || [];
-    if (!rows.length) { $("dw-body").innerHTML = `<div class="empty">没有匹配的实体数据</div>`; return; }
-    let h = `<table class="dw-table"><tr><th>文档</th><th>类型</th><th>值</th><th>次数</th><th>出处</th><th>核验</th></tr>`;
+    if (!rows.length) {
+      $("dw-body").innerHTML = `<div class="empty">还没有知识条目。去「🧠 识别入库」勾几份文档，点「开始自动抽取」。</div>`;
+      return;
+    }
+    const KIND = { object: "对象", attribute: "属性", relation: "关系", event: "事件", summary: "要点" };
+    let h = `<table class="dw-table"><tr><th>文档</th><th>对象</th><th>属性 / 关系</th><th>值</th><th>出处</th><th>核验</th></tr>`;
     rows.forEach((r) => {
-      const vk = r.verify === "ok" ? `<span class="dw-tag ok">✓</span>`
-        : r.verify === "suspect" ? `<span class="dw-tag qs">⚠存疑</span>` : `<span class="loc">—</span>`;
-      h += `<tr><td>${esc(r.doc_name)}</td><td><span class="dw-tag">${esc(r.etype_cn || r.etype)}</span></td>` +
-           `<td class="v">${esc(truncate(r.value, 40))}</td><td>×${r.freq}</td>` +
+      const kd = KIND[r.kind] || r.kind;
+      const obj = r.obj_type
+        ? `<span class="dw-tag">${esc(kd)}</span> ${esc(r.obj_type)}` + (r.obj_name ? ` · ${esc(truncate(r.obj_name, 16))}` : "")
+        : `<span class="dw-tag">${esc(kd)}</span>`;
+      const attr = r.attr ? esc(truncate(r.attr, 20)) : `<span class="loc">—</span>`;
+      const val = `${esc(truncate(r.value, 70))}${r.unit ? `<span class="loc"> ${esc(r.unit)}</span>` : ""}`;
+      const vk = r.verified ? `<span class="dw-tag ok">✓</span>` : `<span class="dw-tag qs">⚠摘抄可溯</span>`;
+      const focus = r.focus ? ` <span class="dw-tag" style="background:#fff4e5;color:#9a5b00">关注</span>` : "";
+      h += `<tr><td>${esc(r.doc_name)}</td><td>${obj}${focus}</td>` +
+           `<td class="v">${attr}</td><td>${val}</td>` +
            `<td class="loc">${esc(r.loc || "")}</td><td>${vk}</td></tr>`;
     });
     $("dw-body").innerHTML = h + "</table>";
   } catch (e) { $("dw-body").innerHTML = `<div class="empty">请求失败：${esc(String(e))}</div>`; }
 }
+
+// ============================================================
+//  按文档看知识（2026-11-05）：点文档库里某份文档 → 只看这份文档抽到的内容
+//  为什么要有：之前所有文档的条目混在一张表里，用户说"我找不到某份文档提了什么"
+// ============================================================
+
+function kdocAttrBlock(L) {
+  const vals = L.values || [];
+  const show = vals.slice(0, 80);
+  const chips = show.map((v) => {
+    const t = [v.loc, v.unit].filter(Boolean).join(" · ");
+    return `<span class="kdoc-v${v.focus ? " foc" : ""}" title="${esc(t)}">${esc(v.value)}</span>`;
+  }).join("");
+  const more = vals.length > show.length
+    ? `<span class="loc">…还有 ${vals.length - show.length} 个（点「全部明细」看）</span>` : "";
+  return `<div class="kdoc-attr">` +
+    `<div class="kdoc-attr-hd"><b>${esc(L.attr)}</b><span class="loc">${vals.length} 个值</span></div>` +
+    `<div class="kdoc-vals">${chips}${more}</div></div>`;
+}
+
+async function dwOpenDoc(name) {
+  dwCurDoc = name || null;
+  const body = $("dw-body");
+  body.innerHTML = `<div class="empty">正在读取「${esc(name)}」的知识…</div>`;
+  let d;
+  try {
+    d = await (await fetch("/api/knowledge/doc?doc=" + encodeURIComponent(name))).json();
+  } catch (e) {
+    body.innerHTML = `<div class="empty">读取失败：${esc(String(e))}</div>`;
+    return;
+  }
+  if (!d.ok) { body.innerHTML = `<div class="empty">数据库不可用：${esc(d.error || "")}</div>`; return; }
+  if (!d.found) {
+    body.innerHTML = `<div class="kdoc"><div class="kdoc-hd">` +
+      `<button class="ghost" id="kdoc-back">← 全部知识</button>` +
+      `<div class="kdoc-title">◆ ${esc(name)}</div></div>` +
+      `<div class="empty">这份文档还没抽取过 —— 点它右边的「🧠 抽取知识」（约 10~90 秒），抽完自动进这里。</div></div>`;
+    $("kdoc-back").onclick = () => { dwCurDoc = null; dwLoadEntities(); };
+    return;
+  }
+
+  const sch = d.schema || {};
+  const cnt = d.counts || {};
+  const listByObj = {};
+  (d.lists || []).forEach((L) => { (listByObj[L.obj_type] = listByObj[L.obj_type] || []).push(L); });
+  const objKeys = Object.keys(listByObj);
+  const meta = [sch.domain, sch.doc_type].filter(Boolean).join(" · ");
+
+  const objHtml = objKeys.map((k) => {
+    const Ls = listByObj[k];
+    const nMax = Ls.reduce((s, L) => Math.max(s, L.n || 0), 0);
+    return `<div class="kdoc-obj"><div class="kdoc-obj-hd">🗂 ${esc(k)}` +
+      `<span class="dw-sub">${Ls.length} 个属性 ｜ 最多 ${nMax} 条记录</span></div>` +
+      Ls.map(kdocAttrBlock).join("") + `</div>`;
+  }).join("");
+
+  // 关系 / 事件 / 要点（有就单独列）
+  const others = [];
+  const flat = [];
+  Object.keys(d.groups || {}).forEach((k) => {
+    (d.groups[k] || []).forEach((r) => flat.push(r));
+  });
+  flat.filter((r) => r.kind !== "attribute").forEach((r) => {
+    const lab = { relation: "关系", event: "事件", summary: "要点", object: "对象" }[r.kind] || r.kind;
+    others.push(`<div class="it"><span class="dw-tag">${esc(lab)}</span> ` +
+      `${esc(truncate(r.value, 120))}<span class="loc">${esc(r.loc || "")}</span></div>`);
+  });
+
+  let rowsHtml = "";
+  flat.forEach((r) => {
+    const lab = { attribute: "属性", relation: "关系", event: "事件", summary: "要点", object: "对象" }[r.kind] || r.kind;
+    const obj = (r.obj_type || "") + (r.obj_name ? ` · ${truncate(r.obj_name, 14)}` : "");
+    rowsHtml += `<tr><td><span class="dw-tag">${esc(lab)}</span></td><td>${esc(obj)}</td>` +
+      `<td class="v">${esc(truncate(r.attr || "", 20))}</td>` +
+      `<td class="v">${esc(truncate(r.value || "", 64))}${r.unit ? `<span class="loc"> ${esc(r.unit)}</span>` : ""}</td>` +
+      `<td class="loc">${esc(r.loc || "")}</td>` +
+      `<td>${r.verified ? `<span class="dw-tag ok">✓</span>` : `<span class="dw-tag qs">⚠</span>`}</td></tr>`;
+  });
+
+  body.innerHTML = `<div class="kdoc">
+    <div class="kdoc-hd">
+      <button class="ghost" id="kdoc-back">← 全部知识</button>
+      <div class="kdoc-title">◆ ${esc(d.doc_name)}</div>
+    </div>
+    <div class="kdoc-meta">
+      ${esc(meta || "未识别领域")} ｜
+      共 <b>${d.total}</b> 条 ｜ 属性 <b>${cnt.attribute || 0}</b>
+      关系 <b>${cnt.relation || 0}</b> 事件 <b>${cnt.event || 0}</b> 要点 <b>${cnt.summary || 0}</b>
+      对象 <b>${objKeys.length}</b> 类
+      ${sch.requirement ? ` ｜ 关注点：<b>${esc(sch.requirement)}</b>` : ""}
+    </div>
+    <div class="kdoc-req">
+      <input id="kdoc-req" placeholder="关注点（可选）：如 城市 / 金额 / 日期 / 超标项" value="" autocomplete="off">
+      <button class="primary" id="kdoc-rerun">按关注点重抽</button>
+      <span class="loc">关注点只影响排序和标记，不影响抽取范围</span>
+    </div>
+    ${objHtml || `<div class="empty">这份文档只有要点 / 关系，没有属性条目</div>`}
+    ${others.length ? `<div class="kdoc-obj"><div class="kdoc-obj-hd">📌 关系 / 事件 / 要点<span class="dw-sub">${others.length} 条</span></div>${others.join("")}</div>` : ""}
+    <details class="kdoc-all">
+      <summary>全部明细（${d.total} 条，含出处与核验）</summary>
+      <table class="dw-table"><tr><th>类型</th><th>对象</th><th>属性 / 关系</th><th>值</th><th>出处</th><th>核验</th></tr>
+      ${rowsHtml}</table>
+    </details>
+  </div>`;
+
+  $("kdoc-back").onclick = () => { dwCurDoc = null; dwLoadEntities(); };
+  $("kdoc-rerun").onclick = () => {
+    const req = $("kdoc-req").value.trim();
+    const btn = $("kdoc-rerun");
+    btn.disabled = true; btn.textContent = "抽取中…";
+    dwExtractDoc(d.doc_name, btn, req).finally(() => { btn.disabled = false; btn.textContent = "按关注点重抽"; });
+  };
+  if (typeof dwView !== "undefined" && dwView === "graph") kgLoad();
+}
+
+/* ------------------------------------------------------------
+   知识图谱 · 多关系版（2026-11-07 增强）
+
+   关系的五种来历，全部来自库里的条目本身，没有模型臆造：
+     rel     文档明确写出的「谁对谁做了什么」
+     shared  同一个属性值被多个对象共用 → 这些对象天然相关
+             （含"同一实体出现在不同属性名下"：某公司既是供应商又是寄件人）
+     link    把 shared 折叠成对象直连 —— 就是"关联关系转换"
+     attr    对象自身的属性画像
+     type / doc  同类型 / 异同文档
+   前端只负责「画 + 切视角 + 筛关系」，怎么算的全在后端。
+   ------------------------------------------------------------ */
+let dwView = "list";
+let kgNodes = [], kgEdges = [];
+
+const KG_KIND_STYLE = {
+  rel:    { color: "#f59e0b", w: 2.0, dash: "" },
+  link:   { color: "#14b8a6", w: 1.7, dash: "" },
+  shared: { color: "#0d9488", w: 1.5, dash: "" },
+  attr:   { color: "#b9c8de", w: 1.1, dash: "" },
+  type:   { color: "#8b5cf6", w: 1.2, dash: "5,4" },
+  doc:    { color: "#94a3b8", w: 1.2, dash: "2,3" },
+};
+const KG_KIND_CN = {
+  rel: "显式关系", link: "直接关联", shared: "共享属性",
+  attr: "自身属性", type: "同类型", doc: "同文档",
+};
+const KG_VIEWS = {
+  all:    "rel,shared,type",
+  rel:    "rel",
+  shared: "shared",
+  attr:   "attr,shared",
+  type:   "type",
+  doc:    "doc",
+};
+
+const KG = {
+  view: "all", collapse: false, layout: "force",
+  data: { nodes: [], edges: [], stats: {}, relation_types: [] },
+  hidden: new Set(), sel: null,
+  renderedEdges: [], renderIdx: {},
+  vx: 0, vy: 0, vk: 1,
+  els: null, cache: "",
+};
+
+function dwSetView(v) {
+  dwView = v;
+  document.querySelectorAll(".dw-tab").forEach((b) => b.classList.toggle("on", b.dataset.dwview === v));
+  const ctl = document.querySelector(".dw-view .dw-ctl");
+  if (ctl) ctl.style.display = v === "list" ? "" : "none";
+  $("dw-body").style.display = v === "list" ? "" : "none";
+  $("dw-graph").style.display = v === "graph" ? "flex" : "none";
+  if (v === "graph") kgLoad();
+}
+
+/* ---------------- 取数 ---------------- */
+function kgLoad(force) {
+  const doc = dwCurDoc || "";
+  const key = doc + "|" + KG.view + "|" + (KG.collapse ? 1 : 0) + "|" + KG.layout;
+  $("kg-scope").textContent = doc ? ("当前文档：" + doc) : "全部文档";
+  if (!force && key === KG.cache && KG.data.edges.length) {
+    kgRender();
+    return;
+  }
+  $("kg-empty").style.display = "flex";
+  $("kg-empty").textContent = "正在生成图谱…";
+  let views = KG_VIEWS[KG.view] || KG_VIEWS.all;
+  // 只看一份文档时对象本来就少，属性边也一起画出来，信息更全
+  if (doc && KG.view === "all") views = "rel,shared,attr,type";
+  const qs = new URLSearchParams({ doc: doc, views: views, min_shared: "2" });
+  if (KG.collapse) qs.set("collapse", "1");
+  if (doc) qs.set("max_nodes", "260");
+  fetch("/api/knowledge/graph?" + qs.toString())
+    .then((r) => r.json())
+    .then((d) => {
+      if (!d.ok) throw new Error(d.error || "读取失败");
+      KG.cache = key;
+      KG.data = {
+        nodes: d.nodes || [], edges: d.edges || [],
+        stats: d.stats || {}, relation_types: d.relation_types || [],
+        truncated: !!d.truncated,
+      };
+      KG.hidden = new Set();
+      KG.sel = null;
+      KG.vx = 0; KG.vy = 0; KG.vk = 1;
+      kgPaintLegend();
+      kgRender();
+    })
+    .catch((e) => {
+      $("kg-empty").style.display = "flex";
+      $("kg-empty").textContent = "图谱读取失败：" + e.message;
+    });
+}
+
+/* ---------------- 关系类型图例（可点开关） ---------------- */
+function kgPaintLegend() {
+  const box = $("kg-legend");
+  const all = KG.data.relation_types || [];
+  const rt = all.slice(0, 14);
+  if (!rt.length) { box.innerHTML = ""; return; }
+  box.innerHTML = rt.map((x) => {
+    const st = KG_KIND_STYLE[x.kind] || KG_KIND_STYLE.attr;
+    return `<span class="kg-lg" data-k="${esc(x.kind)}" data-l="${esc(x.label)}"` +
+      ` title="${esc(KG_KIND_CN[x.kind] || x.kind)} · 点一下只看/不看这类关系">` +
+      `<i style="background:${st.color}"></i>${esc(x.label)}<em>${x.n}</em></span>`;
+  }).join("") +
+    (all.length > rt.length
+      ? `<span class="kg-lg more" title="图例只列最常用的 14 类，其余关系照样在图上">…还有 ${all.length - rt.length} 类</span>`
+      : "") +
+    (KG.hidden.size
+      ? `<span class="kg-lg reset" id="kg-lg-reset" title="恢复被关掉的关系类型">↺ 恢复全部</span>`
+      : "");
+  box.querySelectorAll(".kg-lg").forEach((el) => {
+    if (!el.dataset.k) return;
+    el.onclick = () => {
+      const k = el.dataset.k + "|" + el.dataset.l;
+      if (KG.hidden.has(k)) KG.hidden.delete(k); else KG.hidden.add(k);
+      kgPaintLegend();
+      kgRender();
+    };
+  });
+  const rs = $("kg-lg-reset");
+  if (rs) rs.onclick = () => { KG.hidden.clear(); kgPaintLegend(); kgRender(); };
+}
+
+/* ---------------- 布局 ---------------- */
+function kgLayout(nodes, edges, mode) {
+  const W = 900, H = 620, cx = W / 2, cy = H / 2;
+  const n = nodes.length;
+  if (mode === "radial") {
+    const core = nodes.reduce((m, x) => (x.deg > m.deg ? x : m), nodes[0]);
+    core.x = cx; core.y = cy;
+    const rest = nodes.filter((d) => d !== core).sort((a, b) => b.deg - a.deg);
+    let i = 0, ring = 1;
+    while (i < rest.length) {
+      const cap = Math.min(7 + ring * 4, 20);
+      const rad = 78 + ring * 62;
+      for (let j = 0; j < cap && i < rest.length; j++, i++) {
+        const a = (j / cap) * Math.PI * 2 - Math.PI / 2 + ring * 0.35;
+        rest[i].x = cx + Math.cos(a) * rad;
+        rest[i].y = cy + Math.sin(a) * rad * 0.82;
+      }
+      ring++;
+    }
+    return;
+  }
+  if (mode === "cluster") {
+    const groups = {};
+    nodes.forEach((d) => { (groups[d.group || "其他"] = groups[d.group || "其他"] || []).push(d); });
+    const keys = Object.keys(groups);
+    const R = Math.min(W, H) * 0.35;
+    keys.forEach((k, gi) => {
+      const ga = (gi / keys.length) * Math.PI * 2 - Math.PI / 2;
+      const gx = cx + Math.cos(ga) * R, gy = cy + Math.sin(ga) * R * 0.88;
+      const arr = groups[k];
+      const rr = arr.length === 1 ? 0 : Math.min(24 + arr.length * 3.4, 104);
+      arr.forEach((d, i) => {
+        const a = (i / arr.length) * Math.PI * 2;
+        d.x = gx + Math.cos(a) * rr;
+        d.y = gy + Math.sin(a) * rr;
+      });
+    });
+    return;
+  }
+  // 力导向。≤240 个节点做全量斥力（量小、形状稳）；
+  // 再多才随机采样，否则带状聚成一团。
+  const idx = {};
+  nodes.forEach((d) => { idx[d.id] = d; });
+  nodes.forEach((d, i) => {
+    const a = (i / n) * Math.PI * 2 + Math.random() * 0.6;
+    const r = 40 + Math.random() * 230;
+    d.x = cx + Math.cos(a) * r;
+    d.y = cy + Math.sin(a) * r * 0.8;
+    d.vx = 0; d.vy = 0;
+  });
+  const FULL = n <= 240;
+  const ITER = FULL ? 200 : 200;
+  const sample = FULL ? n : 56;
+  const boost = FULL ? 1 : n / sample;
+  const CUT2 = 340 * 340;
+  for (let it = 0; it < ITER; it++) {
+    const cool = 1 - it / ITER;
+    for (let i = 0; i < n; i++) {
+      const a = nodes[i];
+      for (let s = 0; s < sample; s++) {
+        const j = FULL ? s : Math.floor(Math.random() * n);
+        if (j === i) continue;
+        const b = nodes[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 > CUT2 || d2 < 1e-4) continue;
+        const dd = Math.sqrt(d2);
+        const f = (6200 * boost) / d2, ux = dx / dd, uy = dy / dd;
+        a.vx -= ux * f; a.vy -= uy * f;
+        b.vx += ux * f; b.vy += uy * f;
+      }
+    }
+    edges.forEach((e) => {
+      const a = idx[e.s], b = idx[e.t];
+      if (!a || !b) return;
+      const target = e.kind === "rel" ? 165 : (e.kind === "link" ? 125 : (e.kind === "attr" ? 92 : 135));
+      const dx = b.x - a.x, dy = b.y - a.y, dd = Math.hypot(dx, dy) || 0.01;
+      const f = (dd - target) * (e.kind === "rel" ? 0.018 : 0.012);
+      const ux = dx / dd, uy = dy / dd;
+      a.vx += ux * f; a.vy += uy * f;
+      b.vx -= ux * f; b.vy -= uy * f;
+    });
+    nodes.forEach((d) => {
+      d.vx += (cx - d.x) * 0.0022;
+      d.vy += (cy - d.y) * 0.0024;
+      // 限速：避免偶发的大位移把整张图的包围盒撑坏
+      const sp = Math.hypot(d.vx, d.vy);
+      if (sp > 26) { d.vx = d.vx / sp * 26; d.vy = d.vy / sp * 26; }
+      d.vx *= 0.84; d.vy *= 0.84;
+      d.x += d.vx * cool; d.y += d.vy * cool;
+    });
+  }
+}
+
+/* ---------------- 画 ---------------- */
+function kgRender() {
+  const NS = "http://www.w3.org/2000/svg";
+  const root = $("kg-g");
+  const empty = $("kg-empty");
+  root.innerHTML = "";
+  $("kg-tip").classList.remove("on");
+  $("kg-side").classList.remove("on");
+
+  const nodes = (KG.data.nodes || []).map((d) => Object.assign({}, d));
+  const idx = {};
+  nodes.forEach((d) => { idx[d.id] = d; d.deg = 0; d._ed = []; });
+
+  const edges = [];
+  (KG.data.edges || []).forEach((e) => {
+    const a = idx[e.s], b = idx[e.t];
+    if (!a || !b) return;
+    if (KG.hidden.has(e.kind + "|" + e.label)) return;
+    a.deg++; b.deg++;
+    edges.push(e);
+  });
+  const alive = nodes.filter((d) => d.deg > 0);
+  KG.renderedEdges = edges;
+  KG.renderIdx = idx;
+
+  if (!alive.length) {
+    empty.style.display = "flex";
+    empty.textContent = "这个视角下还没有关系 —— 换个视角，或先对文档做一次「识别入库」";
+    KG.els = null;
+    kgUpdateScope();
+    return;
+  }
+  empty.style.display = "none";
+
+  kgLayout(alive, edges, KG.layout);
+
+  const W = 900, H = 620;
+  const svg = $("kg-svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+  // 按 2%~98% 分位取包围盒：个别离群点不该把整张图压扁
+  const qf = (arr, q) => {
+    const a = arr.slice().sort((x, y) => x - y);
+    if (a.length < 12) return q < 0.5 ? a[0] : a[a.length - 1];
+    return a[Math.min(a.length - 1, Math.max(0, Math.round((a.length - 1) * q)))];
+  };
+  const xs = alive.map((d) => d.x), ys = alive.map((d) => d.y);
+  const minX = qf(xs, 0.02), maxX = qf(xs, 0.98);
+  const minY = qf(ys, 0.02), maxY = qf(ys, 0.98);
+  const padX = 76, padY = 56;
+  const sx0 = Math.min((W - padX * 2) / Math.max(1, maxX - minX), 3.2);
+  const sy0 = Math.min((H - padY * 2) / Math.max(1, maxY - minY), 3.2);
+  const base = Math.min(sx0, sy0);
+  // 布局常常"瘦长"，短边方向最多再拉开 1.45 倍；只改间距，节点本身还是正圆
+  const kx = Math.min(sx0 / base, 1.45);
+  const ky = Math.min(sy0 / base, 1.45);
+  const w = (maxX - minX) * base * kx, h = (maxY - minY) * base * ky;
+  const ox = (W - w) / 2 - minX * base * kx;
+  const oy = (H - h) / 2 - minY * base * ky;
+  alive.forEach((d) => {
+    d.px = ox + d.x * base * kx;
+    d.py = oy + d.y * base * ky;
+  });
+
+  const mk = (t, at, parent) => {
+    const el = document.createElementNS(NS, t);
+    Object.entries(at || {}).forEach(([k, v]) => el.setAttribute(k, v));
+    if (parent) parent.appendChild(el);
+    return el;
+  };
+
+  const edgeEls = [];
+  edges.forEach((e) => {
+    const a = idx[e.s], b = idx[e.t];
+    const st = KG_KIND_STYLE[e.kind] || KG_KIND_STYLE.attr;
+    const ln = mk("line", {
+      x1: a.px, y1: a.py, x2: b.px, y2: b.py,
+      stroke: st.color, "stroke-width": st.w,
+      "stroke-opacity": (e.kind === "rel" || e.kind === "link") ? .82 : .55,
+      "stroke-dasharray": st.dash || "none", "stroke-linecap": "round",
+    }, root);
+    ln.classList.add("ke");
+    const tx = mk("text", {
+      x: (a.px + b.px) / 2, y: (a.py + b.py) / 2 - 3,
+      "text-anchor": "middle", "font-size": e.kind === "attr" ? 9.5 : 10,
+      fill: st.color, opacity: 0, "font-weight": e.kind === "rel" ? 600 : 400,
+    }, root);
+    const lb = String(e.label || "");
+    tx.textContent = lb.length > 16 ? lb.slice(0, 15) + "…" : lb;
+    const item = { e, ln, tx, a, b, baseW: st.w };
+    edgeEls.push(item);
+    a._ed.push(item); b._ed.push(item);
+  });
+
+  const showValLabel = edges.length <= 60;
+  const nodeEls = [];
+  nodes.forEach((n) => {
+    if (!n.deg) return;
+    const isObj = n.type === "object";
+    const isVal = n.type === "value";
+    let r = 5;
+    if (isObj) r = Math.min(6 + Math.sqrt(n.deg || 1) * 2.0, 16);
+    else if (isVal) r = 3.8 + Math.min(n.n_obj || 1, 6) * 0.5;
+    else if (n.type === "type") r = 7;
+    else r = 6.2;
+    n.r = r;
+    n.hiddenLabel = false;
+
+    const g = mk("g", {});
+    g.classList.add("kn");
+    g.dataset.id = n.id;
+    let shape;
+    if (n.type === "type" || n.type === "doc") {
+      shape = mk("rect", {
+        x: n.px - r, y: n.py - r, width: r * 2, height: r * 2, rx: 3,
+        fill: n.type === "type" ? "#8b5cf6" : "#94a3b8",
+        "fill-opacity": .88, stroke: "#fff", "stroke-width": 1.4,
+      }, g);
+    } else if (isObj) {
+      shape = mk("circle", {
+        cx: n.px, cy: n.py, r, fill: "#2f6fed",
+        "fill-opacity": n.cross ? .96 : .92, stroke: "#fff", "stroke-width": 1.6,
+      }, g);
+    } else {
+      shape = mk("circle", {
+        cx: n.px, cy: n.py, r, fill: n.cross ? "#0d9488" : "#0ea5a4",
+        "fill-opacity": .85, stroke: "#fff", "stroke-width": 1.1,
+      }, g);
+    }
+    let halo = null;
+    if (isObj && n.deg >= 3) {
+      halo = mk("circle", {
+        cx: n.px, cy: n.py, r: r + 3.6, fill: "none",
+        stroke: "#2f6fed", "stroke-opacity": .14, "stroke-width": 2,
+      }, g);
+    }
+    const label = mk("text", {
+      x: n.px, y: n.py + r + 10, "text-anchor": "middle",
+      "font-size": isObj ? 11.5 : 9.5,
+      fill: isObj ? "#1e2b42" : "#5b7286",
+      "font-weight": isObj ? 600 : 400,
+      opacity: (isObj || showValLabel) ? 1 : 0,
+    }, g);
+    const txt = String(n.label || "");
+    label.textContent = txt.length > 11 ? txt.slice(0, 10) + "…" : txt;
+    nodeEls.push({ n, g, shape, label, halo });
+  });
+
+  // 先挂到 SVG 上，标签才有真实宽高可量（getBBox 要元素可渲染）
+  nodeEls.forEach((x) => root.appendChild(x.g));
+
+  // 标签避让：用真实 bbox 建碰撞框（估算宽比实际窄，会漏判），
+  // 连得多的先占位，撞上的先藏；悬停/点中它时仍会重新亮出来。
+  const placed = [];
+  nodeEls.slice().sort((a, b) => b.n.deg - a.n.deg).forEach(({ n, label }) => {
+    if (n.type === "value" && !showValLabel) { n.hiddenLabel = true; label.setAttribute("opacity", 0); return; }
+    let box = null;
+    try {
+      const bb = label.getBBox();
+      if (bb && bb.width > 0.5) {
+        box = { x1: bb.x - 1.5, x2: bb.x + bb.width + 1.5, y1: bb.y - 0.5, y2: bb.y + bb.height + 0.5 };
+      }
+    } catch (e) {}
+    if (!box) {                                   // 退路：按字数估
+      const fs = n.type === "object" ? 11.5 : 9.5;
+      const bw = String(n.label || "").length * fs * 0.95;
+      const ly = n.py + (n.r || 5) + 10;
+      box = { x1: n.px - bw / 2, x2: n.px + bw / 2, y1: ly - fs, y2: ly + 3 };
+    }
+    const hit = placed.some((b) => !(box.x2 < b.x1 || box.x1 > b.x2 || box.y2 < b.y1 || box.y1 > b.y2));
+    if (hit) { n.hiddenLabel = true; label.setAttribute("opacity", 0); }
+    else { placed.push(box); n.hiddenLabel = false; }
+  });
+
+  const byId = {};
+  nodeEls.forEach((x) => { byId[x.n.id] = x; });
+  KG.els = { nodeEls, edgeEls, byId };
+
+  kgBindInteract();
+  kgApplyView();
+  kgResetHi();
+  kgUpdateScope();
+}
+
+function kgUpdateScope() {
+  const st = KG.data.stats || {};
+  const nO = st.objects || 0, nS = st.shared_values || 0, nC = st.cross_values || 0;
+  let s = `${nO} 个对象 · ${nS} 个共享值`;
+  if (nC) s += `（含 ${nC} 个跨表同值）`;
+  s += ` · 当前 ${(KG.renderedEdges || []).length} 条关系`;
+  if (KG.data.truncated) s += " · 已按上限截断";
+  $("kg-stat").textContent = s;
+}
+
+/* ---------------- 交互：悬停高亮 / 拖拽 / 选中 / 平移缩放 ---------------- */
+function kgResetHi() {
+  const els = KG.els;
+  if (!els) return;
+  els.edgeEls.forEach((x) => {
+    x.ln.setAttribute("stroke-opacity",
+      (x.e.kind === "rel" || x.e.kind === "link") ? .82 : .55);
+    x.ln.setAttribute("stroke-width", x.baseW);
+    x.tx.setAttribute("opacity", 0);
+  });
+  els.nodeEls.forEach(({ n, g, shape, label }) => {
+    g.style.opacity = "";
+    if (n.type !== "type" && n.type !== "doc") {
+      shape.setAttribute("stroke-width", n.type === "object" ? 1.6 : 1.1);
+      shape.setAttribute("stroke", "#fff");
+    }
+    // 别把标签避让的结果覆盖掉：hiddenLabel 才是唯一依据
+    label.setAttribute("opacity", n.hiddenLabel ? 0 : 1);
+  });
+}
+
+function kgHi(n) {
+  const els = KG.els;
+  if (!els) return;
+  const keep = new Set([n.id]);
+  const links = els.edgeEls.filter((x) => x.a.id === n.id || x.b.id === n.id);
+  links.forEach((x) => { keep.add(x.a.id); keep.add(x.b.id); });
+  els.edgeEls.forEach((x) => {
+    const on = links.indexOf(x) >= 0;
+    x.ln.setAttribute("stroke-opacity", on ? 1 : .07);
+    x.ln.setAttribute("stroke-width", on ? Math.max(2.2, x.baseW) : x.baseW);
+    if (on) x.tx.setAttribute("opacity", 1);
+  });
+  els.nodeEls.forEach(({ n: nd, g, label }) => {
+    const on = keep.has(nd.id);
+    g.style.opacity = on ? "" : .16;
+    if (on) label.setAttribute("opacity", 1);
+  });
+}
+
+function kgPt(ev) {
+  const svg = $("kg-svg");
+  const p = svg.createSVGPoint();
+  p.x = ev.clientX; p.y = ev.clientY;
+  const m = $("kg-g").getScreenCTM();
+  return m ? p.matrixTransform(m.inverse()) : { x: 0, y: 0 };
+}
+
+function kgMoveNode(n, px, py) {
+  n.px = px; n.py = py;
+  const el = KG.els && KG.els.byId[n.id];
+  if (!el) return;
+  if (String(el.shape.tagName).toLowerCase() === "circle") {
+    el.shape.setAttribute("cx", px); el.shape.setAttribute("cy", py);
+  } else {
+    el.shape.setAttribute("x", px - n.r); el.shape.setAttribute("y", py - n.r);
+  }
+  if (el.halo) { el.halo.setAttribute("cx", px); el.halo.setAttribute("cy", py); }
+  el.label.setAttribute("x", px);
+  el.label.setAttribute("y", py + n.r + 10);
+  n._ed.forEach((x) => {
+    x.ln.setAttribute("x1", x.a.px); x.ln.setAttribute("y1", x.a.py);
+    x.ln.setAttribute("x2", x.b.px); x.ln.setAttribute("y2", x.b.py);
+    x.tx.setAttribute("x", (x.a.px + x.b.px) / 2);
+    x.tx.setAttribute("y", (x.a.py + x.b.py) / 2 - 3);
+  });
+}
+
+function kgBindInteract() {
+  const els = KG.els;
+  if (!els) return;
+  const tip = $("kg-tip");
+
+  els.nodeEls.forEach(({ n, g }) => {
+    let moved = false, drag = null;
+
+    g.addEventListener("pointerenter", (ev) => {
+      if (drag) return;
+      kgHi(n);
+      const lines = n._ed.slice(0, 9).map((x) => {
+        const other = x.a.id === n.id ? x.b : x.a;
+        const arrow = x.a.id === n.id ? "→" : "←";
+        return `${arrow} ${x.e.label} · ${other.label}`;
+      });
+      tip.innerHTML = `<b>${esc(n.label)}</b>` +
+        (lines.length ? "<br>" + lines.map(esc).join("<br>") : "<br>（暂无关联）");
+      const r = $("kg-wrap").getBoundingClientRect();
+      tip.style.left = Math.min(Math.max(ev.clientX - r.left, 90), r.width - 90) + "px";
+      tip.style.top = (ev.clientY - r.top) + "px";
+      tip.classList.add("on");
+    });
+    g.addEventListener("pointerleave", () => {
+      if (drag) return;
+      tip.classList.remove("on");
+      if (KG.sel) kgSelect(KG.renderIdx[KG.sel]); else kgResetHi();
+    });
+
+    g.addEventListener("pointerdown", (ev) => {
+      ev.stopPropagation();
+      moved = false;
+      try { g.setPointerCapture(ev.pointerId); } catch (e) {}
+      const p = kgPt(ev);
+      drag = { dx: n.px - p.x, dy: n.py - p.y, sx: ev.clientX, sy: ev.clientY };
+      g.style.cursor = "grabbing";
+    });
+    g.addEventListener("pointermove", (ev) => {
+      if (!drag) return;
+      if (Math.abs(ev.clientX - drag.sx) + Math.abs(ev.clientY - drag.sy) > 3) moved = true;
+      const p = kgPt(ev);
+      kgMoveNode(n, p.x + drag.dx, p.y + drag.dy);
+    });
+    g.addEventListener("pointerup", (ev) => {
+      if (!drag) return;
+      try { g.releasePointerCapture(ev.pointerId); } catch (e) {}
+      drag = null;
+      g.style.cursor = "";
+      if (!moved) {
+        tip.classList.remove("on");
+        kgSelect(n);
+      }
+    });
+    g.addEventListener("pointercancel", () => { drag = null; g.style.cursor = ""; });
+  });
+
+  const svg = $("kg-svg");
+  let pan = null;
+  svg.onpointerdown = (ev) => {
+    if (ev.target.closest && ev.target.closest(".kn")) return;
+    pan = { x: ev.clientX, y: ev.clientY, vx: KG.vx, vy: KG.vy };
+    try { svg.setPointerCapture(ev.pointerId); } catch (e) {}
+    svg.classList.add("drag");
+  };
+  svg.onpointermove = (ev) => {
+    if (!pan) return;
+    const m = svg.getScreenCTM();
+    const k = m ? m.a : 1;
+    KG.vx = pan.vx + (ev.clientX - pan.x) / (k || 1);
+    KG.vy = pan.vy + (ev.clientY - pan.y) / (k || 1);
+    kgApplyView();
+  };
+  const endPan = () => { pan = null; svg.classList.remove("drag"); };
+  svg.onpointerup = endPan;
+  svg.onpointercancel = endPan;
+
+  svg.onwheel = (ev) => {
+    ev.preventDefault();
+    const p = svg.createSVGPoint();
+    p.x = ev.clientX; p.y = ev.clientY;
+    const m0 = svg.getScreenCTM();
+    const base = m0 ? p.matrixTransform(m0.inverse()) : { x: 0, y: 0 };
+    const f = ev.deltaY < 0 ? 1.14 : 1 / 1.14;
+    const nk = Math.min(4, Math.max(.28, KG.vk * f));
+    const ratio = nk / KG.vk;
+    KG.vx = base.x - (base.x - KG.vx) * ratio;
+    KG.vy = base.y - (base.y - KG.vy) * ratio;
+    KG.vk = nk;
+    kgApplyView();
+  };
+}
+
+function kgApplyView() {
+  $("kg-g").setAttribute("transform",
+    `translate(${KG.vx.toFixed(2)},${KG.vy.toFixed(2)}) scale(${KG.vk.toFixed(3)})`);
+}
+
+/* ---------------- 选中 → 右侧关系清单 ---------------- */
+function kgSelect(n) {
+  const els = KG.els;
+  KG.sel = n ? n.id : null;
+  $("kg-clear").style.display = n ? "" : "none";
+  if (!els) return;
+  if (!n) {
+    kgResetHi();
+    $("kg-side").classList.remove("on");
+    return;
+  }
+  const keep = new Set([n.id]);
+  n._ed.forEach((x) => { keep.add(x.a.id); keep.add(x.b.id); });
+  els.nodeEls.forEach(({ n: nd, shape, label }) => {
+    const on = nd.id === n.id;
+    const near = keep.has(nd.id);
+    if (nd.type !== "type" && nd.type !== "doc") {
+      shape.setAttribute("stroke", on ? "#f59e0b" : "#fff");
+      shape.setAttribute("stroke-width", on ? 3 : (nd.type === "object" ? 1.6 : 1.1));
+    }
+    label.setAttribute("opacity", near ? 1 : (nd.hiddenLabel ? 0 : 1));
+  });
+  els.edgeEls.forEach((x) => {
+    const on = x.e.s === n.id || x.e.t === n.id;
+    x.ln.setAttribute("stroke-opacity", on ? 1 : .1);
+    x.ln.setAttribute("stroke-width", on ? Math.max(2.3, x.baseW) : x.baseW);
+    if (on) x.tx.setAttribute("opacity", 1);
+  });
+  els.nodeEls.forEach(({ n: nd, g }) => {
+    g.style.opacity = keep.has(nd.id) ? "" : .18;
+  });
+
+  const side = $("kg-side");
+  side.innerHTML = kgSideHtml(n);
+  side.classList.add("on");
+  const x = $("kg-side-x");
+  if (x) x.onclick = () => kgSelect(null);
+  side.querySelectorAll(".kg-rel").forEach((el) => {
+    el.onclick = () => {
+      const other = KG.renderIdx[el.dataset.other];
+      if (other) kgSelect(other);
+    };
+  });
+}
+
+function kgSideHtml(n) {
+  const idx = KG.renderIdx || {};
+  const mine = [];
+  (KG.renderedEdges || []).forEach((e) => {
+    if (e.s === n.id) mine.push({ e, other: e.t, out: true });
+    else if (e.t === n.id) mine.push({ e, other: e.s, out: false });
+  });
+  const order = ["rel", "link", "shared", "type", "doc", "attr"];
+  const bucket = {};
+  mine.forEach((m) => { (bucket[m.e.kind] = bucket[m.e.kind] || []).push(m); });
+
+  let h = `<div class="kg-side-hd"><b>${esc(n.label)}</b>` +
+    `<button class="x" id="kg-side-x" title="关闭">✕</button></div>`;
+  const tags = [];
+  if (n.type === "object") tags.push(n.group ? esc(n.group) : "对象");
+  else if (n.type === "value") tags.push("属性值");
+  else if (n.type === "type") tags.push("类型中枢");
+  else tags.push("文档");
+  if (n.type === "object" && n.n_attr) tags.push(`${n.n_attr} 个属性`);
+  if (n.type === "value" && n.n_obj) tags.push(`${n.n_obj} 个对象共用`);
+  tags.push(`${mine.length} 条关联`);
+  h += `<div class="sub">${tags.join(" · ")}</div>`;
+  if (n.type === "object" && (n.docs || []).length) {
+    h += `<div class="sub">出自：${n.docs.map(esc).join("、")}</div>`;
+  }
+  if (n.type === "value" && (n.attrs || []).length) {
+    h += `<div class="sub">被这些属性指向：${n.attrs.map(esc).join(" / ")}</div>`;
+  }
+  if (!mine.length) {
+    h += `<div class="sub" style="margin-top:8px">这个点暂时没有连出去的关系</div>`;
+    return h;
+  }
+
+  order.forEach((k) => {
+    const arr = bucket[k];
+    if (!arr || !arr.length) return;
+    h += `<h5>${KG_KIND_CN[k] || k}<i></i>` +
+      `<span style="font-weight:400;color:#a8b4c6">${arr.length}</span></h5>`;
+    arr.slice(0, 40).forEach((m) => {
+      const st = KG_KIND_STYLE[k] || KG_KIND_STYLE.attr;
+      const other = (idx[m.other] && idx[m.other].label) || m.other.slice(2);
+      h += `<div class="kg-rel" data-other="${esc(m.other)}">` +
+        `<span class="dot" style="background:${st.color}"></span>` +
+        `<span class="tx">` +
+        (m.out
+          ? `<span class="k">${esc(m.e.label)} →</span><br><b>${esc(other)}</b>`
+          : `<b>${esc(other)}</b><br><span class="k">← ${esc(m.e.label)}</span>`) +
+        `</span><span class="ar">↗</span></div>`;
+    });
+    if (arr.length > 40) {
+      h += `<div class="sub" style="padding:2px 7px">…还有 ${arr.length - 40} 条</div>`;
+    }
+  });
+  return h;
+}
+
+/* ---------------- 工具条 ---------------- */
+document.querySelectorAll(".kg-v").forEach((b) => {
+  b.onclick = () => {
+    if (b.classList.contains("on")) return;
+    document.querySelectorAll(".kg-v").forEach((x) => x.classList.remove("on"));
+    b.classList.add("on");
+    KG.view = b.dataset.kgview;
+    kgLoad();
+  };
+});
+
+$("kg-collapse").onclick = () => {
+  KG.collapse = !KG.collapse;
+  $("kg-collapse").classList.toggle("on", KG.collapse);
+  kgLoad();
+};
+$("kg-layout").onchange = () => {
+  KG.layout = $("kg-layout").value;
+  KG.cache = "";
+  kgLoad(true);
+};
+$("kg-redo").onclick = () => {
+  KG.vx = 0; KG.vy = 0; KG.vk = 1;
+  kgRender();
+};
+$("kg-clear").onclick = () => kgSelect(null);
+$("kg-zoom").onclick = (ev) => {
+  const b = ev.target.closest("button");
+  if (!b) return;
+  const z = b.dataset.kgz;
+  if (z === "fit") { KG.vx = 0; KG.vy = 0; KG.vk = 1; kgApplyView(); return; }
+  const nk = Math.min(4, Math.max(.28, KG.vk * (z === "in" ? 1.22 : 1 / 1.22)));
+  KG.vk = nk;
+  kgApplyView();
+};
 
 async function dwLoadFields() {
   const q = $("dw-q").value.trim();
@@ -1968,7 +3715,6 @@ async function dwLoadFields() {
     $("dw-body").innerHTML = h + "</table>";
   } catch (e) { $("dw-body").innerHTML = `<div class="empty">请求失败：${esc(String(e))}</div>`; }
 }
-
 async function dwLoadProfile() {
   const q = $("dw-q").value.trim();
   if (!q) { $("dw-body").innerHTML = `<div class="empty">先在上面的输入框里写文档名（一段就行），再点「看画像」</div>`; return; }
@@ -2017,17 +3763,339 @@ async function dwLoadAudit() {
   } catch (e) { $("dw-body").innerHTML = `<div class="empty">请求失败：${esc(String(e))}</div>`; }
 }
 
+/* ---------------- 数据仓库 · 文档库（上传 → 入池 → 提取） ----------------
+   为什么补在这里：数据仓库原来只能"看提取结果"，文档进不来。
+   上传走的是和输入框左侧「📥 导入文档」完全同一个接口（/api/upload），
+   所以两边行为一致：落盘到 导入文档/ → 解析 → 并入检索池。
+   区别只是在这里传完可以立刻点「提取入库」，形成 上传→抽取→查询 的闭环。 */
+const dwDocsInput = $("dw-docs-input");
+const dwDocsBody = $("dw-docs-body");
+const dwNewDocs = new Set();          // 本次会话刚传的：名字加粗，一眼找到
+let dwKnowMap = {};                   // 文档名 → 已入库条目数（数据仓库左栏徽章）
+let dwCurDoc = null;                  // 当前正在看的知识详情（null = 全部知识表）
+
+function fmtSize(n) {
+  if (n == null) return "";
+  if (n < 1024) return n + " B";
+  if (n < 1048576) return (n / 1024).toFixed(1) + " KB";
+  return (n / 1048576).toFixed(1) + " MB";
+}
+
+/* ================= 文档清单按类型分类（四个模块共用） =================
+   四个地方（智能操作 / 识别入库 / 数据仓库 / 表格填写）原来都是"一个大长条"，
+   20 多份混在一起找起来费眼。这里统一按扩展名分族：
+   Word / Excel / PDF / 文本 / 图片 / 其他，每个清单顶上再给一排类型 chip。
+   分工：
+     docKindOf(row)      → 一个文件属于哪一族
+     docKindGroups(rows) → 分好组、组内保持原来的顺序（调用方排的序不被打乱）
+     paintKinds(id,rows) → 画顶上那排 chip（记住每个清单各自选了哪一类）
+     docGroupsHtml(...)  → 画「组标题 + 该组的行」
+   状态放在 KIND_STATE 里，回调放 KIND_CB 里，切换 chip 时让调用方自己重渲染。
+*/
+const DOC_KIND_DEF = [
+  { k: "word",  label: "Word 文档",     short: "Word",  ic: "📘", exts: ["docx", "doc", "dotx", "wps", "wpt", "rtf"] },
+  { k: "excel", label: "Excel 表格",    short: "Excel", ic: "📗", exts: ["xlsx", "xls", "xlsm", "xltx", "csv", "et"] },
+  { k: "pdf",   label: "PDF 文件",      short: "PDF",   ic: "📕", exts: ["pdf"] },
+  { k: "text",  label: "文本 / Markdown", short: "文本", ic: "📄", exts: ["md", "markdown", "txt"] },
+  { k: "image", label: "图片",          short: "图片",  ic: "🖼️", exts: ["png", "jpg", "jpeg", "bmp", "webp", "tif", "tiff", "gif"] },
+  { k: "other", label: "其他",          short: "其他",  ic: "📎", exts: [] },
+];
+const KIND_STATE = {};   // 每个清单各自记得选了哪一类：{op:"docx" 之类}
+const KIND_CB = {};      // 切 chip 时由各模块挂一个重渲染函数
+
+function docExtOf(row) {
+  if (!row) return "";
+  return String(row.ext || (String(row.name || "").split(".").pop() || "")).toLowerCase();
+}
+
+function docKindOf(row) {
+  const ext = docExtOf(row);
+  for (let i = 0; i < DOC_KIND_DEF.length; i++) {
+    if (DOC_KIND_DEF[i].exts.indexOf(ext) >= 0) return DOC_KIND_DEF[i].k;
+  }
+  return "other";
+}
+
+/* 分组：只输出真实存在的类别，空的类别不出组标题 */
+function docKindGroups(rows) {
+  const bucket = {};
+  (rows || []).forEach((r) => {
+    const k = docKindOf(r);
+    (bucket[k] = bucket[k] || []).push(r);
+  });
+  return DOC_KIND_DEF
+    .filter((d) => bucket[d.k] && bucket[d.k].length)
+    .map((d) => ({ k: d.k, label: d.label, short: d.short, ic: d.ic, rows: bucket[d.k] }));
+}
+
+function paintKinds(id, rows) {
+  const box = $(id + "-kinds");
+  if (!box) return;
+  const groups = docKindGroups(rows);
+  const act = KIND_STATE[id] || "all";
+  let h = `<button type="button" class="kd${act === "all" ? " on" : ""}" data-k="all">` +
+    `全部<i>${(rows || []).length}</i></button>`;
+  groups.forEach((g) => {
+    h += `<button type="button" class="kd${act === g.k ? " on" : ""}" data-k="${g.k}">` +
+      `${g.ic}${esc(g.short)}<i>${g.rows.length}</i></button>`;
+  });
+  box.innerHTML = h;
+  box.querySelectorAll(".kd").forEach((b) => {
+    b.onclick = () => {
+      KIND_STATE[id] = b.dataset.k;
+      const cb = KIND_CB[id];
+      if (cb) cb();                       // 让模块按新分类重画清单
+    };
+  });
+}
+
+/* 画清单正文：组标题 + 该组的行（行由调用方给一个 html 生成函数） */
+function docGroupsHtml(id, rows, rowHtml) {
+  const act = KIND_STATE[id] || "all";
+  const groups = docKindGroups(rows).filter((g) => act === "all" || g.k === act);
+  if (!groups.length) {
+    return `<div class="empty">这一类还没有文档${act === "all" ? "" : " —— 点上面「全部」看看别的"}</div>`;
+  }
+  return groups.map((g) =>
+    // 只筛了某一类时不必再写一遍组标题（上面的 chip 已经说明是哪一类），省一行高度
+    (act === "all" ? `<div class="rk-grp-hd">${g.ic} ${esc(g.label)}<i>${g.rows.length}</i></div>` : "") +
+    g.rows.map(rowHtml).join("")
+  ).join("");
+}
+
+let dwDocsRows = [];          // 最近一次读到的文档（切分类时不再请求接口）
+
+async function dwLoadDocs() {
+  const box = $("dw-docs-list");
+  try {
+    // 同时拿"文档库清单"和"哪些文档已经入库了多少条"，
+    // 后者用来在每行标「已入库 N」，也决定这一行点进去有没有东西看。
+    const [d, kd] = await Promise.all([
+      fetch("/api/docs").then((r) => r.json()).catch(() => ({})),
+      fetch("/api/knowledge/docs").then((r) => r.json()).catch(() => ({ rows: [] })),
+    ]);
+    dwKnowMap = {};
+    (kd.rows || []).forEach((r) => { dwKnowMap[r.doc_name] = r; });
+    const rows = d.detail || (d.docs || []).map((n) => ({ name: n }));
+    const nImp = (d.counts && d.counts.import != null)
+      ? d.counts.import : rows.filter((r) => r.src === "import").length;
+    $("dw-docs-count").innerHTML = rows.length
+      ? `${rows.length} 份 · 已抽 ${Object.keys(dwKnowMap).length}`
+      : "空的";
+    if (!rows.length) {
+      dwDocsRows = [];
+      paintKinds("dw", []);
+      box.innerHTML = `<div class="empty">文档库是空的 —— 点上面「上传文档」传一份进来</div>`;
+      return;
+    }
+    // 排序：已入库的排最前（用户来这儿基本是想看"这份文档抽了什么"），
+    // 其次是我上传的、按时间倒序。分组在渲染时做，不打断这个优先级。
+    dwDocsRows = rows.slice().sort((a, b) => {
+      const ak = dwKnowMap[a.name] ? 0 : 1, bk = dwKnowMap[b.name] ? 0 : 1;
+      if (ak !== bk) return ak - bk;
+      const ai = a.src === "import" ? 0 : 1, bi = b.src === "import" ? 0 : 1;
+      if (ai !== bi) return ai - bi;
+      return String(b.mtime || "").localeCompare(String(a.mtime || ""));
+    });
+    dwRenderDocs();
+  } catch (e) {
+    box.innerHTML = `<div class="empty">文档库清单加载失败：${esc(String(e))}</div>`;
+  }
+}
+
+/* 按分类画左栏文档清单（切 chip 时只重画，不重新请求） */
+function dwRenderDocs() {
+  const box = $("dw-docs-list");
+  paintKinds("dw", dwDocsRows);
+  if (!dwDocsRows.length) return;
+  box.innerHTML = docGroupsHtml("dw", dwDocsRows, (r) => {
+      const imp = r.src === "import";
+      const isNew = dwNewDocs.has(r.name);
+      const k = dwKnowMap[r.name];
+      const meta = [String(r.ext || "").toUpperCase(), fmtSize(r.size)]
+        .filter(Boolean).join(" · ");
+      const badge = k
+        ? `<span class="dw-has" title="已入库 ${k.items} 条知识：点文档名进去看">${k.items} 条</span>`
+        : "";
+      const del = imp
+        ? `<button class="del" data-del="${esc(r.name)}" title="从文档库删除「${esc(r.name)}」（文件会移到 导入文档/_已删除，可恢复）">✕</button>`
+        : `<button class="del" disabled title="标准文档是比赛基线，不能删" style="opacity:.25;cursor:not-allowed">🔒</button>`;
+      return `<div class="dw-doc-row">` +
+        `<div class="r1"><span class="tag-src${imp ? " imp" : ""}">${imp ? "我上传的" : "标准库"}</span>` +
+        `<span class="nm${isNew ? " new" : ""}${k ? " hask" : ""}" data-open="${esc(r.name)}" title="${esc(r.name)}${k ? " —— 点击查看这份文档抽到的全部知识" : " —— 还没抽取，点右下「抽取」"}">${esc(r.name)}</span>` +
+        badge + `</div>` +
+        `<div class="r2"><span class="mt">${esc(meta)}</span>` +
+        `<button class="ex" data-ex="${esc(r.name)}" title="对这份文档跑知识抽取：自动认结构、抽内容、入库">抽取</button>` +
+        del + `</div></div>`;
+  });
+  box.querySelectorAll("button.ex").forEach((b) => {
+    b.onclick = () => dwExtractDoc(b.dataset.ex, b);
+  });
+  box.querySelectorAll(".nm[data-open]").forEach((s) => {
+    s.onclick = () => dwOpenDoc(s.dataset.open);
+  });
+  box.querySelectorAll("button.del[data-del]").forEach((b) => {
+    b.onclick = () => dwDeleteDoc(b.dataset.del, b);
+  });
+}
+KIND_CB.dw = dwRenderDocs;
+
+/* 删除文档：两下确认（不弹系统框，避免挡住页面） */
+async function dwDeleteDoc(name, btn) {
+  if (!btn.dataset.arming) {
+    btn.dataset.arming = "1";
+    btn.dataset.old = btn.textContent;
+    btn.textContent = "确认删";
+    btn.style.background = "#fee2e2";
+    btn.style.color = "#b91c1c";
+    setTimeout(() => {
+      if (!btn.isConnected || !btn.dataset.arming) return;
+      delete btn.dataset.arming;
+      btn.textContent = btn.dataset.old || "🗑";
+      btn.style.background = "";
+      btn.style.color = "";
+    }, 3200);
+    return;
+  }
+  delete btn.dataset.arming;
+  const note = $("dw-docs-note");
+  note.style.display = "block";
+  note.innerHTML = `<span class="spinner"></span> 正在删除 <b>${esc(name)}</b>…`;
+  try {
+    const r = await fetch("/api/docs?name=" + encodeURIComponent(name), { method: "DELETE" });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+    note.innerHTML = `<div class="n-hd"><b>✓ 已从文档库删除 ${esc(name)}</b>` +
+      `<button id="dw-docs-note-x">关闭</button></div>` +
+      `<div style="color:#64748b;margin-top:4px">文件没真删，移到了 导入文档/_已删除/，要找回就去那儿拿。已抽取的知识条目保留。</div>`;
+    $("dw-docs-note-x").onclick = () => { note.style.display = "none"; };
+    dwLoadDocs();
+    loadStatus();
+    try { recDocsLoaded = false; } catch (e) {}
+  } catch (e) {
+    note.innerHTML = `<span class="n-bad">✗</span> 删除失败：${esc(e.message)}`;
+  }
+}
+
+async function dwUploadFiles(files) {
+  const note = $("dw-docs-note");
+  const up = $("dw-docs-upload");
+  note.style.display = "block";
+  up.disabled = true;
+  let okN = 0, failN = 0;
+  const lines = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    note.innerHTML = `<span class="spinner"></span> 第 ${i + 1}/${files.length} 份：<b>${esc(f.name)}</b> —— 上传并解析中…` +
+      `<div style="font-size:12px;color:#64748b;margin-top:2px">扫描版 PDF / 图片要走 OCR，页多的慢一些，别关窗口</div>`;
+    try {
+      const fd = new FormData();
+      fd.append("file", f, f.name);
+      const r = await fetch("/api/upload", { method: "POST", body: fd });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+      if (!j.ok) throw new Error(j.error || "解析失败");
+      okN++;
+      dwNewDocs.add(j.stored_name || j.filename);
+      const renamed = (j.stored_name && j.stored_name !== j.filename)
+        ? `（重名，已存为 ${esc(j.stored_name)}）` : "";
+      let extra = "";
+      if (j.filetype === "pdf" && j.page_count) {
+        extra = j.scanned
+          ? ` ｜ 共 ${j.page_count} 页，扫描页 ${j.ocr_page_count} 页已 OCR`
+          : ` ｜ 共 ${j.page_count} 页（自带文字层，未用 OCR）`;
+      } else if (j.filetype === "image") {
+        extra = (j.avg_conf != null) ? ` ｜ OCR 置信度 ${(j.avg_conf * 100).toFixed(1)}%` : " ｜ 已 OCR";
+      }
+      lines.push(`<span class="n-ok">✓</span> <b>${esc(j.filename)}</b> → ${esc(j.filetype)} ｜ ${j.blocks} 块 ｜ ${j.elapsed}s${extra}${renamed}`);
+    } catch (e) {
+      failN++;
+      lines.push(`<span class="n-bad">✗</span> <b>${esc(f.name)}</b>：${esc(e.message)}`);
+    }
+  }
+  up.disabled = false;
+  note.innerHTML =
+    `<div class="n-hd"><b>${failN ? `上传结束：成功 ${okN} ／ 失败 ${failN}` : `✓ ${okN} 份已进文档库`}</b>` +
+    `<button id="dw-docs-note-x">关闭</button></div>` +
+    lines.join("<br>") +
+    (okN ? `<div style="color:#64748b;margin-top:5px">现在就能用了：对这些文件下指令、当填表数据源；想立刻抽数据，点它右边的「🧠 提取入库」。</div>` : "");
+  $("dw-docs-note-x").onclick = () => { note.style.display = "none"; };
+  dwLoadDocs();
+  loadStatus();                                  // 顶栏「文档库 N 份」
+  try { recDocsLoaded = false; } catch (e) {}     // 识别入库弹窗的清单要重拉
+}
+
+async function dwExtractDoc(name, btn, requirement) {
+  const note = $("dw-docs-note");
+  const label = btn.textContent;
+  note.style.display = "block";
+  btn.disabled = true;
+  const t0 = Date.now();
+  const tick = setInterval(() => {
+    btn.textContent = `抽取中 ${((Date.now() - t0) / 1000).toFixed(0)}s`;
+  }, 500);
+  note.innerHTML = `<span class="spinner"></span> 正在对 <b>${esc(name)}</b> 做统一知识抽取` +
+    (requirement ? `（关注点：${esc(requirement)}）` : "（全量）") + `…`;
+  try {
+    const r = await fetch("/api/recognize", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ docs: [name], tasks: ["knowledge"], requirement: requirement || "" }),
+    });
+    const j0 = await r.json();
+    if (!r.ok) throw new Error(j0.detail || ("HTTP " + r.status));
+    const j = await pollFor(j0.job_id);
+    const res = j.result || {};
+    if (res.ok) {
+      note.innerHTML = `<span class="n-ok">✓ 已抽取入库</span> · ${esc(name)} · 耗时 ${j.elapsed ?? "-"}s —— 正在打开这份文档的知识视图`;
+      dwLoadStats();
+      dwLoadDocs();
+      dwOpenDoc(name);                     // 直接进详情：抽完就能看到这条文档的内容
+    } else {
+      note.innerHTML = `<span class="n-bad">✗ 没跑完</span> · ${esc(name)} · 耗时 ${j.elapsed ?? "-"}s` +
+        (res.report ? `<pre class="report" style="max-height:160px;overflow:auto;margin-top:4px">${esc(res.report)}</pre>` : "");
+    }
+  } catch (e) {
+    note.innerHTML = `<span class="n-bad">✗ 抽取失败</span>：${esc(e.message)}`;
+  } finally {
+    clearInterval(tick);
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+}
+
+$("dw-docs-upload").onclick = () => dwDocsInput.click();
+$("dw-docs-drop").onclick = () => dwDocsInput.click();
+dwDocsInput.onchange = async () => {
+  const files = Array.from(dwDocsInput.files || []);
+  dwDocsInput.value = "";                 // 清空，同一个文件还能再选一次
+  if (files.length) await dwUploadFiles(files);
+};
+
+const dwDropEl = $("dw-docs-drop");
+dwDropEl.addEventListener("dragover", (e) => { e.preventDefault(); dwDropEl.classList.add("on"); });
+dwDropEl.addEventListener("dragleave", () => dwDropEl.classList.remove("on"));
+dwDropEl.addEventListener("drop", async (e) => {
+  e.preventDefault();
+  dwDropEl.classList.remove("on");
+  const files = Array.from(e.dataTransfer.files || []);
+  if (files.length) await dwUploadFiles(files);
+});
+// 拖到面板空白处时别让浏览器直接打开文件（只在弹窗范围内拦）
+dwOverlay.addEventListener("dragover", (e) => e.preventDefault());
+
 $("dw-toggle").onclick = () => {
   dwOverlay.classList.add("open");
   dwLoadStats();
+  dwLoadDocs();
   if (!dwOpened) { dwOpened = true; dwLoadEntities(); }
 };
 $("dw-x").onclick = () => dwOverlay.classList.remove("open");
 $("dw-overlay").onclick = (e) => { if (e.target === dwOverlay) dwOverlay.classList.remove("open"); };
-$("dw-refresh").onclick = () => { dwLoadStats(); dwLoadEntities(); };
+$("dw-refresh").onclick = () => { dwLoadStats(); dwLoadDocs(); dwLoadEntities(); if (dwView === "graph") kgLoad(); };
+document.querySelectorAll(".dw-tab").forEach((b) => {
+  b.onclick = () => dwSetView(b.dataset.dwview);
+});
 $("dw-go-ent").onclick = dwLoadEntities;
-$("dw-go-fld").onclick = dwLoadFields;
-$("dw-go-prof").onclick = dwLoadProfile;
 $("dw-go-audit").onclick = dwLoadAudit;
 $("dw-q").addEventListener("keydown", (e) => { if (e.key === "Enter") dwLoadEntities(); });
 
@@ -2042,44 +4110,675 @@ async function pollFor(jid) {
   }
 }
 
+/* ---------------- 文字识别（OCR：扫描版 PDF / 图片 · 本轮新增） ---------------- */
+const ocrOverlay = $("ocr-overlay");
+const ocrDrop = $("ocr-drop");
+let ocrFile = null;              // 当前选中的文件（并入文档库时原样复用）
+let ocrBusy = false;
+let ocrEngineOk = null;          // null=没查过 / true / false
+
+$("ocr-toggle").onclick = () => { ocrOverlay.classList.add("open"); ocrCheckEngine(); };
+$("ocr-x").onclick = () => ocrOverlay.classList.remove("open");
+ocrOverlay.onclick = (e) => { if (e.target === ocrOverlay) ocrOverlay.classList.remove("open"); };
+
+/* 引擎状态：能用就不打扰；不能用就把「怎么装」原话贴出来 */
+async function ocrCheckEngine() {
+  if (ocrEngineOk === true) return true;
+  try {
+    const st = await (await fetch("/api/ocr/status")).json();
+    ocrEngineOk = !!st.ok;
+    if (!st.ok) {
+      $("ocr-status").innerHTML = `<span class="bad">OCR 引擎不可用</span>　${esc(st.tip || "")}`;
+      $("ocr-go").disabled = true;
+    }
+    return ocrEngineOk;
+  } catch (e) {
+    ocrEngineOk = false;
+    $("ocr-status").innerHTML = `<span class="bad">查询 OCR 状态失败：${esc(String(e))}</span>`;
+    return false;
+  }
+}
+
+function ocrPick(f) {
+  if (!f) return;
+  ocrFile = f;
+  const ext = (f.name.split(".").pop() || "").toLowerCase();
+  const ic = ext === "pdf" ? "📄" : "🖼";
+  $("ocr-drop-tip").style.display = "none";
+  const box = $("ocr-file-box");
+  box.style.display = "block";
+  box.innerHTML =
+    `<div class="ocr-file"><span class="ic">${ic}</span>` +
+    `<div style="flex:1;min-width:0"><div class="nm">${esc(f.name)}</div>` +
+    `<div class="sz">${(f.size / 1024 / 1024).toFixed(2)} MB · ${esc(ext.toUpperCase() || "未知")}</div></div>` +
+    `<button class="ghost" id="ocr-clr" title="换一个文件">换一个</button></div>`;
+  $("ocr-clr").onclick = (e) => { e.stopPropagation(); ocrClear(); };
+  box.onclick = (e) => e.stopPropagation();
+  $("ocr-go").disabled = false;
+  $("ocr-status").innerHTML = "";
+  $("ocr-result").innerHTML = "";
+}
+
+function ocrClear() {
+  ocrFile = null;
+  $("ocr-file-box").style.display = "none";
+  $("ocr-file-box").innerHTML = "";
+  $("ocr-drop-tip").style.display = "block";
+  $("ocr-go").disabled = true;
+  $("ocr-status").innerHTML = "";
+  $("ocr-result").innerHTML = "";
+}
+
+ocrDrop.onclick = () => $("ocr-input").click();
+$("ocr-input").onchange = () => {
+  const f = $("ocr-input").files[0];
+  $("ocr-input").value = "";
+  ocrPick(f);
+};
+["dragenter", "dragover"].forEach((ev) =>
+  ocrDrop.addEventListener(ev, (e) => { e.preventDefault(); ocrDrop.classList.add("on"); }));
+["dragleave", "drop"].forEach((ev) =>
+  ocrDrop.addEventListener(ev, (e) => { e.preventDefault(); ocrDrop.classList.remove("on"); }));
+ocrDrop.addEventListener("drop", (e) => {
+  const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+  if (f) ocrPick(f);
+});
+
+async function ocrGo() {
+  if (!ocrFile || ocrBusy) return;
+  const ok = await ocrCheckEngine();
+  if (!ok) return;
+  const dpi = (document.querySelector('input[name="ocr-dpi"]:checked') || {}).value || "200";
+  const fd = new FormData();
+  fd.append("file", ocrFile, ocrFile.name);  ocrBusy = true;
+  $("ocr-go").disabled = true;
+  $("ocr-result").innerHTML = "";
+  const t0 = Date.now();
+  const tick = () => {
+    $("ocr-status").innerHTML =
+      `<span class="spinner"></span> 正在识别… ${((Date.now() - t0) / 1000).toFixed(1)}s` +
+      `<span class="dw-sub" style="margin-left:8px">（扫描页越多越久，一页约 0.5~1.5 秒，别关窗口）</span>`;
+  };
+  tick();
+  const timer = setInterval(tick, 200);
+  try {
+    const r = await fetch("/api/ocr?dpi=" + encodeURIComponent(dpi) +
+      "&lang=" + encodeURIComponent(ocrLang) +
+      "&vertical=" + (($("ocr-vmode") && !$("ocr-vmode").checked) ? "off" : "auto"),
+      { method: "POST", body: fd });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+    clearInterval(timer);
+    ocrRender(j);
+  } catch (e) {
+    clearInterval(timer);
+    $("ocr-status").innerHTML = `<span class="bad">识别失败：${esc(e.message)}</span>`;
+  } finally {
+    ocrBusy = false;
+    $("ocr-go").disabled = !ocrFile;
+  }
+}
+$("ocr-go").onclick = ocrGo;
+/* 语言选择（2026-11-07）：auto/chs/cht 走同一个「简繁英」中文模型，en 换英文专用模型 */
+let ocrLang = "auto";
+const OCR_LANG_TIP = {
+  auto: "自动：简繁英混排一起认，竖排自动还原顺序",
+  chs: "简体：模型一样，只是按简体口径校对，混排更稳",
+  cht: "繁体：门、號、驗、單这类字专认（原来的简体模型会认错）",
+  en: "英文：换英文专用模型，纯英文文档更准 —— 有中文时请用「自动」",
+};
+function ocrPaintLang() {
+  document.querySelectorAll("#ocr-langs .kd").forEach((b) => {
+    b.classList.toggle("on", b.dataset.l === ocrLang);
+    b.onclick = () => {
+      ocrLang = b.dataset.l;
+      ocrPaintLang();
+      $("ocr-mode-tip").textContent = OCR_LANG_TIP[ocrLang] || "";
+    };
+  });
+}
+ocrPaintLang();
+/* 精度选择：选中项高亮 */
+document.querySelectorAll(".ocr-opt input").forEach((el) => {
+  el.addEventListener("change", () => {
+    document.querySelectorAll(".ocr-opt input").forEach((i) => {
+      i.closest(".ocr-opt").classList.toggle("on", i.checked);
+    });
+  });
+});
+
+function ocrRender(j) {
+  const notes = j.notes || [];
+  let head = `<span class="ok">✓ 识别完成</span> · ${j.elapsed}s · ${j.char_count} 字 · ${j.para_count} 段`;
+  if (j.rec_model) {
+    const m = /v5/i.test(j.rec_model) ? "PP-OCRv5" : (/v3/i.test(j.rec_model) ? "PP-OCRv3" : "");
+    head += ` · ${esc(j.lang_label || "自动")}${m ? "（" + m + "）" : ""}`;
+  }
+  if (j.kind === "pdf") {
+    head += ` · 共 ${j.page_count} 页`;
+    if (j.scanned) {
+      head += `　<span style="color:#7c3aed">扫描页 ${j.ocr_page_count} 页已 OCR（${j.ocr_elapsed}s）</span>`;
+    } else {
+      head += `　<span style="color:#16a34a">全部自带文字层，未动用 OCR</span>`;
+    }
+  } else if (j.width && j.height) {
+    head += ` · ${j.width}×${j.height}`;
+    if (j.avg_conf != null) head += ` · 平均置信度 ${(j.avg_conf * 100).toFixed(1)}%`;
+  }
+  $("ocr-status").innerHTML = head;
+
+  let h = "";
+  if (notes.length) {
+    h += notes.map((x) => `<div class="up-line" style="color:#b45309">⚠ ${esc(x)}</div>`).join("");
+  }
+  h += `<div style="display:flex;gap:8px;align-items:center;margin:10px 0 8px;flex-wrap:wrap">
+      <b style="font-size:13px">识别结果</b>
+      <button class="ghost" id="ocr-copy">复制全文</button>
+      <button class="ghost" id="ocr-add" title="存进文档库（占一个文档名额）；之后就能对它下指令、跑识别入库、当填表数据源">＋ 并入文档库</button>
+      <span class="dw-sub" style="margin-left:auto">${j.kind === "pdf" ? "文字层段落 + OCR 段落，按页码排好" : "按阅读顺序分段"}</span>
+    </div>`;
+  h += `<pre class="ocr-text">${esc(j.text || "（没认到文字）")}</pre>`;
+  h += `<div style="margin:12px 0 4px"><b style="font-size:13px">分段来源</b>` +
+       `<span class="dw-sub">　黄色 = 置信度低于 60%，建议人工核对；紫标 = 这段是 OCR 认出来的</span></div>`;
+  h += (j.paragraphs || []).map((p) => {
+    const conf = (p.conf == null) ? null : Number(p.conf);
+    const low = conf != null && conf < 0.6;
+    const tags = [];
+    if (p.page) tags.push(`<span class="tag">第 ${p.page} 页</span>`);
+    tags.push(p.source === "ocr"
+      ? `<span class="tag ocr">OCR</span>`
+      : `<span class="tag">文字层</span>`);
+    if (conf != null) tags.push(`<span class="tag">${(conf * 100).toFixed(0)}%</span>`);
+    return `<div class="ocr-para${low ? " low" : ""}">${tags.join("")}${esc(p.text)}</div>`;
+  }).join("") || `<div class="empty">没有段落</div>`;
+  $("ocr-result").innerHTML = h;
+
+  $("ocr-copy").onclick = async () => {
+    const b = $("ocr-copy");
+    try {
+      await navigator.clipboard.writeText(j.text || "");
+      b.textContent = "✓ 已复制";
+    } catch (e) {
+      b.textContent = "复制失败，请手动选中";
+    }
+    setTimeout(() => { const x = $("ocr-copy"); if (x) x.textContent = "复制全文"; }, 1600);
+  };
+  $("ocr-add").onclick = ocrAddToPool;
+}
+
+/* 把刚识别过的文件并入文档库：后端会复用刚才的 OCR 结果，不重复识别 */
+async function ocrAddToPool() {
+  if (!ocrFile) return;
+  const b = $("ocr-add");
+  b.disabled = true;
+  b.textContent = "并入中…";
+  try {
+    const fd = new FormData();
+    fd.append("file", ocrFile, ocrFile.name);
+    const r = await fetch("/api/upload", { method: "POST", body: fd });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) throw new Error(j.detail || j.error || ("HTTP " + r.status));
+    b.textContent = "✓ 已并入文档库";
+    const extra = j.reused_ocr ? "（复用了刚才的识别结果，没有重复 OCR）" : "";
+    $("ocr-status").innerHTML +=
+      `<span class="ok">　已并入：${esc(j.stored_name)} · ${j.blocks} 块${extra}</span>`;
+    recDocsLoaded = false;                  // 「识别入库」的文档清单要重拉
+    loadStatus();                           // 顶栏「文档库 N 份」立刻更新
+  } catch (e) {
+    b.disabled = false;
+    b.textContent = "＋ 并入文档库";
+    $("ocr-status").innerHTML += `<span class="bad">　并入失败：${esc(e.message)}</span>`;
+  }
+}
+
+/* ---------------- 智能操作（模块①：编辑 / 排版 / 格式 · 2026-11-07 独立入口） ----------------
+   和首页对话框同一套执行链（/api/op → edit.run_edit），两处差别只有两点：
+     · 这里可以点一份文件 → 传 doc，指令里就不用再点名
+     · 快捷按钮直接给 op/params → 服务端跳过模型（0.3 秒出结果）
+*/
+const opOverlay = $("op-overlay");
+let opDocsLoaded = false;
+let opDoc = "";                 // 选中的文件名（"" = 没选，靠指令点名）
+let opTarget = "标题";           // 快捷按钮的作用对象
+let opApplied = null;           // 已应用的那一项（再点一次 = 取消）
+let opLastFile = "";            // 最近一次产物文件名
+let opBusy = false;
+
+const OP_EDIT_EXT = ["docx", "xlsx", "md", "markdown", "txt"];
+const OP_ICON = { docx: "📄", xlsx: "📊", md: "📝", markdown: "📝", txt: "📃" };
+
+// 快捷按钮清单 —— 与 format_ops.py 的 op 一一对应（十一种全在：
+// 加粗/斜体/下划线/删除线/高亮/颜色/字体/字号/对齐/行距/缩进）
+const OP_TOOLS = [
+  { g: "文字", items: [
+    { op: "set_bold", label: "加粗", cls: "f-b" },
+    { op: "set_italic", label: "斜体", cls: "f-i" },
+    { op: "set_underline", label: "下划线", cls: "f-u" },
+    { op: "set_strike", label: "删除线", cls: "f-s" },
+    { op: "set_highlight", label: "高亮", params: { color: "黄色" } },
+    { op: "set_color", label: "标红", params: { color: "红色" } },
+  ] },
+  { g: "对齐", items: [
+    { op: "set_align", label: "左对齐", params: { align: "left" } },
+    { op: "set_align", label: "居中", params: { align: "center" } },
+    { op: "set_align", label: "右对齐", params: { align: "right" } },
+    { op: "set_align", label: "两端对齐", params: { align: "justify" } },
+  ] },
+  { g: "段落", items: [
+    { op: "set_spacing", label: "1.5 倍行距", params: { spacing: "1.5倍" } },
+    { op: "set_spacing", label: "2 倍行距", params: { spacing: "2倍" } },
+    { op: "set_indent", label: "首行缩进 2 字", params: { indent: "首行缩进2字符" } },
+  ] },
+];
+
+// 各格式能做什么（和服务端执行能力保持一致：xlsx 没有行距；md/txt 只有行内标记）
+const OP_SUPPORT = {
+  docx: null,
+  xlsx: ["set_bold", "set_italic", "set_underline", "set_strike", "set_highlight",
+         "set_color", "set_font", "set_size", "set_align"],
+  md: ["set_bold", "set_italic", "set_strike", "set_highlight", "set_color"],
+  markdown: ["set_bold", "set_italic", "set_strike", "set_highlight", "set_color"],
+  txt: ["set_bold", "set_italic", "set_strike", "set_highlight", "set_color"],
+};
+
+function opDocExt() {
+  return (opDoc.split(".").pop() || "").toLowerCase();
+}
+function opSupports(op) {
+  if (!opDoc) return true;                       // 没选文件 → 都点得动，服务端会给准话
+  const list = OP_SUPPORT[opDocExt()];
+  if (list === null || list === undefined) return true;
+  return list.includes(op);
+}
+
+function opRenderTools() {
+  const box = $("op-tools");
+  let h = "";
+  for (const grp of OP_TOOLS) {
+    h += `<div class="op-row"><span class="op-lb">${grp.g}</span>`;
+    for (const it of grp.items) {
+      const dis = opSupports(it.op);
+      h += `<button class="op-chip ${it.cls || ""}" data-op="${it.op}"` +
+        ` data-params='${JSON.stringify(it.params || {})}'` +
+        (dis ? "" : ` disabled title="这份文件（.${opDocExt()}）不支持这项"`) +
+        `>${it.label}</button>`;
+    }
+    h += `</div>`;
+  }
+  const fontOk = opSupports("set_font");
+  const sizeOk = opSupports("set_size");
+  h += `<div class="op-row"><span class="op-lb">字体</span>` +
+    `<select class="op-sel" id="op-font"${fontOk ? "" : " disabled"}>` +
+    `<option value="">选字体</option><option>宋体</option><option>黑体</option><option>楷体</option>` +
+    `<option>微软雅黑</option><option>仿宋</option></select>` +
+    `<span class="op-lb" style="margin-left:6px">字号</span>` +
+    `<select class="op-sel" id="op-size"${sizeOk ? "" : " disabled"}>` +
+    `<option value="">选字号</option><option value="9">小五 9</option>` +
+    `<option value="10.5">五号 10.5</option><option value="12">小四 12</option>` +
+    `<option value="14">四号 14</option><option value="16">三号 16</option>` +
+    `<option value="18">小二 18</option><option value="22">二号 22</option></select>` +
+    `<button class="op-chip" id="op-font-go"${(fontOk || sizeOk) ? "" : " disabled"}>应用字体 / 字号</button></div>`;
+  box.innerHTML = h;
+
+  box.querySelectorAll(".op-chip[data-op]").forEach((b) => {
+    b.onclick = () => opQuick(b.dataset.op, JSON.parse(b.dataset.params || "{}"), b);
+  });
+  $("op-font-go").onclick = opFontGo;
+}
+
+async function opFontGo() {
+  const font = $("op-font").value;
+  const size = $("op-size").value;
+  if (!font && !size) {
+    $("op-status").innerHTML = `<span class="bad">先选字体或字号</span>`;
+    return;
+  }
+  const lbl = [font, size ? size + " 号" : ""].filter(Boolean).join(" · ");
+  if (size) {
+    await opQuick("set_size", { size: Number(size) }, null, `字号 ${size}`);
+  }
+  if (font) {
+    await opQuick("set_font", { font }, null, `字体 ${font}`);
+  }
+  $("op-status").innerHTML = `<span class="ok">✓ 已应用：${esc(lbl)}</span>`;
+}
+
+/* 文档清单：只列能改的（docx / xlsx / md / txt），单选 */
+let opDocsRows = [];          // 最近一次读到的可编辑文档（切分类时不再请求接口）
+
+async function opLoadDocs(force) {
+  if (opDocsLoaded && !force) return;
+  const box = $("op-docs");
+  box.innerHTML = `<div class="empty">加载文档清单…</div>`;
+  try {
+    const d = await fetch("/api/docs").then((r) => r.json());
+    const rows = (d.detail || (d.docs || []).map((n) => ({ name: n })))
+      .filter((r) => OP_EDIT_EXT.includes((r.ext || (r.name.split(".").pop() || "")).toLowerCase()));
+    if (!rows.length) {
+      opDocsRows = [];
+      paintKinds("op", []);
+      box.innerHTML = `<div class="empty">文档库里还没有可编辑的文档 —— 去「📚 文档库」传一份 docx / xlsx / md / txt 进来</div>`;
+      return;
+    }
+    rows.sort((a, b) => (a.src === "import" ? 0 : 1) - (b.src === "import" ? 0 : 1));
+    opDocsRows = rows;
+    opRenderDocs();
+    opDocsLoaded = true;
+  } catch (e) {
+    box.innerHTML = `<div class="empty">加载失败：${esc(String(e))}</div>`;
+  }
+}
+
+/* 按分类画清单：切 chip 时只重画 DOM，不重新请求 */
+function opRenderDocs() {
+  const box = $("op-docs");
+  paintKinds("op", opDocsRows);
+  if (!opDocsRows.length) return;
+  box.innerHTML = docGroupsHtml("op", opDocsRows, (r) => {
+    const ext = (r.ext || r.name.split(".").pop() || "").toLowerCase();
+    const on = r.name === opDoc;
+    return `<button type="button" class="rk-line${on ? " on" : ""}" data-doc="${esc(r.name)}">` +
+      `<span class="rk-ic">${OP_ICON[ext] || "📄"}</span>` +
+      `<span class="rk-nm" title="${esc(r.name)}">${esc(r.name)}</span>` +
+      `<span class="rk-src">${ext}${r.src === "import" ? " · 我上传的" : ""}</span>` +
+      `</button>`;
+  });
+  box.querySelectorAll(".rk-line").forEach((b) => {
+    b.onclick = () => opPick(b.dataset.doc);
+  });
+}
+KIND_CB.op = opRenderDocs;
+
+function opPick(name) {
+  const prev = opDoc;
+  opDoc = name || "";
+  opApplied = null;
+  // 换了文件就把上一次的结果清掉：否则「✓ 标题·加粗」挂在那儿，
+  // 看着像是刚选中的这份文件已经改过了
+  if (prev !== opDoc) {
+    $("op-status").innerHTML = "";
+    $("op-result").innerHTML = "";
+    opLastFile = "";
+  }
+  opOverlay.querySelectorAll("#op-docs .rk-line").forEach((b) => {
+    b.classList.toggle("on", b.dataset.doc === opDoc);
+  });
+  const cur = $("op-cur");
+  if (opDoc) {
+    const ext = opDocExt();
+    cur.className = "op-cur on";
+    cur.innerHTML = `已选：<b>${esc(opDoc)}</b> —— 下面的快捷操作和指令都作用在它上面` +
+      (OP_SUPPORT[ext] && OP_SUPPORT[ext].length ? `（${ext} 只支持部分格式，不支持的会灰掉）` : "");
+  } else {
+    cur.className = "op-cur";
+    cur.textContent = "未选择 —— 下面直接说「设备采购合同的标题加粗」也行";
+  }
+  opRenderTools();
+}
+
+function opSetTarget(tg) {
+  opTarget = tg;
+  opApplied = null;
+  opOverlay.querySelectorAll("#op-target .op-tg").forEach((b) => {
+    b.classList.toggle("on", b.dataset.tg === tg);
+  });
+}
+
+/* 快捷按钮：同一项再点一次 = 取消那项格式（off=true） */
+async function opQuick(op, params, btn, label) {
+  if (opBusy) return;
+  const key = op + "|" + JSON.stringify(params || {}) + "|" + opTarget;
+  const useParams = Object.assign({}, params || {});
+  const canceling = !!(opApplied && opApplied.key === key);
+  if (canceling) useParams.off = true;
+  const name = label || (btn ? btn.textContent.trim() : op);
+  const hint = opTarget === "全文" ? "" : opTarget;
+  opBusy = true;
+  $("op-status").innerHTML = `<span class="spinner"></span> ${canceling ? "取消" : "执行"}「${esc(opTarget)} · ${esc(name)}」…`;
+  $("op-result").innerHTML = "";
+  try {
+    const r = await fetch("/api/op", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        doc: opDoc || null, op, params: useParams,
+        hint, by: hint ? "keyword" : "whole",
+      }),
+    });
+    const j0 = await r.json();
+    if (!r.ok) throw new Error(j0.detail || ("HTTP " + r.status));
+    const j = await pollFor(j0.job_id);
+    opApplied = canceling ? null : { key, name };
+    opOverlay.querySelectorAll("#op-tools .op-chip[data-op]").forEach((b) => b.classList.remove("on"));
+    if (btn && !canceling) btn.classList.add("on");
+    renderOpResult(j, `${opTarget} · ${name}`);
+  } catch (e) {
+    $("op-status").innerHTML = `<span class="bad">没做成：${esc(String(e))}</span>`;
+  } finally {
+    opBusy = false;
+  }
+}
+
+/* 自然语言那一格：走和首页完全一样的解析链 */
+async function opRun() {
+  if (opBusy) return;
+  const text = $("op-text").value.trim();
+  if (!text) {
+    $("op-status").innerHTML = `<span class="bad">先说一句要做什么（或者点上面的快捷按钮）</span>`;
+    return;
+  }
+  opBusy = true;
+  $("op-go").disabled = true;
+  $("op-status").innerHTML = `<span class="spinner"></span> 正在听懂并执行…`;
+  $("op-result").innerHTML = "";
+  try {
+    const r = await fetch("/api/op", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, doc: opDoc || null }),
+    });
+    const j0 = await r.json();
+    if (!r.ok) throw new Error(j0.detail || ("HTTP " + r.status));
+    const j = await pollFor(j0.job_id);
+    renderOpResult(j, text.length > 26 ? text.slice(0, 26) + "…" : text);
+  } catch (e) {
+    $("op-status").innerHTML = `<span class="bad">没做成：${esc(String(e))}</span>`;
+  } finally {
+    opBusy = false;
+    $("op-go").disabled = false;
+  }
+}
+
+function renderOpResult(j, title) {
+  const res = j.result || {};
+  const ok = !!res.ok;
+  $("op-status").innerHTML = ok
+    ? `<span class="ok">✓ ${esc(title || "完成")}</span> · 耗时 ${j.elapsed ?? "-"}s`
+    : `<span class="bad">✗ 没做成 · ${esc(title || "")}</span> · 耗时 ${j.elapsed ?? "-"}s`;
+  const rep = res.report || res.error || "";
+  const out = (res.meta && res.meta.out_path) || "";
+  let h = "";
+  if (ok && out) {
+    opLastFile = out.split(/[\\/]/).pop();
+    h += `<div class="op-open-row">` +
+      `<button class="op-open-btn" id="op-open-file">📄 打开文件</button>` +
+      `<button class="op-open-btn" id="op-open-dir">📁 打开所在目录</button></div>` +
+      `<div class="op-tip" id="op-open-msg">产物：${esc(out)}<br>原件没动过，改的是另存出来的这一份。</div>`;
+  }
+  if (rep) {
+    // 明细默认收起：要看的先看到「成没成 + 产物在哪」，细节想翻再翻
+    h += `<details class="op-details"${ok ? "" : " open"}>` +
+      `<summary>${ok ? "看执行明细（定位到哪、改了哪几处）" : "看失败原因"}</summary>` +
+      `<pre class="report">${esc(rep)}</pre></details>`;
+  }
+  h += fbStrip("doc_edit", "这次的改法对不对？");
+  $("op-result").innerHTML = h;
+  if (ok && out) {
+    $("op-open-file").onclick = () => opOpen("file", $("op-open-file"));
+    $("op-open-dir").onclick = () => opOpen("folder", $("op-open-dir"));
+  }
+  // 结果在弹窗底部：别让人自己去翻，滚到能看见的位置
+  try { $("op-status").scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) {}
+}
+
+async function opOpen(mode, btn) {
+  const msg = $("op-open-msg");
+  btn.disabled = true;
+  try {
+    const r = await fetch("/api/op/open", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ file: opLastFile, mode }),
+    });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+    if (msg) msg.innerHTML = `<span class="ok">✓ 已${mode === "folder" ? "在资源管理器中定位" : "打开"}</span> · ${esc(j.path || "")}`;
+  } catch (e) {
+    if (msg) msg.innerHTML = `<span class="bad">打不开：${esc(String(e))}</span>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+$("op-toggle").onclick = () => {
+  opOverlay.classList.add("open");
+  opLoadDocs(false);
+  opRenderTools();
+};
+$("op-x").onclick = () => opOverlay.classList.remove("open");
+$("op-overlay").onclick = (e) => { if (e.target === opOverlay) opOverlay.classList.remove("open"); };
+$("op-refresh").onclick = () => { opDocsLoaded = false; opLoadDocs(true); };
+$("op-clear").onclick = () => opPick("");
+$("op-target").querySelectorAll(".op-tg").forEach((b) => { b.onclick = () => opSetTarget(b.dataset.tg); });
+$("op-go").onclick = opRun;
+$("op-text").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.isComposing) { e.preventDefault(); opRun(); }
+});
+document.querySelectorAll("[data-opdemo]").forEach((b) => {
+  b.onclick = () => { $("op-text").value = b.dataset.opdemo; $("op-text").focus(); };
+});
+
 /* ---------------- 识别入库（智能识别分类 · 异步 API · 本轮新增） ---------------- */
 const recOverlay = $("rec-overlay");
 let recDocsLoaded = false;
+
+let recDocsRows = [];         // 最近一次读到的文档（含 ext/src）
+let recKnow = {};             // 文档名 → 已抽条数
+const recPickSet = new Set(); // 勾了哪些：切分类要重画 DOM，勾选状态不能丢
 
 async function recLoadDocs(force) {
   if (recDocsLoaded && !force) return;
   const box = $("rec-docs");
   box.innerHTML = `<div class="empty">加载文档清单…</div>`;
   try {
-    const d = await (await fetch("/api/docs")).json();
-    const docs = d.docs || [];
-    if (!docs.length) { box.innerHTML = `<div class="empty">文档库为空——先用「📥 导入文档」上传</div>`; return; }
-    box.innerHTML = docs.map((n) =>
-      `<label><input type="checkbox" value="${esc(n)}"> ${esc(n)}</label>`).join("");
+    const [d, kd] = await Promise.all([
+      fetch("/api/docs").then((r) => r.json()),
+      fetch("/api/knowledge/docs").then((r) => r.json()).catch(() => ({ rows: [] })),
+    ]);
+    const rows = d.detail || (d.docs || []).map((n) => ({ name: n }));
+    recKnow = {};
+    (kd.rows || []).forEach((r) => { recKnow[r.doc_name] = r.items; });
+    if (!rows.length) {
+      recDocsRows = [];
+      paintKinds("rec", []);
+      box.innerHTML = `<div class="empty">文档库为空 —— 点上面「⬆ 上传文档」传一份进来</div>`;
+      return;
+    }
+    rows.sort((a, b) => (a.src === "import" ? 0 : 1) - (b.src === "import" ? 0 : 1));
+    recDocsRows = rows;
+    // 清单变了：把已经不存在的勾选清掉，免得删完文件还留着幽灵选中
+    const alive = new Set(rows.map((r) => r.name));
+    Array.from(recPickSet).forEach((n) => { if (!alive.has(n)) recPickSet.delete(n); });
+    recRenderDocs();
     recDocsLoaded = true;
   } catch (e) { box.innerHTML = `<div class="empty">加载失败：${esc(String(e))}</div>`; }
+}
+
+function recRenderDocs() {
+  const box = $("rec-docs");
+  paintKinds("rec", recDocsRows);
+  if (!recDocsRows.length) return;
+  box.innerHTML = docGroupsHtml("rec", recDocsRows, (r) => {
+    const imp = r.src === "import";
+    const k = recKnow[r.name];
+    return `<label class="rk-line${imp ? "" : " std"}">` +
+      `<input type="checkbox" value="${esc(r.name)}"${recPickSet.has(r.name) ? " checked" : ""}>` +
+      `<span class="rk-nm" title="${esc(r.name)}">${esc(r.name)}</span>` +
+      (k ? `<span class="dw-has">已抽 ${k}</span>` : "") +
+      `<span class="rk-src">${imp ? "我上传的" : "标准库"}</span>` +
+      (imp ? `<button type="button" class="rk-del" data-del="${esc(r.name)}" title="删除这份文档（移到 _已删除，可恢复）">🗑</button>` : "") +
+      `</label>`;
+  });
+  box.querySelectorAll(".rk-line").forEach((lb) => {
+    const cb = lb.querySelector("input[type=checkbox]");
+    if (!cb) return;
+    cb.onchange = () => { cb.checked ? recPickSet.add(cb.value) : recPickSet.delete(cb.value); };
+  });
+  box.querySelectorAll(".rk-del").forEach((b) => {
+    b.onclick = async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!b.dataset.arming) {
+        b.dataset.arming = "1"; b.textContent = "确认删";
+        setTimeout(() => { if (b.isConnected) { delete b.dataset.arming; b.textContent = "🗑"; } }, 3000);
+        return;
+      }
+      b.textContent = "…";
+      try {
+        const r = await fetch("/api/docs?name=" + encodeURIComponent(b.dataset.del), { method: "DELETE" });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+        recPickSet.delete(b.dataset.del);
+        recDocsLoaded = false;
+        recLoadDocs(true);
+        loadStatus();
+        try { dwLoadDocs(); } catch (err) {}
+      } catch (err) {
+        b.textContent = "✗";
+        b.title = err.message;
+      }
+    };
+  });
+}
+KIND_CB.rec = recRenderDocs;
+
+/* 识别入库里直接上传：走同一个 /api/upload，传完自动刷新清单并勾上 */
+async function recUpload(files) {
+  if (!files || !files.length) return;
+  const box = $("rec-docs");
+  const picked = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    box.innerHTML = `<div class="empty"><span class="spinner"></span> 上传 ${i + 1}/${files.length}：${esc(f.name)}…</div>`;
+    try {
+      const fd = new FormData();
+      fd.append("file", f, f.name);
+      const r = await fetch("/api/upload", { method: "POST", body: fd });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+      if (!j.ok) throw new Error(j.error || "解析失败");
+      picked.push(j.stored_name || j.filename);
+    } catch (e) {
+      alert("上传失败：" + f.name + "\n" + e.message);
+    }
+  }
+  recDocsLoaded = false;
+  // 传完切回「全部」，否则刚传的文件可能落在别的分类里看不见
+  if (picked.length) KIND_STATE.rec = "all";
+  await recLoadDocs(true);
+  picked.forEach((n) => recPickSet.add(n));
+  recRenderDocs();
+  loadStatus();
+  try { dwLoadDocs(); } catch (e) {}
 }
 
 async function recGo() {
   const docs = Array.from(document.querySelectorAll("#rec-docs input:checked")).map((el) => el.value);
   if (!docs.length) { $("rec-status").innerHTML = `<span class="bad">先勾选至少一份文档</span>`; return; }
-  const tasks = [];
-  if ($("rec-t-profile").checked) tasks.push("profile");
-  if ($("rec-t-entities").checked) tasks.push("entities");
-  if ($("rec-t-fields").checked) tasks.push("fields");
-  if (!tasks.length) { $("rec-status").innerHTML = `<span class="bad">至少勾一条识别线</span>`; return; }
-  const fields = $("rec-fields").value.trim()
-    ? $("rec-fields").value.trim().split(/[、,，;；]/).map((s) => s.trim()).filter(Boolean) : [];
-  if (tasks.includes("fields") && !fields.length) {
-    $("rec-status").innerHTML = `<span class="bad">勾了「指定字段」就要填字段名（顿号 / 逗号分隔）</span>`;
-    return;
-  }
+  const requirement = $("rec-req").value.trim();
   $("rec-status").innerHTML = `<span class="spinner"></span> 提交中…`;
   $("rec-result").innerHTML = "";
   try {
     const r = await fetch("/api/recognize", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ docs, tasks, fields })
+      body: JSON.stringify({ docs, tasks: ["knowledge"], requirement })
     });
     const j0 = await r.json();
     if (!r.ok) { $("rec-status").innerHTML = `<span class="bad">提交失败：${esc(j0.detail || ("HTTP " + r.status))}</span>`; return; }
@@ -2100,16 +4799,71 @@ function renderRecResult(j) {
   $("rec-status").innerHTML = res.ok
     ? `<span class="ok">✓ 识别完成</span> · 耗时 ${j.elapsed ?? "-"}s · 结果已自动入库`
     : `<span class="bad">✗ 未全部完成</span> · 耗时 ${j.elapsed ?? "-"}s`;
-  let h = res.report ? `<pre class="report">${esc(res.report)}</pre>` : "";
+  const rep = recReport(res);
+  let h = rep ? `<pre class="report">${esc(rep)}</pre>` : "";
   h += `<div style="margin-top:6px"><button class="ghost" id="rec-goto-dw">去 🗄 数据仓库看结果</button></div>`;
   h += fbStrip("extract", "这批文档识别得准不准？");
   $("rec-result").innerHTML = h;
   $("rec-goto-dw").onclick = () => { recOverlay.classList.remove("open"); $("dw-toggle").click(); };
 }
 
+// 识别类任务的报告挂在 result.meta.docs[].lines.<op>.report 下（顶层 report 是空的），
+// 这里统一拼起来 —— 否则任务跑完弹窗里是空白的。
+function recReport(res) {
+  if (res && res.report) return res.report;
+  const out = [];
+  for (const d of (((res || {}).meta || {}).docs || [])) {
+    for (const ln of Object.values(d.lines || {})) {
+      if (ln && ln.report) out.push(ln.report);
+      else if (ln && ln.error) out.push(`【失败】${d.doc || ""}：${ln.error}`);
+    }
+  }
+  return out.join("\n\n");
+}
+
 $("rec-toggle").onclick = () => { recOverlay.classList.add("open"); recLoadDocs(false); };
 $("rec-x").onclick = () => recOverlay.classList.remove("open");
 $("rec-overlay").onclick = (e) => { if (e.target === recOverlay) recOverlay.classList.remove("open"); };
+$("rec-upload").onclick = () => $("rec-file").click();
+$("rec-file").onchange = (e) => { recUpload(e.target.files); e.target.value = ""; };
+$("rec-all").onclick = () => {
+  // 只对「当前看得见的那一类」全选：筛到 Word 时按全部勾上，会把 Excel 也悄悄勾走
+  const xs = Array.from(document.querySelectorAll("#rec-docs input[type=checkbox]"));
+  const allOn = xs.length && xs.every((x) => x.checked);
+  xs.forEach((x) => {
+    x.checked = !allOn;
+    // 手动改 checked 不触发 change，得自己同步 Set（否则切分类就丢了）
+    x.checked ? recPickSet.add(x.value) : recPickSet.delete(x.value);
+  });
+};
+$("rec-del").onclick = async () => {
+  // 用 Set 取选中项：被别的分类藏着的那几份也算数（勾了就是要删）
+  const picked = Array.from(recPickSet);
+  if (!picked.length) { $("rec-status").innerHTML = `<span class="bad">先勾选要删的文档</span>`; return; }
+  const btn = $("rec-del");
+  if (!btn.dataset.arming) {
+    btn.dataset.arming = "1"; btn.textContent = "确认删除？";
+    setTimeout(() => { if (btn.isConnected) { delete btn.dataset.arming; btn.textContent = "🗑 删除选中"; } }, 3200);
+    return;
+  }
+  delete btn.dataset.arming; btn.textContent = "🗑 删除选中";
+  let okN = 0; const fails = [];
+  for (const n of picked) {
+    try {
+      const r = await fetch("/api/docs?name=" + encodeURIComponent(n), { method: "DELETE" });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+      okN++;
+    } catch (e) { fails.push(n + "：" + e.message); }
+  }
+  $("rec-status").innerHTML = fails.length
+    ? `<span class="bad">删了 ${okN} 份；${esc(fails[0])}</span>`
+    : `<span class="ok">✓ 已删除 ${okN} 份</span>`;
+  recDocsLoaded = false;
+  recLoadDocs(true);
+  loadStatus();
+  try { dwLoadDocs(); } catch (e) {}
+};
 $("rec-go").onclick = recGo;
 
 /* ---------------- 表格填写（模块3 · 异步全流程 · 本轮新增） ---------------- */
@@ -2129,25 +4883,34 @@ async function fillLoadTemplates(force) {
       fillUpdDelBtn();
       return;
     }
-    sel.innerHTML = tps.map((t) =>
+    // 模板也按类型分组：Word / Excel 分成两段（<optgroup>），混在一起看不出能填哪种表
+    const grp = { docx: [], xlsx: [] };
+    tps.forEach((t) => {
+      const k = (t.kind === "docx" || /\.(docx|doc)$/i.test(t.name)) ? "docx" : "xlsx";
+      grp[k].push(t);
+    });
+    const optHtml = (list) => list.map((t) =>
       `<option value="${esc(t.name)}" data-upload="${t.upload ? "1" : "0"}">` +
-      `${esc(t.name)}${t.kind === "docx" ? "（Word）" : "（Excel）"}` +
-      `${t.upload ? " · 我上传的" : ""}</option>`).join("");
+      `${esc(t.name)}${t.upload ? " · 我上传的" : ""}</option>`).join("");
+    let html = "";
+    if (grp.docx.length) html += `<optgroup label="Word 模板（${grp.docx.length} 张）">${optHtml(grp.docx)}</optgroup>`;
+    if (grp.xlsx.length) html += `<optgroup label="Excel 模板（${grp.xlsx.length} 张）">${optHtml(grp.xlsx)}</optgroup>`;
+    sel.innerHTML = html;
     if (keep && tps.some((t) => t.name === keep)) sel.value = keep;
     fillTplLoaded = true;
     fillUpdDelBtn();
   } catch (e) { sel.innerHTML = `<option value="">模板加载失败</option>`; }
 }
 
-/* 只有选中「自己上传的」模板时，删除按钮才可用（系统自带的别删） */
+/* 选中任意一张模板都能删；系统自带的会归档，不会真丢 */
 function fillUpdDelBtn() {
   const sel = $("fill-tpl"), b = $("fill-del-btn");
   const o = sel.options[sel.selectedIndex];
-  const up = !!(o && o.dataset && o.dataset.upload === "1");
-  b.disabled = !up;
-  b.title = up
-    ? "删除「" + sel.value + "」（只删模板文件，已填好的表格不受影响）"
-    : "系统自带的模板不能删；选中自己上传的那张之后才能删";
+  const has = !!(o && sel.value);
+  b.disabled = !has;
+  b.title = has
+    ? "删除「" + sel.value + "」（系统自带的会移到 模板归档，可恢复；已填好的表格不受影响）"
+    : "先选一张模板";
 }
 
 /* 上传模板：multipart 传上去 → 刷新下拉框 → 自动选中新那张 */
@@ -2179,7 +4942,7 @@ async function fillUpload(file) {
 /* 删除一张自己上传的模板：下拉框 + 「我上传的模板」清单一起刷新 */
 async function fillDeleteName(name, btn) {
   if (!name) return;
-  if (!confirm("确定删除自己上传的模板「" + name + "」？\n\n只删模板文件，之前填好的表格还在。")) return;
+  if (!confirm("确定删除模板「" + name + "」？\n\n系统自带的会移到 测试数据/模板归档/，能恢复；已经填好的表格不受影响。")) return;
   const tip = $("fill-up-tip");
   const msg = $("tplmg-msg");
   const oldTxt = btn ? btn.textContent : "";
@@ -2242,15 +5005,146 @@ function tplmgRender() {
   });
 }
 
+/* ---------------- 源文档（表格填写第 2 步 · 2026-11-07） ----------------
+   以前填表只选模板，系统只能"整个文档库翻一遍"。可模板的列名（金额 / 日期 /
+   负责人）在库里常常好几份文档都有 —— 抽到的值可能来自另一份合同，值没错，
+   但不是这张表要的。这里让用户点名：数据只从勾选的这几份里找。
+   一个都不勾 = 保持老行为（整库检索），不强制。 */
+let fillDocsLoaded = false;
+let fillDocTotal = 0;
+let fillDocsRows = [];         // 最近一次读到的源文档（含 ext/src）
+const fillPickSet = new Set(); // 勾了哪些：切分类要重画 DOM，勾选状态不能丢
+
+function fillPicked() {
+  // 用 Set 而不是查 DOM：切到「Word」分类时，先前勾上的 Excel 仍要算数
+  return Array.from(fillPickSet);
+}
+
+function fillUpdDocHint() {
+  const n = fillPicked().length;
+  $("fill-doc-hint").innerHTML = n
+    ? `已勾 <b>${n}</b> 份 —— 只在这 ${n} 份里找数`
+    : `没勾 = 整个文档库（${fillDocTotal} 份）都参与检索`;
+  document.querySelectorAll("#fill-docs .rk-line").forEach((l) => {
+    const cb = l.querySelector("input[type=checkbox]");
+    l.classList.toggle("on", !!(cb && cb.checked));
+  });
+}
+
+async function fillLoadDocs(force) {
+  if (fillDocsLoaded && !force) return;
+  const box = $("fill-docs");
+  box.innerHTML = `<div class="empty">正在读文档库…</div>`;
+  try {
+    const d = await (await fetch("/api/docs")).json();
+    const rows = (d.detail || (d.docs || []).map((n) => ({ name: n })))
+      .slice().sort((a, b) => (a.src === "import" ? 0 : 1) - (b.src === "import" ? 0 : 1));
+    fillDocTotal = rows.length;
+    if (!rows.length) {
+      fillDocsRows = [];
+      paintKinds("fill", []);
+      box.innerHTML = `<div class="empty">文档库还是空的 —— 点「⬆ 上传源文档」传一份进来</div>`;
+      fillUpdDocHint();
+      fillDocsLoaded = true;
+      return;
+    }
+    fillDocsRows = rows;
+    const alive = new Set(rows.map((r) => r.name));
+    Array.from(fillPickSet).forEach((n) => { if (!alive.has(n)) fillPickSet.delete(n); });
+    fillRenderDocs();
+    fillDocsLoaded = true;
+    fillUpdDocHint();
+  } catch (e) {
+    box.innerHTML = `<div class="empty">读文档库失败：${esc(String(e))}</div>`;
+  }
+}
+
+function fillRenderDocs() {
+  const box = $("fill-docs");
+  paintKinds("fill", fillDocsRows);
+  if (!fillDocsRows.length) return;
+  box.innerHTML = docGroupsHtml("fill", fillDocsRows, (r) => {
+    const imp = r.src === "import";
+    return `<label class="rk-line">` +
+      `<input type="checkbox" value="${esc(r.name)}"${fillPickSet.has(r.name) ? " checked" : ""}>` +
+      `<span class="rk-nm" title="${esc(r.name)}">${esc(r.name)}</span>` +
+      `<span class="rk-src">${imp ? "我上传的" : "标准库"}</span>` +
+      `</label>`;
+  });
+  box.querySelectorAll(".rk-line").forEach((lb) => {
+    const cb = lb.querySelector("input[type=checkbox]");
+    if (!cb) return;
+    cb.onchange = () => { cb.checked ? fillPickSet.add(cb.value) : fillPickSet.delete(cb.value); };
+  });
+}
+KIND_CB.fill = () => { fillRenderDocs(); fillUpdDocHint(); };
+
+/* 上传源文档：走同一个 /api/upload（传完立刻解析进文档库），再勾上新传的几份 */
+async function fillUploadDocs(files) {
+  if (!files || !files.length) return;
+  const box = $("fill-docs");
+  const picked = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    box.innerHTML = `<div class="empty"><span class="spinner"></span> 上传 ${i + 1}/${files.length}：${esc(f.name)}…</div>`;
+    try {
+      const fd = new FormData();
+      fd.append("file", f, f.name);
+      const r = await fetch("/api/upload", { method: "POST", body: fd });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
+      if (!j.ok) throw new Error(j.error || "解析失败");
+      picked.push(j.stored_name || j.filename);
+    } catch (e) {
+      alert("上传失败：" + f.name + "\n" + (e.message || e));
+    }
+  }
+  fillDocsLoaded = false;
+  if (picked.length) KIND_STATE.fill = "all";   // 刚传的可能不在当前分类里，切回全部
+  await fillLoadDocs(true);
+  picked.forEach((n) => fillPickSet.add(n));
+  fillRenderDocs();
+  fillUpdDocHint();
+  loadStatus();
+  try { dwLoadDocs(); } catch (e) {}
+}
+
+$("fill-doc-all").onclick = () => {
+  // 只对当前分类里看得见的这几份全选 / 取消（跨分类偷偷勾上很容易漏）
+  const cbs = Array.from(document.querySelectorAll("#fill-docs input[type=checkbox]"));
+  if (!cbs.length) return;
+  const allOn = cbs.every((c) => c.checked);
+  cbs.forEach((c) => {
+    c.checked = !allOn;
+    c.checked ? fillPickSet.add(c.value) : fillPickSet.delete(c.value);
+  });
+  fillUpdDocHint();
+};
+$("fill-docs").addEventListener("change", fillUpdDocHint);
+$("fill-doc-up").onclick = () => $("fill-doc-file").click();
+$("fill-doc-file").onchange = (e) => {
+  const fs = Array.from(e.target.files || []);
+  e.target.value = "";                    // 清空，同一个文件改完还能再传
+  fillUploadDocs(fs);
+};
+
 async function fillGo() {
   const tpl = $("fill-tpl").value;
   if (!tpl) { $("fill-status").innerHTML = `<span class="bad">先选一张模板</span>`; return; }
-  $("fill-status").innerHTML = `<span class="spinner"></span> 提交中…`;
+  const docs = fillPicked();
+  $("fill-status").innerHTML = docs.length
+    ? `<span class="spinner"></span> 提交中…（只在这 ${docs.length} 份源文档里找数）`
+    : `<span class="spinner"></span> 提交中…（没指定源文档，整个文档库都翻）`;
   $("fill-result").innerHTML = "";
   try {
     const r = await fetch("/api/fill", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ template: tpl, skip_read: $("fill-skip").checked, overwrite: $("fill-overwrite").checked })
+      body: JSON.stringify({
+        template: tpl, docs,
+        skip_read: $("fill-skip").checked,
+        overwrite: $("fill-overwrite").checked,
+        require: (($("fill-req") || {}).value || "").trim()
+      })
     });
     const j0 = await r.json();
     if (!r.ok) { $("fill-status").innerHTML = `<span class="bad">提交失败：${esc(j0.detail || ("HTTP " + r.status))}</span>`; return; }
@@ -2275,13 +5169,45 @@ function renderFillResult(j, tpl) {
   let h = res.report ? `<pre class="report">${esc(res.report)}</pre>` : "";
   if (res.ok) {
     h += `<div style="margin-top:8px"><a class="rk-dl" target="_blank" href="/api/fill/download?template=${encodeURIComponent(stem)}">⬇ 下载已填写表格（${esc(stem)}-已填写）</a></div>`;
-    h += `<div class="rk-status">产物同时在 writer/输出/ 目录；打开核对后即可交卷</div>`;
+    // 打开文件 / 打开所在目录：文件就在这台机器上，点一下直接用 Word 打开，
+    // 不用先下载再翻文件夹（验收、改格式、交卷都要来回看）
+    h += `<div class="fill-open-row">
+            <button class="fill-open-btn" data-open="file">📄 打开文件</button>
+            <button class="fill-open-btn" data-open="folder">📁 打开所在目录</button>
+          </div>
+          <div class="rk-status" id="fill-open-msg"></div>`;
   }
   h += fbStrip("fill", "表格填得对不对？");
   $("fill-result").innerHTML = h;
+  $("fill-result").querySelectorAll("[data-open]").forEach((b) => {
+    b.onclick = () => fillOpen(b.dataset.open, stem, b);
+  });
 }
 
-$("fill-toggle").onclick = () => { fillOverlay.classList.add("open"); fillLoadTemplates(false); };
+/* 让服务端在本机打开产物 / 定位产物（路径由服务端算，前端只传模板名） */
+async function fillOpen(mode, stem, btn) {
+  const msg = $("fill-open-msg");
+  if (msg) msg.innerHTML = `<span class="spinner"></span> 正在打开…`;
+  btn.disabled = true;
+  try {
+    const r = await fetch("/api/fill/open", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ template: stem, mode })
+    });
+    const j = await r.json();
+    if (!r.ok) {
+      if (msg) msg.innerHTML = `<span class="bad">打不开：${esc(j.detail || ("HTTP " + r.status))}</span>`;
+      return;
+    }
+    if (msg) msg.innerHTML = `<span class="ok">✓ 已${mode === "folder" ? "在资源管理器中定位" : "打开"}</span> · ${esc(j.path || "")}`;
+  } catch (e) {
+    if (msg) msg.innerHTML = `<span class="bad">请求失败：${esc(String(e))}</span>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+$("fill-toggle").onclick = () => { fillOverlay.classList.add("open"); fillLoadTemplates(false); fillLoadDocs(false); };
 $("fill-x").onclick = () => fillOverlay.classList.remove("open");
 $("fill-overlay").onclick = (e) => { if (e.target === fillOverlay) fillOverlay.classList.remove("open"); };
 $("fill-go").onclick = fillGo;
@@ -2316,7 +5242,15 @@ $("tplmg-overlay").onclick = (e) => { if (e.target === tplmgOverlay) tplmgOverla
   panel.addEventListener("drop", (e) => {
     e.preventDefault(); depth = 0; panel.classList.remove("fill-drop");
     const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
-    if (f) fillUpload(f);
+    if (!f) return;
+    const ext = (f.name.split(".").pop() || "").toLowerCase();
+    // Excel 一定是模板；docx / pdf / txt / 图片 可能是"要填的表"也可能是"数据来源"，
+    // 拖进来的文件看不出意图，索性问一句，别替用户猜错方向。
+    if (ext === "xlsx" || ext === "xlsm") { fillUpload(f); return; }
+    const asDoc = confirm("把「" + f.name + "」当成【源文档】上传吗？\n\n"
+      + "确定 = 源文档（填表时从它里面找数）\n"
+      + "取消 = 模板（要被填写的那张表）");
+    if (asDoc) fillUploadDocs([f]); else fillUpload(f);
   });
 })();
 
@@ -2326,30 +5260,28 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const truncate = (s, n) => (s.length > n ? s.slice(0, n) + "…" : s);
 
-/* ---------------- 欢迎卡片（例子可点击填入） ---------------- */
-const DEMOS = [
-  "把设备采购合同的标题右对齐，并且加粗",
-  "把它的金额加粗",
-  "提取设备采购合同的关键信息",
-  "把项目周报里所有的\u201c问题\u201d标红",
-  "把员工信息表的表头标黄",
-  "从员工信息表里提取所有员工姓名和工号",
-  "识别设备采购合同里的实体数据",
-  "把设备验收记录里的\u2018第一生产车间\u2019改成\u2018第二生产车间\u2019"
-];
+/* ---------------- 欢迎卡片：系统简介 + 操作指南（每条可点击直达对应功能） ---------------- */
 function renderWelcome() {
   msgsInner.innerHTML = `
     <div class="welcome">
-      <p><b>直接说人话，文档我来改。</b>不知道从哪开始？点下面的例子试试（会填到输入框，按回车发送）；<b>第 1、2 条建议连着发</b> —— 能看到"它"自动指代上一份文档。</p>
-      <div class="chips" id="chips"></div>
+      <p class="w-lead"><b>智能文档助手</b> —— 改文档、抽数据、填表格，一句话就行。</p>
+      <div class="guide">
+        <p data-go="input">💬 <b>直接说</b>：输入框一句话下指令，如"把标题居中"；也支持 🎤 语音、拖图插图</p>
+        <p data-go="op-toggle">🤖 <b>智能操作</b>：常用改文档指令一键执行，不用想措辞</p>
+        <p data-go="rec-toggle">🧠 <b>识别入库</b>：选文档自动读懂结构、抽取知识入库</p>
+        <p data-go="dw-toggle">🗄️ <b>数据仓库</b>：查入库结果、看知识图谱；"📚 文档库"可上传文档</p>
+        <p data-go="fill-toggle">📋 <b>表格填写</b>：选模板和源文档，自动找数填好、直接下载</p>
+        <p data-go="ocr-toggle">🔎 <b>文字识别</b>：扫描件 / 照片转文字，简体、繁体、英文、竖排都认</p>
+        <p data-go="room-open">🎧 <b>客服与聊天室</b>：右下角 AI / 人工客服（数字人小橘），左栏聊天室找同门</p>
+        <p data-go="fb-open">✍️ <b>意见反馈</b>：哪里不好用直接说，管理员都看得到</p>
+      </div>
     </div>`;
-  const chips = $("chips");
-  DEMOS.forEach((d) => {
-    const el = document.createElement("span");
-    el.className = "chip";
-    el.textContent = d;
-    el.onclick = () => { input.value = d; input.focus(); };
-    chips.appendChild(el);
+  msgsInner.querySelectorAll(".guide p[data-go]").forEach((p) => {
+    const id = p.dataset.go;
+    if (id === "input") { p.onclick = () => input.focus(); return; }
+    const btn = document.getElementById(id);
+    if (btn) p.onclick = () => btn.click();
+    else p.style.cursor = "default";
   });
 }
 renderWelcome();
@@ -2367,35 +5299,75 @@ function addTaskCard() {
   const wrap = document.createElement("div");
   wrap.className = "msg-sys";
   wrap.innerHTML = `<div class="card pending">
-      <div class="head"><span class="spinner"></span>处理中… <span class="elapsed">0.0s</span></div>
-      <div class="meta-line">正在解析指令 → 定位文档 → 执行操作</div>
+      <div class="head"><span class="spinner"></span>正在处理<span class="hms elapsed">0.0s</span></div>
     </div>`;
   msgsInner.appendChild(wrap);
   scrollBottom();
   return wrap.firstElementChild;
 }
+
+/* 机器操作名 → 大白话（不把 set_align 这种词给用户看） */
+const OP_TEXT = {
+  replace: "改文字", delete: "删文字", insert: "加文字",
+  set_bold: "加粗", set_italic: "斜体", set_underline: "下划线", set_strike: "删除线",
+  set_color: "改字色", set_highlight: "高亮", set_font: "换字体", set_size: "改字号",
+  set_align: "调对齐", set_spacing: "调行距", set_indent: "首行缩进",
+  insert_image: "插入图片", extract: "提取字段", profile: "提取画像",
+  entities: "提取实体", knowledge: "提取知识", multi: "多个操作", none: "",
+};
+
 function renderResult(card, j) {
   const res = j.result || {};
   const meta = res.meta || {};
   const isImg = !!(res.ok && meta.intent && meta.intent.op === "insert_image");
   // 图片插进去了 → 卡片自动收起，避免同一张图被重复插入
   if (isImg) clearImage();
+  const ok = !!res.ok;
   card.classList.remove("pending", "ok", "warn", "err");
-  card.classList.add(res.ok ? "ok" : (j.status === "failed" ? "err" : "warn"));
-  let html = `<div class="head">${res.ok ? "\u2713 执行成功" : "\u2715 未完成"} · 耗时 ${j.elapsed ?? "-"}s</div>`;
-  if (res.report) html += `<pre class="report">${esc(res.report)}</pre>`;
-  const bits = [];
-  if (meta.action) bits.push("类别：" + meta.action + (meta.op ? " / " + meta.op : ""));
-  if (meta.doc) bits.push("文档：" + meta.doc);
-  if (meta.out_path) bits.push("输出：" + meta.out_path);
-  if (res.error) bits.push("错误：" + res.error);
-  if (bits.length) html += `<div class="meta-line">${bits.map(esc).join("<br>")}</div>`;
+  card.classList.add(ok ? "ok" : (j.status === "failed" ? "err" : "warn"));
+
+  // ── 只给一句人话：哪份文档 · 做了什么 ──
+  const rpt = String(res.report || "").trim();
+  const firstLine = (rpt.split("\n")[0] || "").replace(/^[✓✗·\-\s]+/, "").trim();
+  let line = "";
+  if (ok) {
+    const op = OP_TEXT[meta.op] || "";
+    const who = meta.doc ? `<b>${esc(meta.doc)}</b>` : "";
+    // 报告首行里已经带了文档名，就别再前缀一份（否则会出现「X.docx · 已处理「X.docx」」）
+    const dup = meta.doc && firstLine.indexOf(meta.doc) >= 0;
+    line = firstLine && firstLine.length <= 70
+      ? (dup ? esc(firstLine) : (who ? `${who} · ${esc(firstLine)}` : esc(firstLine)))
+      : (who ? `${who}${op ? " · " + esc(op) : " · 处理完了"}` : esc(op || "处理完了"));
+  } else if (res.error) {
+    line = esc(res.error);
+  }
+
+  // 反问（"没说清要做什么"）必须直接显示 —— 这是系统在跟用户说话，
+  // 不能跟技术细节一起折进「详情」里（2026-11-07 用户反馈"问了没回答"）
+  const isAsk = rpt.indexOf("【反问】") >= 0;
+  if (isAsk) {
+    const m = rpt.match(/【反问】[^\n]*\n+\s*([^\n]+)/);
+    line = esc(m ? m[1].trim() : "能再说具体一点吗？比如要改哪份文档、改成什么。");
+  }
+  const isHelp = meta.action === "帮助";
+
+  let html = `<div class="head"><span>${isHelp ? "💡 使用说明" : (ok ? "✓ 已完成" : (j.status === "failed" ? "✕ 没做成" : "✕ 没做完"))}</span>` +
+    `<span class="hms">${isHelp ? "" : ((j.elapsed ?? "-") + "s")}</span></div>`;
+  if (line && !isHelp) html += `<div class="rline">${line}</div>`;
+  if (isHelp) html += `<pre class="report help">${esc(rpt)}</pre>`;
+
+  // ── 原始报告 / 文件路径收进「详情」，默认不展开 ──
+  const det = [];
+  if (rpt && !isHelp) det.push(`<pre class="report">${esc(rpt)}</pre>`);
+  if (meta.out_path) det.push(`<div class="rmeta">文件：${esc(meta.out_path)}</div>`);
+  if (det.length) html += `<details class="rdet"><summary>详情</summary>${det.join("")}</details>`;
+
   card.innerHTML = html;
   // 每调完一次就顺手问一句，只留最新一条，别把对话刷满
   msgsInner.querySelectorAll(".fb-strip").forEach((x) => x.remove());
   if (isImg) {
     fbTip("image", "图片插的位置对不对？");
-  } else if (res.ok) {
+  } else if (ok && !isHelp) {
     // 插在整条消息（.msg-sys）后面，别挤进卡片那一行里
     (card.closest(".msg-sys") || card)
       .insertAdjacentHTML("afterend", fbStrip("doc_edit", "这次改动满意吗？"));
@@ -2404,7 +5376,7 @@ function renderResult(card, j) {
 function failCard(card, msg) {
   card.classList.remove("pending");
   card.classList.add("err");
-  card.innerHTML = `<div class="head">\u2715 请求失败</div><div class="meta-line">${esc(msg)}</div>`;
+  card.innerHTML = `<div class="head"><span>✕ 没发出去</span></div><div class="rline">${esc(msg)}</div>`;
 }
 const scrollBottom = () => { const m = $("msgs"); m.scrollTop = m.scrollHeight; };
 
@@ -2524,7 +5496,8 @@ fileInput.onchange = async () => {
 async function uploadFiles(files) {
   const note = $("upload-note");
   note.style.display = "block";
-  note.innerHTML = `<div class="up-line"><span class="spinner"></span>正在导入 ${files.length} 份文档…（自动识别格式 + 解析）</div>`;
+  note.innerHTML = `<div class="up-line"><span class="spinner"></span>正在导入 ${files.length} 份文档…（自动识别格式 + 解析）` +
+    `<div style="font-size:12px;color:#64748b;margin-top:2px">扫描版 PDF / 图片会自动走 OCR，比普通文档慢，页多的别关窗口</div></div>`;
   let okN = 0, failN = 0;
   const lines = [];
   for (const f of files) {
@@ -2538,7 +5511,17 @@ async function uploadFiles(files) {
       okN++;
       const renamed = (j.stored_name && j.stored_name !== j.filename)
         ? `（重名，已存为 ${esc(j.stored_name)}）` : "";
-      lines.push(`✓ <b>${esc(j.filename)}</b> → 识别为 ${esc(j.filetype)} ｜ ${j.blocks} 块 ｜ ${j.elapsed}s ${renamed}`);
+      let extra = "";
+      if (j.filetype === "pdf" && j.page_count) {
+        extra = j.scanned
+          ? ` ｜ 共 ${j.page_count} 页，扫描页 ${j.ocr_page_count} 页已 OCR`
+          : ` ｜ 共 ${j.page_count} 页（自带文字层，未用 OCR）`;
+      } else if (j.filetype === "image") {
+        extra = (j.avg_conf != null)
+          ? ` ｜ OCR 平均置信度 ${(j.avg_conf * 100).toFixed(1)}%` : " ｜ 已 OCR";
+      }
+      if (j.reused_ocr) extra += " ｜ 复用刚才的识别结果";
+      lines.push(`✓ <b>${esc(j.filename)}</b> → 识别为 ${esc(j.filetype)} ｜ ${j.blocks} 块 ｜ ${j.elapsed}s${extra} ${renamed}`);
     } catch (e) {
       failN++;
       lines.push(`✗ <b>${esc(f.name)}</b>：${esc(e.message)}`);
@@ -3404,19 +6387,52 @@ $("cs-end").onclick = async () => {
 
 /* ---------------- 评价 / 意见反馈 ---------------- */
 const FB_NAME = {
-  doc_edit: "文档操作", extract: "识别入库", fill: "表格填写",
-  voice: "语音输入", image: "图片插入", chat: "客服咨询", other: "整体体验",
+  doc_edit: "文档操作",
+  warehouse: "数据仓库",
+  extract: "识别入库",
+  fill: "表格填写",
+  template: "模板上传",
+  ocr: "文字识别",
+  voice: "语音输入",
+  image: "图片插入",
+  chat: "客服咨询",
+  room: "聊天室",
+  account: "登录 / 账号",
+  ui: "界面 / 交互",
+  other: "其他建议",
+};
+/* 顺序 = 弹窗里功能小方块的顺序 */
+const FB_ORDER = ["doc_edit", "warehouse", "extract", "fill", "template", "ocr",
+  "voice", "image", "chat", "room", "account", "ui", "other"];
+const FB_ICON = {
+  doc_edit: "📄", warehouse: "🗄", extract: "🧠", fill: "📋", template: "🗂",
+  ocr: "🔎", voice: "🎤", image: "🖼", chat: "🎧", room: "💬",
+  account: "👤", ui: "🎨", other: "💡",
 };
 const FB_TAGS = {
   doc_edit: ["改得对", "速度快", "位置不准", "格式没保住", "提示看不懂"],
+  warehouse: ["找得到", "分类清楚", "数据不全", "查不动"],
   extract: ["抽得全", "数字对", "漏了字段", "出处不准"],
   fill: ["填得对", "省时间", "有空缺", "对不上原文"],
+  template: ["上传顺利", "识别准", "传不上去", "模板读错"],
+  ocr: ["认得准", "速度快", "错字多", "认不出"],
   voice: ["识别准", "听不清", "有延迟"],
   image: ["位置准", "插图很快", "位置错了"],
   chat: ["答得快", "解决了问题", "答非所问", "想转人工"],
+  room: ["聊得顺", "消息延迟", "发不出去"],
+  account: ["登录顺利", "头像好用", "登录不上", "资料改不了"],
+  ui: ["看着舒服", "字太多", "按钮找不到", "窗口挡路"],
   other: ["希望加功能", "界面不顺手", "遇到报错", "其他"],
 };
 const fbState = { feature: "other", rating: 0, tags: new Set(), sessionId: null, sending: false };
+
+function fbFeatHtml() {
+  return FB_ORDER.map((k) => {
+    const on = fbState.feature === k;
+    return `<button class="fb-feat${on ? " on" : ""}" type="button" data-f="${k}">` +
+      `${FB_ICON[k] || ""} ${esc(FB_NAME[k])}</button>`;
+  }).join("");
+}
 
 function fbTagHtml(feature) {
   return (FB_TAGS[feature] || FB_TAGS.other).map((t) =>
@@ -3430,7 +6446,7 @@ function fbPaintStars() {
   const hint = $("fb-starhint");
   hint.textContent = fbState.rating
     ? ["", "很不满意", "不太满意", "一般", "比较满意", "很满意"][fbState.rating]
-    : "点星星打分（也可只写意见）";
+    : "可选";
 }
 
 function fbOpen(feature, opts) {
@@ -3440,17 +6456,14 @@ function fbOpen(feature, opts) {
   fbState.tags = new Set();
   fbState.sessionId = o.sessionId || null;
   fbState.sending = false;
-  $("fb-feature").value = fbState.feature;
-  $("fb-title").textContent = o.title || ("评价 · " + FB_NAME[fbState.feature]);
-  $("fb-sub").textContent = o.sessionId
-    ? "这次接待还顺利吗？评一句，客服和管理员都能看到。"
-    : "打个分，顺手写两句 —— 评价会同步到客服端和管理员端，他们真的会看。";
+  $("fb-title").textContent = o.title || "意见反馈";
+  $("fb-feats").innerHTML = fbFeatHtml();
   $("fb-ta").value = "";
   $("fb-cnt").textContent = "0/1000";
   $("fb-tags").innerHTML = fbTagHtml(fbState.feature);
   fbPaintStars();
   $("fb-send").disabled = false;
-  $("fb-send").textContent = "提交评价";
+  $("fb-send").textContent = "提交";
   $("fb-mask").classList.add("on");
   setTimeout(() => $("fb-ta").focus(), 60);
 }
@@ -3470,11 +6483,13 @@ $("fb-tags").onclick = (e) => {
   if (fbState.tags.has(t)) fbState.tags.delete(t); else fbState.tags.add(t);
   b.classList.toggle("on", fbState.tags.has(t));
 };
-$("fb-feature").onchange = () => {
-  fbState.feature = $("fb-feature").value;
+$("fb-feats").onclick = (e) => {
+  const b = e.target.closest(".fb-feat");
+  if (!b) return;
+  fbState.feature = b.dataset.f;
   fbState.tags = new Set();
+  $("fb-feats").innerHTML = fbFeatHtml();
   $("fb-tags").innerHTML = fbTagHtml(fbState.feature);
-  $("fb-title").textContent = "评价 · " + FB_NAME[fbState.feature];
 };
 $("fb-ta").addEventListener("input", () => {
   $("fb-cnt").textContent = $("fb-ta").value.length + "/1000";
@@ -3503,10 +6518,10 @@ $("fb-send").onclick = async () => {
     if (r.status === 401) { toast("先登录再评价", true); location.href = "/login"; return; }
     if (!r.ok) throw new Error(j.detail || ("HTTP " + r.status));
     fbClose();
-    toast("谢谢，评价已收到 —— 客服和管理员那边都能看到");
+    toast("已提交，谢谢你的反馈");
   } catch (e) {
     toast("提交失败：" + e.message, true);
-    btn.disabled = false; btn.textContent = "提交评价";
+    btn.disabled = false; btn.textContent = "提交";
   } finally {
     fbState.sending = false;
   }
@@ -3839,6 +6854,170 @@ crBody.addEventListener("click", async (e) => {
     if (typeof j.rev === "number") cr.rev = j.rev;
   } catch (err) { toast(err.message); }
 });
+
+/* ---------------- 浮层：拖动 / 缩放 / 最大化（客服 + 聊天室共用） ---------------- */
+function makeFloaty(panel, opt) {
+  const o = opt || {};
+  const KEY = "a23_flt_" + (o.key || panel.id);
+  const MINW = o.minW || 360, MINH = o.minH || 340;
+  const hdList = Array.from(panel.querySelectorAll(o.handle));
+  const grip = panel.querySelector("[data-flt-grip]");
+  const maxBtn = o.maxBtn ? $(o.maxBtn) : null;
+  if (!hdList.length) return;
+  let st = null, maxed = false, savedSize = null, touched = false;
+
+  const vw = () => document.documentElement.clientWidth || window.innerWidth || 0;
+  const vh = () => document.documentElement.clientHeight || window.innerHeight || 0;
+  const clear = () => {
+    ["left", "top", "width", "height", "right", "bottom"].forEach((k) => { panel.style[k] = ""; });
+  };
+
+  function clampSt() {
+    if (!st) return;
+    const maxW = Math.max(MINW, vw() - 16), maxH = Math.max(MINH, vh() - 16);
+    st.w = Math.min(Math.max(st.w, MINW), maxW);
+    st.h = Math.min(Math.max(st.h, MINH), maxH);
+    st.x = Math.min(Math.max(8, st.x), Math.max(8, vw() - st.w - 8));
+    st.y = Math.min(Math.max(8, st.y), Math.max(8, vh() - st.h - 8));
+  }
+
+  function apply() {
+    if (vw() < 940) { clear(); return; }        // 窄屏交给 CSS（自动铺满）
+    if (!st) return;
+    clampSt();
+    panel.style.left = st.x + "px";
+    panel.style.top = st.y + "px";
+    panel.style.width = st.w + "px";
+    panel.style.height = st.h + "px";
+    panel.style.right = "auto";
+    panel.style.bottom = "auto";
+  }
+
+  function applyMax() {
+    if (vw() < 940) { clear(); return; }
+    panel.style.left = "12px";
+    panel.style.top = "12px";
+    panel.style.width = (vw() - 24) + "px";
+    panel.style.height = (vh() - 24) + "px";
+    panel.style.right = "auto";
+    panel.style.bottom = "auto";
+  }
+
+  function persist() {
+    if (!touched || !st) return;
+    try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+  }
+
+  function fromRect() {
+    const r = panel.getBoundingClientRect();
+    if (!r.width || !r.height) return false;
+    st = { x: Math.round(r.left), y: Math.round(r.top), w: Math.round(r.width), h: Math.round(r.height) };
+    return true;
+  }
+
+  function restore() {
+    if (vw() < 940) { clear(); return; }
+    if (!st) {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (raw) { const p = JSON.parse(raw); if (p && p.w && p.h) st = p; }
+      } catch (e) { st = null; }
+    }
+    if (st) apply(); else clear();
+  }
+
+  /* 拖标题栏移动（客服面板左侧数字人栏也能拖） */
+  let drag = null;
+  hdList.forEach((h) => {
+    h.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("button")) return;
+      if (maxed || vw() < 940) return;
+      if (!st && !fromRect()) return;
+      drag = { sx: e.clientX, sy: e.clientY, x: st.x, y: st.y, el: h };
+      try { h.setPointerCapture(e.pointerId); } catch (err) {}
+      h.classList.add("dragging");
+      e.preventDefault();
+    });
+    h.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      st.x = drag.x + (e.clientX - drag.sx);
+      st.y = drag.y + (e.clientY - drag.sy);
+      touched = true;
+      apply();
+    });
+    const stopDrag = () => {
+      if (!drag) return;
+      const el = drag.el;
+      drag = null;
+      el.classList.remove("dragging");
+      persist();
+    };
+    h.addEventListener("pointerup", stopDrag);
+    h.addEventListener("pointercancel", stopDrag);
+    h.addEventListener("dblclick", (e) => {
+      if (e.target.closest("button")) return;
+      toggleMax();
+    });
+  });
+
+  /* 右下角拖动缩放 */
+  let rz = null;
+  if (grip) {
+    grip.addEventListener("pointerdown", (e) => {
+      if (maxed || vw() < 940) return;
+      if (!st && !fromRect()) return;
+      rz = { sx: e.clientX, sy: e.clientY, w: st.w, h: st.h };
+      try { grip.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    grip.addEventListener("pointermove", (e) => {
+      if (!rz) return;
+      st.w = rz.w + (e.clientX - rz.sx);
+      st.h = rz.h + (e.clientY - rz.sy);
+      touched = true;
+      apply();
+    });
+    const stopRz = () => { if (!rz) return; rz = null; persist(); };
+    grip.addEventListener("pointerup", stopRz);
+    grip.addEventListener("pointercancel", stopRz);
+  }
+
+  /* 最大化 / 还原 */
+  function toggleMax() {
+    if (vw() < 940) return;
+    if (!maxed) {
+      if (!st) fromRect();
+      savedSize = st ? { ...st } : null;
+      maxed = true;
+      applyMax();
+      if (maxBtn) { maxBtn.textContent = "⤡"; maxBtn.title = "还原窗口"; }
+    } else {
+      maxed = false;
+      if (savedSize) st = savedSize;
+      apply();
+      if (maxBtn) { maxBtn.textContent = "⤢"; maxBtn.title = "最大化 / 还原（也可双击标题栏）"; }
+    }
+  }
+  if (maxBtn) maxBtn.onclick = (e) => { e.stopPropagation(); toggleMax(); };
+
+  /* 开合时套用记忆的尺寸；窗尺寸变化时兜住别跑出屏幕 */
+  new MutationObserver(() => {
+    if (panel.classList.contains("on")) restore();
+  }).observe(panel, { attributes: true, attributeFilter: ["class"] });
+
+  let rzT = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(rzT);
+    rzT = setTimeout(() => {
+      if (!panel.classList.contains("on")) return;
+      if (maxed) applyMax(); else if (st) apply();
+    }, 120);
+  });
+}
+
+makeFloaty(csPanel, { key: "cs", handle: ".cs-hd, .cs-stage-hd", minW: 430, minH: 360, maxBtn: "cs-max" });
+makeFloaty(crPanel, { key: "cr", handle: ".cr-hd", minW: 340, minH: 360, maxBtn: "cr-max" });
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && crPanel.classList.contains("on")) crClose();

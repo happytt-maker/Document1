@@ -1,0 +1,1025 @@
+{
+  "col": "GDP总量（亿元）",
+  "time": "2026-11-03 19:43",
+  "elapsed_sec": 28.99,
+  "usage": {
+    "completion_tokens": 3457,
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    },
+    "prompt_tokens": 10658,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 14115,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 113,
+  "items": [
+    {
+      "value": "56708.71",
+      "evidence": "上海以 56,708.71 亿元的 GDP 总量稳居全国第一",
+      "block": 4,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 4 段"
+    },
+    {
+      "value": "52073.40",
+      "evidence": "北京紧随其后，GDP 总量达到 52,073.40 亿元",
+      "block": 5,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 5 段"
+    },
+    {
+      "value": "38731.80",
+      "evidence": "深圳以 38,731.80 亿元的 GDP 总量位列第三",
+      "block": 8,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 8 段"
+    },
+    {
+      "value": "33757.93",
+      "evidence": "重庆凭借 3,191.43 万的庞大人口基数，拿下 33,757.93 亿元 GDP 总量",
+      "block": 9,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 9 段"
+    },
+    {
+      "value": "32039.46",
+      "evidence": "广州在转型压力下稳步前行，GDP 总量 32,039.46 亿元",
+      "block": 10,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 10 段"
+    },
+    {
+      "value": "27695.10",
+      "evidence": "苏州作为当之无愧的 “最强地级市”，GDP 总量达 27,695.10 亿元",
+      "block": 11,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 11 段"
+    },
+    {
+      "value": "24763.61",
+      "evidence": "成都 GDP 总量 24,763.61 亿元",
+      "block": 12,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 12 段"
+    },
+    {
+      "value": "23010.90",
+      "evidence": "杭州 GDP 总量 23,010.90 亿元",
+      "block": 13,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 13 段"
+    },
+    {
+      "value": "22147.35",
+      "evidence": "武汉 GDP 总量 22,147.35 亿元",
+      "block": 14,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 14 段"
+    },
+    {
+      "value": "19428.78",
+      "evidence": "南京 GDP 总量 19,428.78 亿元",
+      "block": 15,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 15 段"
+    },
+    {
+      "value": "18715.68",
+      "evidence": "宁波 GDP 总量 18,715.68 亿元",
+      "block": 16,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 16 段"
+    },
+    {
+      "value": "18539.82",
+      "evidence": "天津 GDP 总量 18,539.82 亿元",
+      "block": 17,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 17 段"
+    },
+    {
+      "value": "17603.50",
+      "evidence": "青岛 GDP 总量 17,603.50 亿元",
+      "block": 20,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 20 段"
+    },
+    {
+      "value": "16832.40",
+      "evidence": "无锡 GDP 总量 16,832.40 亿元",
+      "block": 21,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 21 段"
+    },
+    {
+      "value": "15512.30",
+      "evidence": "长沙 GDP 总量 15,512.30 亿元",
+      "block": 22,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 22 段"
+    },
+    {
+      "value": "15235.80",
+      "evidence": "郑州 GDP 总量 15,235.80 亿元",
+      "block": 23,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 23 段"
+    },
+    {
+      "value": "14823.60",
+      "evidence": "福州 GDP 总量 14,823.60 亿元",
+      "block": 24,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 24 段"
+    },
+    {
+      "value": "14532.70",
+      "evidence": "济南 GDP 总量 14,532.70 亿元",
+      "block": 25,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 25 段"
+    },
+    {
+      "value": "14415.90",
+      "evidence": "合肥 GDP 总量 14,415.90 亿元",
+      "block": 26,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 26 段"
+    },
+    {
+      "value": "14328.50",
+      "evidence": "西安 GDP 总量 14,328.50 亿元",
+      "block": 27,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 27 段"
+    },
+    {
+      "value": "13542.80",
+      "evidence": "泉州 GDP 总量 13,542.80 亿元",
+      "block": 28,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 28 段"
+    },
+    {
+      "value": "13215.60",
+      "evidence": "南通 GDP 总量 13,215.60 亿元",
+      "block": 29,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 29 段"
+    },
+    {
+      "value": "12835.40",
+      "evidence": "常州 GDP 总量 12,835.40 亿元",
+      "block": 30,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 30 段"
+    },
+    {
+      "value": "12725.30",
+      "evidence": "佛山 GDP 总量 12,725.30 亿元",
+      "block": 31,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 31 段"
+    },
+    {
+      "value": "12538.70",
+      "evidence": "东莞 GDP 总量 12,538.70 亿元",
+      "block": 32,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 32 段"
+    },
+    {
+      "value": "12045.60",
+      "evidence": "烟台 GDP 总量 12,045.60 亿元",
+      "block": 33,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 33 段"
+    },
+    {
+      "value": "11532.40",
+      "evidence": "唐山 GDP 总量 11,532.40 亿元",
+      "block": 34,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 34 段"
+    },
+    {
+      "value": "10523.80",
+      "evidence": "徐州 GDP 总量 10,523.80 亿元",
+      "block": 35,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 35 段"
+    },
+    {
+      "value": "10215.60",
+      "evidence": "大连 GDP 总量 10,215.60 亿元",
+      "block": 36,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 36 段"
+    },
+    {
+      "value": "10132.50",
+      "evidence": "温州 GDP 总量 10,132.50 亿元",
+      "block": 37,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 37 段"
+    },
+    {
+      "value": "9845.20",
+      "evidence": "沈阳 GDP 总量 9,845.20 亿元",
+      "block": 40,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 40 段"
+    },
+    {
+      "value": "9532.60",
+      "evidence": "厦门 GDP 总量 9,532.60 亿元",
+      "block": 41,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 41 段"
+    },
+    {
+      "value": "9215.40",
+      "evidence": "昆明 GDP 总量 9,215.40 亿元",
+      "block": 42,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 42 段"
+    },
+    {
+      "value": "9032.50",
+      "evidence": "扬州 GDP 总量 9,032.50 亿元",
+      "block": 43,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 43 段"
+    },
+    {
+      "value": "8925.30",
+      "evidence": "绍兴 GDP 总量 8,925.30 亿元",
+      "block": 44,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 44 段"
+    },
+    {
+      "value": "8815.60",
+      "evidence": "盐城 GDP 总量 8,815.60 亿元",
+      "block": 45,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 45 段"
+    },
+    {
+      "value": "8732.40",
+      "evidence": "嘉兴 GDP 总量 8,732.40 亿元",
+      "block": 46,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 46 段"
+    },
+    {
+      "value": "8545.20",
+      "evidence": "泰州 GDP 总量 8,545.20 亿元",
+      "block": 47,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 47 段"
+    },
+    {
+      "value": "8325.60",
+      "evidence": "洛阳 GDP 总量 8,325.60 亿元",
+      "block": 48,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 48 段"
+    },
+    {
+      "value": "8235.60",
+      "evidence": "榆林 GDP 总量 8,235.60 亿元",
+      "block": 49,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 49 段"
+    },
+    {
+      "value": "8052.30",
+      "evidence": "宜昌 GDP 总量 8,052.30 亿元",
+      "block": 50,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 50 段"
+    },
+    {
+      "value": "7935.40",
+      "evidence": "惠州 GDP 总量 7,935.40 亿元",
+      "block": 51,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 51 段"
+    },
+    {
+      "value": "7832.50",
+      "evidence": "珠海 GDP 总量 7,832.50 亿元",
+      "block": 52,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 52 段"
+    },
+    {
+      "value": "7725.40",
+      "evidence": "临沂 GDP 总量 7,725.40 亿元",
+      "block": 53,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 53 段"
+    },
+    {
+      "value": "7632.50",
+      "evidence": "保定 GDP 总量 7,632.50 亿元",
+      "block": 54,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 54 段"
+    },
+    {
+      "value": "7545.30",
+      "evidence": "潍坊 GDP 总量 7,545.30 亿元",
+      "block": 55,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 55 段"
+    },
+    {
+      "value": "7425.30",
+      "evidence": "鄂尔多斯 GDP 总量 7,425.30 亿元",
+      "block": 56,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 56 段"
+    },
+    {
+      "value": "7352.40",
+      "evidence": "济宁 GDP 总量 7,352.40 亿元",
+      "block": 57,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 57 段"
+    },
+    {
+      "value": "7235.60",
+      "evidence": "淄博 GDP 总量 7,235.60 亿元",
+      "block": 58,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 58 段"
+    },
+    {
+      "value": "7125.30",
+      "evidence": "呼和浩特 GDP 总量 7,125.30 亿元",
+      "block": 59,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 59 段"
+    },
+    {
+      "value": "7032.50",
+      "evidence": "太原 GDP 总量 7,032.50 亿元",
+      "block": 60,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 60 段"
+    },
+    {
+      "value": "6935.20",
+      "evidence": "南阳 GDP 总量 6,935.20 亿元",
+      "block": 61,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 61 段"
+    },
+    {
+      "value": "6825.40",
+      "evidence": "赣州 GDP 总量 6,825.40 亿元",
+      "block": 62,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 62 段"
+    },
+    {
+      "value": "6732.60",
+      "evidence": "绵阳 GDP 总量 6,732.60 亿元",
+      "block": 63,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 63 段"
+    },
+    {
+      "value": "6645.30",
+      "evidence": "滁州 GDP 总量 6,645.30 亿元",
+      "block": 64,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 64 段"
+    },
+    {
+      "value": "6532.40",
+      "evidence": "邯郸 GDP 总量 6,532.40 亿元",
+      "block": 65,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 65 段"
+    },
+    {
+      "value": "6425.50",
+      "evidence": "遵义 GDP 总量 6,425.50 亿元",
+      "block": 66,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 66 段"
+    },
+    {
+      "value": "6332.60",
+      "evidence": "江门 GDP 总量 6,332.60 亿元",
+      "block": 67,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 67 段"
+    },
+    {
+      "value": "6113.85",
+      "evidence": "襄阳 GDP 总量 6,113.85 亿元",
+      "block": 68,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 68 段"
+    },
+    {
+      "value": "6025.40",
+      "evidence": "常德 GDP 总量 6,025.40 亿元",
+      "block": 69,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 69 段"
+    },
+    {
+      "value": "5932.50",
+      "evidence": "宜宾 GDP 总量 5,932.50 亿元",
+      "block": 70,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 70 段"
+    },
+    {
+      "value": "5925.60",
+      "evidence": "廊坊 GDP 总量 5,925.60 亿元",
+      "block": 71,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 71 段"
+    },
+    {
+      "value": "5832.40",
+      "evidence": "株洲 GDP 总量 5,832.40 亿元",
+      "block": 72,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 72 段"
+    },
+    {
+      "value": "5725.30",
+      "evidence": "新乡 GDP 总量 5,725.30 亿元",
+      "block": 73,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 73 段"
+    },
+    {
+      "value": "5632.50",
+      "evidence": "周口 GDP 总量 5,632.50 亿元",
+      "block": 74,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 74 段"
+    },
+    {
+      "value": "5532.40",
+      "evidence": "芜湖 GDP 总量 5,532.40 亿元",
+      "block": 75,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 75 段"
+    },
+    {
+      "value": "5425.30",
+      "evidence": "岳阳 GDP 总量 5,425.30 亿元",
+      "block": 76,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 76 段"
+    },
+    {
+      "value": "5332.40",
+      "evidence": "聊城 GDP 总量 5,332.40 亿元",
+      "block": 77,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 77 段"
+    },
+    {
+      "value": "5225.30",
+      "evidence": "德阳 GDP 总量 5,225.30 亿元",
+      "block": 78,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 78 段"
+    },
+    {
+      "value": "5132.50",
+      "evidence": "茂名 GDP 总量 5,132.50 亿元",
+      "block": 79,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 79 段"
+    },
+    {
+      "value": "5032.40",
+      "evidence": "连云港 GDP 总量 5,032.40 亿元",
+      "block": 80,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 80 段"
+    },
+    {
+      "value": "4925.30",
+      "evidence": "汕头 GDP 总量 4,925.30 亿元",
+      "block": 81,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 81 段"
+    },
+    {
+      "value": "4832.50",
+      "evidence": "邢台 GDP 总量 4,832.50 亿元",
+      "block": 82,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 82 段"
+    },
+    {
+      "value": "4725.40",
+      "evidence": "衡阳 GDP 总量 4,725.40 亿元",
+      "block": 83,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 83 段"
+    },
+    {
+      "value": "4632.50",
+      "evidence": "曲靖 GDP 总量 4,632.50 亿元",
+      "block": 84,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 84 段"
+    },
+    {
+      "value": "4532.40",
+      "evidence": "荆州 GDP 总量 4,532.40 亿元",
+      "block": 85,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 85 段"
+    },
+    {
+      "value": "4425.30",
+      "evidence": "肇庆 GDP 总量 4,425.30 亿元",
+      "block": 86,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 86 段"
+    },
+    {
+      "value": "4332.50",
+      "evidence": "信阳 GDP 总量 4,332.50 亿元",
+      "block": 87,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 87 段"
+    },
+    {
+      "value": "4225.40",
+      "evidence": "商丘 GDP 总量 4,225.40 亿元",
+      "block": 88,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 88 段"
+    },
+    {
+      "value": "4132.50",
+      "evidence": "驻马店 GDP 总量 4,132.50 亿元",
+      "block": 89,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 89 段"
+    },
+    {
+      "value": "4025.30",
+      "evidence": "桂林 GDP 总量 4,025.30 亿元",
+      "block": 90,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 90 段"
+    },
+    {
+      "value": "3932.40",
+      "evidence": "安顺 GDP 总量 3,932.40 亿元",
+      "block": 91,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 91 段"
+    },
+    {
+      "value": "3852.50",
+      "evidence": "上饶 GDP 总量 3,852.50 亿元",
+      "block": 92,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 92 段"
+    },
+    {
+      "value": "3756.20",
+      "evidence": "安庆 GDP 总量 3,756.20 亿元（修正值）",
+      "block": 93,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 93 段"
+    },
+    {
+      "value": "3752.30",
+      "evidence": "莆田 GDP 总量 3,752.30 亿元",
+      "block": 94,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 94 段"
+    },
+    {
+      "value": "3725.40",
+      "evidence": "菏泽 GDP 总量 3,725.40 亿元",
+      "block": 95,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 95 段"
+    },
+    {
+      "value": "3702.50",
+      "evidence": "郴州 GDP 总量 3,702.50 亿元",
+      "block": 96,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 96 段"
+    },
+    {
+      "value": "3685.40",
+      "evidence": "宁德 GDP 总量 3,685.40 亿元",
+      "block": 97,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 97 段"
+    },
+    {
+      "value": "3652.30",
+      "evidence": "九江 GDP 总量 3,652.30 亿元",
+      "block": 98,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 98 段"
+    },
+    {
+      "value": "3625.40",
+      "evidence": "咸阳 GDP 总量 3,625.40 亿元",
+      "block": 99,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 99 段"
+    },
+    {
+      "value": "3585.30",
+      "evidence": "宜春 GDP 总量 3,585.30 亿元",
+      "block": 100,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 100 段"
+    },
+    {
+      "value": "3562.40",
+      "evidence": "德州 GDP 总量 3,562.40 亿元",
+      "block": 101,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 101 段"
+    },
+    {
+      "value": "3542.50",
+      "evidence": "南平 GDP 总量 3,542.50 亿元",
+      "block": 102,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 102 段"
+    },
+    {
+      "value": "3525.30",
+      "evidence": "清远 GDP 总量 3,525.30 亿元",
+      "block": 103,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 103 段"
+    },
+    {
+      "value": "3502.40",
+      "evidence": "益阳 GDP 总量 3,502.40 亿元",
+      "block": 104,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 104 段"
+    },
+    {
+      "value": "3485.30",
+      "evidence": "黄冈 GDP 总量 3,485.30 亿元",
+      "block": 105,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 105 段"
+    },
+    {
+      "value": "3462.40",
+      "evidence": "荆门 GDP 总量 3,462.40 亿元",
+      "block": 106,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 106 段"
+    },
+    {
+      "value": "3445.30",
+      "evidence": "六安 GDP 总量 3,445.30 亿元",
+      "block": 107,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 107 段"
+    },
+    {
+      "value": "3432.50",
+      "evidence": "邵阳 GDP 总量 3,432.50 亿元",
+      "block": 108,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 108 段"
+    },
+    {
+      "value": "3425.60",
+      "evidence": "怀化 GDP 总量 3,425.60 亿元",
+      "block": 109,
+      "file": "2025年中国城市经济百强全景报告.docx",
+      "head": null,
+      "colheads": null,
+      "line": null,
+      "loc_text": "第 109 段"
+    }
+  ],
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（113 段，无一处带列头），整篇 11099 字进候选"
+  }
+}

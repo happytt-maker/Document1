@@ -8,6 +8,30 @@ readers/base.py
 每个块都带位置信息，方便以后回溯到原文。
 """
 
+import sys
+from pathlib import Path
+
+
+def load_ocr_module():
+    """拿到 agent/ocr.py 这个模块。
+
+    为什么不能在文件顶部直接 import：
+      读取器会被三种方式加载——doc_reader/main.py（cwd=doc_reader）、
+      agent/pool.py（把 doc_reader 插进 sys.path）、以及直接命令行跑。
+      这几种情况下 sys.path 里不一定有项目根，也不一定有 agent 目录。
+      所以这里在调用时补 path，并且两条路都试一遍。
+    """
+    root = Path(__file__).resolve().parents[2]        # = 研一项目/
+    for p in (str(root), str(root / "agent")):
+        if p not in sys.path:
+            sys.path.insert(0, p)
+    try:
+        import ocr                                     # noqa: F401
+        return ocr
+    except ImportError:
+        from agent import ocr                           # noqa: F401
+        return ocr
+
 
 def make_block(file_name, file_type, text, locator, **extra):
     """

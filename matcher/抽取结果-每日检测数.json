@@ -1,0 +1,27 @@
+{
+  "col": "每日检测数",
+  "time": "2026-11-03 22:26",
+  "elapsed_sec": 2.17,
+  "usage": {
+    "completion_tokens": 33,
+    "completion_tokens_details": {
+      "reasoning_tokens": 26
+    },
+    "prompt_tokens": 1167,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1200,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 12,
+  "items": [],
+  "history": {
+    "head": "数量",
+    "file": "销售台账.xlsx",
+    "n": 12,
+    "whole": true,
+    "cross_file": false
+  }
+}

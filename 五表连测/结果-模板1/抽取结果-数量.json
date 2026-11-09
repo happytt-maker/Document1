@@ -1,54 +1,93 @@
 {
   "col": "数量",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 2.93,
+  "time": "2026-11-02 21:04",
+  "elapsed_sec": 2.11,
   "usage": {
-    "prompt_tokens": 568,
-    "completion_tokens": 523,
-    "total_tokens": 1091,
-    "prompt_tokens_details": {
-      "cached_tokens": 384
-    },
+    "completion_tokens": 82,
     "completion_tokens_details": {
-      "reasoning_tokens": 409
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 384,
-    "prompt_cache_miss_tokens": 184
+    "prompt_tokens": 895,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 977,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 5,
   "items": [
     {
       "value": "2",
-      "evidence": "（该格所在列的列头：数量（台））\n2",
+      "evidence": "2",
       "block": 2,
       "file": "设备采购合同.docx",
+      "head": "数量（台）",
+      "colheads": [
+        "数量（台）",
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
       "line": null,
       "loc_text": "表格1 · 行2·列4"
     },
     {
       "value": "1",
-      "evidence": "（该格所在列的列头：数量（台））\n1",
+      "evidence": "1",
       "block": 3,
       "file": "设备采购合同.docx",
+      "head": "数量（台）",
+      "colheads": [
+        "数量（台）",
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
       "line": null,
       "loc_text": "表格1 · 行3·列4"
     },
     {
       "value": "4",
-      "evidence": "（该格所在列的列头：数量（台））\n4",
+      "evidence": "4",
       "block": 4,
       "file": "设备采购合同.docx",
+      "head": "数量（台）",
+      "colheads": [
+        "数量（台）",
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
       "line": null,
       "loc_text": "表格1 · 行4·列4"
     },
     {
       "value": "3",
-      "evidence": "（该格所在列的列头：数量（台））\n3",
+      "evidence": "3",
       "block": 5,
       "file": "设备采购合同.docx",
+      "head": "数量（台）",
+      "colheads": [
+        "数量（台）",
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
       "line": null,
       "loc_text": "表格1 · 行5·列4"
     }
   ],
-  "only_file": "设备采购合同.docx"
+  "only_file": "设备采购合同.docx",
+  "history": {
+    "head": "数量（台）",
+    "file": "设备采购合同.docx",
+    "n": 5,
+    "whole": true,
+    "cross_file": false
+  }
 }

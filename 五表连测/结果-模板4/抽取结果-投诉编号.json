@@ -1,45 +1,56 @@
 {
   "col": "投诉编号",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 1.55,
+  "time": "2026-11-03 22:22",
+  "elapsed_sec": 2.07,
   "usage": {
-    "prompt_tokens": 820,
-    "completion_tokens": 217,
-    "total_tokens": 1037,
-    "prompt_tokens_details": {
-      "cached_tokens": 640
-    },
+    "completion_tokens": 110,
     "completion_tokens_details": {
-      "reasoning_tokens": 112
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 640,
-    "prompt_cache_miss_tokens": 180
+    "prompt_tokens": 1320,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1430,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 3,
+  "candidate_count": 5,
   "items": [
     {
       "value": "TS-2026-0012",
       "evidence": "投诉编号：TS-2026-0012",
-      "block": 1,
+      "block": 2,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 6,
       "loc_text": "第 6 行"
     },
     {
       "value": "TS-2026-0027",
       "evidence": "投诉编号：TS-2026-0027",
-      "block": 2,
+      "block": 3,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 16,
       "loc_text": "第 16 行"
     },
     {
       "value": "TS-2026-0041",
       "evidence": "投诉编号：TS-2026-0041",
-      "block": 3,
+      "block": 4,
       "file": "客户投诉处理记录.txt",
+      "head": null,
+      "colheads": null,
       "line": 26,
       "loc_text": "第 26 行"
     }
-  ]
+  ],
+  "only_file": "客户投诉处理记录.txt",
+  "narrative": {
+    "used": true,
+    "note": "叙述体文档（5 段，无一处带列头），整篇 748 字进候选"
+  }
 }

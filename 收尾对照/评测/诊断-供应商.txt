@@ -1,0 +1,150 @@
+合同块数：42
+
+=== 合同全部块 ===
+[1] kind=paragraph loc=第 1 段
+    text='设备采购合同'
+    colheads=[]
+[2] kind=paragraph loc=第 2 段
+    text='合同编号：HT-2026-0417'
+    colheads=[]
+[3] kind=paragraph loc=第 3 段
+    text='甲方（采购方）：华景智造科技有限公司'
+    colheads=[]
+[4] kind=paragraph loc=第 4 段
+    text='乙方（供货方）：泰隆机电设备有限公司'
+    colheads=[]
+[5] kind=paragraph loc=第 5 段
+    text='签订日期：2026年3月12日'
+    colheads=[]
+[6] kind=paragraph loc=第 6 段
+    text='签订地点：江苏省南京市江宁区'
+    colheads=[]
+[7] kind=paragraph loc=第 7 段
+    text='第一条 标的物'
+    colheads=[]
+[8] kind=paragraph loc=第 8 段
+    text='甲方向乙方采购下列设备，用于第一生产车间产线改造。乙方应保证所供设备为全新正品，并提供出厂合格证、保修卡及中文说明书各一份。'
+    colheads=[]
+[9] kind=paragraph loc=第 9 段
+    text='第二条 合同金额与付款方式'
+    colheads=[]
+[10] kind=paragraph loc=第 10 段
+    text='本合同总金额为人民币壹佰捌拾万元整（￥1,800,000.00）。'
+    colheads=[]
+[11] kind=paragraph loc=第 11 段
+    text='付款方式：合同签订后 7 个工作日内甲方支付合同总额的 30% 作为预付款；设备到货验收合格后 15 个工作日内支付 60%；余款 10% 作为质保金，质保期满且无质量问题后一次性付清。'
+    colheads=[]
+[12] kind=paragraph loc=第 12 段
+    text='第三条 交付与验收'
+    colheads=[]
+[13] kind=paragraph loc=第 13 段
+    text='乙方应于 2026 年 6 月 30 日前将全部设备运抵甲方指定地点，运输费用及途中保险由乙方承担。设备到货后甲方应在 10 个工作日内完成验收。验收标准按本合同附件《技术协议》执行。'
+    colheads=[]
+[14] kind=paragraph loc=第 14 段
+    text='第四条 质保与售后'
+    colheads=[]
+[15] kind=paragraph loc=第 15 段
+    text='设备质保期为验收合格之日起 24 个月。质保期内因设备自身质量问题导致的故障，乙方应在接到通知后 48 小时内派员到场处理，费用由乙方承担。'
+    colheads=[]
+[16] kind=paragraph loc=第 17 段
+    text='甲方（盖章）：______________________'
+    colheads=[]
+[17] kind=paragraph loc=第 18 段
+    text='乙方（盖章）：______________________'
+    colheads=[]
+[18] kind=table_cell loc=表格1 · 行1·列1
+    text='序号'
+    colheads=['序号', '1', '2', '3', '4']
+[19] kind=table_cell loc=表格1 · 行1·列2
+    text='设备名称'
+    colheads=['设备名称', '数控加工中心', '激光切割机', '工业机器人', '检测工作台']
+[20] kind=table_cell loc=表格1 · 行1·列3
+    text='规格型号'
+    colheads=['规格型号', 'VMC-850B', 'LC-3015F', 'IRB-2600', 'QC-2000']
+[21] kind=table_cell loc=表格1 · 行1·列4
+    text='数量（台）'
+    colheads=['数量（台）', '2', '1', '4', '3']
+[22] kind=table_cell loc=表格1 · 行1·列5
+    text='单价（元）'
+    colheads=['单价（元）', '385000', '268000', '156000', '42000']
+[23] kind=table_cell loc=表格1 · 行2·列1
+    text='1'
+    colheads=['序号', '1', '2', '3', '4']
+[24] kind=table_cell loc=表格1 · 行2·列2
+    text='数控加工中心'
+    colheads=['设备名称', '数控加工中心', '激光切割机', '工业机器人', '检测工作台']
+[25] kind=table_cell loc=表格1 · 行2·列3
+    text='VMC-850B'
+    colheads=['规格型号', 'VMC-850B', 'LC-3015F', 'IRB-2600', 'QC-2000']
+[26] kind=table_cell loc=表格1 · 行2·列4
+    text='2'
+    colheads=['数量（台）', '2', '1', '4', '3']
+[27] kind=table_cell loc=表格1 · 行2·列5
+    text='385000'
+    colheads=['单价（元）', '385000', '268000', '156000', '42000']
+[28] kind=table_cell loc=表格1 · 行3·列1
+    text='2'
+    colheads=['序号', '1', '2', '3', '4']
+[29] kind=table_cell loc=表格1 · 行3·列2
+    text='激光切割机'
+    colheads=['设备名称', '数控加工中心', '激光切割机', '工业机器人', '检测工作台']
+[30] kind=table_cell loc=表格1 · 行3·列3
+    text='LC-3015F'
+    colheads=['规格型号', 'VMC-850B', 'LC-3015F', 'IRB-2600', 'QC-2000']
+[31] kind=table_cell loc=表格1 · 行3·列4
+    text='1'
+    colheads=['数量（台）', '2', '1', '4', '3']
+[32] kind=table_cell loc=表格1 · 行3·列5
+    text='268000'
+    colheads=['单价（元）', '385000', '268000', '156000', '42000']
+[33] kind=table_cell loc=表格1 · 行4·列1
+    text='3'
+    colheads=['序号', '1', '2', '3', '4']
+[34] kind=table_cell loc=表格1 · 行4·列2
+    text='工业机器人'
+    colheads=['设备名称', '数控加工中心', '激光切割机', '工业机器人', '检测工作台']
+[35] kind=table_cell loc=表格1 · 行4·列3
+    text='IRB-2600'
+    colheads=['规格型号', 'VMC-850B', 'LC-3015F', 'IRB-2600', 'QC-2000']
+[36] kind=table_cell loc=表格1 · 行4·列4
+    text='4'
+    colheads=['数量（台）', '2', '1', '4', '3']
+[37] kind=table_cell loc=表格1 · 行4·列5
+    text='156000'
+    colheads=['单价（元）', '385000', '268000', '156000', '42000']
+[38] kind=table_cell loc=表格1 · 行5·列1
+    text='4'
+    colheads=['序号', '1', '2', '3', '4']
+[39] kind=table_cell loc=表格1 · 行5·列2
+    text='检测工作台'
+    colheads=['设备名称', '数控加工中心', '激光切割机', '工业机器人', '检测工作台']
+[40] kind=table_cell loc=表格1 · 行5·列3
+    text='QC-2000'
+    colheads=['规格型号', 'VMC-850B', 'LC-3015F', 'IRB-2600', 'QC-2000']
+[41] kind=table_cell loc=表格1 · 行5·列4
+    text='3'
+    colheads=['数量（台）', '2', '1', '4', '3']
+[42] kind=table_cell loc=表格1 · 行5·列5
+    text='42000'
+    colheads=['单价（元）', '385000', '268000', '156000', '42000']
+
+=== 对「供应商」打分（含语义召回）===
+  50 分  via_sem=True ｜ 表格1 · 行1·列2 ｜ 设备名称
+  50 分  via_sem=True ｜ 表格1 · 行2·列2 ｜ 数控加工中心
+  50 分  via_sem=True ｜ 表格1 · 行3·列2 ｜ 激光切割机
+  50 分  via_sem=True ｜ 表格1 · 行4·列2 ｜ 工业机器人
+  50 分  via_sem=True ｜ 表格1 · 行5·列2 ｜ 检测工作台
+  40 分  via_sem=True ｜ 表格1 · 行1·列3 ｜ 规格型号
+  40 分  via_sem=True ｜ 表格1 · 行2·列3 ｜ VMC-850B
+  40 分  via_sem=True ｜ 表格1 · 行3·列3 ｜ LC-3015F
+  40 分  via_sem=True ｜ 表格1 · 行4·列3 ｜ IRB-2600
+  40 分  via_sem=True ｜ 表格1 · 行5·列3 ｜ QC-2000
+  25 分  via_sem=True ｜ 表格1 · 行1·列5 ｜ 单价（元）
+  25 分  via_sem=True ｜ 表格1 · 行2·列5 ｜ 385000
+
+=== 含「乙方」「供货」的块 ===
+第 4 段 ｜ '乙方（供货方）：泰隆机电设备有限公司'
+第 8 段 ｜ '甲方向乙方采购下列设备，用于第一生产车间产线改造。乙方应保证所供设备为全新正品，并提供出厂合格证、保修卡及中文说明书各一份。'
+第 13 段 ｜ '乙方应于 2026 年 6 月 30 日前将全部设备运抵甲方指定地点，运输费用及途中保险由乙方承担。设备到货后甲方应在 10 个工作日内完成验收。验收标准按本合同附件《技术协议》执行。'
+第 15 段 ｜ '设备质保期为验收合格之日起 24 个月。质保期内因设备自身质量问题导致的故障，乙方应在接到通知后 48 小时内派员到场处理，费用由乙方承担。'
+第 18 段 ｜ '乙方（盖章）：______________________'

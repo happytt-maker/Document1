@@ -1,85 +1,160 @@
 {
   "col": "部门",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 2.41,
+  "time": "2026-11-02 21:05",
+  "elapsed_sec": 3.88,
   "usage": {
-    "prompt_tokens": 968,
-    "completion_tokens": 471,
-    "total_tokens": 1439,
-    "prompt_tokens_details": {
-      "cached_tokens": 768
-    },
+    "completion_tokens": 301,
     "completion_tokens_details": {
-      "reasoning_tokens": 301
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 768,
-    "prompt_cache_miss_tokens": 200
+    "prompt_tokens": 1069,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1370,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
-  "candidate_count": 15,
+  "candidate_count": 9,
   "items": [
     {
       "value": "制造中心",
-      "evidence": "制造中心",
+      "evidence": "（该格所在列的列头：部门）\n制造中心",
       "block": 2,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D3"
     },
     {
       "value": "财务部",
-      "evidence": "财务部",
+      "evidence": "（该格所在列的列头：部门）\n财务部",
       "block": 3,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D4"
     },
     {
       "value": "研发中心",
-      "evidence": "研发中心",
+      "evidence": "（该格所在列的列头：部门）\n研发中心",
       "block": 4,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D5"
     },
     {
       "value": "采购部",
-      "evidence": "采购部",
+      "evidence": "（该格所在列的列头：部门）\n采购部",
       "block": 5,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D6"
     },
     {
       "value": "信息化管理部",
-      "evidence": "信息化管理部",
+      "evidence": "（该格所在列的列头：部门）\n信息化管理部",
       "block": 6,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D7"
     },
     {
       "value": "制造中心",
-      "evidence": "制造中心",
+      "evidence": "（该格所在列的列头：部门）\n制造中心",
       "block": 7,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D8"
     },
     {
       "value": "综合管理部",
-      "evidence": "综合管理部",
+      "evidence": "（该格所在列的列头：部门）\n综合管理部",
       "block": 8,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D9"
     },
     {
       "value": "研发中心",
-      "evidence": "研发中心",
+      "evidence": "（该格所在列的列头：部门）\n研发中心",
       "block": 9,
       "file": "员工信息表.xlsx",
+      "head": "部门",
+      "colheads": [
+        "部门",
+        "制造中心",
+        "财务部",
+        "研发中心",
+        "采购部"
+      ],
       "line": null,
       "loc_text": "工作表「员工信息」 D10"
     }
-  ]
+  ],
+  "only_file": "员工信息表.xlsx",
+  "head_skipped": [
+    "部门"
+  ],
+  "history": {
+    "head": "部门",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
 }

@@ -1,0 +1,101 @@
+{
+  "col": "数量",
+  "time": "2026-11-03 20:31",
+  "elapsed_sec": 2.21,
+  "usage": {
+    "completion_tokens": 101,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1196,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1297,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 15,
+  "items": [
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 2,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行2·列3"
+    },
+    {
+      "value": "2",
+      "evidence": "2",
+      "block": 3,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行3·列3"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 4,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行4·列3"
+    },
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 5,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行5·列3"
+    },
+    {
+      "value": "5",
+      "evidence": "5",
+      "block": 6,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行6·列3"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "col": "性别",
+  "time": "2026-11-03 20:50",
+  "elapsed_sec": 6.26,
+  "usage": {
+    "completion_tokens": 177,
+    "completion_tokens_details": {
+      "reasoning_tokens": 19
+    },
+    "prompt_tokens": 1059,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1236,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 9,
+  "items": [
+    {
+      "value": "男",
+      "evidence": "男",
+      "block": 2,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C3"
+    },
+    {
+      "value": "女",
+      "evidence": "女",
+      "block": 3,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C4"
+    },
+    {
+      "value": "男",
+      "evidence": "男",
+      "block": 4,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C5"
+    },
+    {
+      "value": "男",
+      "evidence": "男",
+      "block": 5,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C6"
+    },
+    {
+      "value": "女",
+      "evidence": "女",
+      "block": 6,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C7"
+    },
+    {
+      "value": "男",
+      "evidence": "男",
+      "block": 7,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C8"
+    },
+    {
+      "value": "女",
+      "evidence": "女",
+      "block": 8,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C9"
+    },
+    {
+      "value": "男",
+      "evidence": "男",
+      "block": 9,
+      "file": "员工信息表.xlsx",
+      "head": "性别",
+      "colheads": [
+        "性别",
+        "男",
+        "女",
+        "男",
+        "男"
+      ],
+      "line": null,
+      "loc_text": "工作表「员工信息」 C10"
+    }
+  ],
+  "only_file": "员工信息表.xlsx",
+  "history": {
+    "head": "性别",
+    "file": "员工信息表.xlsx",
+    "n": 9,
+    "whole": true,
+    "cross_file": false
+  }
+}

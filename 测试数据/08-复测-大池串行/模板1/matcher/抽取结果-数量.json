@@ -1,0 +1,476 @@
+{
+  "col": "数量",
+  "time": "2026-11-03 20:34",
+  "elapsed_sec": 5.58,
+  "usage": {
+    "completion_tokens": 538,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1954,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2492,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 30,
+  "items": [
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 2,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行2·列3"
+    },
+    {
+      "value": "2",
+      "evidence": "2",
+      "block": 3,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行3·列3"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 4,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行4·列3"
+    },
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 5,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行5·列3"
+    },
+    {
+      "value": "5",
+      "evidence": "5",
+      "block": 6,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "4",
+        "2",
+        "6",
+        "4"
+      ],
+      "line": null,
+      "loc_text": "表格1 · 行6·列3"
+    },
+    {
+      "value": "3",
+      "evidence": "3",
+      "block": 8,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行2·列4"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 9,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行3·列4"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 10,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行4·列4"
+    },
+    {
+      "value": "3",
+      "evidence": "3",
+      "block": 11,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行5·列4"
+    },
+    {
+      "value": "5",
+      "evidence": "5",
+      "block": 12,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行6·列4"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 13,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行7·列4"
+    },
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 14,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行8·列4"
+    },
+    {
+      "value": "9",
+      "evidence": "9",
+      "block": 15,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行9·列4"
+    },
+    {
+      "value": "6",
+      "evidence": "6",
+      "block": 16,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行10·列4"
+    },
+    {
+      "value": "3",
+      "evidence": "3",
+      "block": 17,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行11·列4"
+    },
+    {
+      "value": "7",
+      "evidence": "7",
+      "block": 18,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行12·列4"
+    },
+    {
+      "value": "8",
+      "evidence": "8",
+      "block": 19,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行13·列4"
+    },
+    {
+      "value": "3",
+      "evidence": "3",
+      "block": 20,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行14·列4"
+    },
+    {
+      "value": "4",
+      "evidence": "4",
+      "block": 21,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行15·列4"
+    },
+    {
+      "value": "10",
+      "evidence": "10",
+      "block": 22,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行16·列4"
+    },
+    {
+      "value": "10",
+      "evidence": "10",
+      "block": 23,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行17·列4"
+    },
+    {
+      "value": "2",
+      "evidence": "2",
+      "block": 24,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行18·列4"
+    },
+    {
+      "value": "7",
+      "evidence": "7",
+      "block": 25,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行19·列4"
+    },
+    {
+      "value": "10",
+      "evidence": "10",
+      "block": 26,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行20·列4"
+    },
+    {
+      "value": "1",
+      "evidence": "1",
+      "block": 27,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行21·列4"
+    },
+    {
+      "value": "9",
+      "evidence": "9",
+      "block": 28,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行22·列4"
+    },
+    {
+      "value": "8",
+      "evidence": "8",
+      "block": 29,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行23·列4"
+    },
+    {
+      "value": "3",
+      "evidence": "3",
+      "block": 30,
+      "file": "01-设备采购档案.docx",
+      "head": "数量",
+      "colheads": [
+        "数量",
+        "3",
+        "6",
+        "6",
+        "3"
+      ],
+      "line": null,
+      "loc_text": "表格2 · 行24·列4"
+    }
+  ],
+  "history": {
+    "head": "数量",
+    "file": "01-设备采购档案.docx",
+    "n": 30,
+    "whole": true,
+    "cross_file": false
+  }
+}

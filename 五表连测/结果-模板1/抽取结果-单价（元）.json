@@ -1,19 +1,19 @@
 {
   "col": "单价（元）",
-  "time": "2026-10-11 20:55",
-  "elapsed_sec": 1.85,
+  "time": "2026-11-02 21:04",
+  "elapsed_sec": 1.86,
   "usage": {
-    "prompt_tokens": 603,
-    "completion_tokens": 278,
-    "total_tokens": 881,
-    "prompt_tokens_details": {
-      "cached_tokens": 384
-    },
+    "completion_tokens": 94,
     "completion_tokens_details": {
-      "reasoning_tokens": 192
+      "reasoning_tokens": 0
     },
-    "prompt_cache_hit_tokens": 384,
-    "prompt_cache_miss_tokens": 219
+    "prompt_tokens": 934,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1028,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
   },
   "candidate_count": 5,
   "items": [
@@ -22,6 +22,14 @@
       "evidence": "385000",
       "block": 2,
       "file": "设备采购合同.docx",
+      "head": "单价（元）",
+      "colheads": [
+        "单价（元）",
+        "385000",
+        "268000",
+        "156000",
+        "42000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行2·列5"
     },
@@ -30,6 +38,14 @@
       "evidence": "268000",
       "block": 3,
       "file": "设备采购合同.docx",
+      "head": "单价（元）",
+      "colheads": [
+        "单价（元）",
+        "385000",
+        "268000",
+        "156000",
+        "42000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行3·列5"
     },
@@ -38,6 +54,14 @@
       "evidence": "156000",
       "block": 4,
       "file": "设备采购合同.docx",
+      "head": "单价（元）",
+      "colheads": [
+        "单价（元）",
+        "385000",
+        "268000",
+        "156000",
+        "42000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行4·列5"
     },
@@ -46,9 +70,24 @@
       "evidence": "42000",
       "block": 5,
       "file": "设备采购合同.docx",
+      "head": "单价（元）",
+      "colheads": [
+        "单价（元）",
+        "385000",
+        "268000",
+        "156000",
+        "42000"
+      ],
       "line": null,
       "loc_text": "表格1 · 行5·列5"
     }
   ],
-  "only_file": "设备采购合同.docx"
+  "only_file": "设备采购合同.docx",
+  "history": {
+    "head": "单价（元）",
+    "file": "设备采购合同.docx",
+    "n": 5,
+    "whole": true,
+    "cross_file": false
+  }
 }

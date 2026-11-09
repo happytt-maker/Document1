@@ -1,0 +1,189 @@
+{
+  "col": "存放库位",
+  "time": "2026-11-03 20:51",
+  "elapsed_sec": 2.88,
+  "usage": {
+    "completion_tokens": 216,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1202,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1418,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 11,
+  "items": [
+    {
+      "value": "A-01-03",
+      "evidence": "A-01-03",
+      "block": 3,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I3"
+    },
+    {
+      "value": "A-02-01",
+      "evidence": "A-02-01",
+      "block": 4,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I4"
+    },
+    {
+      "value": "B-01-07",
+      "evidence": "B-01-07",
+      "block": 5,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I5"
+    },
+    {
+      "value": "B-02-04",
+      "evidence": "B-02-04",
+      "block": 6,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I6"
+    },
+    {
+      "value": "C-01-02",
+      "evidence": "C-01-02",
+      "block": 7,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I7"
+    },
+    {
+      "value": "C-01-05",
+      "evidence": "C-01-05",
+      "block": 8,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I8"
+    },
+    {
+      "value": "D-01-01",
+      "evidence": "D-01-01",
+      "block": 9,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I9"
+    },
+    {
+      "value": "B-03-02",
+      "evidence": "B-03-02",
+      "block": 10,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I10"
+    },
+    {
+      "value": "D-02-03",
+      "evidence": "D-02-03",
+      "block": 11,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I11"
+    },
+    {
+      "value": "D-01-04",
+      "evidence": "D-01-04",
+      "block": 12,
+      "file": "库存盘点表.xlsx",
+      "head": "存放库位",
+      "colheads": [
+        "存放库位",
+        "A-01-03",
+        "A-02-01",
+        "B-01-07",
+        "B-02-04"
+      ],
+      "line": null,
+      "loc_text": "工作表「库存明细」 I12"
+    }
+  ],
+  "only_file": "库存盘点表.xlsx",
+  "history": {
+    "head": "存放库位",
+    "file": "库存盘点表.xlsx",
+    "n": 11,
+    "whole": true,
+    "cross_file": true
+  }
+}

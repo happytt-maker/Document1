@@ -22,6 +22,7 @@ summary_ops.py —— 模块（2）· 第 2 步：关键信息提取（文档画
 """
 import difflib
 import json
+import os
 import re
 import sys
 import time
@@ -35,12 +36,20 @@ except Exception:
 
 BASE = Path(__file__).resolve().parents[1]                  # = 研一项目/
 AGENT_DIR = Path(__file__).resolve().parent                 # = 研一项目/agent/
-sys.path.insert(0, str(AGENT_DIR))                          # 复用同目录的解析器
+DOC_READER_DIR = BASE / "doc_reader"
+for _p in (AGENT_DIR, DOC_READER_DIR):                      # 复用同目录的解析器
+    if str(_p) not in sys.path:
+        sys.path.insert(0, str(_p))
 
 from parse_intent import ask_model, parse_json_reply        # noqa: E402
 
 OUT_DIR = BASE / "agent" / "输出"
 OUTPUT_JSON = BASE / "doc_reader" / "output.json"
+
+# 文档库的两个目录：标准库在前，导入（用户上传）在后
+SEARCH_DIRS = [BASE / "测试数据" / "源文档", BASE / "导入文档"]
+CACHE_DIR = AGENT_DIR / ".cache" / "docs"                    # 现场读取的缓存
+CACHE_MAX_CHARS = 25 * 1024 * 1024                           # 缓存 JSON 上限：超过 ~25MB 不落盘
 
 BUDGET = 6000          # 送入模型的文档文本预算（字符）；超出走"头+尾+中间抽样"
 HEAD_RATIO = 0.45      # 开头的字符占比
@@ -56,22 +65,133 @@ PROFILE_SYSTEM = (
 
 # ==================== 一、装载文档块 ====================
 
-def load_doc(doc_name: str):
-    """从 doc_reader/output.json 装载目标文档。
+def _pool_path():
+    """解析池位置：默认 doc_reader/output.json，环境变量可覆盖（与 matcher 一致）。"""
+    env = os.environ.get("A23_OUTPUT_JSON")
+    return Path(env) if env else OUTPUT_JSON
 
-    返回 (doc_dict 或 None, 错误说明)。
-    """
-    if not OUTPUT_JSON.exists():
-        return None, "解析池不存在（doc_reader/output.json 没找到）——先跑一次文档读取。"
+
+def _reader_stamp():
+    """读取器代码的最后修改时间——改了读取器就让旧缓存失效。"""
     try:
-        data = json.loads(OUTPUT_JSON.read_text(encoding="utf-8"))
+        return int(max(p.stat().st_mtime for p in (DOC_READER_DIR / "readers").glob("*.py")))
+    except Exception:
+        return 0
+
+
+def _safe(name: str) -> str:
+    return re.sub(r'[\\/:*?"<>|]', "_", name)[:150]
+
+
+def read_doc_live(src, use_cache: bool = True):
+    """现场读磁盘上的一份文档（带磁盘缓存）。返回 (doc 或 None, 失败原因)。
+
+    为什么需要它：解析池只收「源文档」目录，用户上传的文档落在「导入文档」，
+    从来不在池里——不能因为"没入池"就抽不了。
+    """
+    src = Path(src)
+    if not src.is_file():
+        return None, "文件不存在：%s" % src
+    try:
+        st = int(src.stat().st_mtime)
+    except OSError as e:
+        return None, "文件读不到：%s" % e
+
+    cache = CACHE_DIR / (_safe("%s@%d@%d" % (src.stem, st, _reader_stamp())) + ".json")
+    if use_cache and cache.exists():
+        try:
+            return json.loads(cache.read_text(encoding="utf-8")), ""
+        except Exception:
+            pass                                   # 缓存坏了当没命中，别挡住任务
+
+    try:
+        from readers import read_one
     except Exception as e:
-        return None, "解析池读取失败：%s" % e
-    for d in data.get("documents", []):
-        if d.get("file") == doc_name:
-            return d, ""
-    return None, ("文档《%s》不在解析池里——如果它是刚导入的，"
-                  "可跑 agent/pool.py --rebuild 重新并入。" % doc_name)
+        return None, "读取器不可用：%s" % e
+    try:
+        doc = read_one(src)
+    except Exception as e:
+        return None, "现场读取失败：%s" % e
+    if not doc or not doc.get("blocks"):
+        return None, "这份文件读不出内容（格式暂不支持，或文件是空的）"
+    try:
+        blob = json.dumps(doc, ensure_ascii=False)
+        if len(blob) <= CACHE_MAX_CHARS:           # 2 万行以上的大表不落盘：缓存文件上 100MB，不值
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            cache.write_text(blob, encoding="utf-8")
+            for old in CACHE_DIR.glob(_safe(src.stem)[:120] + "@*.json"):
+                if old.name != cache.name:
+                    try:
+                        old.unlink()               # 同名的旧版本缓存留着没用
+                    except OSError:
+                        pass
+    except Exception:
+        pass
+    return doc, ""
+
+
+def _find_original(doc_name: str):
+    """在文档库里按名字找原件（精确 → 宽松包含，同 edit.find_doc_file 的口径）。"""
+    files = []
+    for d in SEARCH_DIRS:
+        if d.exists():
+            files += [p for p in d.rglob("*") if p.is_file() and not p.name.startswith("~$")]
+    for p in files:
+        if p.name == doc_name:
+            return p
+    stem = Path(doc_name).stem
+    if not stem:
+        return None
+    cands = [p for p in files if stem in p.stem or p.stem in stem]
+    if not cands:
+        return None
+    ext = Path(doc_name).suffix.lower()
+    same_ext = [p for p in cands if p.suffix.lower() == ext]
+    return (same_ext or cands)[0]
+
+
+def load_doc(doc_name: str, src_path=None):
+    """装载目标文档的块。返回 (doc_dict 或 None, 错误说明)。
+
+    取文档的顺序（2026-11-07 起）：
+      ① 解析池里已有 → 直接用（快）
+      ② 池里没有 → 按 src_path / 文档库找到原件，现场读一遍并缓存
+
+    ②这条为什么必须有：解析池（doc_reader/output.json）只扫描「源文档」目录，
+    用户在「识别入库 / 数据仓库」上传的文件落在「导入文档」，永远不在池里。
+    以前这里直接抛"不在解析池里，可跑 pool.py --rebuild"——等于让用户替系统
+    补数据，而 rebuild 还会把导入文档冲掉。现在池查不到就现场读，上传什么抽什么。
+    """
+    pool = _pool_path()
+    if pool.exists():
+        try:
+            data = json.loads(pool.read_text(encoding="utf-8"))
+            for d in data.get("documents", []):
+                if d.get("file") == doc_name:
+                    return d, ""
+        except Exception:
+            pass                                   # 池坏了也继续走现场读
+
+    # 现场读：先用调用方给的路径，再在文档库里按名字找
+    cands = []
+    if src_path:
+        p = Path(src_path)
+        if p.is_file():
+            cands.append(p)
+    p2 = _find_original(doc_name)
+    if p2 and all(p2 != c for c in cands):
+        cands.append(p2)
+
+    if not cands:
+        return None, ("文档《%s》既不在解析池里，文档库里也没找到这个文件"
+                      "——确认它还在「导入文档 / 源文档」目录下（或重新上传一次）。" % doc_name)
+
+    err = ""
+    for p in cands:
+        doc, err = read_doc_live(p)
+        if doc:
+            return doc, ""
+    return None, "文档《%s》读取失败：%s" % (doc_name, err or "未知原因")
 
 
 def loc_desc(block: dict) -> str:
@@ -459,13 +579,13 @@ def run_profile(text: str, intent: dict, src: Path, out_dir: Path = None):
     out_dir.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
 
-    doc, err = load_doc(src.name)
+    doc, err = load_doc(src.name, src)
     if doc is None:
         return False, "【失败】%s" % err, []
 
     blocks = doc.get("blocks") or []
     if not blocks:
-        return False, "【失败】《%s》在解析池里没有内容块。" % src.name, []
+        return False, "【失败】《%s》读不出内容块。" % src.name, []
 
     idx_list, note = pick_for_budget(blocks)
     digest = build_digest(blocks, idx_list)

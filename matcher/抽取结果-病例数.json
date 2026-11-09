@@ -1,0 +1,21 @@
+{
+  "col": "病例数",
+  "time": "2026-11-03 22:26",
+  "elapsed_sec": 1.33,
+  "usage": {
+    "completion_tokens": 18,
+    "completion_tokens_details": {
+      "reasoning_tokens": 11
+    },
+    "prompt_tokens": 2494,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2512,
+    "provider": "zhipu",
+    "model": "glm-5.3-flash"
+  },
+  "candidate_count": 45,
+  "items": [],
+  "semantic_hints": []
+}
