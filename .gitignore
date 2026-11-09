@@ -21,6 +21,8 @@ agent/.wheels/
 *.whl
 # 文档解析池：由 源文档 + 导入文档 现场生成，随数据增长到上百 MB，不进仓库
 doc_reader/output.json
+# 各组测试跑出来的解析池同样是生成物（几 MB ~ 上百 MB）
+测试数据/**/结果/output.json
 测试数据/压测-大文档/源文档/
 压测-大文档/结果/大池-output.json
 
